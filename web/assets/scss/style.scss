@@ -50,19 +50,17 @@ body {
 	height:2000px;
 }
 
-.wrapper2{
+.wrapper-new{
 	transform: translateX(100%);
 	position: absolute;
 	width:100%;
 	z-index: 2;
+
+	&.wrapper-prev{
+		transform: translateX(-100%);
+	}
 }
 
-.wrapper2rev{
-	transform: translateX(-100%);
-	position: absolute;
-	width:100%;
-	z-index: 2;
-}
 
 .disabled{
 	pointer-events:none;
