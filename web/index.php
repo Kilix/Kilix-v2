@@ -10,8 +10,17 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app->get('/', function() use ($app) {
-    return $app['twig']->render('hello.html.twig', array(
-        'name' => 'LOOL',
+    return $app['twig']->render('home.html.twig', array(
+    ));
+});
+
+$app->get('/team', function() use ($app) {
+    return $app['twig']->render('team.html.twig', array(
+    ));
+});
+
+$app->get('/contact', function() use ($app) {
+    return $app['twig']->render('contact.html.twig', array(
     ));
 });
 
