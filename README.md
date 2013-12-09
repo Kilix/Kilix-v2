@@ -29,6 +29,7 @@ VHOST :
 ```
 ```
 	$ sudo a2ensite kilix-v2.loc.com
+	$ sudo service apache2 reload
 ```
 
 
