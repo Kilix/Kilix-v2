@@ -1,0 +1,73 @@
+/* PROTOTYPING */
+html {
+	background: #000;
+}
+
+body {
+	background: navy;
+	@media #{$small-only} {
+		background: yellow;
+   	}
+}
+
+/* BASE */
+
+body {
+	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
+	backface-visibility:hidden;
+
+	&.unfolded {
+		-webkit-transform: translateY(rem-calc(130));
+		-moz-transform: translateY(rem-calc(130));
+		transform: translateY(rem-calc(130));
+		
+		@media #{$medium-up} {
+			-webkit-transform: translateY(0);
+			-moz-transform: translateY(0);
+			transform: translateY(0);
+		}
+		.nav-links-wrapper {
+			transform: rotateX(0deg);
+		}
+		.icon-folded {
+			transform:translateY(rem-calc(-35));
+		}
+		.icon-unfolded {
+			transform:translateY(rem-calc(-37));
+		}
+	}
+}
+
+.h800{
+	height:800px;
+}
+
+.h400{
+	height:400px;
+}
+
+.h2000{
+	height:2000px;
+}
+
+.wrapper2{
+	transform: translateX(100%);
+	position: absolute;
+	width:100%;
+	z-index: 2;
+}
+
+.wrapper2rev{
+	transform: translateX(-100%);
+	position: absolute;
+	width:100%;
+	z-index: 2;
+}
+
+.disabled{
+	pointer-events:none;
+}
+
+/* COMPONENTS */ 
+
+@import "componenents/menu";
