@@ -1,5 +1,8 @@
 VHOST : 
 ```
+	$ sudo nano /etc/apache2/sites-available/kilix-v2.loc.com
+```
+```
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
         ServerName kilix-v2.loc.com
@@ -24,9 +27,12 @@ VHOST :
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
+```
+	$ sudo a2ensite kilix-v2.loc.com
+```
 
 
-Host à rajouter :
+Host à rajouter (Windows ou Mac) :
 ```
 127.0.0.1       kilix-v2.loc.com
 ```
