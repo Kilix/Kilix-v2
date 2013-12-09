@@ -7689,7 +7689,7 @@ body.unfolded .icon-unfolded {
   height: 2000px;
 }
 
-.wrapper2 {
+.wrapper-new {
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -7698,13 +7698,10 @@ body.unfolded .icon-unfolded {
   z-index: 2;
 }
 
-.wrapper2rev {
+.wrapper-new.wrapper-prev {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
-  position: absolute;
-  width: 100%;
-  z-index: 2;
 }
 
 .disabled {

@@ -14,7 +14,7 @@
   "publishedId": null,
   "serverHostname": null,
   "serverPort": null,
-  "simpleModePartnerServer": "http://kilix-v2.loc.com:8080/",
+  "simpleModePartnerServer": "localhost:8181/kilix-v2",
   "templateDefaultLayout": "layout",
   "templateDefaultPage": "index",
   "templateDirectory": "templates",
