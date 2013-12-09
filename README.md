@@ -1,3 +1,8 @@
+COMPOSER INSTALL :
+```
+	$ composer install
+```
+
 VHOST : 
 ```
 	$ sudo nano /etc/apache2/sites-available/kilix-v2.loc.com
