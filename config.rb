@@ -1,6 +1,0 @@
-http_path = "/"
-css_dir = "stylesheets"
-sass_dir = "sass"
-images_dir = "images"
-javascripts_dir = "javascripts"
-cache_path = "/tmp/.sass-cache"
