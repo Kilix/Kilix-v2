@@ -1,1 +1,4 @@
 vendor/*
+web/assets/css/*
+mixture.json
+.DS_Store
