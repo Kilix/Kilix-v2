@@ -6,17 +6,15 @@
 	cursor:pointer;
 	display: block;
 	float: left;
-	font-size: rem-calc(35);
-	color: #fff; 
-	border: 1px #fff solid;
+	font-size: rem-calc(45);
+	color: #000; 
+	border: 1px solid #dfdfdf;
+	border-width: 0 1px;
 	box-sizing:border-box;
-	width:rem-calc(35);
-	height:rem-calc(35);
+	width:rem-calc(63);
+	height:rem-calc(63);
 	text-align: center;
-	line-height: rem-calc(33);
-	margin-left: rem-calc(15);
-	margin-top: rem-calc(5);
-	padding-right: rem-calc(2);
+	line-height: rem-calc(63);
 	overflow: hidden;
 	font-style: normal;
 
@@ -33,25 +31,26 @@
 	// Hamburger Icon
 	.icon-folded {
 		display: block;
-		margin-left: rem-calc(2);
 		transform:translateY(rem-calc(0));
 		transition:transform .5s ease;		
 	}
 }
 
 .top-bar {
+	background: #fff;
 	overflow: visible;
 	transform: perspective(800px);
 	perspective:640px;
 	backface-visibility:hidden;
+	height: rem-calc(63);
 
 	.nav-links-wrapper {
 		backface-visibility:hidden;
 		transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
-		background: #333;
+		background: #fff;
 		position: absolute;
 		width: 100%;
-		bottom: rem-calc(43);
+		bottom: rem-calc(63);
 		transform: rotateX(90deg);
 		transform-origin:100% 100%;
 		@media #{$medium-up} {
@@ -78,7 +77,26 @@
 		}
 	}
 
-	.title-area {
+	.logo {
+		position: relative;
 		float: left;
+		height: 30px;
+		img {
+			// width: 100%;
+			height: 100%;
+		}
+		// height: 6.99rem;
+		// line-height: 7rem;
+		// width: 7rem;
+		// height: 9.99rem;
+		// float: left;
+		// line-height: 10rem;
+		// cursor: pointer;
+		// position: relative;
+		// margin: 0;
+		// border: 1px solid #fff;
+		// border-width: 0 1px;
+		// padding: 0 2rem;
+		box-sizing: content-box;
 	}
 }
