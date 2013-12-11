@@ -47,6 +47,10 @@
 	transform: perspective(800px);
 	perspective:640px;
 	backface-visibility:hidden;
+	background:transparent;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
 
 	.nav-links-wrapper {
 		backface-visibility:hidden;
@@ -65,12 +69,7 @@
 		}
 	}
 
-	.nav-links-hidden {
-		visibility: hidden;
-		@media #{$medium-up} {
-			visibility: visible;
-		}
-	}
+
 
 	.nav-link {
 		backface-visibility:hidden;

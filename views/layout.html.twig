@@ -21,24 +21,20 @@
 			      <h1><a href="/">Kilix</a></h1>
 			    </li>
 			</ul>
-			<section class='nav-links-wrapper nav-links-hidden'>
+			<div class='nav-links-wrapper'>
 				<a class='nav-link current' href="/" data-pos="1">Home</a>
 				<a class='nav-link' href="/team" data-pos="2">Team</a>
 				<a class='nav-link' href="/contact" data-pos="3">Contact</a>
-			</section>
+			</div>
 		</nav>
-		<header>
-		
-		</header>
 		<div class="main-wrapper">
 			<div class="wrapper">
 				{% block content %}{% endblock %}
 	  		</div>
 	  	</div>
-		<footer>
-			
-		</footer>
-  		{% include "scripts.html.twig" %}
+		
+		<!-- DEBUG : Par la suite le fichier mix.js générera le min.js -->
+  		{% include "scripts-debug.html.twig" %}
   		<script type="text/javascript">
   		</script>
 	</body>

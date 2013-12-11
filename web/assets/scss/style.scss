@@ -1,3 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+
 /* PROTOTYPING */
 html {
 	background: #000;
@@ -10,7 +14,46 @@ body {
    	}
 }
 
+/* VARIABLES */
+$primary-color : #384047;
+$second-color: #a8b7bf;
+$text-color : #8c989e;
+
 /* BASE */
+body {
+	font-family: "Source Sans Pro";
+}
+
+h1{
+	font-family: Ubuntu;
+	font-weight: bold;
+	font-size: rem-calc(54);
+	color: $primary-color;
+}
+
+h2{
+	font-family: Ubuntu;
+	font-weight: 500;
+	font-size: rem-calc(48);
+	color: $second-color;
+
+}
+
+h3{
+
+}
+
+p{
+	font-size: rem-calc(18);
+	line-height: rem-calc(28);
+	color: $text-color;
+}
+
+
+/* COMPONENTS */ 
+
+@import "componenents/menu";
+
 
 body {
 	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
@@ -38,18 +81,6 @@ body {
 	}
 }
 
-.h800{
-	height:800px;
-}
-
-.h400{
-	height:400px;
-}
-
-.h2000{
-	height:2000px;
-}
-
 .wrapper-new{
 	transform: translateX(100%);
 	position: absolute;
@@ -66,6 +97,15 @@ body {
 	pointer-events:none;
 }
 
-/* COMPONENTS */ 
 
-@import "componenents/menu";
+
+/*HOME*/
+.landing-home{
+	height: 800px;
+	background:white; margin-bottom:rem-calc(20);
+}
+
+.svg-anim{
+	height: 400px;
+	background:green; margin-bottom:rem-calc(20);
+}
