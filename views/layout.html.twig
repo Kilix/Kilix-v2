@@ -8,36 +8,40 @@
   		<script src="assets/js/vendor/modernizr.min.js"></script>
 	</head>
 	<body>
-		<nav class="top-bar">
-			<i class="toggle-menu show-for-small-only">
-				<span class='icon-folded'>≡</span>
-				<span class='icon-unfolded'>
-					<!-- ▲ --><!-- ⏚ -->
-					<img src="assets/img/ARROW_TOP_VA_MOURIR_STEPH.png" />
-				</span>
-			</i>
-			<ul class="title-area">
-			    <li class="name">
-			      <h1><a href="/">Kilix</a></h1>
-			    </li>
-			</ul>
-			<section class='nav-links-wrapper nav-links-hidden'>
-				<a class='nav-link current' href="/" data-pos="1">Home</a>
-				<a class='nav-link' href="/team" data-pos="2">Team</a>
-				<a class='nav-link' href="/contact" data-pos="3">Contact</a>
-			</section>
-		</nav>
-		<header>
-		
-		</header>
-		<div class="main-wrapper">
-			<div class="wrapper">
-				{% block content %}{% endblock %}
-	  		</div>
-	  	</div>
-		<footer>
+		<div class='site-wrapper'>
+			<nav class="top-bar">
+				<i class="toggle-menu show-for-small-only">
+					<span class='icon-folded'>≡</span>
+					<span class='icon-unfolded'>
+						<!-- ▲ --><!-- ⏚ -->
+						<img src="assets/img/ARROW_TOP_VA_MOURIR_STEPH.png" />
+					</span>
+				</i>
+				<ul class="title-area">
+				    <li class="name">
+				      <h1><a href="/">Kilix</a></h1>
+				    </li>
+				</ul>
+				<section class='nav-links-wrapper nav-links-hidden'>
+					<a class='nav-link current' href="/" data-pos="1">Home</a>
+					<a class='nav-link' href="/team" data-pos="2">Team</a>
+					<a class='nav-link' href="/contact" data-pos="3">Contact</a>
+				</section>
+			</nav>
+			<header>
 			
-		</footer>
+			</header>
+			<div class="main-wrapper">
+				<div class="wrapper">
+					{% block content %}{% endblock %}
+		  		</div>
+		  	</div>
+			<footer>
+				
+			</footer>
+			<br style='clear:both;'>
+		</div>
+		
   		{% include "scripts.html.twig" %}
   		<script type="text/javascript">
   		</script>

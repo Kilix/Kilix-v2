@@ -12,7 +12,7 @@ body {
 
 /* BASE */
 
-body {
+.site-wrapper {
 	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
 	backface-visibility:hidden;
 
