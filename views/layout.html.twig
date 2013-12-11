@@ -8,25 +8,25 @@
   		<script src="assets/js/vendor/modernizr.min.js"></script>
 	</head>
 	<body>
+		<nav class="top-bar">
+			<i class="toggle-menu show-for-small-only">
+				<span class='icon-folded'>≡</span>
+				<span class='icon-unfolded'>
+					<!-- ▲ --><!-- ⏚ -->
+					<img src="assets/img/ARROW_TOP_VA_MOURIR_STEPH.png" />
+				</span>
+			</i>
+			<div class="logo">
+			      <img class="svg" src="assets/img/logo_small.svg" alt="">
+			</div>
+			<section class='nav-links-wrapper nav-links-hidden'>
+				<a class='nav-link current' href="/" data-pos="1">Home</a>
+				<!-- <a class='nav-link' href="/team" data-pos="2">Team</a> -->
+				<a class='nav-link' href="/agilite" data-pos="2">Agilite</a>
+				<a class='nav-link' href="/contact" data-pos="3">Contact</a>
+			</section>
+		</nav>
 		<div class='site-wrapper'>
-			<nav class="top-bar">
-				<i class="toggle-menu show-for-small-only">
-					<span class='icon-folded'>≡</span>
-					<span class='icon-unfolded'>
-						<!-- ▲ --><!-- ⏚ -->
-						<img src="assets/img/ARROW_TOP_VA_MOURIR_STEPH.png" />
-					</span>
-				</i>
-				<div class="logo">
-				      <img class="svg" src="assets/img/logo_small.svg" alt="">
-				</div>
-				<section class='nav-links-wrapper nav-links-hidden'>
-					<a class='nav-link current' href="/" data-pos="1">Home</a>
-					<!-- <a class='nav-link' href="/team" data-pos="2">Team</a> -->
-					<a class='nav-link' href="/agilite" data-pos="2">Agilite</a>
-					<a class='nav-link' href="/contact" data-pos="3">Contact</a>
-				</section>
-			</nav>
 			<header>
 			
 			</header>
@@ -43,6 +43,35 @@
 		<!-- DEBUG : Par la suite le fichier mix.js générera le min.js -->
   		{% include "scripts-debug.html.twig" %}
   		<script type="text/javascript">
+        if (Modernizr.svg) {
+            $('img.svg').each(function(){
+                var $img = $(this);
+                var imgID = $img.attr('id');
+                var imgClass = $img.attr('class');
+                var imgURL = $img.attr('src');
+                $.get(imgURL, function(data) {
+                    // Get the SVG tag, ignore the rest
+                    var $svg = $(data).find('svg');
+                    // Add replaced image's ID to the new SVG
+                    if(typeof imgID !== 'undefined') {
+                        $svg = $svg.attr('id', imgID);
+                    }
+                    // Add replaced image's classes to the new SVG
+                    if(typeof imgClass !== 'undefined') {
+                        $svg = $svg.attr('class', imgClass+' replaced-svg');
+                    }
+                    // Remove any invalid XML tags as per http://validator.w3.org
+                    $svg = $svg.removeAttr('xmlns:a');
+                    // Replace image with new SVG
+                    $img.replaceWith($svg);
+                });
+            });
+        }
+        else{
+            $('img.svg[src*="svg"]').attr('src', function() {
+                return $(this).attr('src').replace('.svg', '.png');
+            });
+        }
   		</script>
 	</body>
 </html>
