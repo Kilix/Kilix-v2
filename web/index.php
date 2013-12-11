@@ -19,6 +19,11 @@ $app->get('/team', function() use ($app) {
     ));
 });
 
+$app->get('/agilite', function() use ($app) {
+    return $app['twig']->render('agilite.html.twig', array(
+    ));
+});
+
 $app->get('/contact', function() use ($app) {
     return $app['twig']->render('contact.html.twig', array(
     ));
