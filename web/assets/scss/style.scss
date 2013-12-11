@@ -55,28 +55,36 @@ p{
 @import "componenents/menu";
 
 
-.site-wrapper {
-	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
-	backface-visibility:hidden;
-
+body {	
+	.site-wrapper {
+		transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
+		backface-visibility:hidden;
+		padding-top: 63px;
+	}
 	&.unfolded {
-		-webkit-transform: translateY(rem-calc(130));
-		-moz-transform: translateY(rem-calc(130));
-		transform: translateY(rem-calc(130));
-		
-		@media #{$medium-up} {
-			-webkit-transform: translateY(0);
-			-moz-transform: translateY(0);
-			transform: translateY(0);
+		.site-wrapper {
+			-webkit-transform: translateY(rem-calc(130));
+			-moz-transform: translateY(rem-calc(130));
+			transform: translateY(rem-calc(130));
+			
+			@media #{$medium-up} {
+				-webkit-transform: translateY(0);
+				-moz-transform: translateY(0);
+				transform: translateY(0);
+			}
+			.icon-folded {
+				transform:translateY(rem-calc(-35));
+			}
+			.icon-unfolded {
+				transform:translateY(rem-calc(-37));
+			}
 		}
-		.nav-links-wrapper {
-			transform: rotateX(0deg);
-		}
-		.icon-folded {
-			transform:translateY(rem-calc(-35));
-		}
-		.icon-unfolded {
-			transform:translateY(rem-calc(-37));
+		.top-bar {
+			transform:translateY(rem-calc(132));
+
+			.nav-links-wrapper {
+				transform: rotateX(0deg);
+			}
 		}
 	}
 }
