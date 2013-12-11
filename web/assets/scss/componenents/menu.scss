@@ -36,7 +36,7 @@
 	}
 }
 
-.top-bar {
+.navbar {
 	background: #fff;
 	overflow: visible;
 	transform: perspective(800px);
@@ -48,11 +48,21 @@
 	z-index: 2;
 	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
 	box-shadow: 0 1px 0 rgba(0,0,0,.1),0 6px 0 rgba(0,0,0,.05);
-
+	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000);
+	transition:top .3s cubic-bezier(0.165,0.840,0.440,1.000);
+	top:0;
 	
 	@media #{$medium-up} {
 		// background:transparent;
 		height: rem-calc(100);
+
+		&.navbar-top {
+			background: transparent;
+			box-shadow:none;
+			border: none;
+			top:rem-calc(30);
+			height:(140);
+		}
 
 	}
 	
@@ -66,6 +76,7 @@
 		transform: rotateX(87.5deg);
 		transform-origin:100% 100%;
 		@media #{$medium-up} {
+			background: transparent;
 			position: static;
 			width: auto;
 			transform: rotateX(0deg);
