@@ -45,11 +45,9 @@
 	height: rem-calc(63);
 	position: fixed;
 	width: 100%;
-	z-index: 2;
-	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
+	z-index: 10;
 	box-shadow: 0 1px 0 rgba(0,0,0,.1),0 6px 0 rgba(0,0,0,.05);
-	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000);
-	transition:top .3s cubic-bezier(0.165,0.840,0.440,1.000);
+	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000),top .3s cubic-bezier(0.165,0.840,0.440,1.000),transform .6s cubic-bezier(0.165,0.840,0.440,1.000);	
 	top:0;
 	
 	@media #{$medium-up} {
@@ -97,6 +95,8 @@
 		backface-visibility:hidden;
 		display: block;
 		margin-left: rem-calc(15);
+		height: 45px;
+		line-height: 45px;
 
 		@media #{$medium-up} {
 			float:left;
