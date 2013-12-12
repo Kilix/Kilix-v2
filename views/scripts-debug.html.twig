@@ -41,4 +41,12 @@ else{
         return $(this).attr('src').replace('.svg', '.png');
     });
 }
+
+$(function(){
+    $('.landing-next-section-back, .landing-next-section-arrow').on('click',function(){
+        $('html, body').animate({  
+            scrollTop:750  
+        }, 'slow'); 
+    });
+});
 </script>
