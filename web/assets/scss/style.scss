@@ -13,6 +13,31 @@ body {
 		background: yellow;
    	}
 }
+.landing-home{
+	margin-bottom:rem-calc(20);
+	position: fixed;
+	padding-top: rem-calc(120);
+	background: url('../img/bg_home.png');
+}
+
+.svg-anim{
+	height: 400px;
+	background:green; 
+}
+
+.svg-valeur {
+	margin-top: rem-calc(800);
+
+}
+.svg-risque {
+	background:pink;
+}
+.svg-amelio {
+	background:yellow;
+}
+.svg-extia {
+	background:red;
+}
 
 /* VARIABLES */
 $primary-color : #384047;
@@ -55,28 +80,38 @@ p{
 @import "componenents/menu";
 
 
-body {
-	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
-	backface-visibility:hidden;
-
+body {	
+	.site-wrapper {
+		transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
+		backface-visibility:hidden;
+	}
 	&.unfolded {
-		-webkit-transform: translateY(rem-calc(130));
-		-moz-transform: translateY(rem-calc(130));
-		transform: translateY(rem-calc(130));
-		
-		@media #{$medium-up} {
-			-webkit-transform: translateY(0);
-			-moz-transform: translateY(0);
-			transform: translateY(0);
+		.site-wrapper {
+			-webkit-transform: translateY(rem-calc(130));
+			-moz-transform: translateY(rem-calc(130));
+			transform: translateY(rem-calc(130));
+			
+			@media #{$medium-up} {
+				-webkit-transform: translateY(0);
+				-moz-transform: translateY(0);
+				transform: translateY(0);
+			}
+			.icon-folded {
+				transform:translateY(rem-calc(-35));
+			}
+			.icon-unfolded {
+				transform:translateY(rem-calc(-37));
+			}
 		}
-		.nav-links-wrapper {
-			transform: rotateX(0deg);
-		}
-		.icon-folded {
-			transform:translateY(rem-calc(-35));
-		}
-		.icon-unfolded {
-			transform:translateY(rem-calc(-37));
+		.navbar {
+			transform:translateY(rem-calc(132));
+			transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);			
+			@media #{$medium-up} {
+				transform:translateY(rem-calc(0));
+			}
+			.nav-links-wrapper {
+				transform: rotateX(0deg);
+			}
 		}
 	}
 }
@@ -102,10 +137,10 @@ body {
 /*HOME*/
 .landing-home{
 	height: 800px;
-	background:white; margin-bottom:rem-calc(20);
+	margin-bottom:rem-calc(20);
 }
 
 .svg-anim{
 	height: 400px;
-	background:green; margin-bottom:rem-calc(20);
 }
+
