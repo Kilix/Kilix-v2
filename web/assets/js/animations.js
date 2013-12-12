@@ -9,7 +9,7 @@ function move(element, xAxis, yAxis, px, duration, delay, callback) {
 
   element.animate({transform: "t"+[x, y]}, duration);
 
-  if (delay != 'undefined') {
+  if (delay != 'undefined' && typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
   }
 }
@@ -25,7 +25,7 @@ function bounce(element, duration, delay, callback) {
 
     element.animate({opacity:1,transform:"t0s1,1,0,0"}, duration, mina.elastic);
 
-  if (delay != 'undefined') {
+  if (delay != 'undefined' && typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
   }
 }
