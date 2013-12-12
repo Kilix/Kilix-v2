@@ -28,7 +28,7 @@
 				</section>
 			</div>
 		</nav>
-		<div class='site-wrapper'>
+		<div class='site-wrapper clearfix'>
 			<div class="main-wrapper">
 				<div class="wrapper">
 					{% block content %}{% endblock %}
@@ -37,7 +37,6 @@
 			<footer>
 				
 			</footer>
-			<br style='clear:both;'>
 		</div>
 		<!-- DEBUG : Par la suite le fichier mix.js générera le min.js -->
   		{% include "scripts-debug.html.twig" %}

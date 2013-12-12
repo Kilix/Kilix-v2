@@ -16,7 +16,7 @@ body {
 .landing-home{
 	margin-bottom:rem-calc(20);
 	position: fixed;
-	padding-top: 120px;
+	padding-top: rem-calc(120);
 	background: url('../img/bg_home.png');
 }
 
@@ -73,9 +73,7 @@ p{
 	line-height: rem-calc(28);
 	color: $text-color;
 }
-.clear {
-	clear: both;
-}
+
 
 /* COMPONENTS */ 
 
@@ -107,7 +105,10 @@ body {
 		}
 		.navbar {
 			transform:translateY(rem-calc(132));
-
+			transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);			
+			@media #{$medium-up} {
+				transform:translateY(rem-calc(0));
+			}
 			.nav-links-wrapper {
 				transform: rotateX(0deg);
 			}
