@@ -47,26 +47,35 @@
 	width: 100%;
 	z-index: 10;
 	box-shadow: 0 1px 0 rgba(0,0,0,.1),0 6px 0 rgba(0,0,0,.05);
-	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000),top .3s cubic-bezier(0.165,0.840,0.440,1.000),transform .6s cubic-bezier(0.165,0.840,0.440,1.000);	
-	top:0;
+	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000),top .3s cubic-bezier(0.165,0.840,0.440,1.000),transform .6s cubic-bezier(0.165,0.840,0.440,1.000), background .6s cubic-bezier(0.165,0.840,0.440,1.000);	
 	
 	@media #{$medium-up} {
 		// background:transparent;
 		height: rem-calc(100);
+		.row{
+				height: rem-calc(100);
+				line-height: rem-calc(100);
+				transition: line-height 0.6s;
+				position: relative;
+			}
 
 		&.navbar-top {
 			background: transparent;
 			box-shadow:none;
 			border: none;
-			top:rem-calc(30);
-			height:(140);
+			height:rem-calc(140);
+
+			.row{
+				height: rem-calc(140);
+				line-height: rem-calc(140);
+			}
 		}
 
 	}
 	
 	.nav-links-wrapper {
 		backface-visibility:hidden;
-		transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
+		transition:all .6s cubic-bezier(0.165,0.840,0.440,1.000);
 		background: #fff;
 		position: absolute;
 		width: 100%;
@@ -75,12 +84,15 @@
 		transform-origin:100% 100%;
 		@media #{$medium-up} {
 			background: transparent;
-			position: static;
-			width: auto;
+			position: relative;
 			transform: rotateX(0deg);
 			transition:transform 0s cubic-bezier(0.165,0.840,0.440,1.000);
-			float:right;
 			margin-right:rem-calc(35);
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 1.2;
+			bottom:auto;
+			text-align: right;
 		}
 	}
 
@@ -99,27 +111,30 @@
 		line-height: 45px;
 
 		@media #{$medium-up} {
-			float:left;
-			line-height: 6rem;
+			display: inline-block;
 		}
 	}
 
 	.logo {
-		position: relative;
-		float: left;
+		position: absolute;
 		width: rem-calc(85);
 		height: 100%;
 		padding: 0 2rem;
+		top:0; left:4rem;
 		img {
 			height: 100%;
 		}
 		svg {
 			width: 100%;
-			height: 100%;			
+			height: 63px;	
+			@media #{$medium-up} {
+				height: 99%;
+			}		
 		}
 		box-sizing: content-box;
 		@media #{$medium-up} {
 			width: rem-calc(100);
+			left:0;
 		}
 	}
 }
