@@ -43,7 +43,7 @@ else{
 }
 
 $(function(){
-    $('.landing-next-section-back, .landing-next-section-arrow').on('click',function(){
+    $("body").on("click", ".landing-next-section-back, .landing-next-section-arrow", function(){
         $('html, body').animate({  
             scrollTop:750  
         }, 'slow'); 
