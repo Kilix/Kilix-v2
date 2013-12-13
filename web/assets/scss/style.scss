@@ -140,6 +140,7 @@ a {
 		position: absolute;
 		bottom: rem-calc(-80);
 		left: calc(50% - 3.59375rem); // Rem calc ne marche pas dans un calc ❤
+		cursor: pointer;
 
 		.landing-next-section-back {
 			height: 100%;
