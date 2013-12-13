@@ -1,53 +1,10 @@
-// Move a group on an isometric axis
-function move(element, xAxis, yAxis, px, duration, delay, callback) {
-
-  var x = px,
-      y = px/2;
-
-  (yAxis == 'top') ? y = -y : y = y;
-  (xAxis == 'right') ? x = x : x = -x;
-
-  element.animate({transform: "t"+[x, y]}, duration);
-
-  if (delay != 'undefined' && typeof callback !== 'undefined') {
-    window.setTimeout(callback, delay);
-  }
-}
-
-// Trigger bounce effect on svg element
-function bounce(element, duration, delay, callback) {
-    var x = element.getBBox().x;
-    offset = x/2 + 25;
-
-    element.attr({
-      transform: "t"+offset+"s0.7, 0.7"
-    });
-
-    element.animate({opacity:1,transform:"t0s1,1,0,0"}, duration, mina.elastic);
-
-  if (delay != 'undefined' && typeof callback !== 'undefined') {
-    window.setTimeout(callback, delay);
-  }
-}
-
-// Trigger bounce effect on each svg element
-function bounceAllElements(collection, duration) {
-    j = 0;
-    function cycle() {
-        bounce(collection[j], duration);
-        j++;
-        if (j < collection.length) setTimeout(cycle, 10);
-    }
-    cycle();
-}
-
 $(function () {
     var s = Snap("#VALEUR-dispatch");
     Snap.load("./assets/img/svg/kilix_valeur_dispatch.svg", function(f) {
 
         var elements = new Array(),
             delay = 50,
-            duration = 600;
+            duration = 500;
 
         elements['roueBackRight'] = f.select("#roue-back-right"),
         elements['roueBackLeft'] = f.select("#roue-back-left"),
@@ -69,10 +26,10 @@ $(function () {
         elements['moteurElec'] = f.select("#moteur-elec");
 
         for (var element in elements) {
-          elements[element].attr({opacity: 0});
+          elements[element].attr({'fill-opacity': 0});
           s.append(elements[element]);
         }
-          
+
         bounce(elements['siege'], duration, delay, function() {
           bounce(elements['carenageLeft'], duration, delay, function() {
             bounce(elements['roueBackLeft'], duration, delay, function() {
@@ -93,6 +50,7 @@ $(function () {
                                       bounce(elements['janteBackRight'], duration, delay, function() {
                                         bounce(elements['moteur'], duration);
                                         bounceAllElements(elements['moteur'].selectAll("g"), 900);
+
                                       }); 
                                     });
                                   });
