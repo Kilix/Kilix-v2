@@ -30,6 +30,19 @@ function bounce(element, duration, delay, callback) {
   }
 }
 
+// Trigger bounce effect on svg element
+function removeWithBounce(element, duration, delay, callback) {
+    var x = element.getBBox().x;
+    offset = x/2 + 25;
+
+
+    element.animate({'fill-opacity':0,transform: "t0s0.8, 0.8"}, duration, mina.elastic);
+
+  if (typeof callback !== 'undefined') {
+    window.setTimeout(callback, delay);
+  }
+}
+
 // Trigger bounce effect on each svg element
 function bounceAllElements(collection, duration) {
     j = 0;
