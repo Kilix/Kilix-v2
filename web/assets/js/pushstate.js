@@ -22,10 +22,8 @@
 
 
         $(".wrapper-new").load(url+" .container", function(data){
-            
-
-            $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%' }, 1200);
-            $(".wrapper-new").transition({ x: '0%' }, 1200, function(){
+            $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0 }, 1200);
+            $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1 }, 1200, function(){
                 $(".wrapper:first-child").remove();
                 $(".wrapper-new").removeClass('wrapper-new');
                 $(".nav-links-wrapper").removeClass('disabled');
