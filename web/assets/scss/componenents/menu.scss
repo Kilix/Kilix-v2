@@ -17,11 +17,13 @@
 	@media #{$medium-up} {
 		// background:transparent;
 		height: rem-calc(100);
+		pointer-events: none;
 		.row{
 				height: rem-calc(100);
 				line-height: rem-calc(100);
 				transition: line-height 0.6s;
 				position: relative;
+
 			}
 
 		&.navbar-top {
@@ -33,6 +35,7 @@
 			.row{
 				height: rem-calc(140);
 				line-height: rem-calc(140);
+				padding:0 1rem;
 			}
 
 
@@ -125,6 +128,7 @@
 			margin-left: rem-calc(15);
 			height: 45px;
 			line-height: 45px;
+			pointer-events: visible;
 			&:nth-child(2){
 				transition-delay: 0.2s;
 			}
