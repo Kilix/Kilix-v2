@@ -76,6 +76,7 @@ a {
 
 .container{
 	@include clearfix;
+	position: relative;
 }
 
 .wrapper-new{
@@ -100,11 +101,14 @@ a {
 
 /*HOME*/
 .landing-home{
-	height: 850px;
+	height: rem-calc(850);
 	width: 100%;
 	padding-top: rem-calc(120);
-	margin-bottom:rem-calc(20);
 	background: url('../img/bg_home.png') /*fixed*/;
+	position: fixed; top:0; left:0;
+	-webkit-backface-visibility: hidden; 
+	-webkit-transform: translateZ(0);
+	z-index:1;
 
 	.row {
 		height: 100%;
@@ -152,9 +156,14 @@ a {
 	}
 }
 
+.svg-anim.svg-valeur{
+	margin-top:rem-calc(850);
+}
 .svg-anim{
-	
-	background:white; 
+	position:relative;
+	z-index:2;
+	background:white;
+	 
 	.row{
 		border-bottom: 1px solid #e3e3e3;
 		padding: 5rem 0;
