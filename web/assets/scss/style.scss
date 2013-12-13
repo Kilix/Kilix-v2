@@ -23,6 +23,7 @@ h1{
 	font-family: Ubuntu;
 	font-weight: bold;
 	font-size: rem-calc(54);
+	line-height: rem-calc(70);
 	color: $primary-color;
 }
 
@@ -65,8 +66,6 @@ a {
 
 	.site-wrapper {
 		transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
-		backface-visibility:hidden;
-
 		.main-wrapper{
 			position:relative; z-index:1;
 		}	
@@ -98,21 +97,66 @@ a {
 
 
 
+@keyframes blink{
+     from { opacity:0.05 }
+     35%  { opacity:0.2; }
+     to   { opacity:0.05; }
+}
+
 /*HOME*/
 .landing-home{
 	height: rem-calc(850);
 	width: 100%;
 	padding-top: rem-calc(120);
-	background: url('../img/bg_home.png') /*fixed*/;
+	//background: url('../img/bg_home.png') /*fixed*/;
 	position: fixed; top:0; left:0;
 	-webkit-backface-visibility: hidden; 
 	-webkit-transform: translateZ(0);
 	z-index:1;
 
+	svg.svg-bg{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 150%;
+		transform: translateX(-50%) translateY(-50%);
+		opacity: 0.4;
+		polygon{
+			transition: fill 0.3s, opacity, 0.3s;
+			transform-origin: 50% 50%;
+			transition-delay: .6s;
+			//animation: blink 1s infinite;
+
+			// @for $i from 0 to 40 {
+			//       &:nth-child(#{$i+1}) {
+			//           animation-delay:random(10) + px;
+			//       }
+			//   }
+			
+
+
+			&:hover{
+				opacity:0.5;
+				transition-delay: 0s;
+				//transform: scale(0.97);
+				
+			}
+		}
+	}
+
 	.row {
 		height: 100%;
 		overflow: hidden;
 		position: relative;
+
+		@media #{$medium-up}{
+			pointer-events: none;
+		}
+	}
+
+	p{
+		font-size:rem-calc(24);
+		margin-bottom: 3rem;
 	}
 
 	.landing-main-text {
@@ -135,6 +179,7 @@ a {
 
 		@media #{$medium-up} {
 			margin: 0;
+			pointer-events: visible;
 		}
 	}
 
@@ -145,6 +190,7 @@ a {
 		bottom: rem-calc(-80);
 		left: calc(50% - 3.59375rem); // Rem calc ne marche pas dans un calc ❤
 		cursor: pointer;
+		pointer-events:visible;
 
 		.landing-next-section-back {
 			height: 100%;
@@ -163,6 +209,11 @@ a {
 	position:relative;
 	z-index:2;
 	background:white;
+
+	svg{
+		width: 100%;
+		height: rem-calc(500);
+	}
 	 
 	.row{
 		border-bottom: 1px solid #e3e3e3;
@@ -182,56 +233,7 @@ a {
 	}
 }
 
-/*FOOTER*/
-footer{
 
-	background: url('../img/bg-footer.png') #39444e;
-	background-size:cover;
-	text-align:center;
-	padding-bottom: rem-calc(30);
-	position:relative; z-index:1;
-
-	q{
-		display: block;
-		font-size:rem-calc(30);
-		line-height: rem-calc(40);
-		margin: 1em 0;
-		text-align: center;
-		padding: 0 1em;
-		font-family: Ubuntu;
-		color:white;
-
-		@media #{$medium-up} {
-			font-size:rem-calc(48);
-			line-height: rem-calc(72);
-			margin: 3em 0 2.4em 0;
-			padding: 0 2em;
-		}
-	}
-
-	a.button{
-		margin-bottom:rem-calc(20);
-		font-size: rem-calc(28);
-		font-family: Source sans pro;
-		background: transparent;
-		border: 4px solid white;
-		padding: 0.3em 1.3em;
-		border-radius: 8px;
-
-		@media #{$medium-up} {
-			margin-bottom:rem-calc(180);
-		}
-	}
-
-	.copyright{
-		font-size:rem-calc(18);
-		color:white;
-	}
-}
-
-.svg-valeur {
-	margin-top: rem-calc(850);
-}
 
 /*FOOTER*/
 footer{
