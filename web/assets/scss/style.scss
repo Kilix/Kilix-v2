@@ -5,8 +5,6 @@
 /* PROTOTYPING */
 
 
-
-
 /* VARIABLES */
 $primary-color : #384047;
 $second-color: #a8b7bf;
@@ -46,11 +44,19 @@ p{
 	line-height: rem-calc(28);
 	color: $text-color;
 }
-
-a{
+a {
 	text-decoration: none;
-}
 
+	&.button {
+		font-family: "Source Sans Pro";
+		transition:all .3s cubic-bezier(0.165,0.840,0.440,1.000);
+
+		&:active {
+			transform:translateY(rem-calc(4));
+			box-shadow: 0px 0px 0px 0px #384047;
+		}
+	}
+}
 
 /* COMPONENTS */ 
 
@@ -94,10 +100,56 @@ a{
 
 /*HOME*/
 .landing-home{
-	height: 800px;
+	height: 850px;
 	width: 100%;
 	padding-top: rem-calc(120);
+	margin-bottom:rem-calc(20);
 	background: url('../img/bg_home.png') /*fixed*/;
+
+	.row {
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+	.landing-main-text {
+
+		@media #{$medium-up} {
+			margin-top: rem-calc(170);
+		}
+	}
+
+	.landing-agility-button {
+		width: rem-calc(292);
+		height: rem-calc(42);
+		background: #4f5a64;
+		line-height: 42px;
+		padding: 0;
+		border-radius: 4px;
+		margin: auto;
+		display: block;
+		box-shadow: 0px 4px 0px 0px #384047;
+
+		@media #{$medium-up} {
+			margin: 0;
+		}
+	}
+
+	.landing-next-section-wrapper {
+		height: rem-calc(115);
+		width: rem-calc(115);
+		position: absolute;
+		bottom: rem-calc(-80);
+		left: calc(50% - 3.59375rem); // Rem calc ne marche pas dans un calc ❤
+		cursor: pointer;
+
+		.landing-next-section-back {
+			height: 100%;
+			width: 100%;
+			background: #4f5a64;
+			transform:rotate(45deg);
+			border-radius: rem-calc(10px);
+		}
+	}
 }
 
 .svg-anim{
