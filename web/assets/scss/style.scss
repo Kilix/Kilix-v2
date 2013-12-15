@@ -256,10 +256,22 @@ a {
 		font-weight: 500;
 		margin: 0rem 0 1.5rem 0;
 	}
+
+	&:last-child{
+		.row{
+			border-bottom:none;
+		}
+	}
 }
 
 
-
+/*REFERENCES*/
+div.references{
+	background:#f2f8f8;
+	position:relative;
+	z-index:1;
+	padding: 4rem 0;
+}
 /*FOOTER*/
 footer{
 
