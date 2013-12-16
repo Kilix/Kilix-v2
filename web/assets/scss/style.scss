@@ -4,7 +4,6 @@
 
 /* PROTOTYPING */
 
-
 /* VARIABLES */
 $primary-color : #384047;
 $second-color: #a8b7bf;
@@ -23,7 +22,14 @@ body {
 h1{
 	font-family: Ubuntu;
 	font-weight: bold;
-	font-size: rem-calc(54);
+	font-size: rem-calc(40);
+	line-height: rem-calc(48);
+
+	@media #{$medium-up}{
+		font-size: rem-calc(54);
+		line-height: rem-calc(70);
+	}
+	
 	color: $primary-color;
 }
 
@@ -66,8 +72,6 @@ a {
 
 	.site-wrapper {
 		transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
-		backface-visibility:hidden;
-
 		.main-wrapper{
 			position:relative; z-index:1;
 		}	
@@ -99,22 +103,83 @@ a {
 
 
 
+@keyframes blink{
+     from { opacity:0.05 }
+     35%  { opacity:0.2; }
+     to   { opacity:0.05; }
+}
+
 /*HOME*/
 .landing-home{
-	height: rem-calc(850);
+	height:rem-calc(500);
+
+	@media #{$medium-up} {
+		height:rem-calc(850);
+	}
 	width: 100%;
 	padding-top: rem-calc(120);
-	background: url('../img/bg_home.png') /*fixed*/;
+	background-image: url('../img/bg_home.png');
 	position: fixed; top:0; left:0;
 	-webkit-backface-visibility: hidden; 
 	-webkit-transform: translateZ(0);
 	z-index:1;
 
+	@media #{$medium-up}{
+		background-image: none;
+	}
+
+	svg.svg-bg{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 150%;
+		transform: translateX(-50%) translateY(-50%);
+		transition: fill 0.3s, opacity 0.3s;
+		opacity: 0.8;
+		polygon{
+			transition: fill 0s, opacity 0s;
+			transform-origin: 50% 50%;
+			transition-delay: 0;
+			stroke-width:1px;
+			stroke: rgba(0,0,0,0.7);
+			transition: stroke-dashoffset 2s ease-in-out;
+			// stroke-dasharray: 988.0062255859375px, 988.0062255859375px;
+			// stroke-dashoffset: 0px;
+			//animation: blink 1s infinite;
+
+			// @for $i from 0 to 40 {
+			//       &:nth-child(#{$i+1}) {
+			//           animation-delay:random(10) + px;
+			//       }
+			//   }
+			
+
+
+			&:hover{
+				opacity:1;
+				transition-delay: 0s;
+				transition: fill 0.2s, opacity 0.2s;
+				//transform: scale(0.97);
+				
+			}
+		}
+	}
+
 	.row {
 		height: 100%;
 		overflow: hidden;
 		position: relative;
+
+		@media #{$medium-up}{
+			pointer-events: none;
+		}
 	}
+
+	p{
+		font-size:rem-calc(24);
+		margin-bottom: 3rem;
+	}
+
 	.landing-main-text {
 
 		@media #{$medium-up} {
@@ -131,10 +196,11 @@ a {
 		border-radius: 4px;
 		margin: auto;
 		display: block;
+		margin: 0;
 		box-shadow: 0px 4px 0px 0px #384047;
 
 		@media #{$medium-up} {
-			margin: 0;
+			pointer-events: visible;
 		}
 	}
 
@@ -145,6 +211,7 @@ a {
 		bottom: rem-calc(-80);
 		left: calc(50% - 3.59375rem); // Rem calc ne marche pas dans un calc ❤
 		cursor: pointer;
+		pointer-events:visible;
 
 		.landing-next-section-back {
 			height: 100%;
@@ -157,12 +224,21 @@ a {
 }
 
 .svg-anim.svg-valeur{
-	margin-top:rem-calc(850);
+	margin-top:rem-calc(500);
+
+	@media #{$medium-up} {
+		margin-top:rem-calc(850);
+	}
 }
 .svg-anim{
 	position:relative;
 	z-index:2;
 	background:white;
+
+	svg{
+		width: 100%;
+		height: rem-calc(500);
+	}
 	 
 	.row{
 		border-bottom: 1px solid #e3e3e3;
@@ -180,8 +256,22 @@ a {
 		font-weight: 500;
 		margin: 0rem 0 1.5rem 0;
 	}
+
+	&:last-child{
+		.row{
+			border-bottom:none;
+		}
+	}
 }
 
+
+/*REFERENCES*/
+div.references{
+	background:#f2f8f8;
+	position:relative;
+	z-index:1;
+	padding: 4rem 0;
+}
 /*FOOTER*/
 footer{
 

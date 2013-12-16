@@ -3,11 +3,14 @@
 <script src="/assets/js/foundation/foundation.min.js"></script>
 <script src="/assets/js/vendor/history.min.js"></script>
 <script src="/assets/js/vendor/waypoints.min.js"></script>
+<script src="/assets/js/vendor/snap.svg.min.js"></script>
 
 <!-- TODO: Les fichiers min seront placés dans le mix.js une fois le projet mis en Prod -->
 <script src="/assets/js/pushstate.js"></script>
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/waypoint-kilix.js"></script>
+<script src="assets/js/animations-functions.js"></script>
+<script src="assets/js/animation-value.js"></script>
 <script>
 	$(document).foundation();
 </script>
@@ -43,10 +46,43 @@ else{
 }
 
 $(function(){
-    $("body").on("click", ".landing-next-section-back, .landing-next-section-arrow", function(){
+
+
+
+    $('.landing-next-section-back, .landing-next-section-arrow').on('click',function(){
         $('html, body').animate({  
             scrollTop:750  
         }, 'slow'); 
     });
+
+    setTimeout(function(){
+        //Snap("#abstract").select("polygon").hover(svgIn, svgOut);
+        //Snap("#abstract").selectAll("polygon").click(function(){console.log('salope')});
+        Snap("#abstract").selectAll("polygon").forEach(function(t){
+            t.hover(svgIn, svgOut);
+        });
+    }, 300);
+    
+    var colorArray = {
+        col1: '#e63429',
+        col2: '#fab400',
+        col3: '#009884',
+        col4: '#85cedf',
+        col5: '#087ec2'
+    };
+
+
+    var svgIn = function(){
+        this.attr({
+            fill: colorArray['col'+Math.floor((Math.random()*5)+1)]
+        })
+    }
+
+    var svgOut = function(){
+        this.attr({
+            fill: 'black'
+        })
+    }
+
 });
 </script>
