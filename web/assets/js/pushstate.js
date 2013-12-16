@@ -25,7 +25,8 @@
             $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0 }, 1200);
             $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1 }, 1200, function(){
                 $(".wrapper:first-child").remove();
-                $(".wrapper-new").removeClass('wrapper-new');
+                $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
+                $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
                 $(".nav-links-wrapper").removeClass('disabled');
                 Pos = $(".container").data('pos');
             });
