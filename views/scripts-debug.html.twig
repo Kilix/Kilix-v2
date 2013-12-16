@@ -56,8 +56,6 @@ $(function(){
     });
 
     setTimeout(function(){
-        //Snap("#abstract").select("polygon").hover(svgIn, svgOut);
-        //Snap("#abstract").selectAll("polygon").click(function(){console.log('salope')});
         Snap("#abstract").selectAll("polygon").forEach(function(t){
             t.hover(svgIn, svgOut);
         });

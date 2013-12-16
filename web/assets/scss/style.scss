@@ -274,8 +274,8 @@ a {
 
 
 .landing{
-	height:rem-calc(500);
-	padding-top: rem-calc(160);
+	height:rem-calc(600);
+	padding-top: rem-calc(220);
 	width: 100%;
 	background-image: url('../img/bg_home.png');
 	position: fixed; top:0; left:0;
@@ -283,19 +283,25 @@ a {
 
 	h1{
 		margin:4rem 0;
-		line-height: rem-calc(58);
+		line-height: rem-calc(68);
+		font-size: rem-calc(64);
+
+		span{
+			font-size:rem-calc(40);
+		}
 	}
 }
 
 .push-top{
-	margin-top:rem-calc(500);
+	margin-top:rem-calc(600);
 }
 
 .content{
 	background: white;
+	box-shadow: 0 -1px 0 rgba(0,0,0,.1);
 	position: relative;
 	z-index:2;
-	padding:3rem 0;
+	padding:5rem 0;
 }
 
 /*AGILITE*/
