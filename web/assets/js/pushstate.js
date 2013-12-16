@@ -20,7 +20,9 @@
             scrollTop:0  
         }, 500);
 
-            if(newPos!="1") $('.navbar').removeClass('navbar-top');
+            if(newPos!="1") $('.navbar').removeClass('navbar-top') 
+            else $('.navbar').addClass('navbar-top');
+
             slideNext = newPos>currentPos ? true : false;
             $(".nav-links-wrapper").addClass('disabled');
             $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
