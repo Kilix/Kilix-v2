@@ -49,7 +49,7 @@
 				
 			}
 
-
+			.logo{border-color:transparent;}
 			.logo svg {
 				height: 140px;	
 			}
@@ -141,11 +141,27 @@
 			height: 45px;
 			line-height: 45px;
 			pointer-events: visible;
-			transition: border 0.3s ease-out;
+			position: relative;
+
+			&:after{
+				position: absolute;
+				width: 100%;
+				height: 3px;
+				bottom: 0;
+				left: 0;
+				background: $second-color;
+				content: " ";
+				transition: 0.3s ease-out;
+				transform: translateY(0.3rem);
+				opacity:0;
+			}
 
 
 			&.current, &:hover{
-				border-bottom: 3px solid $second-color;
+				&:after{
+					transform: translateY(0);
+					opacity:1;
+				}
 			}
 
 			@media #{$medium-up} {
@@ -156,10 +172,13 @@
 
 	.logo {
 		position: absolute;
+		pointer-events:visible;
 		width: rem-calc(85);
 		height: 100%;
-		padding: 0 2rem;
+		padding: 0 1rem;
 		top:0; left:4rem;
+		z-index:2;
+
 		img {
 			height: 100%;
 		}
@@ -175,7 +194,25 @@
 		@media #{$medium-up} {
 			width: rem-calc(100);
 			left:0;
+			border: 1px solid rgba(0,0,0,.1);
+			border-width: 0 1px 0 1px;
 		}
+
+
+		svg polygon, #goutte1, #goutte2 {
+		  transition: all 0.5s;
+		}
+
+
+
+		&:hover{
+			 #goutte1, #goutte2 {
+				transform: translateY(-40px);
+			 }
+		}
+
+
+
 	}
 }
 
