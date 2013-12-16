@@ -4,32 +4,110 @@ $(function () {
 
       var elements = new Array(),
           delay = 50,
-          duration = 500;
+          duration = 100;
 
-      elements['kart'] = f.select("#kart1");
-      elements['hole'] = f.select("#trou");
-      elements['tree'] = f.select("#tree");
+      elements['kart']  = f.select("#kart2");
+      elements['hole']  = f.select("#trou");
+      elements['tree']  = f.select("#tree");
       elements['rocks'] = f.select("#rocks");
       elements['fence'] = f.select("#fence");
-      elements['pole'] = f.select("#plot");
+      elements['pole']  = f.select("#plot");
 
       for (var element in elements) {
-        elements[element].attr({'fill-opacity': 1});
+        elements[element].attr({'fill-opacity': 0});
         s.append(elements[element]);
       }
 
-      bounce(elements['kart'], duration, duration, function() {
-        move(elements['kart'],'left','top', 200, 1000, 1000, function(){
-          bounce(elements['tree'], duration, duration, function(){
-            move(elements['tree'],'right','top', 900, 2000,500,function(){
-              move(elements['kart'],'left','top', 450, 500);
-              move(elements['hole'],'left','bot', 450, 500);
+    function startAnimRisk(svgElements, first) {
+      console.log('hoh');
+      if(first === true) {
+        bounce(svgElements['kart'], duration);
+      }
 
-              setTimeout(function(){removeWithBounce(elements['tree'],500)},2000);
+      setTimeout(function() {
+        bounce(svgElements['fence'], duration, duration, function(){
+          moveWithBounce(svgElements['fence'],'right','top', 1350, 2250, 700, function(){
+            setTimeout(function(){removeWithBounce(svgElements['fence'],500)},1450);
+
+            moveWithBounce(svgElements['kart'],'left','top', -250, 400);
+            bounce(svgElements['pole'], duration, duration, function(){
+              moveWithBounce(svgElements['pole'],'right','top', 1350, 2250, 500, function(){
+                setTimeout(function(){removeWithBounce(svgElements['pole'],500)},1450);
+
+                moveWithBounce(svgElements['kart'],'left','top', 0, 500);
+                bounce(svgElements['rocks'], duration, duration, function(){
+                  moveWithBounce(svgElements['rocks'],'right','top', 1350, 2250, 500, function(){
+                    setTimeout(function(){removeWithBounce(svgElements['rocks'],500)},1450);
+
+                    moveWithBounce(svgElements['kart'],'left','top', 200, 500);
+                    bounce(svgElements['tree'], duration, duration, function(){
+                      moveWithBounce(svgElements['tree'],'right','top', 1350, 2250,500,function(){ // Arbre Avance
+                        setTimeout(function(){removeWithBounce(svgElements['tree'],500)},1500);
+                        
+                        moveWithBounce(svgElements['kart'],'left','top', -250, 800);
+
+                        setTimeout(function(){
+                          bounce(svgElements['hole'], duration, duration, function(){
+                            moveWithBounce(svgElements['hole'],'right','top', 1350, 2250, 500, function(){
+                              setTimeout(function(){removeWithBounce(svgElements['hole'],500)},1450);
+
+                              moveWithBounce(svgElements['kart'],'left','top', 0, 500);
+                            });
+                          });
+                        },600);
+                      });
+                    });
+                  });
+                });
+              });
             });
           });
         });
-      });
+      },duration);      
+    }
+    startAnimRisk(elements,true);
+    setInterval(function(){startAnimRisk(elements)},4500);
+ 
+
+
+
+      //   moveWithBounce(elements['kart'],'left','top', 200, 500, 320, function(){
+      //     bounce(elements['tree'], duration, duration, function(){
+      //       moveWithBounce(elements['tree'],'right','top', 900, 2000,500,function(){ // Arbre Avance
+      //         setTimeout(function(){removeWithBounce(elements['tree'],500)},1500);
+              
+      //         moveWithBounce(elements['kart'],'left','top', 450, 500);
+
+      //         bounce(elements['rocks'], duration, duration, function(){
+      //           moveWithBounce(elements['rocks'],'right','top', 900, 1500, 500, function(){ // Caillaisses avancent
+      //             setTimeout(function(){removeWithBounce(elements['rocks'],500)},1000);
+                  
+      //             moveWithBounce(elements['kart'],'left','top', 0, 500);
+
+      //             bounce(elements['hole'], duration, duration, function(){
+      //               moveWithBounce(elements['hole'],'right','top', 900, 1500, 500, function(){
+      //                 setTimeout(function(){removeWithBounce(elements['hole'],500)},1000);
+
+      //                 moveWithBounce(elements['kart'],'left','top', 450, 500);
+
+      //                   bounce(elements['pole'], duration, duration, function(){
+      //                     moveWithBounce(elements['pole'],'right','top', 900, 1500, 500, function(){ // Pole avance
+      //                       setTimeout(function(){removeWithBounce(elements['pole'],500)},1000);
+                            
+      //                       moveWithBounce(elements['kart'],'left','top', 200, 500);
+
+
+      //                     });
+      //                   });
+      //               });
+      //             });
+
+      //           });
+      //         });
+      //       });
+      //     });
+      //   });
+      // });
 
     //     elements['roueBackRight'] = f.select("#roue-back-right"),
     //     elements['roueBackLeft'] = f.select("#roue-back-left"),
