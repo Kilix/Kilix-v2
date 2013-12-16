@@ -115,52 +115,14 @@ a {
 	}
 	width: 100%;
 	padding-top: rem-calc(120);
-	background-image: url('../img/bg_home.png');
+	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
 	position: fixed; top:0; left:0;
 	-webkit-backface-visibility: hidden; 
 	-webkit-transform: translateZ(0);
 	z-index:1;
 
 	@media #{$medium-up}{
-		background-image: none;
-	}
-
-	svg.svg-bg{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 150%;
-		transform: translateX(-50%) translateY(-50%);
-		transition: fill 0.3s, opacity 0.3s;
-		opacity: 0.8;
-		polygon{
-			transition: fill 0s, opacity 0s;
-			transform-origin: 50% 50%;
-			transition-delay: 0;
-			stroke-width:1px;
-			stroke: rgba(0,0,0,0.7);
-			transition: stroke-dashoffset 2s ease-in-out;
-			// stroke-dasharray: 988.0062255859375px, 988.0062255859375px;
-			// stroke-dashoffset: 0px;
-			//animation: blink 1s infinite;
-
-			// @for $i from 0 to 40 {
-			//       &:nth-child(#{$i+1}) {
-			//           animation-delay:random(10) + px;
-			//       }
-			//   }
-			
-
-
-			&:hover{
-				opacity:1;
-				transition-delay: 0s;
-				transition: fill 0.2s, opacity 0.2s;
-
-				//transform: scale(0.97);
-				
-			}
-		}
+		background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
 	}
 
 	.row {
@@ -233,6 +195,7 @@ a {
 }
 .svg-anim.svg-valeur{
 	margin-top:rem-calc(500);
+	box-shadow: 0 -1px 0 rgba(0,0,0,.1);
 
 	@media #{$medium-up} {
 		margin-top:rem-calc(850);
@@ -277,7 +240,7 @@ a {
 	height:rem-calc(600);
 	padding-top: rem-calc(220);
 	width: 100%;
-	background-image: url('../img/bg_home.png');
+	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
 	position: fixed; top:0; left:0;
 	z-index:1;
 
@@ -312,7 +275,19 @@ div.references{
 	background:#f2f8f8;
 	position:relative;
 	z-index:1;
-	padding: 4rem 0;
+	padding: 1.5rem 0 0 0;
+
+	.columns{
+		margin-bottom:1rem;
+	}
+
+	@media #{$medium-up} {
+		padding: 4rem 0;
+
+		.columns{
+			margin-bottom:0;
+		}
+	}
 }
 
 /*FOOTER*/
