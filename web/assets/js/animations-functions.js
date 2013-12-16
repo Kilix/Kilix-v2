@@ -14,13 +14,30 @@ function move(element, xAxis, yAxis, px, duration, delay, callback) {
   }
 }
 
+// Move element with a boune
+function moveWithBounce(element, xAxis, yAxis, px, duration, delay, callback) {
+
+  var px2 = 40,
+      px3 = 20;
+
+  move(element, xAxis, yAxis, px+15, duration - 120, duration - 120, function(){
+    move(element, xAxis, yAxis, px-15, 60, 60, function(){
+      move(element, xAxis, yAxis, px, 60);
+    });
+  });
+
+  if (delay != 'undefined' && typeof callback !== 'undefined') {
+    window.setTimeout(callback, delay);
+  }
+}
+
 // Trigger bounce effect on svg element
 function bounce(element, duration, delay, callback) {
     var x = element.getBBox().x;
     offset = x/2 + 25;
 
     element.attr({
-      transform: "t"+offset+"s0.8, 0.8"
+      transform: "t"+offset+"s0.4, 0.4"
     });
 
     element.animate({'fill-opacity':1,transform:"t0s1,1,0,0"}, duration, mina.elastic);
@@ -36,7 +53,7 @@ function removeWithBounce(element, duration, delay, callback) {
     offset = x/2 + 25;
 
 
-    element.animate({'fill-opacity':0,transform: "t0s0.8, 0.8"}, duration, mina.elastic);
+    element.animate({'fill-opacity':0}, duration, mina.elastic);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
