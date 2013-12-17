@@ -4,7 +4,6 @@
 
 /* PROTOTYPING */
 
-
 /* VARIABLES */
 $primary-color : #384047;
 $second-color: #a8b7bf;
@@ -23,7 +22,14 @@ body {
 h1{
 	font-family: Ubuntu;
 	font-weight: bold;
-	font-size: rem-calc(54);
+	font-size: rem-calc(40);
+	line-height: rem-calc(48);
+
+	@media #{$medium-up}{
+		font-size: rem-calc(54);
+		line-height: rem-calc(70);
+	}
+	
 	color: $primary-color;
 }
 
@@ -50,12 +56,8 @@ a {
 	&.button {
 		font-family: "Source Sans Pro";
 		transition:all .3s cubic-bezier(0.165,0.840,0.440,1.000);
-
-		&:active {
-			transform:translateY(rem-calc(4));
-			box-shadow: 0px 0px 0px 0px #384047;
-		}
 	}
+
 }
 
 /* COMPONENTS */ 
@@ -66,10 +68,9 @@ a {
 
 	.site-wrapper {
 		transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
-		backface-visibility:hidden;
-
 		.main-wrapper{
 			position:relative; z-index:1;
+			overflow: hidden;
 		}	
 	}
 
@@ -99,22 +100,46 @@ a {
 
 
 
+@keyframes blink{
+     from { opacity:0.05 }
+     35%  { opacity:0.2; }
+     to   { opacity:0.05; }
+}
+
 /*HOME*/
 .landing-home{
-	height: rem-calc(850);
+	height:rem-calc(500);
+
+	@media #{$medium-up} {
+		height:rem-calc(850);
+	}
 	width: 100%;
 	padding-top: rem-calc(120);
-	background: url('../img/bg_home.png') /*fixed*/;
+	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
 	position: fixed; top:0; left:0;
 	-webkit-backface-visibility: hidden; 
 	-webkit-transform: translateZ(0);
 	z-index:1;
 
+	@media #{$medium-up}{
+		background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
+	}
+
 	.row {
 		height: 100%;
 		overflow: hidden;
 		position: relative;
+
+		@media #{$medium-up}{
+			pointer-events: none;
+		}
 	}
+
+	p{
+		font-size:rem-calc(24);
+		margin-bottom: 3rem;
+	}
+
 	.landing-main-text {
 
 		@media #{$medium-up} {
@@ -122,7 +147,7 @@ a {
 		}
 	}
 
-	.landing-agility-button {
+	.primary-button {
 		width: rem-calc(292);
 		height: rem-calc(42);
 		background: #4f5a64;
@@ -131,10 +156,22 @@ a {
 		border-radius: 4px;
 		margin: auto;
 		display: block;
+		margin: 0;
 		box-shadow: 0px 4px 0px 0px #384047;
 
 		@media #{$medium-up} {
-			margin: 0;
+			pointer-events: visible;
+		}
+
+		&:hover {
+			transform:translateY(rem-calc(1));
+			box-shadow: 0px 3px 0px 0px #384047;
+			background:#58646F;
+		}
+
+		&:active {
+			transform:translateY(rem-calc(4));
+			box-shadow: 0px 0px 0px 0px #384047;
 		}
 	}
 
@@ -145,6 +182,7 @@ a {
 		bottom: rem-calc(-80);
 		left: calc(50% - 3.59375rem); // Rem calc ne marche pas dans un calc ❤
 		cursor: pointer;
+		pointer-events:visible;
 
 		.landing-next-section-back {
 			height: 100%;
@@ -155,14 +193,23 @@ a {
 		}
 	}
 }
-
 .svg-anim.svg-valeur{
-	margin-top:rem-calc(850);
+	margin-top:rem-calc(500);
+	box-shadow: 0 -1px 0 rgba(0,0,0,.1);
+
+	@media #{$medium-up} {
+		margin-top:rem-calc(850);
+	}
 }
 .svg-anim{
 	position:relative;
 	z-index:2;
 	background:white;
+
+	svg{
+		width: 100%;
+		height: rem-calc(500);
+	}
 	 
 	.row{
 		border-bottom: 1px solid #e3e3e3;
@@ -179,6 +226,67 @@ a {
 		font-family: Ubuntu;
 		font-weight: 500;
 		margin: 0rem 0 1.5rem 0;
+	}
+
+	&:last-child{
+		.row{
+			border-bottom:none;
+		}
+	}
+}
+
+
+.landing{
+	height:rem-calc(600);
+	padding-top: rem-calc(220);
+	width: 100%;
+	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
+	position: fixed; top:0; left:0;
+	z-index:1;
+
+	h1{
+		margin:4rem 0;
+		line-height: rem-calc(68);
+		font-size: rem-calc(64);
+
+		span{
+			font-size:rem-calc(40);
+		}
+	}
+}
+
+.push-top{
+	margin-top:rem-calc(600);
+}
+
+.content{
+	background: white;
+	box-shadow: 0 -1px 0 rgba(0,0,0,.1);
+	position: relative;
+	z-index:2;
+	padding:5rem 0;
+}
+
+/*AGILITE*/
+
+
+/*REFERENCES*/
+div.references{
+	background:#f2f8f8;
+	position:relative;
+	z-index:1;
+	padding: 1.5rem 0 0 0;
+
+	.columns{
+		margin-bottom:1rem;
+	}
+
+	@media #{$medium-up} {
+		padding: 4rem 0;
+
+		.columns{
+			margin-bottom:0;
+		}
 	}
 }
 
@@ -211,16 +319,24 @@ footer{
 
 	a.button{
 		margin-bottom:rem-calc(20);
-		font-size: rem-calc(28);
+		font-size: rem-calc(24);
 		font-family: Source sans pro;
 		background: transparent;
 		border: 4px solid white;
-		padding: 0.3em 1.3em;
+		padding: 0.5em 1.3em;
 		border-radius: 8px;
 
 		@media #{$medium-up} {
 			margin-bottom:rem-calc(180);
 		}
+
+
+		&:hover{
+			color: $primary-color;
+			background:white;
+		}
+
+
 	}
 
 	.copyright{
