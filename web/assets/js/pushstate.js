@@ -14,23 +14,33 @@
         slideNext = true;
 
     function loadAjaxContent(url){
-        /*REFACTORABLE*/
-        slideNext = newPos>currentPos ? true : false;
-        $(".nav-links-wrapper").addClass('disabled');
-        $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
-        if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
+     
+
+        $('html, body').animate({  
+            scrollTop:0  
+        }, 500);
+
+            if(newPos!="1") $('.navbar').removeClass('navbar-top') 
+            else $('.navbar').addClass('navbar-top');
+
+            slideNext = newPos>currentPos ? true : false;
+            $(".nav-links-wrapper").addClass('disabled');
+            $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
+            if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
 
-        $(".wrapper-new").load(url+" .container", function(data){
-            $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0 }, 1200);
-            $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1 }, 1200, function(){
-                $(".wrapper:first-child").remove();
-                $(".wrapper-new").removeClass('wrapper-new');
-                $(".nav-links-wrapper").removeClass('disabled');
-                Pos = $(".container").data('pos');
+            $(".wrapper-new").load(url+" .container", function(data){
+                $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
+                $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+                    $(".wrapper:first-child").remove();
+                    $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
+                    $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
+                    $(".nav-links-wrapper").removeClass('disabled');
+                    Pos = $(".container").data('pos');
+                });
+     
             });
- 
-        });
+
     }
 
     function updateContent(State){
