@@ -70,3 +70,11 @@ function bounceAllElements(collection, duration) {
     }
     cycle();
 }
+
+function roll(element, duration, delay, amp) {
+  element.attr({
+    transform: "t0, 0"
+  });
+
+  element.animate({transform:"t0, "+-amp}, duration, mina.elastic);
+}
