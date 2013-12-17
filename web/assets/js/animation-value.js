@@ -175,14 +175,12 @@ function valueAnimation() {
 
                                                                 // STEP 4, pilote appear and elements moves to create the kart 
                                                                 var kartElements = getKartElements(kartFile);
-
                                                                 for (var element in kartElements) {
                                                                   kartElements[element].attr({'fill-opacity': 0});
                                                                 }
 
                                                                 var kart = kartFile.select("#kart");
                                                                 kart.attr({'fill-opacity': 0});
-                                                                console.log(kart);
                                                                 s.append(kart);
 
                                                                 for (var element in kartElements) {
@@ -204,7 +202,7 @@ function valueAnimation() {
                                                                       kartElements[element].attr({'fill-opacity': 1});
                                                                     }
 
-                                                                    // We remove useless elements of dispatched kart and green kart
+                                                                    // We remove useless elements of dispatched kart
                                                                     for (var element in elements) {
                                                                       elements[element].remove();
                                                                     }
@@ -333,3 +331,4 @@ valueAnimation();
 $('#VALEUR-dispatch').on('click', function() {
   endValueAnimation();
 });
+
