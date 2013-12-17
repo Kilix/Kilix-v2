@@ -1,5 +1,5 @@
-function gatherPiece(kartElement, piece, delay, callback)
-{
+function gatherPiece(kartElement, piece, delay, callback) {
+
   var kartBBox = kartElement.getBBox(),
       pieceBBox = piece.getBBox();
 
@@ -15,8 +15,13 @@ function gatherPiece(kartElement, piece, delay, callback)
   }
 }
 
-function getDispatchElements(file)
-{
+function roll(element, duration, amp) {
+
+    element.animate({transform:"t"+[0, -amp]}, duration, mina.elastic);
+}
+
+function getDispatchElements(file) {
+
   elements = new Array();
   elements['roueBackRight'] = file.select("#roue-back-right"),
   elements['roueBackLeft'] = file.select("#roue-back-left"),
@@ -39,8 +44,8 @@ function getDispatchElements(file)
   return elements;
 }
 
-function getGreenElements(file)
-{
+function getGreenElements(file) {
+
   greenElements = new Array()
   greenElements['carenageRight'] = file.select('#carenage-right-vert');
   greenElements['carenageLeft'] = file.select('#carenage-left');
@@ -55,19 +60,27 @@ function getGreenElements(file)
   return greenElements;
 }
 
-function getKartElements(file)
-{
+function getKartElements(file) {
+
   kartElements = new Array();
   kartElements['moteurElec'] = file.select('#moteur-elec');
-  kartElements['roueBackRight'] = file.select('#roue-back-right');
-  kartElements['roueBackLeft'] = file.select('#roue-back-left');
+  kartElements['roueBackRight'] = file.select('#roue-back-right-1');
+  kartElements['roueBackRight2'] = file.select('#roue-back-right-2');
+  kartElements['roueBackLeft'] = file.select('#roue-back-left-1');
+  kartElements['roueBackLeft2'] = file.select('#roue-back-left-2');
   kartElements['carenageRight'] = file.select('#carenage-right');
   kartElements['carenageLeft'] = file.select('#carenage-left');
-  kartElements['roueFrontRight'] = file.select('#roue-front-right');
-  kartElements['roueFrontLeft'] = file.select('#roue-front-left');
+  kartElements['roueFrontRight'] = file.select('#roue-front-right-1');
+  kartElements['roueFrontRight2'] = file.select('#roue-front-right-2');
+  kartElements['roueFrontLeft'] = file.select('#roue-front-left-1');
+  kartElements['roueFrontLeft2'] = file.select('#roue-front-left-2');
   kartElements['siege'] = file.select('#siege');
   kartElements['pilote'] = file.select('#pilote');
   kartElements['carenageFront'] = file.select('#carenage-front');
+  kartElements['roueBackRight2'].attr({'fill-opacity': 0});
+  kartElements['roueBackLeft2'].attr({'fill-opacity': 0});
+  kartElements['roueFrontRight2'].attr({'fill-opacity': 0});
+  kartElements['roueFrontLeft2'].attr({'fill-opacity': 0});
   return kartElements;
 }
 
@@ -155,9 +168,7 @@ function valueAnimation() {
                                                             moveTop(elements['carenageFront'], topTransValue, topTransDuration, topTransDelay, function() {
 
                                                               for (var element in greenElements) {
-                                                                greenElements[element].animate({'fill-opacity': 0}, 100, function () {
-                                                                  greenElements[element].remove();
-                                                                });
+                                                                greenElements[element].animate({'fill-opacity': 0}, 100);
                                                               }
 
                                                               Snap.load("./assets/img/svg/kilix_valeur_kart.svg", function(kartFile) {
@@ -167,7 +178,14 @@ function valueAnimation() {
 
                                                                 for (var element in kartElements) {
                                                                   kartElements[element].attr({'fill-opacity': 0});
-                                                                  s.append(kartElements[element]);
+                                                                }
+
+                                                                var kart = kartFile.select("#kart");
+                                                                kart.attr({'fill-opacity': 0});
+                                                                console.log(kart);
+                                                                s.append(kart);
+
+                                                                for (var element in kartElements) {
                                                                   kartElements[element].attr({transform: 't'+[0, topTransValue]});
                                                                 }
 
@@ -186,17 +204,82 @@ function valueAnimation() {
                                                                       kartElements[element].attr({'fill-opacity': 1});
                                                                     }
 
-                                                                    // We remove useless elements of dispatched kart
+                                                                    // We remove useless elements of dispatched kart and green kart
                                                                     for (var element in elements) {
                                                                       elements[element].remove();
                                                                     }
 
+                                                                    for (var element in greenElements) {
+                                                                      greenElements[element].remove();
+                                                                    }
+
                                                                     window.setTimeout(function() {
+
+                                                                      // Element fall to their initial position
                                                                       for (var element in kartElements) {
                                                                         kartElements[element].animate({transform: 't'+[0, -topTransValue]}, 500, mina.bounce);
                                                                       }
-                                                                    }, 300);
 
+                                                                      window.setTimeout(function() {
+
+                                                                        // STEP 5
+                                                                        window.setInterval(function(){
+                                                                          roll(kartElements['roueFrontLeft'], duration, (topTransValue+2));
+                                                                          roll(kartElements['roueFrontRight'], duration, (topTransValue+2));
+                                                                          setTimeout(function(){
+                                                                            roll(kartElements['roueBackLeft'], duration, (topTransValue+2));
+                                                                            roll(kartElements['roueBackRight'], duration, (topTransValue+2));
+                                                                          }, delay);  
+                                                                        },150);
+                                                                        window.setInterval(function(){
+                                                                          roll(kartElements['roueFrontLeft2'], duration, (topTransValue+2));
+                                                                          roll(kartElements['roueFrontRight2'], duration, (topTransValue+2));
+                                                                          setTimeout(function(){
+                                                                            roll(kartElements['roueBackLeft2'], duration, (topTransValue+2));
+                                                                            roll(kartElements['roueBackRight2'], duration, (topTransValue+2));
+                                                                          }, delay);  
+                                                                        },150);
+                                                                        window.setInterval(function(){
+                                                                          roll(kartElements['roueFrontLeft'], duration, (topTransValue+8));
+                                                                          roll(kartElements['roueFrontRight'], duration, (topTransValue+8));
+                                                                          setTimeout(function(){
+                                                                            roll(kartElements['roueBackLeft'], duration, (topTransValue+8));
+                                                                            roll(kartElements['roueBackRight'], duration, (topTransValue+8));
+                                                                          }, delay);  
+                                                                        },3000);
+                                                                        window.setInterval(function(){
+                                                                          roll(kartElements['roueFrontLeft2'], duration, (topTransValue+8));
+                                                                          roll(kartElements['roueFrontRight2'], duration, (topTransValue+8));
+                                                                          setTimeout(function(){
+                                                                            roll(kartElements['roueBackLeft2'], duration, (topTransValue+8));
+                                                                            roll(kartElements['roueBackRight2'], duration, (topTransValue+8));
+                                                                          }, delay); 
+                                                                        },3000);
+                                                                        window.setInterval(function(){
+                                                                          roll(kartElements['moteurElec'], duration, (topTransValue+3));
+                                                                        }, 10);
+                                                                        window.setInterval(function(){
+                                                                          kartElements['roueBackRight2'].attr({'fill-opacity': 0});
+                                                                          kartElements['roueBackLeft2'].attr({'fill-opacity': 0});
+                                                                          kartElements['roueFrontRight2'].attr({'fill-opacity': 0});
+                                                                          kartElements['roueFrontLeft2'].attr({'fill-opacity': 0});
+                                                                          kartElements['roueBackRight'].attr({'fill-opacity': 1});
+                                                                          kartElements['roueBackLeft'].attr({'fill-opacity': 1});
+                                                                          kartElements['roueFrontRight'].attr({'fill-opacity': 1});
+                                                                          kartElements['roueFrontLeft'].attr({'fill-opacity': 1});
+                                                                          setTimeout(function(){
+                                                                            kartElements['roueBackRight2'].attr({'fill-opacity': 1});
+                                                                            kartElements['roueBackLeft2'].attr({'fill-opacity': 1});
+                                                                            kartElements['roueFrontRight2'].attr({'fill-opacity': 1});
+                                                                            kartElements['roueFrontLeft2'].attr({'fill-opacity': 1});
+                                                                            kartElements['roueBackRight'].attr({'fill-opacity': 0});
+                                                                            kartElements['roueBackLeft'].attr({'fill-opacity': 0});
+                                                                            kartElements['roueFrontRight'].attr({'fill-opacity': 0});
+                                                                            kartElements['roueFrontLeft'].attr({'fill-opacity': 0});
+                                                                          }, delay);
+                                                                        }, 200);
+                                                                      }, 100);
+                                                                    }, 300);
                                                                   });
                                                                 }); // STEP - 4
                                                               });
@@ -231,4 +314,22 @@ function valueAnimation() {
   });
 }
 
+function endValueAnimation() {
+  var s = Snap("#VALEUR-dispatch");
+  kart = s.select("#kart");
+
+  var x = 1000,
+      y = 1000/2;
+
+  kart.animate({transform: "t"+[x, y]}, 1000, mina.backin);
+
+  window.setTimeout(function() {
+    kart.remove();
+    valueAnimation();
+  }, 2000);
+}
+
 valueAnimation();
+$('#VALEUR-dispatch').on('click', function() {
+  endValueAnimation();
+});
