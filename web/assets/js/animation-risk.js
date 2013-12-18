@@ -1,4 +1,4 @@
-$(function () {
+Kilix.animations['risques'] = function () {
     var s = Snap("#RISK-dispatch");
     Snap.load("./assets/img/svg/kilix_anim_risque_1.svg", function(f) {
 
@@ -94,4 +94,4 @@ $(function () {
     },3000);
 
   });
-});
+}

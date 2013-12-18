@@ -54,7 +54,6 @@
 		</div>
 		<!-- DEBUG : Par la suite le fichier mix.js générera le min.js -->
   		{% include "scripts-debug.html.twig" %}
-  		<script type="text/javascript">
-  		</script>
+  		{% block scripts %}{% endblock %}
 	</body>
 </html>
