@@ -3,7 +3,7 @@ $(function () {
     Snap.load("./assets/img/svg/kilix_anim_risque_1.svg", function(f) {
 
       var elements = new Array(),
-          elementss = new Array(),
+          elements2 = new Array(),
           delay = 50,
           duration = 100;
 
@@ -13,14 +13,10 @@ $(function () {
       elements['rocks'] = f.select("#rocks");
       elements['fence'] = f.select("#fence");
       elements['pole']  = f.select("#plot");
-      elementss['roueBackRight'] = f.select("#roue-back-right-1");
-      elementss['roueBackLeft'] = f.select("#roue-back-left-1");
-      // elements['roueBackRight2'] = f.select("#roue-back-right-2");
-      // elements['roueBackLeft2'] = f.select("#roue-back-left-2");
-      // elements['roueFrontRight2'] = f.select("#roue-front-right-2");
-      // elements['roueFrontLeft2'] = f.select("#roue-front-left-2");
-      elementss['roueFrontRight'] = f.select("#roue-front-right-1");
-      elementss['roueFrontLeft'] = f.select("#roue-front-left-1");
+      elements2['roueBackRight'] = f.select("#roue-back-right-1");
+      elements2['roueBackLeft'] = f.select("#roue-back-left-1");
+      elements2['roueFrontRight'] = f.select("#roue-front-right-1");
+      elements2['roueFrontLeft'] = f.select("#roue-front-left-1");
 
 
       for (var element in elements) {
@@ -29,7 +25,6 @@ $(function () {
       }
 
     function startAnimRisk(svgElements, first) {
-      console.log('hoh');
       if(first === true) {
         bounce(svgElements['kart'], duration);
       }
@@ -80,21 +75,21 @@ $(function () {
     setInterval(function(){startAnimRisk(elements)},4500);
 
     window.setInterval(function(){
-      roll(elementss['roueFrontLeft'], duration, 10, 2);
-      roll(elementss['roueFrontRight'], duration, 20, 2);
+      roll(elements2['roueFrontLeft'], duration, 10, 2);
+      roll(elements2['roueFrontRight'], duration, 20, 2);
       setTimeout(function(){
-        roll(elementss['roueBackLeft'], duration, 40, 2);
-        roll(elementss['roueBackRight'], duration, 50, 2);
+        roll(elements2['roueBackLeft'], duration, 40, 2);
+        roll(elements2['roueBackRight'], duration, 50, 2);
       }, delay);
           
     },100);
 
     window.setInterval(function(){
-      roll(elementss['roueFrontLeft'], duration, 10, 8);
-      roll(elementss['roueFrontRight'], duration, 20, 8);
+      roll(elements2['roueFrontLeft'], duration, 10, 8);
+      roll(elements2['roueFrontRight'], duration, 20, 8);
       setTimeout(function(){
-        roll(elementss['roueBackLeft'], duration, 40, 8);
-        roll(elementss['roueBackRight'], duration, 50, 8);
+        roll(elements2['roueBackLeft'], duration, 40, 8);
+        roll(elements2['roueBackRight'], duration, 50, 8);
       }, delay);
     },3000);
 

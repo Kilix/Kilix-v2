@@ -31,6 +31,11 @@ $app->get('/contact', function() use ($app) {
 
 // MODE DEBUG : Route for animation developpement, to delete when release come
 $app->get('/anim', function() use ($app) {
+    return $app['twig']->render('animation.html.twig', array(
+    ));
+});
+
+$app->get('/anim2', function() use ($app) {
     return $app['twig']->render('animation2.html.twig', array(
     ));
 });
