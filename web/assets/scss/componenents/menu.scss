@@ -43,6 +43,10 @@
 			border: none;
 			height:rem-calc(140);
 
+			.nav-links-wrapper  .nav-link{
+				color:white;
+			}
+
 			.row{
 				height: rem-calc(140);
 				line-height: rem-calc(140);
@@ -51,7 +55,11 @@
 
 			.logo{border-color:transparent;}
 			.logo svg {
-				height: 140px;	
+				height: 140px;
+
+				g, #goutte1, #goutte2{
+					fill:white;
+				}	
 			}
 		}
 

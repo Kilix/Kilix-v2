@@ -116,13 +116,14 @@ a {
 	width: 100%;
 	padding-top: rem-calc(120);
 	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
+	background-size: cover;
 	position: fixed; top:0; left:0;
 	-webkit-backface-visibility: hidden; 
 	-webkit-transform: translateZ(0);
 	z-index:1;
 
 	@media #{$medium-up}{
-		background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
+		background-image: url('../img/landing-bg.png');
 	}
 
 	.row {
@@ -130,9 +131,7 @@ a {
 		overflow: hidden;
 		position: relative;
 
-		@media #{$medium-up}{
-			pointer-events: none;
-		}
+
 	}
 
 	p{
@@ -141,6 +140,8 @@ a {
 	}
 
 	.landing-main-text {
+		
+		color:white;
 
 		@media #{$medium-up} {
 			margin-top: rem-calc(170);
@@ -159,9 +160,6 @@ a {
 		margin: 0;
 		box-shadow: 0px 4px 0px 0px #384047;
 
-		@media #{$medium-up} {
-			pointer-events: visible;
-		}
 
 		&:hover {
 			transform:translateY(rem-calc(1));
@@ -182,7 +180,6 @@ a {
 		bottom: rem-calc(-80);
 		left: calc(50% - 3.59375rem); // Rem calc ne marche pas dans un calc ❤
 		cursor: pointer;
-		pointer-events:visible;
 
 		.landing-next-section-back {
 			height: 100%;
