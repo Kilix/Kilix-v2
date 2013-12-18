@@ -117,13 +117,14 @@ a {
 	padding-top: rem-calc(120);
 	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
 	background-size: cover;
-	position: fixed; top:0; left:0;
 	-webkit-backface-visibility: hidden; 
 	-webkit-transform: translateZ(0);
 	z-index:1;
 
 	@media #{$medium-up}{
 		background-image: url('../img/landing-bg.jpg');
+		position: fixed; top:0; left:0;
+
 	}
 
 	.row {
@@ -191,7 +192,6 @@ a {
 	}
 }
 .svg-anim.svg-valeur{
-	margin-top:rem-calc(500);
 	box-shadow: 0 -1px 0 rgba(0,0,0,.1);
 
 	@media #{$medium-up} {
@@ -233,13 +233,19 @@ a {
 }
 
 
+
+/*AGILITE*/
+
 .landing{
 	height:rem-calc(500);
 	padding-top: rem-calc(160);
 	width: 100%;
 	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
-	position: fixed; top:0; left:0;
 	z-index:1;
+
+	@media #{$medium-up} {
+		position: fixed; top:0; left:0;	
+	}
 
 	h1{
 		margin:4rem 0;
@@ -254,6 +260,7 @@ a {
 
 .push-top{
 	margin-top:rem-calc(500);
+
 }
 
 .content{
@@ -263,9 +270,6 @@ a {
 	z-index:2;
 	padding:5rem 0;
 }
-
-/*AGILITE*/
-
 
 /*REFERENCES*/
 div.references{
