@@ -21,7 +21,7 @@ body {
 
 h1{
 	font-family: Ubuntu;
-	font-weight: bold;
+	font-weight: 500;
 	font-size: rem-calc(40);
 	line-height: rem-calc(48);
 
@@ -123,7 +123,7 @@ a {
 	z-index:1;
 
 	@media #{$medium-up}{
-		background-image: url('../img/landing-bg.png');
+		background-image: url('../img/landing-bg.jpg');
 	}
 
 	.row {
@@ -234,8 +234,8 @@ a {
 
 
 .landing{
-	height:rem-calc(600);
-	padding-top: rem-calc(220);
+	height:rem-calc(500);
+	padding-top: rem-calc(160);
 	width: 100%;
 	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
 	position: fixed; top:0; left:0;
@@ -244,16 +244,16 @@ a {
 	h1{
 		margin:4rem 0;
 		line-height: rem-calc(68);
-		font-size: rem-calc(64);
+
 
 		span{
-			font-size:rem-calc(40);
+			font-size:rem-calc(30);
 		}
 	}
 }
 
 .push-top{
-	margin-top:rem-calc(600);
+	margin-top:rem-calc(500);
 }
 
 .content{
@@ -287,13 +287,45 @@ div.references{
 	}
 }
 
+
+/*CONTACT*/
+.landing-contact{
+	.row{
+		position: relative;
+		z-index:2;
+		pointer-events:none;
+		h1{
+			color:white;
+		}
+	}
+}
+
+.map{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	&:after{
+		content: " ";
+		pointer-events:none;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(black, 0.1);
+		z-index:1;
+	}
+}
+
 /*FOOTER*/
-footer{
+.footer-contact{
 
 	background: url('../img/bg-footer.png') #39444e;
 	background-size:cover;
 	text-align:center;
-	padding-bottom: rem-calc(30);
 	position:relative; z-index:1;
 
 	q{
@@ -308,23 +340,23 @@ footer{
 
 		@media #{$medium-up} {
 			font-size:rem-calc(48);
-			line-height: rem-calc(72);
-			margin: 3em 0 2.4em 0;
+			line-height: rem-calc(60);
+			margin: 2.5em 0 1em;
 			padding: 0 2em;
 		}
 	}
 
 	a.button{
-		margin-bottom:rem-calc(20);
-		font-size: rem-calc(24);
+		margin-bottom:7rem;
+		font-size: 1.3rem;
 		font-family: Source sans pro;
 		background: transparent;
-		border: 4px solid white;
-		padding: 0.5em 1.3em;
-		border-radius: 8px;
+		border: 2px solid #fff;
+		padding: .5em 1.1em;
+		border-radius: 3px;
 
 		@media #{$medium-up} {
-			margin-bottom:rem-calc(180);
+			margin-bottom:8rem;
 		}
 
 
@@ -335,6 +367,15 @@ footer{
 
 
 	}
+
+}
+
+
+footer{
+
+	background: #202529;
+	text-align: center;
+	padding: 4rem 0;
 
 	.copyright{
 		font-size:rem-calc(18);
