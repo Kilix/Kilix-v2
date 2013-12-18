@@ -2,12 +2,12 @@ var Kilix = {
 
 
     init: function(){
-    	//Kilix.pushState();
+    	Kilix.pushState();
     	Kilix.switchSVG();
     	Kilix.nav();
     	Kilix.wayPoints();
 
-    	
+    	Kilix[$('.container').data('page')].init();
     },
 
     pushState: function(){
@@ -22,17 +22,20 @@ var Kilix = {
             State = History.getState(),
             currentPos,
             newPos,
-            slideNext = true;
+            slideNext = true,
+            pageToPosition = { home:1,team:2,agilite:3,contact:4 };
 
-        function loadAjaxContent(url){
-         
-
+        function loadAjaxContent(State){
+            var url = State.url;       
+            var oldPage = $('.container').data('page');
             $('html, body').animate({  
                 scrollTop:0  
             }, 500);
 
-                if(newPos!="1") $('.navbar').removeClass('navbar-top') 
-                else $('.navbar').addClass('navbar-top');
+                newPos = pageToPosition[State.title.toLowerCase()];
+
+                $('.nav-link.current').removeClass('current');
+                $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
                 slideNext = newPos>currentPos ? true : false;
                 $(".nav-links-wrapper").addClass('disabled');
@@ -49,15 +52,18 @@ var Kilix = {
                         $(".nav-links-wrapper").removeClass('disabled');
                         Pos = $(".container").data('pos');
                     });
-         
+
+                    Kilix[oldPage].destroy();
+                    Kilix[State.title.toLowerCase()].init();         
                 });
 
         }
 
         function updateContent(State){
 
-            loadAjaxContent(State.url);
+            loadAjaxContent(State);
         }
+
         // Bind to State Change
         History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
             // Log the State
@@ -69,10 +75,6 @@ var Kilix = {
         $(".nav-links-wrapper a").on("click", function(evt) {
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
-            newPos = $(this).data('pos');
-
-            $('.nav-link.current').removeClass('current');
-            $(this).addClass('current');
 
             History.pushState(null, this.textContent, this.href);
             evt.preventDefault();
@@ -126,32 +128,58 @@ var Kilix = {
     },
 
     wayPoints: function(){
-    	$('.svg-valeur').waypoint(function(direction) {
-			$('.navbar').toggleClass('navbar-top');
-		}, { offset: '200px' });
     },
 
     animations:{
     	//Prototyped by animations-*.js
     },
 
-    home: function(){
-    	$('.landing-next-section-back, .landing-next-section-arrow').on('click',function(){
-	        $('html, body').animate({  
-	            scrollTop:750  
-	        }, 'slow'); 
-	    });
+    home: {
+        init: function(){
+            $('.landing-next-section-back, .landing-next-section-arrow').on('click',function(){
+                $('html, body').animate({  
+                    scrollTop:750  
+                }, 'slow'); 
+            });
+            $('.svg-valeur').waypoint(function(direction) {
+                console.log(direction);
+                $('.navbar').toggleClass('navbar-top');
+            }, { offset: '200px' });
 
-    	Kilix.animations['risques']();
+            Kilix.animations['risques']();
+            console.log('Init Home');
+        },
+        destroy: function(){
+            console.log('Destroy Home');
+            $('.svg-valeur').waypoint('destroy');
+            $('.landing-next-section-back, .landing-next-section-arrow').off();
+            $('.navbar').addClass('navbar-top');       
+        }
     },
 
-    agilite: function(){
-
+    agilite: {
+        init: function(){
+            $('.content').waypoint(function(direction) {
+                console.log(direction);
+                $('.navbar').toggleClass('navbar-top');
+            }, { offset: '200px' });
+            console.log('Init AGILITY');
+        },
+        destroy: function(){
+            console.log('Destroy AGILITY');
+            $('.navbar').addClass('navbar-top');
+            $('.content').waypoint('destroy');  
+        }
     },
 
-    contact:function(){
-
-    }
+    contact: {
+        init: function(){
+            console.log('Init Contact');
+        },
+        destroy: function(){
+            console.log('Destroy Contact');
+        }
+    },
 
 
 
@@ -160,5 +188,6 @@ var Kilix = {
 
 
 $(function(){
+    console.log('init');
 	Kilix.init();
 });
