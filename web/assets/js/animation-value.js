@@ -277,6 +277,7 @@ function valueAnimation() {
                                                                           }, delay);
                                                                         }, 200);
                                                                       }, 100);
+                                                                      valueAnimStatus = true;
                                                                     }, 300);
                                                                   });
                                                                 }); // STEP - 4
@@ -327,8 +328,13 @@ function endValueAnimation() {
   }, 2000);
 }
 
+var valueAnimStatus = false;
 valueAnimation();
+
 $('#VALEUR-dispatch').on('click', function() {
-  endValueAnimation();
+  if (valueAnimStatus == true) {
+   valueAnimStatus = false;
+   endValueAnimation();
+  }
 });
 
