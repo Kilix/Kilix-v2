@@ -147,7 +147,7 @@ var Kilix = {
                 $('.navbar').toggleClass('navbar-top');
             }, { offset: '200px' });
 
-            Kilix.animations['improve'].start();
+            Kilix.animations['amelioration'].start();
             console.log('Init Home');
         },
         destroy: function(){

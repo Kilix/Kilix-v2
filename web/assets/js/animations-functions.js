@@ -20,7 +20,6 @@ function move(element, xAxis, yAxis, px, duration, delay, callback, anim) {
   }
 }
 
-// Move a group on an isometric axis
 function moveTop(element, px, duration, delay, callback) {
 
   var x = px,
@@ -32,6 +31,15 @@ function moveTop(element, px, duration, delay, callback) {
   }
   else {
     element.animate({transform: "t"+[0, y-px]}, duration);
+  }
+}
+
+function moveTop2(element, px, duration, delay, callback) {
+
+  element.animate({transform: 't'+[0, px]}, duration);
+
+    if (delay != 'undefined' && typeof callback !== 'undefined') {
+    window.setTimeout(callback, delay);
   }
 }
 
