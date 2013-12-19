@@ -1,3 +1,36 @@
+Kilix.animations['valeur'] = {
+
+  start: function () {
+
+    var valueAnimStatus = false;
+    valueAnimation();
+  }
+}
+
+  $('#VALEUR-dispatch').on('click', function() {
+    if (valueAnimStatus == true) {
+     valueAnimStatus = false;
+     endValueAnimation();
+    }
+  });
+
+Kilix.animations['valeur'].start();
+
+function endValueAnimation() {
+  var s = Snap("#VALEUR-dispatch");
+  kart = s.select("#kart");
+
+  var x = 1000,
+      y = 1000/2;
+
+  kart.animate({transform: "t"+[x, y]}, 1000, mina.backin);
+
+  window.setTimeout(function() {
+    kart.remove();
+    valueAnimation();
+  }, 2000);
+}
+
 function gatherPiece(kartElement, piece, delay, callback) {
 
   var kartBBox = kartElement.getBBox(),
@@ -312,29 +345,3 @@ function valueAnimation() {
       }); // STEP - 1
   });
 }
-
-function endValueAnimation() {
-  var s = Snap("#VALEUR-dispatch");
-  kart = s.select("#kart");
-
-  var x = 1000,
-      y = 1000/2;
-
-  kart.animate({transform: "t"+[x, y]}, 1000, mina.backin);
-
-  window.setTimeout(function() {
-    kart.remove();
-    valueAnimation();
-  }, 2000);
-}
-
-var valueAnimStatus = false;
-valueAnimation();
-
-$('#VALEUR-dispatch').on('click', function() {
-  if (valueAnimStatus == true) {
-   valueAnimStatus = false;
-   endValueAnimation();
-  }
-});
-
