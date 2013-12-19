@@ -142,11 +142,21 @@ var Kilix = {
                 }, 'slow'); 
             });
             $('.svg-valeur').waypoint(function(direction) {
-                console.log(direction);
                 $('.navbar').toggleClass('navbar-top');
             }, { offset: '200px' });
 
-            Kilix.animations['risques']();
+            var risqueInit = false;
+            $('.svg-risque').waypoint(function(direction) {
+                if(risqueInit ==  false ) {
+                    Kilix.animations['risques'].start();
+                }
+                risqueInit = true;
+            }, { offset: '80%' });
+
+            $('.svg-risque').waypoint(function(direction) {
+                console.log('lol');
+            }, { offset: '-'+$('.svg-risque').height()+"px" });
+
             console.log('Init Home');
         },
         destroy: function(){
