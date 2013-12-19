@@ -45,6 +45,10 @@ $app->get('/anim2', function() use ($app) {
         'page' => '',
     ));
 });
+$app->get('/anim2', function() use ($app) {
+    return $app['twig']->render('animation2.html.twig', array(
+    ));
+});
 
 
 $app->run();
