@@ -132,6 +132,7 @@ var Kilix = {
 
     animations:{
     	//Prototyped by animations-*.js
+
     },
 
     home: {
@@ -178,6 +179,19 @@ var Kilix = {
                     Kilix.animations['valeur'].endValueAnimation();
                 }
             });
+
+            // Start Amelio Waypoint
+            var amelioInit = false;
+            $('.svg-amelio').waypoint(function(direction) {
+                if(amelioInit ==  false ) {
+                    Kilix.animations['amelioration'].start();
+                }
+                amelioInit = true;
+            }, { offset: '65%' });
+
+            // Stop Amelio Waypoint
+            // $('.svg-amelioration').waypoint(function(direction) {
+            // }, { offset: '-'+$('.svg-amelioration').height()+"px" });
             
 
             console.log('Init Home');
