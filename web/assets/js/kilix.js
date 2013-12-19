@@ -132,6 +132,7 @@ var Kilix = {
 
     animations:{
     	//Prototyped by animations-*.js
+
     },
 
     home: {
@@ -146,7 +147,7 @@ var Kilix = {
                 $('.navbar').toggleClass('navbar-top');
             }, { offset: '200px' });
 
-            Kilix.animations['risques']();
+            Kilix.animations['amelioration'].start();
             console.log('Init Home');
         },
         destroy: function(){
