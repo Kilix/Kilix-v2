@@ -1,18 +1,18 @@
-Kilix.animations['valeur'] = {
-
-  start: function () {
-
-    var valueAnimStatus = false;
-    valueAnimation();
-  }
-}
-
   $('#VALEUR-dispatch').on('click', function() {
     if (valueAnimStatus == true) {
      valueAnimStatus = false;
      endValueAnimation();
     }
   });
+
+Kilix.animations['valeur'] = {
+
+  start: function () {
+
+    valueAnimStatus = false;
+    valueAnimation();
+  }
+}
 
 function endValueAnimation() {
   var s = Snap("#VALEUR-dispatch");

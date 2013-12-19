@@ -80,7 +80,7 @@ function bounceAllElements(collection, duration) {
     cycle();
 }
 
-function roll(element, duration, delay, amp) {
+function roll(element, duration, amp) {
   element.attr({
     transform: "t0, 0"
   });
