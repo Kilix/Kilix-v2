@@ -219,10 +219,21 @@ a {
 		margin: 0 0 0.5rem 0;
 	}
 	h3{
-		font-size:rem-calc(48);
+		font-size:rem-calc(64);
 		font-family: Ubuntu;
-		font-weight: 500;
-		margin: 0rem 0 1.5rem 0;
+		font-weight: 700;
+		margin: 0rem 0 3.5rem 0;
+		position: relative;
+
+		&:after{
+			width: 50%;
+			height:3px;
+			position: absolute;
+			content: " ";
+			bottom: -2rem;
+			left: 0;
+			background: red;
+		}
 	}
 
 	&:last-child{
@@ -240,7 +251,7 @@ a {
 	height:rem-calc(500);
 	padding-top: rem-calc(160);
 	width: 100%;
-	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
+	background-image: url('../img/landing-bg-agile.jpg'); background-size: cover;
 	z-index:1;
 
 	@media #{$medium-up} {
@@ -250,7 +261,7 @@ a {
 	h1{
 		margin:4rem 0;
 		line-height: rem-calc(68);
-
+		color: white;
 
 		span{
 			font-size:rem-calc(30);
@@ -298,9 +309,6 @@ div.references{
 		position: relative;
 		z-index:2;
 		pointer-events:none;
-		h1{
-			color:white;
-		}
 	}
 }
 
@@ -319,7 +327,7 @@ div.references{
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background: rgba(black, 0.1);
+		background: rgba(17, 143, 42, 0.8);
 		z-index:1;
 	}
 }
