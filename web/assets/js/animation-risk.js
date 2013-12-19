@@ -16,10 +16,10 @@ Kilix.animations['risques'] = {
         elements['rocks'] = f.select("#rocks");
         elements['fence'] = f.select("#fence");
         elements['pole']  = f.select("#plot");
-        elements2['roueBackRight'] = f.select("#roue-back-right-1");
-        elements2['roueBackLeft'] = f.select("#roue-back-left-1");
-        elements2['roueFrontRight'] = f.select("#roue-front-right-1");
-        elements2['roueFrontLeft'] = f.select("#roue-front-left-1");
+        elements2['roueBackRightt'] = f.select("#roue-back-right-1");
+        elements2['roueBackLeftt'] = f.select("#roue-back-left-1");
+        elements2['roueFrontRightt'] = f.select("#roue-front-right-1");
+        elements2['roueFrontLeftt'] = f.select("#roue-front-left-1");
 
 
         for (var element in elements) {

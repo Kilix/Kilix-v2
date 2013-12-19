@@ -141,21 +141,44 @@ var Kilix = {
                     scrollTop:750  
                 }, 'slow'); 
             });
+
             $('.svg-valeur').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
             }, { offset: '200px' });
 
+            // Start Risk Waypoint
             var risqueInit = false;
             $('.svg-risque').waypoint(function(direction) {
                 if(risqueInit ==  false ) {
                     Kilix.animations['risques'].start();
                 }
                 risqueInit = true;
-            }, { offset: '80%' });
+            }, { offset: '65%' });
 
-            $('.svg-risque').waypoint(function(direction) {
-                console.log('lol');
-            }, { offset: '-'+$('.svg-risque').height()+"px" });
+            // Stop Risk Waypoint
+            // $('.svg-risque').waypoint(function(direction) {
+            // }, { offset: '-'+$('.svg-risque').height()+"px" });
+
+            // Start Value Waypoint
+            var valueAnimStatus = true;
+            $('.svg-valeur').waypoint(function(direction) {
+                if (valueAnimStatus == true) {
+                    valueAnimStatus = false;
+                    Kilix.animations['valeur'].start();
+                }
+            }, { offset: '65%' });
+
+            // Stop Value Waypoint
+            // $('.svg-valeur').waypoint(function(direction) {
+            // }, { offset: '-'+$('.svg-valeur').height()+"px" });
+
+            $('#VALEUR-dispatch').on('click', function() {
+                if (valueAnimStatus == true) {
+                    valueAnimStatus = false;
+                    Kilix.animations['valeur'].endValueAnimation();
+                }
+            });
+            
 
             console.log('Init Home');
         },
