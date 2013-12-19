@@ -1,5 +1,26 @@
 // Move a group on an isometric axis
-function move(element, xAxis, yAxis, px, duration, delay, callback) {
+function move(element, xAxis, yAxis, px, duration, delay, callback, anim) {
+
+  var x = px,
+      y = px/2;
+
+  (yAxis == 'top') ? y = -y : y = y;
+  (xAxis == 'right') ? x = x : x = -x;
+
+  if (element.matrix != undefined) {
+    var matrix = element.matrix.add(element.matrix.a, 0, 0, element.matrix.d, x, y);
+    element.animate({transform: matrix.toTransformString()}, duration, anim);
+  }
+  else {
+    element.animate({transform: "t"+[x, y]}, duration);
+  }
+
+  if (delay != 'undefined' && typeof callback !== 'undefined') {
+    window.setTimeout(callback, delay);
+  }
+}
+
+function moveWithoutMatrix(element, xAxis, yAxis, px, duration, delay, callback) {
 
   var x = px,
       y = px/2;
@@ -14,7 +35,22 @@ function move(element, xAxis, yAxis, px, duration, delay, callback) {
   }
 }
 
+
 function moveTop(element, px, duration, delay, callback) {
+
+  var x = px,
+      y = px/2;
+
+  if (element.matrix != undefined) {
+    var matrix = element.matrix.add(element.matrix.a, 0, 0, element.matrix.d, 0, y-px);
+    element.animate({transform: matrix.toTransformString()}, duration);
+  }
+  else {
+    element.animate({transform: "t"+[0, y-px]}, duration);
+  }
+}
+
+function moveTop2(element, px, duration, delay, callback) {
 
   element.animate({transform: 't'+[0, px]}, duration);
 
@@ -29,9 +65,9 @@ function moveWithBounce(element, xAxis, yAxis, px, duration, delay, callback) {
   var px2 = 40,
       px3 = 20;
 
-  move(element, xAxis, yAxis, px+15, duration - 120, duration - 120, function(){
-    move(element, xAxis, yAxis, px-15, 60, 60, function(){
-      move(element, xAxis, yAxis, px, 60);
+  moveWithoutMatrix(element, xAxis, yAxis, px+15, duration - 120, duration - 120, function(){
+    moveWithoutMatrix(element, xAxis, yAxis, px-15, 60, 60, function(){
+      moveWithoutMatrix(element, xAxis, yAxis, px, 60);
     });
   });
 
@@ -75,7 +111,9 @@ function bounceAllElements(collection, duration) {
     function cycle() {
         bounce(collection[j], duration);
         j++;
-        if (j < collection.length) setTimeout(cycle, 10);
+        if (j < collection.length) {
+          setTimeout(cycle, 10);
+        }
     }
     cycle();
 }

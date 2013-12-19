@@ -179,24 +179,24 @@ function valueAnimation() {
                                                 topTransValue = -40,
                                                 topTransDelay = 50;
 
-                                            moveTop(greenElements['siege'], topTransValue, topTransDuration);
-                                            moveTop(elements['siege'], topTransValue, topTransDuration, topTransDelay, function() {
-                                              moveTop(greenElements['carenageLeft'], topTransValue, topTransDuration);
-                                              moveTop(elements['carenageLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                                                moveTop(greenElements['roueBackLeft'], topTransValue, topTransDuration);
-                                                moveTop(elements['roueBackLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                                                  moveTop(greenElements['roueFrontRight'], topTransValue, topTransDuration);
-                                                  moveTop(elements['roueFrontRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                                                    moveTop(greenElements['roueFrontLeft'], topTransValue, topTransDuration);
-                                                    moveTop(elements['roueFrontLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                                                      moveTop(greenElements['carenageRight'], topTransValue, topTransDuration);
-                                                      moveTop(elements['carenageRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                                                        moveTop(greenElements['roueBackRight'], topTransValue, topTransDuration);
-                                                        moveTop(elements['roueBackRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                                                          moveTop(greenElements['moteurElec'], topTransValue, topTransDuration);
-                                                          moveTop(elements['moteurElec'], topTransValue, topTransDuration, topTransDelay, function() {
-                                                            moveTop(greenElements['carenageFront'], topTransValue, topTransDuration);
-                                                            moveTop(elements['carenageFront'], topTransValue, topTransDuration, topTransDelay, function() {
+                                            moveTop2(greenElements['siege'], topTransValue, topTransDuration);
+                                            moveTop2(elements['siege'], topTransValue, topTransDuration, topTransDelay, function() {
+                                              moveTop2(greenElements['carenageLeft'], topTransValue, topTransDuration);
+                                              moveTop2(elements['carenageLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+                                                moveTop2(greenElements['roueBackLeft'], topTransValue, topTransDuration);
+                                                moveTop2(elements['roueBackLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+                                                  moveTop2(greenElements['roueFrontRight'], topTransValue, topTransDuration);
+                                                  moveTop2(elements['roueFrontRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                                                    moveTop2(greenElements['roueFrontLeft'], topTransValue, topTransDuration);
+                                                    moveTop2(elements['roueFrontLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+                                                      moveTop2(greenElements['carenageRight'], topTransValue, topTransDuration);
+                                                      moveTop2(elements['carenageRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                                                        moveTop2(greenElements['roueBackRight'], topTransValue, topTransDuration);
+                                                        moveTop2(elements['roueBackRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                                                          moveTop2(greenElements['moteurElec'], topTransValue, topTransDuration);
+                                                          moveTop2(elements['moteurElec'], topTransValue, topTransDuration, topTransDelay, function() {
+                                                            moveTop2(greenElements['carenageFront'], topTransValue, topTransDuration);
+                                                            moveTop2(elements['carenageFront'], topTransValue, topTransDuration, topTransDelay, function() {
 
                                                               for (var element in greenElements) {
                                                                 greenElements[element].animate({'fill-opacity': 0}, 100);
