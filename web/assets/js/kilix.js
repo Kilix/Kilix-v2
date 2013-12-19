@@ -199,6 +199,8 @@ var Kilix = {
         destroy: function(){
             console.log('Destroy Home');
             $('.svg-valeur').waypoint('destroy');
+            $('.svg-amelio').waypoint('destroy');
+            $('.svg-risque').waypoint('destroy');
             $('.landing-next-section-back, .landing-next-section-arrow').off();
             $('.navbar').addClass('navbar-top');       
         }
