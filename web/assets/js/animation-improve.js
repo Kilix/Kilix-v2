@@ -1,4 +1,4 @@
-Kilix.animations["improve"] = {
+Kilix.animations["amelioration"] = {
 
   start: function () {
       var s = Snap("#AMELIO-transform");
