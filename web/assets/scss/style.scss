@@ -9,6 +9,12 @@ $primary-color : #384047;
 $second-color: #a8b7bf;
 $text-color : #8c989e;
 
+$col1: #e63429;
+$col2: #f39c12;
+$col3: #009884;
+$col4: #85cedf;
+$col5: #087ec2;
+
 /* BASE */
 body {
 	font-family: "Source Sans Pro";
@@ -191,21 +197,63 @@ a {
 		}
 	}
 }
-.svg-anim.svg-valeur{
+
+#casque{
+	polygon{
+		&:nth-child(1){ fill: lighten($col3,5%); } //default
+		&:nth-child(2){ fill: darken($col3,5%); } //darken
+		&:nth-child(3){ fill: darken($col3,30%); }
+		&:nth-child(4){ fill: lighten($col3,10%); } //lighten
+	}
+}
+
+*[id*="green"], *[id*="vert"], #carenage-left, #moteur-elec-green path{
+	fill: $col3;
+}
+
+.svg-valeur{
 	box-shadow: 0 -1px 0 rgba(0,0,0,.1);
 
 	@media #{$medium-up} {
 		margin-top:rem-calc(850);
 	}
+
+	h3:after{background:$col1;}
+}
+.svg-risque{
+	h3:after{background:$col2;}
+}
+.svg-amelio{
+	@media #{$large-up} {
+		.large-8{margin-top:-20rem;}
+	}
+
+	h3:after{background:$col3;}
+}
+.svg-extia{
+	h3:after{background:$col4;}
 }
 .svg-anim{
 	position:relative;
 	z-index:2;
 	background:white;
+	
+
+	.large-4{
+		z-index:2
+	}
 
 	svg{
 		width: 100%;
 		height: rem-calc(500);
+
+		&#VALEUR-dispatch{
+			transform: scale(1.3) translateX(-5rem);
+		}
+
+		&#RISK-dispatch{
+			transform: scale(1.32) translateX(6rem);
+		}
 	}
 	 
 	.row{
@@ -232,7 +280,6 @@ a {
 			content: " ";
 			bottom: -2rem;
 			left: 0;
-			background: red;
 		}
 	}
 
