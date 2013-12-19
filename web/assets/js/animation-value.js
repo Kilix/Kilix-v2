@@ -14,8 +14,6 @@ Kilix.animations['valeur'] = {
     }
   });
 
-Kilix.animations['valeur'].start();
-
 function endValueAnimation() {
   var s = Snap("#VALEUR-dispatch");
   kart = s.select("#kart");
