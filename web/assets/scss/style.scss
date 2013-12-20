@@ -294,7 +294,7 @@ a {
 
 		&#RISK-dispatch{
 			@media #{$medium-up} {
-				transform: scale(1.32) translateX(6rem);
+				//transform: scale(1.32) translateX(6rem);
 			}
 			height: rem-calc(250);
 			@media #{$medium-up} {
@@ -386,7 +386,7 @@ a {
 }
 .svg-risque{
 	h3:after{background:$col2;}
-
+	
 	.row .next-section{ left:auto; right:rem-calc(20); }
 	.row .next-section .icon-long-arrow-down:hover{ background: $col2; }
 }
