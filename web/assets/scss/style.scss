@@ -164,12 +164,13 @@ a {
 /*HOME*/
 .landing-home{
 	height:rem-calc(500);
-
+	padding-top: rem-calc(63);
+	
 	@media #{$medium-up} {
 		height:rem-calc(850);
+		padding-top: rem-calc(120);
 	}
 	width: 100%;
-	padding-top: rem-calc(120);
 	background-image: url('http://placehold.it/320x200/f0f0f0/dddddd/&text=background');
 	background-size: cover;
 	-webkit-backface-visibility: hidden; 
@@ -283,6 +284,7 @@ a {
 
 	svg{
 		width: 100%;
+<<<<<<< HEAD
 		height: rem-calc(500);
 
 		&#VALEUR-dispatch{
@@ -291,6 +293,11 @@ a {
 
 		&#RISK-dispatch{
 			transform: scale(1.32) translateX(6rem);
+=======
+		height: rem-calc(250);
+		@media #{$medium-up} {
+			height: rem-calc(500);
+>>>>>>> 28177fd3d29a675c7194da10a1003ddfa83770cc
 		}
 	}
 	 
@@ -397,11 +404,12 @@ a {
 
 .landing{
 	height:rem-calc(500);
-	padding-top: rem-calc(160);
+	padding-top: rem-calc(30);
 	width: 100%;
 	z-index:1;
 
 	@media #{$medium-up} {
+		padding-top: rem-calc(160);
 		position: fixed; top:0; left:0;	
 	}
 
@@ -421,8 +429,9 @@ a {
 }
 
 .push-top{
-	margin-top:rem-calc(500);
-
+	@media #{$medium-up} {
+		margin-top:rem-calc(500);
+	}
 }
 
 .content{

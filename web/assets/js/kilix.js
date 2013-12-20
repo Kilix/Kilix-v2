@@ -1,6 +1,5 @@
 var Kilix = {
 
-
     init: function(){
     	Kilix.pushState();
     	Kilix.switchSVG();
@@ -32,30 +31,30 @@ var Kilix = {
                 scrollTop:0  
             }, 500);
 
-                newPos = pageToPosition[State.title.toLowerCase()];
+            newPos = pageToPosition[State.title.toLowerCase()];
 
-                $('.nav-link.current').removeClass('current');
-                $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
+            $('.nav-link.current').removeClass('current');
+            $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
-                slideNext = newPos>currentPos ? true : false;
-                $(".nav-links-wrapper").addClass('disabled');
-                $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
-                if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
+            slideNext = newPos>currentPos ? true : false;
+            $(".nav-links-wrapper").addClass('disabled');
+            $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
+            if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
 
-                $(".wrapper-new").load(url+" .container", function(data){
-                    $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
-                    $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
-                        $(".wrapper:first-child").remove();
-                        $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
-                        $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
-                        $(".nav-links-wrapper").removeClass('disabled');
-                        Pos = $(".container").data('pos');
-                    });
-
-                    Kilix[oldPage].destroy();
-                    Kilix[State.title.toLowerCase()].init();         
+            $(".wrapper-new").load(url+" .container", function(data){
+                $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
+                $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+                    $(".wrapper:first-child").remove();
+                    $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
+                    $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
+                    $(".nav-links-wrapper").removeClass('disabled');
+                    Pos = $(".container").data('pos');
                 });
+
+                Kilix[oldPage].destroy();
+                Kilix[State.title.toLowerCase()].init();         
+            });
 
         }
 
@@ -73,6 +72,7 @@ var Kilix = {
         });
 
         $(".nav-links-wrapper a").on("click", function(evt) {
+            $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
 
@@ -150,7 +150,7 @@ var Kilix = {
             // Start Risk Waypoint
             var risqueInit = false;
             $('.svg-risque').waypoint(function(direction) {
-                if(risqueInit ==  false ) {
+                if(risqueInit == false) {
                     Kilix.animations['risques'].start();
                 }
                 risqueInit = true;
@@ -161,29 +161,24 @@ var Kilix = {
             // }, { offset: '-'+$('.svg-risque').height()+"px" });
 
             // Start Value Waypoint
-            var valueAnimStatus = true;
+            var valueInit = false;
+            Kilix.animations['valeur'].setValueAnimStatus(true);
+            Kilix.animations['valeur'].setValueLoadingStatus(false);
             $('.svg-valeur').waypoint(function(direction) {
-                if (valueAnimStatus == true) {
-                    valueAnimStatus = false;
+                if (valueInit == false) {
                     Kilix.animations['valeur'].start();
                 }
+                valueInit = true;
             }, { offset: '65%' });
 
             // Stop Value Waypoint
             // $('.svg-valeur').waypoint(function(direction) {
             // }, { offset: '-'+$('.svg-valeur').height()+"px" });
 
-            $('#VALEUR-dispatch').on('click', function() {
-                if (valueAnimStatus == true) {
-                    valueAnimStatus = false;
-                    Kilix.animations['valeur'].endValueAnimation();
-                }
-            });
-
             // Start Amelio Waypoint
             var amelioInit = false;
             $('.svg-amelio').waypoint(function(direction) {
-                if(amelioInit ==  false ) {
+                if(amelioInit == false) {
                     Kilix.animations['amelioration'].start();
                 }
                 amelioInit = true;
@@ -229,9 +224,6 @@ var Kilix = {
             console.log('Destroy Contact');
         }
     },
-
-
-
 
 }
 
