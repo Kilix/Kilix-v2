@@ -284,7 +284,6 @@ a {
 
 	svg{
 		width: 100%;
-<<<<<<< HEAD
 		height: rem-calc(500);
 
 		&#VALEUR-dispatch{
@@ -293,12 +292,12 @@ a {
 
 		&#RISK-dispatch{
 			transform: scale(1.32) translateX(6rem);
-=======
 		height: rem-calc(250);
 		@media #{$medium-up} {
 			height: rem-calc(500);
->>>>>>> 28177fd3d29a675c7194da10a1003ddfa83770cc
 		}
+
+	}
 	}
 	 
 	.row{
