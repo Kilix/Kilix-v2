@@ -50,7 +50,7 @@ function moveTop(element, px, duration, delay, callback) {
   }
 }
 
-function moveTop2(element, px, duration, delay, callback) {
+function raisePiece(element, px, duration, delay, callback) {
 
   element.animate({transform: 't'+[0, px]}, duration);
 
@@ -106,7 +106,7 @@ function removeWithBounce(element, duration, delay, callback) {
 }
 
 // Trigger bounce effect on each svg element
-function bounceAllElements(collection, duration) {
+function bounceAllElements(collection, duration, delay, callback) {
     j = 0;
     function cycle() {
         bounce(collection[j], duration);
@@ -116,12 +116,12 @@ function bounceAllElements(collection, duration) {
         }
     }
     cycle();
+
+  if (typeof callback !== 'undefined') {
+    window.setTimeout(callback, delay);
+  }
 }
 
 function roll(element, duration, amp) {
-  element.attr({
-    transform: "t0, 0"
-  });
-
   element.animate({transform:"t0, "+-amp}, duration, mina.elastic);
 }
