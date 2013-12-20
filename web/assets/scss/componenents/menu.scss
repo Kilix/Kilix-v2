@@ -11,7 +11,7 @@
 	position: fixed;
 	width: 100%;
 	z-index: 10;
-	box-shadow: 0 1px 0 rgba(0,0,0,.1),0 6px 0 rgba(0,0,0,.05);
+	box-shadow: 0 1px 0 rgba(0,0,0,.1);
 	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000),top .3s cubic-bezier(0.165,0.840,0.440,1.000),transform .6s cubic-bezier(0.165,0.840,0.440,1.000), background .6s cubic-bezier(0.165,0.840,0.440,1.000);	
 	
 	// &:after{
