@@ -137,7 +137,7 @@ var Kilix = {
 
     home: {
         init: function(){
-            $('.landing-next-section-back, .landing-next-section-arrow').on('click',function(){
+            $('.landing-button').on('click',function(){
                 $('html, body').animate({  
                     scrollTop:750  
                 }, 'slow'); 
