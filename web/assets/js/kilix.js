@@ -72,6 +72,7 @@ var Kilix = {
         });
 
         $(".nav-links-wrapper a").on("click", function(evt) {
+            $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
 
