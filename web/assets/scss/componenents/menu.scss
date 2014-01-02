@@ -2,7 +2,7 @@
 
 
 .navbar {
-	background: #fff;
+	background: #2c313f; //Test couleur #fff;
 	overflow: visible;
 	transform: perspective(800px);
 	perspective:640px;
@@ -11,7 +11,7 @@
 	position: fixed;
 	width: 100%;
 	z-index: 10;
-	box-shadow: 0 1px 0 rgba(0,0,0,.1);
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 8px 0px;
 	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000),top .3s cubic-bezier(0.165,0.840,0.440,1.000),transform .6s cubic-bezier(0.165,0.840,0.440,1.000), background .6s cubic-bezier(0.165,0.840,0.440,1.000);	
 	
 	// &:after{
@@ -27,7 +27,6 @@
 	@media #{$medium-up} {
 		// background:transparent;
 		height: rem-calc(100);
-		pointer-events: none;
 		.row{
 				height: rem-calc(100);
 				line-height: rem-calc(100);
@@ -40,7 +39,7 @@
 		&.navbar-top {
 			background: transparent;
 			box-shadow:none;
-			border: none;
+
 			height:rem-calc(140);
 
 			.nav-links-wrapper  .nav-link{
@@ -53,7 +52,7 @@
 				
 			}
 
-			.logo{border-color:transparent;}
+			.logo{}
 			.logo svg {
 				height: 140px;
 
@@ -142,7 +141,7 @@
 			font-size: rem-calc(16);
 			font-weight: bold;
 			text-transform:uppercase;
-			color:$primary-color;
+			color:white; //Test couleur color:$primary-color;
 			backface-visibility:hidden;
 			display: block;
 			margin-left: 3rem;
@@ -181,7 +180,7 @@
 	.logo {
 		position: absolute;
 		pointer-events:visible;
-		width: rem-calc(85);
+		width: rem-calc(70);
 		height: 100%;
 		padding: 0 1rem;
 		top:0; left:4rem;
@@ -196,19 +195,35 @@
 			transition: height 0.8s;	
 			@media #{$medium-up} {
 				height: 100px;
-			}		
+			}	
+
+			//Test couleur
+			g, #goutte1, #goutte2{
+					fill:white;
+				}	
 		}
 		box-sizing: content-box;
 		@media #{$medium-up} {
-			width: rem-calc(100);
+			width: rem-calc(80);
 			left:0;
-			border: 1px solid rgba(0,0,0,.1);
-			border-width: 0 1px 0 1px;
 		}
 
 
 		svg polygon, #goutte1, #goutte2 {
 		  transition: all 0.5s;
+		}
+
+		#goutte2{
+		    animation-delay: 200ms;
+		}
+
+		&.animated{
+		    #goutte1, #goutte2{
+		       animation-name: bounce;
+		       animation-duration: 0.7s;
+		       animation-timing-function: ease;
+		       animation-iteration-count: infinite
+		    }
 		}
 
 
@@ -263,4 +278,11 @@ body.unfolded {
 			
 		}
 	}
+}
+
+
+@keyframes bounce{
+     from {transform: translateY(0);}
+     50%  {transform: translateY(-20px);}
+     to   {transform: translateY(0);}
 }
