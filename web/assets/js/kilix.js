@@ -1,5 +1,13 @@
 var Kilix = {
 
+    colors: {
+        col1: '#61AFF0',
+        col2: '#ff4a46',
+        col3: '#009884',
+        col4: '#e79027',
+        col5: '#087ec2'
+    },
+
     init: function(){
     	Kilix.pushState();
     	Kilix.switchSVG();
@@ -128,23 +136,63 @@ var Kilix = {
     },
 
     wayPoints: function(){
+
+        var slide = $('.❤');
+        slide.waypoint({
+            handler: function ( direction) {
+                var color = Kilix.colors[$(this).data('color')];
+                Kilix.changeXColor($('.logo svg polygon'), color);
+            },
+            offset: '25%'
+        });
+    },
+
+    changeXColor: function($el, col){
+        if(col!='none'){
+            $('.logo').addClass('animated');
+            setTimeout(function(){
+                $('.logo').removeClass('animated'); 
+            },2000);
+            $el.each(function(i){
+                var poly = $(this);
+                setTimeout(function () {
+                    poly.css('fill',col);
+                }, (i + 1) * 100);
+            });
+        }else{
+            $('.logo').addClass('animated');
+            setTimeout(function(){
+                $('.logo').removeClass('animated'); 
+            },2000);
+            $el.each(function(i){
+                var poly = $(this);
+                setTimeout(function () {
+                    poly.attr('style','');
+                }, (i + 1) * 100);
+            });
+        }
     },
 
     animations:{
-    	//Prototyped by animations-*.js
-
+   	    //Prototyped by animations-*.js
     },
 
+
+    /* -- PAGES -- */
     home: {
         init: function(){
             $('.landing-button').on('click',function(){
                 $('html, body').animate({  
                     scrollTop:750  
-                }, 'slow'); 
+                }, 'slow');
             });
 
             $('.svg-valeur').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
+                if(direction=='up'){
+                    Kilix.changeXColor($('.logo svg polygon'), 'none');
+                    $('.navbar').attr('style','');
+                }
             }, { offset: '200px' });
 
             // Start Risk Waypoint
