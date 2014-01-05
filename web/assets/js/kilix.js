@@ -142,14 +142,6 @@ var Kilix = {
 
     wayPoints: function(){
 
-        var slide = $('.❤');
-        slide.waypoint({
-            handler: function ( direction) {
-                var color = Kilix.colors[$(this).data('color')];
-                Kilix.changeXColor($('.logo svg polygon'), color);
-            },
-            offset: '25%'
-        });
         $('footer').waypoint({
             handler: function ( direction) {
                 if(direction=="down")$(".back-to-top").addClass("force-opacity");
@@ -217,12 +209,17 @@ var Kilix = {
                 }, 'slow');
             });
 
+            var slide = $('.❤');
+            slide.waypoint({
+                handler: function ( direction) {
+                    var color = Kilix.colors[$(this).data('color')];
+                    Kilix.changeXColor($('.logo svg polygon'), color);
+                },
+                offset: '25%'
+            });
+
             $('.svg-valeur').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
-                if(direction=='up'){
-                    Kilix.changeXColor($('.logo svg polygon'), 'none');
-                    $('.navbar').attr('style','');
-                }
             }, { offset: '100px' });
 
             // Start Risk Waypoint
@@ -276,20 +273,28 @@ var Kilix = {
             $('.svg-risque').waypoint('destroy');
             $('.landing-main-text').off();
             $('.next-section').off();
-            $('.navbar').addClass('navbar-top');       
+            $('.navbar').addClass('navbar-top');  
+            Kilix.changeXColor($('.logo svg polygon'), 'none');     
         }
     },
 
     agilite: {
         init: function(){
+
+            $('.landing h1').on('click',function(){
+                $('html, body').animate({  
+                    scrollTop:$(".content").offset().top - 100    
+                }, 'slow');
+            });
+
             $('.content').waypoint(function(direction) {
-                console.log(direction);
                 $('.navbar').toggleClass('navbar-top');
-            }, { offset: '200px' });
+            }, { offset: '100px' });
             console.log('Init AGILITY');
         },
         destroy: function(){
             console.log('Destroy AGILITY');
+            $('.landing h1').off();
             $('.navbar').addClass('navbar-top');
             $('.content').waypoint('destroy');  
         }
