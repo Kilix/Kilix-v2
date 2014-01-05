@@ -133,6 +133,11 @@ var Kilix = {
 			}
 			,605);
 		});
+        $('.back-to-top').on('click',function(){
+            $('html, body').animate({  
+                scrollTop:0   
+            }, 'slow');
+        });
     },
 
     wayPoints: function(){
@@ -144,6 +149,13 @@ var Kilix = {
                 Kilix.changeXColor($('.logo svg polygon'), color);
             },
             offset: '25%'
+        });
+        $('footer').waypoint({
+            handler: function ( direction) {
+                if(direction=="down")$(".back-to-top").addClass("force-opacity");
+                else $(".back-to-top").removeClass('force-opacity');
+            },
+            offset: 'bottom-in-view'
         });
     },
 
@@ -173,6 +185,13 @@ var Kilix = {
         }
     },
 
+    loadKilixSvg: function(){
+        var s = Snap("#KILIX-logo");
+        Snap.load("./assets/img/logo_big.svg", function(f) {
+            s.append(f.select("#kilixSvg"));
+        });
+    },
+
     animations:{
    	    //Prototyped by animations-*.js
     },
@@ -181,9 +200,20 @@ var Kilix = {
     /* -- PAGES -- */
     home: {
         init: function(){
-            $('.landing-button').on('click',function(){
+
+            Kilix.loadKilixSvg();
+
+            var offsetSvgAnim = '25%';
+
+            $('.landing-main-text').on('click',function(){
                 $('html, body').animate({  
-                    scrollTop:750  
+                    scrollTop:$(".svg-valeur").offset().top - 100    
+                }, 'slow');
+            });
+
+            $('.next-section').on('click',function(){
+                $('html, body').animate({  
+                    scrollTop:$(this).closest(".❤").next().offset().top - 100  
                 }, 'slow');
             });
 
@@ -193,7 +223,7 @@ var Kilix = {
                     Kilix.changeXColor($('.logo svg polygon'), 'none');
                     $('.navbar').attr('style','');
                 }
-            }, { offset: '200px' });
+            }, { offset: '100px' });
 
             // Start Risk Waypoint
             var risqueInit = false;
@@ -202,7 +232,7 @@ var Kilix = {
                     Kilix.animations['risques'].start();
                 }
                 risqueInit = true;
-            }, { offset: '65%' });
+            }, { offset: offsetSvgAnim });
 
             // Stop Risk Waypoint
             // $('.svg-risque').waypoint(function(direction) {
@@ -217,7 +247,7 @@ var Kilix = {
                     Kilix.animations['valeur'].start();
                 }
                 valueInit = true;
-            }, { offset: '65%' });
+            }, { offset: offsetSvgAnim });
 
             // Stop Value Waypoint
             // $('.svg-valeur').waypoint(function(direction) {
@@ -230,7 +260,7 @@ var Kilix = {
                     Kilix.animations['amelioration'].start();
                 }
                 amelioInit = true;
-            }, { offset: '65%' });
+            }, { offset: offsetSvgAnim });
 
             // Stop Amelio Waypoint
             // $('.svg-amelioration').waypoint(function(direction) {
@@ -244,7 +274,8 @@ var Kilix = {
             $('.svg-valeur').waypoint('destroy');
             $('.svg-amelio').waypoint('destroy');
             $('.svg-risque').waypoint('destroy');
-            $('.landing-next-section-back, .landing-next-section-arrow').off();
+            $('.landing-main-text').off();
+            $('.next-section').off();
             $('.navbar').addClass('navbar-top');       
         }
     },
