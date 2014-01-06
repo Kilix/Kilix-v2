@@ -50,15 +50,6 @@ function moveTop(element, px, duration, delay, callback) {
   }
 }
 
-function raisePiece(element, px, duration, delay, callback) {
-
-  element.animate({transform: 't'+[0, px]}, duration);
-
-    if (delay != 'undefined' && typeof callback !== 'undefined') {
-    window.setTimeout(callback, delay);
-  }
-}
-
 // Move element with a boune
 function moveWithBounce(element, xAxis, yAxis, px, duration, delay, callback) {
 
