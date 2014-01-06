@@ -148,7 +148,7 @@ var Kilix = {
     wayPoints: function(){
 
         $('footer').waypoint({
-            handler: function ( direction) {
+            handler: function (direction) {
                 if(direction=="down")$(".back-to-top").addClass("force-opacity");
                 else $(".back-to-top").removeClass('force-opacity');
             },
@@ -204,13 +204,13 @@ var Kilix = {
 
             $('.landing-main-text').on('click',function(){
                 $('html, body').animate({  
-                    scrollTop:$(".svg-valeur").offset().top - 100    
+                    scrollTop:$(".svg-valeur").offset().top - 90
                 }, 'slow');
             });
 
             $('.next-section').on('click',function(){
                 $('html, body').animate({  
-                    scrollTop:$(this).closest(".❤").next().offset().top - 100  
+                    scrollTop:$(this).closest(".❤").next().offset().top - 90
                 }, 'slow');
             });
 
