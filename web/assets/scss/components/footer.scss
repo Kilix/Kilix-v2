@@ -1,0 +1,60 @@
+
+/*FOOTER*/
+.footer-contact{
+
+	background: url('../img/bg-footer.jpg') #39444e;
+	background-size:cover;
+	text-align:center;
+	position:relative; z-index:1;
+
+	q{
+		display: block;
+		font-size:rem-calc(30);
+		line-height: rem-calc(40);
+		margin: 1em 0;
+		text-align: center;
+		padding: 0 1em;
+		font-family: Ubuntu;
+		color:white;
+
+		@media #{$medium-up} {
+			font-size:rem-calc(48);
+			line-height: rem-calc(60);
+			margin: 2.5em 0 1em;
+			padding: 0 2em;
+		}
+	}
+
+}
+
+
+footer{
+
+	background: #202529;
+	text-align: center;
+	padding: 2rem 0;
+	position: relative;
+	z-index: 5;
+
+	&:hover .copyright i:before{
+		content: attr(data-text); 
+		color: #7E7E7E;
+		font-family: Source Sans Pro;
+		width: 114px;
+	}
+
+	.copyright{
+		font-size: rem-calc(18);
+		color: #7E7E7E;
+		font-weight: 400;
+		line-height: 22px;
+
+		i{ color:$col4; 
+			&:before{
+				transition:width 1s,color 1s;
+				width: 18px;
+				display: inline-block;
+			}
+		}
+	}
+}

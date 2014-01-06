@@ -4,8 +4,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Kilix V2</title>
-		<!-- TODO : A changer quand le site sera finalisé -->
-		<link rel="stylesheet" href="http://i.icomoon.io/public/temp/7ddd5eacdd/Kilix/style.css">
   		<link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" media="all"/>
   		<script src="assets/js/vendor/modernizr.min.js"></script>
 	</head>
@@ -27,6 +25,9 @@
 					<a class='nav-link {% if page == 'agilite' %}current{% endif %}' href="/agilite" data-pos="3">Agilite</a>
 					<a class='nav-link {% if page == 'contact' %}current{% endif %}' href="/contact" data-pos="4">Contact</a>
 				</div>
+				<div class="back-to-top show-for-medium-up">
+					<i class="icon-arrow-up"></i>
+				</div>
 			</div>
 		</nav>
 		<div class='site-wrapper clearfix'>
@@ -37,7 +38,7 @@
 		  	</div>
 		</div>
 		<footer>
-			<div class="copyright">Kilix est une marque de la société Extia</div>
+			<div class="copyright">Kilix <i class="icon-heart" data-text="est une société"></i> extia <br>Tous droits réservés Copyright © 2014 Kilix</div>
 		</footer>
 		<!-- TODO : Par la suite le fichier mix.js générera le min.js -->
   		{% include "scripts-debug.html.twig" %}
