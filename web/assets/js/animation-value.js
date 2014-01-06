@@ -21,9 +21,9 @@ Kilix.animations['valeur'] = {
               kart = null,
               delay = 50,
               duration = 500
-              topTransDuration = 100,
+              topTransDuration = 200,
               topTransValue = -40,
-              topTransDelay = 50,
+              topTransDelay = 100,
               scatterDuration = 500;
 
       Kilix.animations['valeur'].valueAnimStatus = false;
@@ -153,11 +153,6 @@ Kilix.animations['valeur'] = {
                       bounce(elements['roueFrontRight'], duration, delay, function() {
                         bounce(elements['carenageFront'], duration, delay, function() {
                           bounce(elements['janteBackLeft'], duration, delay, function() {
-
-                            // STEP 2, we change color of kart elements ...
-                            for (var element in greenElements) {
-                              greenElements[element].animate({'fill-opacity': 0.4}, 400);
-                            };
                             bounce(elements['phare2'], duration, delay, function() {
                               bounce(elements['janteFrontRight'], duration, delay, function() {
                                 bounce(elements['aileron'], duration, delay, function() {
@@ -165,13 +160,7 @@ Kilix.animations['valeur'] = {
                                     bounce(elements['janteFrontLeft'], duration, delay, function() {
                                       bounce(elements['janteBackRight'], duration, delay, function() {
                                         bounceAllElements(elements['moteur'].selectAll("g"), 600, 700, function() {
-                                          move(elements['moteur'], 'left', 'top', 600, scatterDuration-100, 100, function() {
-                                            elements['moteur'].animate({'fill-opacity': 0}, duration);
-                                            var engineGroups = elements['moteur'].selectAll("g");
-                                            for (var i = engineGroups.length - 1; i >= 0; i--) {
-                                              engineGroups[i].animate({'fill-opacity': 0}, duration);
-                                            };
-                                          }, mina.backin);
+                                          
                                         });
                                         bounce(elements['moteur'], duration, 600, function() {
 
@@ -198,43 +187,62 @@ Kilix.animations['valeur'] = {
 
     function showValuablePiecesAndCreateKart() {
 
-      // ... and we scatter elements
-      move(elements['janteBackLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-      move(elements['janteFrontRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-      move(elements['aileron'], 'left', 'top', 600, scatterDuration-100, 100, 'undefined', mina.backin);
-      move(elements['janteFrontLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-      move(elements['janteBackRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-      move(elements['phare2'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-      move(elements['phare1'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-      move(elements['klaxon'], 'right', 'bot', 700, scatterDuration, 100, function() {
+      
 
-        // STEP 3, we built the kart and change position of elements, translation on top
-        window.setTimeout(function() {
+          // STEP 3, we built the kart and change position of elements, translation on top
+          window.setTimeout(function() {
 
-          raisePiece(greenElements['siege'], topTransValue, topTransDuration);
-          raisePiece(elements['siege'], topTransValue, topTransDuration, topTransDelay, function() {
-            raisePiece(greenElements['carenageLeft'], topTransValue, topTransDuration);
-            raisePiece(elements['carenageLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-              raisePiece(greenElements['roueBackLeft'], topTransValue, topTransDuration);
-              raisePiece(elements['roueBackLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                raisePiece(greenElements['roueFrontRight'], topTransValue, topTransDuration);
-                raisePiece(elements['roueFrontRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                  raisePiece(greenElements['roueFrontLeft'], topTransValue, topTransDuration);
-                  raisePiece(elements['roueFrontLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                    raisePiece(greenElements['carenageRight'], topTransValue, topTransDuration);
-                    raisePiece(elements['carenageRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                      raisePiece(greenElements['roueBackRight'], topTransValue, topTransDuration);
-                      raisePiece(elements['roueBackRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                        raisePiece(greenElements['moteurElec'], topTransValue, topTransDuration);
-                        raisePiece(elements['moteurElec'], topTransValue, topTransDuration, topTransDelay, function() {
-                          raisePiece(greenElements['carenageFront'], topTransValue, topTransDuration);
-                          raisePiece(elements['carenageFront'], topTransValue, topTransDuration, topTransDelay, function() {
-                            for (var element in greenElements) {
-                              greenElements[element].animate({'fill-opacity': 0}, 100);
-                            }
+            raiseColouredElement(greenElements['siege'], topTransValue, topTransDuration);
+            raisePiece(elements['siege'], topTransValue, topTransDuration, topTransDelay, function() {
+              raiseColouredElement(greenElements['carenageLeft'], topTransValue, topTransDuration);
+              raisePiece(elements['carenageLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+                raiseColouredElement(greenElements['roueBackLeft'], topTransValue, topTransDuration);
+                raisePiece(elements['roueBackLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+                  raiseColouredElement(greenElements['roueFrontRight'], topTransValue, topTransDuration);
+                  raisePiece(elements['roueFrontRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                    raiseColouredElement(greenElements['roueFrontLeft'], topTransValue, topTransDuration);
+                    raisePiece(elements['roueFrontLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+                      raiseColouredElement(greenElements['carenageRight'], topTransValue, topTransDuration);
+                      raisePiece(elements['carenageRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                        raiseColouredElement(greenElements['roueBackRight'], topTransValue, topTransDuration);
+                        raisePiece(elements['roueBackRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                          raiseColouredElement(greenElements['moteurElec'], topTransValue, topTransDuration);
+                          raisePiece(elements['moteurElec'], topTransValue, topTransDuration, topTransDelay, function() {
+                            raiseColouredElement(greenElements['carenageFront'], topTransValue, topTransDuration);
+                            raisePiece(elements['carenageFront'], topTransValue, topTransDuration, topTransDelay, function() {
 
-                            // STEP 4
-                            animatePilotAndWheel();
+                              window.setTimeout(function () {
+
+                                move(elements['moteur'], 'left', 'top', 600, scatterDuration-100, 100, function() {
+                                  elements['moteur'].animate({'fill-opacity': 0}, duration);
+                                  var engineGroups = elements['moteur'].selectAll("g");
+                                  for (var i = engineGroups.length - 1; i >= 0; i--) {
+                                    engineGroups[i].animate({'fill-opacity': 0}, duration);
+                                  };
+                                }, mina.backin);
+
+                                // ... and we scatter elements
+                                move(elements['janteBackLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
+                                move(elements['janteFrontRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                                move(elements['aileron'], 'left', 'top', 600, scatterDuration-100, 100, 'undefined', mina.backin);
+                                move(elements['janteFrontLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
+                                move(elements['janteBackRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                                move(elements['phare2'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                                move(elements['phare1'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                                move(elements['klaxon'], 'right', 'bot', 700, scatterDuration, 800, function () {
+
+                                  for (var element in greenElements) {
+                                    greenElements[element].animate({'fill-opacity': 0}, 100);
+                                  }
+
+                                  // STEP 4
+                                  animatePilotAndWheel();
+
+                                }, mina.backin);
+                                
+
+                              }, 500);
+                            });
                           });
                         });
                       });
@@ -243,11 +251,7 @@ Kilix.animations['valeur'] = {
                 });
               });
             });
-          });
-        }, 700); // STEP - 3
-
-      }, mina.backin);
-
+          }, 300); // STEP - 3
     } // STEP - 2
 
     function animatePilotAndWheel() {
@@ -387,6 +391,19 @@ Kilix.animations['valeur'] = {
       if (delay != 'undefined' && typeof callback !== 'undefined') {
         window.setTimeout(callback, delay);
       }
+    }
+
+    function raisePiece(element, px, duration, delay, callback) {
+
+      element.animate({transform: 't'+[0, px]}, duration);
+
+        if (delay != 'undefined' && typeof callback !== 'undefined') {
+        window.setTimeout(callback, delay);
+      }
+    }
+
+    function raiseColouredElement(element, px, duration) {
+      element.animate({transform: 't'+[0, px], 'fill-opacity': 0.4}, duration);
     }
   }
 }
