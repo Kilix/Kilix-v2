@@ -45,7 +45,7 @@ var Kilix = {
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
             slideNext = newPos>currentPos ? true : false;
-            $(".nav-links-wrapper").addClass('disabled');
+            // $(".nav-links-wrapper").addClass('disabled');
             $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
@@ -56,7 +56,7 @@ var Kilix = {
                     $(".wrapper:first-child").remove();
                     $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
-                    $(".nav-links-wrapper").removeClass('disabled');
+                    $(".nav-links-wrapper a").addClass('enabled');
                     Pos = $(".container").data('pos');
                 });
 
@@ -79,7 +79,12 @@ var Kilix = {
             updateContent(State);
         });
 
-        $(".nav-links-wrapper a").on("click", function(evt) {
+        $(".nav-links-wrapper a.enabled").on("click", function(evt) {
+            evt.preventDefault();
+            if(!$(this).hasClass('enabled')) {
+                return;
+            }
+            $(".nav-links-wrapper a").removeClass('enabled');
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
