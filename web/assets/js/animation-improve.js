@@ -132,6 +132,7 @@ Kilix.animations["amelioration"] = {
           setTimeout(function(){
             bounce(elementsFormula['pilote'], 200, delay);
             elementsKart['pilote'].attr({'fill-opacity': 0});
+            elementsKart['siege'].attr({'fill-opacity': 0});
             bounce(elementsFormula['carrosserie'], duration, 100, function() {
               bounce(elementsFormula['siege'], duration, 100, function() {
                 bounce(elementsFormula['aileronFront'], duration, 100, function() {
@@ -139,7 +140,7 @@ Kilix.animations["amelioration"] = {
                     bounce(elementsFormula['aileronBack'], duration, 1000, function() {
                       Kilix.animations['amelioration'].animStatus = true;
                     });
-                    elementsKart['siege'].attr({'fill-opacity': 0});
+                    
                   });
                 });
               });
