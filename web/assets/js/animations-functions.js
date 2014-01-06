@@ -12,7 +12,7 @@ function move(element, xAxis, yAxis, px, duration, delay, callback, anim) {
     element.animate({transform: matrix.toTransformString()}, duration, anim);
   }
   else {
-    element.animate({transform: "t"+[x, y]}, duration);
+    element.animate({transform: "t"+[x, y]}, duration, anim);
   }
 
   if (delay != 'undefined' && typeof callback !== 'undefined') {
