@@ -257,6 +257,7 @@ var Kilix = {
 
             // Start Amelio Waypoint
             var amelioInit = false;
+            Kilix.animations['amelioration'].setAnimStatus(true);
             $('.svg-amelio').waypoint(function(direction) {
                 if(amelioInit == false) {
                     Kilix.animations['amelioration'].start();
