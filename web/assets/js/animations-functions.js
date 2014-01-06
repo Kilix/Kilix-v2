@@ -12,7 +12,7 @@ function move(element, xAxis, yAxis, px, duration, delay, callback, anim) {
     element.animate({transform: matrix.toTransformString()}, duration, anim);
   }
   else {
-    element.animate({transform: "t"+[x, y]}, duration);
+    element.animate({transform: "t"+[x, y]}, duration, anim);
   }
 
   if (delay != 'undefined' && typeof callback !== 'undefined') {
@@ -47,15 +47,6 @@ function moveTop(element, px, duration, delay, callback) {
   }
   else {
     element.animate({transform: "t"+[0, y-px]}, duration);
-  }
-}
-
-function raisePiece(element, px, duration, delay, callback) {
-
-  element.animate({transform: 't'+[0, px]}, duration);
-
-    if (delay != 'undefined' && typeof callback !== 'undefined') {
-    window.setTimeout(callback, delay);
   }
 }
 
