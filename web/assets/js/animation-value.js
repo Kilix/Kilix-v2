@@ -15,7 +15,7 @@ Kilix.animations['valeur'] = {
 
     var s = Snap("#VALEUR-dispatch"),
               elements = new Array(),
-              greenElements = new Array(),
+              colouredElements = new Array(),
               kartElements = new Array(),
               intervalEvents = new Array(),
               kart = null,
@@ -63,9 +63,9 @@ Kilix.animations['valeur'] = {
           s.append(elements[element]);
         }
 
-        for (var element in greenElements) {
-          greenElements[element].attr({'fill-opacity': 0});
-          s.append(greenElements[element]);
+        for (var element in colouredElements) {
+          colouredElements[element].attr({'fill-opacity': 0});
+          s.append(colouredElements[element]);
         }
         valueAnimationBootstrap();
       });
@@ -92,15 +92,15 @@ Kilix.animations['valeur'] = {
       elements['janteBackRight'] = file.select("#dispatch-jante-back-right"),
       elements['janteFrontRight'] = file.select("#dispatch-jante-front-right");
 
-      greenElements['carenageRight'] = file.select('#dispatch-carenage-right-vert');
-      greenElements['carenageLeft'] = file.select('#dispatch-carenage-left-vert');
-      greenElements['siege'] = file.select('#dispatch-siege-vert');
-      greenElements['roueBackLeft'] = file.select('#dispatch-roue-back-left-vert');
-      greenElements['roueFrontLeft'] = file.select('#dispatch-roue-front-left-vert');
-      greenElements['roueBackRight'] = file.select('#dispatch-roue-back-right-vert');
-      greenElements['roueFrontRight'] = file.select('#dispatch-roue-front-right-vert');
-      greenElements['moteurElec'] = file.select('#dispatch-moteur-elec-green');
-      greenElements['carenageFront'] = file.select('#dispatch-carenage-front-vert');
+      colouredElements['carenageRight'] = file.select('#dispatch-carenage-right-vert');
+      colouredElements['carenageLeft'] = file.select('#dispatch-carenage-left-vert');
+      colouredElements['siege'] = file.select('#dispatch-siege-vert');
+      colouredElements['roueBackLeft'] = file.select('#dispatch-roue-back-left-vert');
+      colouredElements['roueFrontLeft'] = file.select('#dispatch-roue-front-left-vert');
+      colouredElements['roueBackRight'] = file.select('#dispatch-roue-back-right-vert');
+      colouredElements['roueFrontRight'] = file.select('#dispatch-roue-front-right-vert');
+      colouredElements['moteurElec'] = file.select('#dispatch-moteur-elec-green');
+      colouredElements['carenageFront'] = file.select('#dispatch-carenage-front-vert');
     }
 
     function getKartElements(file) {
@@ -187,63 +187,58 @@ Kilix.animations['valeur'] = {
 
     function showValuablePiecesAndCreateKart() {
 
-      
+      // STEP 3, we built the kart and change position of elements, translation on top
+      window.setTimeout(function() {
 
-          // STEP 3, we built the kart and change position of elements, translation on top
-          window.setTimeout(function() {
+        raiseColouredElement(colouredElements['siege'], topTransValue, topTransDuration);
+        raisePiece(elements['siege'], topTransValue, topTransDuration, topTransDelay, function() {
+          raiseColouredElement(colouredElements['carenageLeft'], topTransValue, topTransDuration);
+          raisePiece(elements['carenageLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+            raiseColouredElement(colouredElements['roueBackLeft'], topTransValue, topTransDuration);
+            raisePiece(elements['roueBackLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+              raiseColouredElement(colouredElements['roueFrontRight'], topTransValue, topTransDuration);
+              raisePiece(elements['roueFrontRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                raiseColouredElement(colouredElements['roueFrontLeft'], topTransValue, topTransDuration);
+                raisePiece(elements['roueFrontLeft'], topTransValue, topTransDuration, topTransDelay, function() {
+                  raiseColouredElement(colouredElements['carenageRight'], topTransValue, topTransDuration);
+                  raisePiece(elements['carenageRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                    raiseColouredElement(colouredElements['roueBackRight'], topTransValue, topTransDuration);
+                    raisePiece(elements['roueBackRight'], topTransValue, topTransDuration, topTransDelay, function() {
+                      raiseColouredElement(colouredElements['moteurElec'], topTransValue, topTransDuration);
+                      raisePiece(elements['moteurElec'], topTransValue, topTransDuration, topTransDelay, function() {
+                        raiseColouredElement(colouredElements['carenageFront'], topTransValue, topTransDuration);
+                        raisePiece(elements['carenageFront'], topTransValue, topTransDuration, topTransDelay, function() {
 
-            raiseColouredElement(greenElements['siege'], topTransValue, topTransDuration);
-            raisePiece(elements['siege'], topTransValue, topTransDuration, topTransDelay, function() {
-              raiseColouredElement(greenElements['carenageLeft'], topTransValue, topTransDuration);
-              raisePiece(elements['carenageLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                raiseColouredElement(greenElements['roueBackLeft'], topTransValue, topTransDuration);
-                raisePiece(elements['roueBackLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                  raiseColouredElement(greenElements['roueFrontRight'], topTransValue, topTransDuration);
-                  raisePiece(elements['roueFrontRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                    raiseColouredElement(greenElements['roueFrontLeft'], topTransValue, topTransDuration);
-                    raisePiece(elements['roueFrontLeft'], topTransValue, topTransDuration, topTransDelay, function() {
-                      raiseColouredElement(greenElements['carenageRight'], topTransValue, topTransDuration);
-                      raisePiece(elements['carenageRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                        raiseColouredElement(greenElements['roueBackRight'], topTransValue, topTransDuration);
-                        raisePiece(elements['roueBackRight'], topTransValue, topTransDuration, topTransDelay, function() {
-                          raiseColouredElement(greenElements['moteurElec'], topTransValue, topTransDuration);
-                          raisePiece(elements['moteurElec'], topTransValue, topTransDuration, topTransDelay, function() {
-                            raiseColouredElement(greenElements['carenageFront'], topTransValue, topTransDuration);
-                            raisePiece(elements['carenageFront'], topTransValue, topTransDuration, topTransDelay, function() {
+                          window.setTimeout(function () {
 
-                              window.setTimeout(function () {
+                            move(elements['moteur'], 'left', 'top', 600, scatterDuration-100, 100, function() {
+                              elements['moteur'].animate({'fill-opacity': 0}, duration);
+                              var engineGroups = elements['moteur'].selectAll("g");
+                              for (var i = engineGroups.length - 1; i >= 0; i--) {
+                                engineGroups[i].animate({'fill-opacity': 0}, duration);
+                              };
+                            }, mina.backin);
 
-                                move(elements['moteur'], 'left', 'top', 600, scatterDuration-100, 100, function() {
-                                  elements['moteur'].animate({'fill-opacity': 0}, duration);
-                                  var engineGroups = elements['moteur'].selectAll("g");
-                                  for (var i = engineGroups.length - 1; i >= 0; i--) {
-                                    engineGroups[i].animate({'fill-opacity': 0}, duration);
-                                  };
-                                }, mina.backin);
+                            // ... and we scatter elements
+                            move(elements['janteBackLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteFrontRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['aileron'], 'left', 'top', 600, scatterDuration-100, 100, 'undefined', mina.backin);
+                            move(elements['janteFrontLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteBackRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['phare2'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['phare1'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['klaxon'], 'right', 'bot', 700, scatterDuration, 800, function () {
 
-                                // ... and we scatter elements
-                                move(elements['janteBackLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-                                move(elements['janteFrontRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                                move(elements['aileron'], 'left', 'top', 600, scatterDuration-100, 100, 'undefined', mina.backin);
-                                move(elements['janteFrontLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-                                move(elements['janteBackRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                                move(elements['phare2'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                                move(elements['phare1'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                                move(elements['klaxon'], 'right', 'bot', 700, scatterDuration, 800, function () {
+                              for (var element in colouredElements) {
+                                colouredElements[element].animate({'fill-opacity': 0}, 100);
+                              }
 
-                                  for (var element in greenElements) {
-                                    greenElements[element].animate({'fill-opacity': 0}, 100);
-                                  }
+                              // STEP 4
+                              animatePilotAndWheel();
 
-                                  // STEP 4
-                                  animatePilotAndWheel();
-
-                                }, mina.backin);
-                                
-
-                              }, 500);
-                            });
-                          });
+                            }, mina.backin);
+                            
+                          }, 500);
                         });
                       });
                     });
@@ -251,7 +246,9 @@ Kilix.animations['valeur'] = {
                 });
               });
             });
-          }, 300); // STEP - 3
+          });
+        });
+      }, 300); // STEP - 3
     } // STEP - 2
 
     function animatePilotAndWheel() {
@@ -365,8 +362,8 @@ Kilix.animations['valeur'] = {
         kartElements[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
       }
 
-      for (var element in greenElements) {
-        greenElements[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
+      for (var element in colouredElements) {
+        colouredElements[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
       };
 
       for (var element in elements) {
