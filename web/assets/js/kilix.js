@@ -1,5 +1,13 @@
 var Kilix = {
 
+    colors: {
+        col1: '#61AFF0',
+        col2: '#ff4a46',
+        col3: '#009884',
+        col4: '#e79027',
+        col5: '#087ec2'
+    },
+
     init: function(){
     	Kilix.pushState();
     	Kilix.switchSVG();
@@ -37,7 +45,7 @@ var Kilix = {
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
             slideNext = newPos>currentPos ? true : false;
-            $(".nav-links-wrapper").addClass('disabled');
+            // $(".nav-links-wrapper").addClass('disabled');
             $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
@@ -48,7 +56,7 @@ var Kilix = {
                     $(".wrapper:first-child").remove();
                     $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
-                    $(".nav-links-wrapper").removeClass('disabled');
+                    $(".nav-links-wrapper a").addClass('enabled');
                     Pos = $(".container").data('pos');
                 });
 
@@ -71,7 +79,12 @@ var Kilix = {
             updateContent(State);
         });
 
-        $(".nav-links-wrapper a").on("click", function(evt) {
+        $(".nav-links-wrapper a.enabled").on("click", function(evt) {
+            evt.preventDefault();
+            if(!$(this).hasClass('enabled')) {
+                return;
+            }
+            $(".nav-links-wrapper a").removeClass('enabled');
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
@@ -125,27 +138,94 @@ var Kilix = {
 			}
 			,605);
 		});
+        $('.back-to-top').on('click',function(){
+            $('html, body').animate({  
+                scrollTop:0   
+            }, 'slow');
+        });
     },
 
     wayPoints: function(){
+
+        $('footer').waypoint({
+            handler: function (direction) {
+                if(direction=="down")$(".back-to-top").addClass("force-opacity");
+                else $(".back-to-top").removeClass('force-opacity');
+            },
+            offset: 'bottom-in-view'
+        });
+    },
+
+    changeXColor: function($el, col){
+        if(col!='none'){
+            $('.logo').addClass('animated');
+            setTimeout(function(){
+                $('.logo').removeClass('animated'); 
+            },2000);
+            $el.each(function(i){
+                var poly = $(this);
+                setTimeout(function () {
+                    poly.css('fill',col);
+                }, (i + 1) * 100);
+            });
+        }else{
+            $('.logo').addClass('animated');
+            setTimeout(function(){
+                $('.logo').removeClass('animated'); 
+            },2000);
+            $el.each(function(i){
+                var poly = $(this);
+                setTimeout(function () {
+                    poly.attr('style','');
+                }, (i + 1) * 100);
+            });
+        }
+    },
+
+    loadKilixSvg: function(){
+        var s = Snap("#KILIX-logo");
+        Snap.load("./assets/img/logo_big.svg", function(f) {
+            s.append(f.select("#kilixSvg"));
+        });
     },
 
     animations:{
-    	//Prototyped by animations-*.js
-
+   	    //Prototyped by animations-*.js
     },
 
+
+    /* -- PAGES -- */
     home: {
         init: function(){
-            $('.landing-button').on('click',function(){
+
+            Kilix.loadKilixSvg();
+
+            var offsetSvgAnim = '25%';
+
+            $('.landing-main-text').on('click',function(){
                 $('html, body').animate({  
-                    scrollTop:750  
-                }, 'slow'); 
+                    scrollTop:$(".svg-valeur").offset().top - 90
+                }, 'slow');
+            });
+
+            $('.next-section').on('click',function(){
+                $('html, body').animate({  
+                    scrollTop:$(this).closest(".❤").next().offset().top - 90
+                }, 'slow');
+            });
+
+            var slide = $('.❤');
+            slide.waypoint({
+                handler: function ( direction) {
+                    var color = Kilix.colors[$(this).data('color')];
+                    Kilix.changeXColor($('.logo svg polygon'), color);
+                },
+                offset: '25%'
             });
 
             $('.svg-valeur').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
-            }, { offset: '200px' });
+            }, { offset: '100px' });
 
             // Start Risk Waypoint
             var risqueInit = false;
@@ -154,7 +234,7 @@ var Kilix = {
                     Kilix.animations['risques'].start();
                 }
                 risqueInit = true;
-            }, { offset: '65%' });
+            }, { offset: offsetSvgAnim });
 
             // Stop Risk Waypoint
             // $('.svg-risque').waypoint(function(direction) {
@@ -169,7 +249,7 @@ var Kilix = {
                     Kilix.animations['valeur'].start();
                 }
                 valueInit = true;
-            }, { offset: '65%' });
+            }, { offset: offsetSvgAnim });
 
             // Stop Value Waypoint
             // $('.svg-valeur').waypoint(function(direction) {
@@ -182,7 +262,7 @@ var Kilix = {
                     Kilix.animations['amelioration'].start();
                 }
                 amelioInit = true;
-            }, { offset: '65%' });
+            }, { offset: offsetSvgAnim });
 
             // Stop Amelio Waypoint
             // $('.svg-amelioration').waypoint(function(direction) {
@@ -196,21 +276,30 @@ var Kilix = {
             $('.svg-valeur').waypoint('destroy');
             $('.svg-amelio').waypoint('destroy');
             $('.svg-risque').waypoint('destroy');
-            $('.landing-next-section-back, .landing-next-section-arrow').off();
-            $('.navbar').addClass('navbar-top');       
+            $('.landing-main-text').off();
+            $('.next-section').off();
+            $('.navbar').addClass('navbar-top');  
+            Kilix.changeXColor($('.logo svg polygon'), 'none');     
         }
     },
 
     agilite: {
         init: function(){
+
+            $('.landing h1').on('click',function(){
+                $('html, body').animate({  
+                    scrollTop:$(".content").offset().top - 100    
+                }, 'slow');
+            });
+
             $('.content').waypoint(function(direction) {
-                console.log(direction);
                 $('.navbar').toggleClass('navbar-top');
-            }, { offset: '200px' });
+            }, { offset: '100px' });
             console.log('Init AGILITY');
         },
         destroy: function(){
             console.log('Destroy AGILITY');
+            $('.landing h1').off();
             $('.navbar').addClass('navbar-top');
             $('.content').waypoint('destroy');  
         }
