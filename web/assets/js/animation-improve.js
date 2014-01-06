@@ -24,9 +24,13 @@ Kilix.animations["amelioration"] = {
           getKartElement(f);
 
           for (var element in elementsKart) {
+            elementsKart[element].attr({'fill-opacity': 0});
             s.append(elementsKart[element]);
-            elementsKart[element].attr({transform:"t0,0"});
           }
+          for (var element in elementsKart) {
+            elementsKart[element].animate({'fill-opacity': 1}, 800);
+          }
+
         });
 
         Snap.load("./assets/img/svg/kilix_anim_amelio_f1.svg", function(f) {
@@ -71,7 +75,8 @@ Kilix.animations["amelioration"] = {
       function resetImproveAnimation() {
         move(formulaOne, 'right', 'bot', 1500, 1000, 2000, function() {
           for (var element in elementsKart) {
-            elementsKart[element].attr({transform: 't'+[0, 0], 'fill-opacity': 1});
+            elementsKart[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
+            elementsKart[element].animate({'fill-opacity': 1}, 700);
           }
 
           for (var element in elementsFormula) {
