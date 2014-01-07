@@ -28,7 +28,15 @@
 					<p>Parce que votre Time-to-Market est notre première priorité : Valorisez vos besoins, et reprenez le contrôle de vos projets. Ensemble, développons avant tout ce qui compte vraiment.</p>
 				</div>
 				<div class="large-6 medium-7 columns">
-					<svg id="VALEUR-dispatch" x="0px" y="0px" viewBox="0 0 1400 700"></svg>		
+					{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/value-tablet.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/value-phone.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="VALEUR-dispatch" x="0px" y="0px" viewBox="0 0 1400 700"></svg>
+					{% endif %}					
 				</div>
 
 				<a class='next-section'>
@@ -44,8 +52,17 @@
 					<p>Plus que jamais, l’imprévisible est toujours le pire ennemi du projet. C’est en anticipant conjointement les futurs écueils que nous protégeons vos projets afin d’en assurer leur totale réussite.</p>
 				</div>
 				<div class="large-6 large-pull-6 medium-7  columns">
-					<svg id="RISK-dispatch" x="0px" y="0px" viewBox="600 100 800 600">
-    				</svg>
+					{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/risk-tablet.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/risk-phone.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="RISK-dispatch" x="0px" y="0px" viewBox="600 100 800 600">
+    					</svg>
+					{% endif %}
+					
 				</div>
 				<a class='next-section'>
 					<i class="icon-arrow-down4"> </i>
@@ -63,7 +80,15 @@
 					<p>Tous les projets sont différents. Nous profitons de cette diversité pour apprendre continuellement et toujours viser l’excellence. Ainsi, nous mettons à profit ces retours d’expérience au service de vos produits.</p>
 				</div>
 				<div class="large-8 medium-7 columns">
-					<svg id="AMELIO-transform" x="0px" y="0px" viewBox="0 0 1500 900">
+					{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/amelio-tablet.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/amelio-phone.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="AMELIO-transform" x="0px" y="0px" viewBox="0 0 1500 900">
+					{% endif %}
     				</svg>
 				</div>
 			</div>

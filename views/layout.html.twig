@@ -6,6 +6,13 @@
 		<title>Kilix V2</title>
   		<link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" media="all"/>
   		<script src="assets/js/vendor/modernizr.min.js"></script>
+  		{% if ress.isMobile ==  true %}
+			<style>
+				.svg-anim {
+					background: #fbfbfb;
+				}
+			</style>
+  		{% endif %}
 	</head>
 	<body>
 		<nav class="navbar navbar-top">
