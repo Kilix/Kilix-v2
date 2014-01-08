@@ -75,7 +75,7 @@ $mobile-contact-height: 40;
 		width:rem-calc(63);
 		height:rem-calc(63);
 		text-align: center;
-		line-height: rem-calc(63);
+		line-height: rem-calc(66);
 		overflow: hidden;
 		font-style: normal;
 
@@ -90,7 +90,7 @@ $mobile-contact-height: 40;
 			}
 		}
 		// Hamburger Icon
-		.icon-folded {
+		.ham-folded {
 			display: block;
 			transform:translateY(rem-calc(0));
 			transition:transform .5s ease;	
@@ -105,7 +105,7 @@ $mobile-contact-height: 40;
 		background: #2c313f;
 		position: absolute;
 		width: 100%;
-		bottom: rem-calc(60);
+		bottom: rem-calc(63);
 		transform: rotateX(87.5deg);
 		transform-origin:100% 100%;
 		@media #{$medium-up} {
@@ -126,7 +126,7 @@ $mobile-contact-height: 40;
 				content:" ";
 				position:absolute;
 				top:0; left:0; bottom:0; right: 0;
-				background:rgba(0,0,0,0.2);
+				background:rgba(0,0,0,0.5);
 				z-index:1;
 				transition: all 0.5s;
 				pointer-events:none;

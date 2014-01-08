@@ -8,6 +8,10 @@
 	position:relative; z-index:1;
 	border-bottom: 5px solid rgb(28, 33, 36);
 
+	@media #{$large-up} {
+		background-position: 0 -30px;
+	}
+
 	q{
 		display: block;
 		font-size:rem-calc(30);
