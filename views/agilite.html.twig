@@ -2,53 +2,121 @@
 
 {% block content %} 
 	<div class="container agilite" data-page="agilite">
-		<header class="landing landing-agilite">
+		<header class="landing landing-agilite {% if ress.isMobile ==  false %}desktop{% endif %}">
 			<div class="row">
 				<div class="large-8 columns">
 					<h1>Notre culture : <br> L'agilité. <span></span><i class="icon-arrow-down4"> </i></h1>
 				</div>
 			</div>
 		</header>
-		<section class="push-top content">
+		<section class="push-top content {% if ress.isMobile ==  false %}desktop{% endif %}">
 			<div class="row">
-				<article class="large-12 columns">
-					<h2>Ceci est un titre</h2>
-					<div class="large-3 columns">
+				<article class="large-6 columns agility-item">
+					<h2>Gestion par la Valeur</h2>
+					<div class="large-6 columns">
 						<img src="http://placehold.it/790x500&text=svg" alt="">
 					</div>
-					<div class="large-9 columns">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto inventore culpa at facere quia nisi doloribus dolores praesentium. Id, vero, saepe quasi officia dolores accusantium corrupti delectus! Laboriosam, incidunt, ab? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, voluptas, aperiam, quos, voluptate quidem earum ex nihil deleniti labore sapiente vitae harum possimus impedit nulla suscipit cumque accusantium reiciendis vero!</p>
+					<div class="large-6 columns">
+						<ul>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Maximiser la valeur et par la complexité
+
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Minimiser le temps de réalisation
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Engagement du client
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Itérations courtes
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Optimisation du ROI
+							</li>
+						</ul>
 					</div>
 				</article>
-				<article class="large-12 columns">
-					<h2>Ceci est un titre</h2>
-					<div class="large-3 columns">
+				<article class="large-6 columns agility-item">
+					<h2>Gestion par les Risques</h2>
+					<div class="large-6 columns">
 						<img src="http://placehold.it/790x500&text=svg" alt="">
 					</div>
-					<div class="large-9 columns">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto inventore culpa at facere quia nisi doloribus dolores praesentium. Id, vero, saepe quasi officia dolores accusantium corrupti delectus! Laboriosam, incidunt, ab? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, voluptas, aperiam, quos, voluptate quidem earum ex nihil deleniti labore sapiente vitae harum possimus impedit nulla suscipit cumque accusantium reiciendis vero!</p>
+					<div class="large-6 columns">
+						<ul>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Gestion qualitative et quantitative des risques projet
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Itérations courtes
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Feedback client
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Recette et validation en continue
+							</li>
+						</ul>
 					</div>
 				</article>
-				<article class="large-12 columns">
-					<h2>Ceci est un titre</h2>
-					<div class="large-3 columns">
+			</div>
+			<div class="row">
+				<article class="large-6 columns agility-item">
+					<h2>Adaptabilité</h2>
+					<div class="large-6 columns">
 						<img src="http://placehold.it/790x500&text=svg" alt="">
 					</div>
-					<div class="large-9 columns">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto inventore culpa at facere quia nisi doloribus dolores praesentium. Id, vero, saepe quasi officia dolores accusantium corrupti delectus! Laboriosam, incidunt, ab? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, voluptas, aperiam, quos, voluptate quidem earum ex nihil deleniti labore sapiente vitae harum possimus impedit nulla suscipit cumque accusantium reiciendis vero!</p>
+					<div class="large-6 columns">
+						<ul>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Méthode itérative & incrémentale
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Tolérance aux changements même tard dans le projet
+							</li>
+						</ul>
 					</div>
 				</article>
-				<article class="large-12 columns">
-					<h2>Ceci est un titre</h2>
-					<div class="large-3 columns">
+				<article class="large-6 columns agility-item">
+					<h2>Visibilité</h2>
+					<div class="large-6 columns">
 						<img src="http://placehold.it/790x500&text=svg" alt="">
 					</div>
-					<div class="large-9 columns">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto inventore culpa at facere quia nisi doloribus dolores praesentium. Id, vero, saepe quasi officia dolores accusantium corrupti delectus! Laboriosam, incidunt, ab? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, voluptas, aperiam, quos, voluptate quidem earum ex nihil deleniti labore sapiente vitae harum possimus impedit nulla suscipit cumque accusantium reiciendis vero!</p>
+					<div class="large-6 columns">
+						<ul>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Timebox et activités agiles
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Management visuel (transparence)
+							</li>
+							<li>
+								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Indicateurs probants (burndown et burnup)
+							</li>
+						</ul>
 					</div>
 				</article>
+				
 			</div>	
 		</section>
 		{% include "contact-footer.html.twig" %}
 	</div>
+{% endblock %}
+
+{% block scripts %}
+<script src='agility.js'></script>
 {% endblock %}

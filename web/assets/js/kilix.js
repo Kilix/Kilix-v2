@@ -287,10 +287,26 @@ var Kilix = {
     agilite: {
         init: function(){
 
+            Kilix.switchSVG();
+
             $('.landing h1').on('click',function(){
                 $('html, body').animate({  
                     scrollTop:$(".content").offset().top - 100    
                 }, 'slow');
+            });
+
+            $('.agility-item').waypoint({
+                handler: function ( direction) {
+
+                    if(!$(this).hasClass('checked')) {
+                        $(this).find('li path').each(function(i){
+                            $(this).css('-webkit-transition-delay', i*0.3+'s');
+                        });
+                        $(this).addClass('checked');
+
+                    }
+                },
+                offset: '60%'
             });
 
             $('.content').waypoint(function(direction) {
