@@ -2,3 +2,12 @@
 .landing-agilite{
 	background-image: url('../img/landing-bg-agile.jpg'); background-size: cover;
 }
+
+
+@media #{$medium-only}{
+	 .agility-item {
+	 	.large-6 {
+	 		width: 50%;
+	 	}
+	 }
+}
