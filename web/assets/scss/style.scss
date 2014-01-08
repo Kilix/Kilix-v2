@@ -33,6 +33,12 @@ $large-margin:800;
      35%  { opacity:0.2; }
      to   { opacity:0.05; }
 }
+@keyframes bounce{
+     from {transform: translateY(0);}
+     50%  {transform: translateY(-20px);}
+     to   {transform: translateY(0);}
+}
+
 
 
 /* COMPONENTS */ 
