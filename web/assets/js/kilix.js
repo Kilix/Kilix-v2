@@ -199,6 +199,7 @@ var Kilix = {
         init: function(){
 
             Kilix.loadKilixSvg();
+            Kilix.animations['extia'].loadExtiaSvg();
 
             var offsetSvgAnim = '25%';
 
@@ -257,7 +258,7 @@ var Kilix = {
 
             // Start Amelio Waypoint
             var amelioInit = false;
-            Kilix.animations['amelioration'].setAnimStatus(true);
+            Kilix.animations['amelioration'].setAnimStatus(false);
             $('.svg-amelio').waypoint(function(direction) {
                 if(amelioInit == false) {
                     Kilix.animations['amelioration'].start();
@@ -269,6 +270,19 @@ var Kilix = {
             // $('.svg-amelioration').waypoint(function(direction) {
             // }, { offset: '-'+$('.svg-amelioration').height()+"px" });
             
+            // Start Extia Waypoint
+            var extiaInit = false;
+            Kilix.animations['extia'].setValueAnimStatus(false);
+            $('.svg-extia').waypoint(function(direction) {
+                if(extiaInit == false) {
+                    Kilix.animations['extia'].start();
+                }
+                extiaInit = true;
+            }, { offset: offsetSvgAnim });
+
+            // Stop ExtiaS Waypoint
+            // $('.svg-extia').waypoint(function(direction) {
+            // }, { offset: '-'+$('.svg-extia').height()+"px" });
 
             console.log('Init Home');
         },
