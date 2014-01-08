@@ -183,12 +183,15 @@ a {
 	padding-top: rem-calc(30);
 	width: 100%;
 	z-index:1;
-
-	@media #{$medium-up} {
-		height:rem-calc($medium-margin);
-		padding-top: rem-calc(160);
-		position: fixed; top:0; left:0;	
+	
+	&.desktop {
+			@media #{$medium-up} {
+			height:rem-calc($medium-margin);
+			padding-top: rem-calc(160);
+			position: fixed; top:0; left:0;	
+		}
 	}
+	
 
 	h1{
 		margin:4rem 0;
@@ -214,9 +217,12 @@ a {
 }
 
 .push-top{
-	@media #{$medium-up} {
-		margin-top:rem-calc($medium-margin);
+	&.desktop {
+		@media #{$medium-up} {
+			margin-top:rem-calc($medium-margin);
+		}
 	}
+
 }
 
 .content{
