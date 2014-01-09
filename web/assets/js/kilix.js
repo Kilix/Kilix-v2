@@ -193,7 +193,6 @@ var Kilix = {
    	    //Prototyped by animations-*.js
     },
 
-
     /* -- PAGES -- */
     home: {
         init: function(){
@@ -225,7 +224,7 @@ var Kilix = {
 
             $('.svg-valeur').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
-            }, { offset: '100px' });
+            }, { offset: '400px' });
 
             // Start Risk Waypoint
             var risqueInit = false;
@@ -295,7 +294,7 @@ var Kilix = {
 
             $('.content').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
-            }, { offset: '100px' });
+            }, { offset: '300px' });
             console.log('Init AGILITY');
         },
         destroy: function(){
@@ -306,17 +305,30 @@ var Kilix = {
         }
     },
 
-    contact: {
+    team: {
         init: function(){
-            console.log('Init Contact');
+            console.log('Init Team');
+
+            var offsetSvgAnim = '25%';
+
+            $('.cene').waypoint(function(direction) {
+                $('.navbar').toggleClass('navbar-top');
+            }, { offset: '400px' });
+
+             var teamInit = false;
+            $('.cene').waypoint(function(direction) {
+                if(teamInit == false) {
+                    Kilix.animations['team'].start();
+                }
+                teamInit = true;
+            }, { offset: offsetSvgAnim });
         },
         destroy: function(){
-            console.log('Destroy Contact');
+            console.log('Destroy Team');
+            $('.cene').waypoint('destroy');
         }
-    },
-
-}
-
+    }
+};
 
 $(function(){
     console.log('init');
