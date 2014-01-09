@@ -83,23 +83,27 @@ function bounce(element, duration, delay, callback) {
   }
 }
 
-// Trigger pulse effect on element, pulse the scale
+// Trigger pulse effect on the scale
 function scalePulse(element, scale, duration, delay, callback) {
   var pulseDuration = duration*2;
 
-  setInterval(function() {
+    element.animate({transform:"t0s"+scale}, duration, function() {
+      element.animate({transform:"t0s1"}, duration);
+    });
+
+  var interval = setInterval(function() {
     element.animate({transform:"t0s"+scale}, duration, function() {
       element.animate({transform:"t0s1"}, duration);
     });
   }, pulseDuration)
 
   if (typeof callback !== 'undefined') {
-
     window.setTimeout(callback, delay);
   }
+  return interval;
 }
 
-// Trigger pulse effect on element, pulse the color
+// Trigger pulse effect on the color
 function colorPulse(element, newColor, duration, delay, callback) {
   var pulseDuration = duration*2,
       color = element.attr('fill');
