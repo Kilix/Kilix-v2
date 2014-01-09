@@ -166,6 +166,7 @@
 	svg{
 		width: 100%;
 		height: rem-calc(250);
+		cursor:pointer;
 		
 		@media #{$medium-up}{
 			height: rem-calc(500);
@@ -202,9 +203,19 @@
 			#amelio-kart-gant1, #amelio-kart-gant2, #amelio-f1-gant1, #amelio-f1-gant2{@include colorize($col3);}
 		}
 
-		&#EXTIA{
+		&#EXTIA-animation{
 			@media #{$xlarge-up}{
 				transform:scale(1.2) translateX(-3rem);
+			}
+
+			#fil-valeur, #fil-risque, #fil-amelio{
+				path{
+					animation: movePowerLine 2s linear infinite;
+					stroke-dasharray: 10, 20;
+					stroke-dashoffset: 0;
+					stroke-width: 4;
+					stroke: transparent;
+				}
 			}
 		}
 	}
