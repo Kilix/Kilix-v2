@@ -2,3 +2,54 @@
 .landing-agilite{
 	background-image: url('../img/landing-bg-agile.jpg'); background-size: cover;
 }
+
+.agility-item {
+
+	ul {
+		list-style-type: none;
+
+		li {
+			position: relative;
+			min-height: rem-calc(25);
+			font-size: rem-calc(18);
+			line-height: rem-calc(25);
+			margin-bottom: rem-calc(15);
+		}
+	}
+
+	@media #{$medium-only}{
+		.large-6 {
+			width: 50%;
+		}
+	}
+
+	.checkmark {
+		position: absolute;
+		left: rem-calc(-35);
+		top: rem-calc(2.5);
+		height: rem-calc(20);
+		width: rem-calc(20);
+
+		path {
+			opacity: 0;
+			stroke: #fff;
+			stroke-width: 13px; // les REM ne fonctionnent pas
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			fill: none;
+			stroke-dasharray: rem-calc(126), 126px; 
+			transition: stroke-dashoffset 0.7s ease-in-out, opacity 0.1s ease-in-out ;
+			stroke-dashoffset: 125px;
+		}
+	}	
+
+	&.checked {
+		.checkmark {
+			path {
+				opacity: 1;
+				stroke: #43c747;
+				stroke-dashoffset: 0px;
+			}
+		}
+	}
+}

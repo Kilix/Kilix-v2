@@ -18,6 +18,7 @@ h1{
 	font-weight: normal;
 	font-size: rem-calc(40);
 	line-height: rem-calc(48);
+	margin-top: rem-calc(60);
 
 	@media #{$medium-up} {
 			margin-top: rem-calc(220);
@@ -71,7 +72,7 @@ a {
 	}
 
 	&.button-white{
-		margin-bottom:7rem;
+		margin-bottom:3rem;
 		border: 2px solid #fff;
 		color: white;
 
@@ -182,12 +183,15 @@ a {
 	padding-top: rem-calc(30);
 	width: 100%;
 	z-index:1;
-
-	@media #{$medium-up} {
-		height:rem-calc($medium-margin);
-		padding-top: rem-calc(160);
-		position: fixed; top:0; left:0;	
+	
+	&.desktop {
+			@media #{$medium-up} {
+			height:rem-calc($medium-margin);
+			padding-top: rem-calc(160);
+			position: fixed; top:0; left:0;	
+		}
 	}
+	
 
 	h1{
 		margin:4rem 0;
@@ -213,9 +217,12 @@ a {
 }
 
 .push-top{
-	@media #{$medium-up} {
-		margin-top:rem-calc($medium-margin);
+	&.desktop {
+		@media #{$medium-up} {
+			margin-top:rem-calc($medium-margin);
+		}
 	}
+
 }
 
 .content{
