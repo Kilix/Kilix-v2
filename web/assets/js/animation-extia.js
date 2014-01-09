@@ -6,6 +6,7 @@ extiaAnim = {
   valueAnimStatus: false,
   riskInterval: null,
   powerLinesColor: '#FFFFFF',
+  extiaColor: '#FFCA8B',
   powerLinesduration: 10000,
   powerLinesWidth: 4,
 
@@ -51,7 +52,7 @@ extiaAnim = {
 
     function startAnimation() {
       bounce(extiaAnim.elements['logoExtia'], 700, 700, function() {
-        colorPulse(extiaAnim.elements['logoExtia'], extiaAnim.powerLinesColor, 1000, 700, function() {
+        colorPulse(extiaAnim.elements['logoExtia'], extiaAnim.extiaColor, 600, 700, function() {
           animValue();
         });
       });
@@ -65,23 +66,26 @@ extiaAnim = {
       animValuePowerLine();
 
       setTimeout(function(){
-        bounce(extiaAnim.elements['valeurMini'], 700, 700, function() {
-          extiaAnim.elements['valeurDispatch'].animate({transform: 't0,s0,0'}, 500, function() {
+        bounce(extiaAnim.elements['valeurMini'], 700, 700);
+
+        setTimeout(function(){
+
+          extiaAnim.elements['valeurDispatch'].animate({transform: 't0,s0,0'}, 100, function() {
             bounce(extiaAnim.elements['valeurKart'], 500, 500, function() {
-              animRisk();
+              setTimeout(function(){animRisk();},500);
             });
           });
-        });
+
+        },1000);
+        
       },400);
     }
 
     function animValuePowerLine() {
-      var len = extiaAnim.elements['filValeur'].getTotalLength();
 
-      extiaAnim.elements['filValeur'].attr({strokeDasharray: "10, 20", strokeDashoffset: 0, 'stroke-width': 4, 'stroke': extiaAnim.powerLinesColor});
-      extiaAnim.elements['filValeur'].animate({strokeDashoffset: len}, extiaAnim.powerLinesduration, function() {
-        animValuePowerLine();
-      });
+      $("#fil-valeur path").css({'stroke': extiaAnim.powerLinesColor});
+      setTimeout(function(){animValuePowerLine();},500);
+
     }
 
     /*
@@ -93,12 +97,12 @@ extiaAnim = {
 
       setTimeout(function(){
           bounce(extiaAnim.elements['risquesMini'], 700, 700, function() {
-          extiaAnim.elements['risqueRock'].animate({'fill-opacity': 1}, 800, function() {
+          extiaAnim.elements['risqueRock'].animate({'fill-opacity': 1}, 600, function() {
             bounce(extiaAnim.elements['risquePanneau'], 800);
-            extiaAnim.riskInterval = scalePulse(extiaAnim.elements['risquePanneau'], 1.3, 600, 1000, function() {
-              extiaAnim.elements['risquePointe'].animate({'fill-opacity': 1}, 800);
-              extiaAnim.elements['risqueTrajectoire'].animate({'fill-opacity': 1}, 800, function() {
-                animImprove();
+            extiaAnim.riskInterval = scalePulse(extiaAnim.elements['risquePanneau'], 1.2, 300, 1000, function() {
+              extiaAnim.elements['risquePointe'].animate({'fill-opacity': 1}, 500);
+              extiaAnim.elements['risqueTrajectoire'].animate({'fill-opacity': 1}, 500, function() {
+                setTimeout(function(){animImprove();},500);
               });
             });
           });
@@ -107,12 +111,8 @@ extiaAnim = {
     }
 
     function animRiskPowerLine() {
-      var len = extiaAnim.elements['filRisque'].getTotalLength();
-
-      extiaAnim.elements['filRisque'].attr({strokeDasharray: "10, 20", strokeDashoffset: 0, 'stroke-width': extiaAnim.powerLinesWidth, 'stroke': extiaAnim.powerLinesColor});
-      extiaAnim.elements['filRisque'].animate({strokeDashoffset: len}, extiaAnim.powerLinesduration, function() {
-        animRiskPowerLine();
-      });
+      $("#fil-risque path").css({'stroke': extiaAnim.powerLinesColor});
+      setTimeout(function(){animRiskPowerLine();},500);
     }
 
     /*
@@ -133,12 +133,8 @@ extiaAnim = {
     }
 
     function animImprovePowerLine() {
-      var len = extiaAnim.elements['filAmelio'].getTotalLength();
-
-      extiaAnim.elements['filAmelio'].attr({strokeDasharray: "10, 20", strokeDashoffset: 0, 'stroke-width': extiaAnim.powerLinesWidth, 'stroke': extiaAnim.powerLinesColor});
-      extiaAnim.elements['filAmelio'].animate({strokeDashoffset: len}, extiaAnim.powerLinesduration, function() {
-        animImprovePowerLine();
-      });
+      $("#fil-amelio path").css({'stroke': extiaAnim.powerLinesColor});
+      setTimeout(function(){animImprovePowerLine();},500);
     }
 
     function resetAnim() {
