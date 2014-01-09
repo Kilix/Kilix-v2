@@ -56,7 +56,7 @@ var Kilix = {
                     $(".wrapper:first-child").remove();
                     $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
-                    $(".nav-links-wrapper a").addClass('enabled');
+                    $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
                     Pos = $(".container").data('pos');
                 });
 
@@ -79,12 +79,12 @@ var Kilix = {
             updateContent(State);
         });
 
-        $(".nav-links-wrapper a.enabled").on("click", function(evt) {
+        $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", function(evt) {
             evt.preventDefault();
             if(!$(this).hasClass('enabled')) {
                 return;
             }
-            $(".nav-links-wrapper a").removeClass('enabled');
+            $(".nav-links-wrapper a, .footer-links a").removeClass('enabled');
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
@@ -301,10 +301,26 @@ var Kilix = {
     agilite: {
         init: function(){
 
+            Kilix.switchSVG();
+
             $('.landing h1').on('click',function(){
                 $('html, body').animate({  
                     scrollTop:$(".content").offset().top - 100    
                 }, 'slow');
+            });
+
+            $('.agility-item').waypoint({
+                handler: function ( direction) {
+
+                    if(!$(this).hasClass('checked')) {
+                        $(this).find('li path').each(function(i){
+                            $(this).css('-webkit-transition-delay', i*0.3+'s');
+                        });
+                        $(this).addClass('checked');
+
+                    }
+                },
+                offset: '60%'
             });
 
             $('.content').waypoint(function(direction) {
