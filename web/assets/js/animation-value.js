@@ -220,13 +220,13 @@ Kilix.animations['valeur'] = {
                             }, mina.backin);
 
                             // ... and we scatter elements
-                            move(elements['janteBackLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['janteFrontRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['aileron'], 'left', 'top', 600, scatterDuration-100, 100, 'undefined', mina.backin);
-                            move(elements['janteFrontLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['janteBackRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['phare2'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['phare1'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteBackLeft'], 'right', 'top', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteFrontRight'], 'left', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['aileron'], 'left', 'top', 700, scatterDuration-100, 100, 'undefined', mina.backin);
+                            move(elements['janteFrontLeft'], 'right', 'top', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteBackRight'], 'left', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['phare2'], 'right', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['phare1'], 'right', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
                             move(elements['klaxon'], 'right', 'bot', 700, scatterDuration, 800, function () {
 
                               for (var element in colouredElements) {
