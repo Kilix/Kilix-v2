@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="agilite-valeur" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="393.98px" height="269.898px" viewBox="0 0 393.98 269.898" enable-background="new 0 0 393.98 269.898"
+	 xml:space="preserve">
+<g>
+	<g>
+		
+			<line fill="none" stroke="#CECECE" stroke-width="4" stroke-miterlimit="10" x1="57.582" y1="238.398" x2="384.582" y2="238.398"/>
+		<g>
+			<polygon fill="#CECECE" points="382.582,244.98 393.98,238.398 382.582,231.817 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g opacity="0.1">
+		
+			<line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" x1="227.082" y1="43.398" x2="227.082" y2="225.398"/>
+		
+			<line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" x1="222.582" y1="36.898" x2="75.582" y2="36.898"/>
+	</g>
+	<g>
+		<g>
+			
+				<line opacity="0.4" fill="none" stroke="#61AFF0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" x1="226.082" y1="41.398" x2="226.082" y2="223.398"/>
+			
+				<line opacity="0.4" fill="none" stroke="#61AFF0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" x1="221.582" y1="34.898" x2="74.582" y2="34.898"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#CECECE" stroke-width="4" stroke-miterlimit="10" x1="56.582" y1="240.398" x2="56.582" y2="9.398"/>
+		<g>
+			<polygon fill="#CECECE" points="63.164,11.398 56.583,0 50.001,11.398 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 0 25.3861)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="16.5">valeur</text>
+<g opacity="0.3">
+	<line fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="126.898" x2="388.582" y2="126.898"/>
+	<line fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="73.898" x2="388.582" y2="73.898"/>
+	<line fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="182.898" x2="388.582" y2="182.898"/>
+	<line fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="21.898" x2="388.582" y2="21.898"/>
+</g>
+<g>
+	<g opacity="0.1">
+		<path id="risque-courbe_15_" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
+			M65.066,232.062C82.721,71.092,155.417,25.398,375.582,25.398"/>
+		<circle id="risque-point_15_" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="227.082" cy="37.898" r="7"/>
+	</g>
+	<g>
+		<g>
+			<path id="risque-courbe_12_" fill="none" stroke="#61AFF0" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
+				M64.066,228.062C81.721,67.092,154.417,21.398,374.582,21.398"/>
+			
+				<circle id="risque-point_12_" fill="#FFFFFF" stroke="#61AFF0" stroke-width="4" stroke-miterlimit="10" cx="226.082" cy="33.898" r="7"/>
+		</g>
+	</g>
+</g>
+<path fill="#CECECE" d="M369.948,264.532l-4.116-4.116v-5.517h2.5v4.483l3.384,3.384L369.948,264.532z M367.082,249.898
+	c-5.523,0-10,4.477-10,10s4.477,10,10,10s10-4.477,10-10S372.605,249.898,367.082,249.898z M367.082,267.398
+	c-4.142,0-7.5-3.358-7.5-7.5s3.358-7.5,7.5-7.5s7.5,3.358,7.5,7.5S371.224,267.398,367.082,267.398z"/>
+</svg>

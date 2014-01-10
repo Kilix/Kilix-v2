@@ -56,7 +56,7 @@ var Kilix = {
                     $(".wrapper:first-child").remove();
                     $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
-                    $(".nav-links-wrapper a").addClass('enabled');
+                    $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
                     Pos = $(".container").data('pos');
                 });
 
@@ -79,12 +79,12 @@ var Kilix = {
             updateContent(State);
         });
 
-        $(".nav-links-wrapper a.enabled").on("click", function(evt) {
+        $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", function(evt) {
             evt.preventDefault();
             if(!$(this).hasClass('enabled')) {
                 return;
             }
-            $(".nav-links-wrapper a").removeClass('enabled');
+            $(".nav-links-wrapper a, .footer-links a").removeClass('enabled');
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
@@ -198,6 +198,7 @@ var Kilix = {
         init: function(){
 
             Kilix.loadKilixSvg();
+            Kilix.animations['extia'].loadExtiaSvg();
 
             var offsetSvgAnim = '25%';
 
@@ -256,7 +257,7 @@ var Kilix = {
 
             // Start Amelio Waypoint
             var amelioInit = false;
-            Kilix.animations['amelioration'].setAnimStatus(true);
+            Kilix.animations['amelioration'].setAnimStatus(false);
             $('.svg-amelio').waypoint(function(direction) {
                 if(amelioInit == false) {
                     Kilix.animations['amelioration'].start();
@@ -268,6 +269,19 @@ var Kilix = {
             // $('.svg-amelioration').waypoint(function(direction) {
             // }, { offset: '-'+$('.svg-amelioration').height()+"px" });
             
+            // Start Extia Waypoint
+            var extiaInit = false;
+            Kilix.animations['extia'].setValueAnimStatus(false);
+            $('.svg-extia').waypoint(function(direction) {
+                if(extiaInit == false) {
+                    Kilix.animations['extia'].start();
+                }
+                extiaInit = true;
+            }, { offset: offsetSvgAnim });
+
+            // Stop ExtiaS Waypoint
+            // $('.svg-extia').waypoint(function(direction) {
+            // }, { offset: '-'+$('.svg-extia').height()+"px" });
 
             console.log('Init Home');
         },
@@ -286,10 +300,26 @@ var Kilix = {
     agilite: {
         init: function(){
 
+            Kilix.switchSVG();
+
             $('.landing h1').on('click',function(){
                 $('html, body').animate({  
                     scrollTop:$(".content").offset().top - 100    
                 }, 'slow');
+            });
+
+            $('.agility-item').waypoint({
+                handler: function ( direction) {
+
+                    if(!$(this).hasClass('checked')) {
+                        $(this).find('li path').each(function(i){
+                            $(this).css('-webkit-transition-delay', i*0.3+'s');
+                        });
+                        $(this).addClass('checked');
+
+                    }
+                },
+                offset: '60%'
             });
 
             $('.content').waypoint(function(direction) {

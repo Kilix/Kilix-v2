@@ -6,12 +6,19 @@
 		<title>Kilix V2</title>
   		<link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" media="all"/>
   		<script src="assets/js/vendor/modernizr.min.js"></script>
+  		{% if ress.isMobile ==  true %}
+			<style>
+				.svg-anim {
+					background: #fbfbfb;
+				}
+			</style>
+  		{% endif %}
 	</head>
 	<body>
 		<nav class="navbar navbar-top">
 			<div class="row">
 				<i class="toggle-menu show-for-small-only">
-					<span class='icon-folded'>≡</span>
+					<span class='ham-folded'>≡</span>
 					<span class='icon-unfolded'>
 						<!-- TODO : Flèche ici -->
 					</span>
@@ -23,7 +30,11 @@
 					<a class='nav-link enabled {% if page == 'home' %}current{% endif %}' href="/" data-pos="1">Home</a>
 					<a class='nav-link enabled {% if page == 'team' %}current{% endif %}' href="/team" data-pos="2">Team</a>
 					<a class='nav-link enabled {% if page == 'agilite' %}current{% endif %}' href="/agilite" data-pos="3">Agilite</a>
-					<!-- <a class='nav-link enabled {% if page == 'contact' %}current{% endif %}' href="/contact" data-pos="4">Contact</a> -->
+					<!--<a class='nav-link enabled {% if page == 'contact' %}current{% endif %}' href="/contact" data-pos="4">Contact</a>-->
+					<div class="nav-contact show-for-small-only">
+						<a href="tel:0146999191">Phone</a><!--
+						--><a href="mailto:contact@kilix.fr">Email</a>
+					</div>
 				</div>
 				<div class="back-to-top show-for-medium-up">
 					<i class="icon-arrow-up"></i>
@@ -38,7 +49,31 @@
 		  	</div>
 		</div>
 		<footer>
-			<div class="copyright">Kilix <i class="icon-heart" data-text="est une société"></i> extia <br>Tous droits réservés Copyright © 2014 Kilix</div>
+			<div class="map">
+				<iframe width='100%' height='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v3/bulby97.map-zj10lv4w/mm/index.html?secure=1#18/48.82681/2.22268'></iframe>
+			</div>
+			<div class="copyright row">
+				<div class="medium-8 medium-centered columns">
+					<div class="medium-4 columns">
+						<strong>Kilix/Extia</strong> <br>
+						1, avenue de la Cristallerie <br>Entrée A – 6ème étage <br>92310 SÈVRES
+					</div>
+					<div class="medium-4 columns">
+						<strong>Contactez-nous</strong> <br>
+						Tél : 01 46 99 91 91 <br>
+						Fax : 01 46 99 91 90 <br>
+						<a href="mailto:contact@kilix.fr">contact@kilix.fr</a>
+					</div>
+					<div class="medium-4 columns footer-links">
+						<a class="enabled" data-pos="1" href="/">Home</a><br>
+						<a class="enabled" data-pos="2" href="/team">Team</a><br>
+						<a class="enabled" data-pos="3" href="/agilite">Agilité</a>
+					</div>
+				</div>
+				<div class="large-12 columns">
+					Kilix <i class="icon-heart" data-text="est une marque"></i> extia <br>Tous droits réservés Copyright © 2014 Kilix
+				</div>
+			</div>
 		</footer>
 		<!-- TODO : Par la suite le fichier mix.js générera le min.js -->
   		{% include "scripts-debug.html.twig" %}
