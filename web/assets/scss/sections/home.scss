@@ -421,17 +421,38 @@
 
 /*REFERENCES*/
 div.references{
-	background:#f2f8f8;
+	background:#fff;
 	position:relative;
 	z-index:2;
 	padding: 1.5rem 0 0 0;
 
 	.columns{
-		margin-bottom:2rem;
+		margin-bottom:2rem; padding: 0;
 	}
 
 	@media #{$medium-up} {
 		padding: 3rem 0 1rem;
 
+	}
+
+	.reference {
+		text-align: center;
+		line-height: rem-calc(90);
+		width: 12.5%;
+		height: rem-calc(90);
+		display:inline-block;
+		padding: 0 25px;
+		
+		img{
+			max-height: 90px;
+		}
+
+		@media #{$medium-up} {
+			transition: all 0.5s ease;
+		}
+
+		@media #{$xlarge-up}{
+
+		}
 	}
 }
