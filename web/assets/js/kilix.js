@@ -19,7 +19,7 @@ var Kilix = {
     },
 
     resize: function(){
-        var windowHeight = $(window).height();
+        var windowHeight = screen.height;
 
         function resizeLanding() {
             if (window.matchMedia("(min-width: 90em)").matches) {
@@ -217,6 +217,7 @@ var Kilix = {
     home: {
         init: function(){
 
+            Kilix.resize();
             Kilix.loadKilixSvg();
             Kilix.animations['extia'].loadExtiaSvg();
 
