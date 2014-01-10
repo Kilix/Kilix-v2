@@ -424,35 +424,39 @@ div.references{
 	background:#fff;
 	position:relative;
 	z-index:2;
-	padding: 1.5rem 0 0 0;
+	padding: 1rem 0 1rem;
 
 	.columns{
 		margin-bottom:2rem; padding: 0;
 	}
 
-	@media #{$medium-up} {
-		padding: 3rem 0 1rem;
-
-	}
-
 	.reference {
 		text-align: center;
 		line-height: rem-calc(90);
-		width: 12.5%;
+		width: 25%;
 		height: rem-calc(90);
 		display:inline-block;
-		padding: 0 25px;
-		
+		margin-top: rem-calc(15);
+
 		img{
 			max-height: 90px;
 		}
 
-		@media #{$medium-up} {
-			transition: all 0.5s ease;
+		&.tf1 {
+			img {
+				width:75%;
+			}
 		}
 
-		@media #{$xlarge-up}{
+		@media #{$large-up}{
+			margin-top: 0;
+			transition: all 0.5s ease;
+			filter: grayscale(1);
+			width: 12.5%;
 
+			&:hover {
+				filter: grayscale(0);
+			}
 		}
 	}
 }
