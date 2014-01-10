@@ -299,7 +299,6 @@ var Kilix = {
 
     agilite: {
         init: function(){
-
             Kilix.switchSVG();
 
             $('.landing h1').on('click',function(){
@@ -321,6 +320,15 @@ var Kilix = {
                 },
                 offset: '60%'
             });
+
+            var agiOneInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiOneInit == false) {
+                    Kilix.animations['agilite'].start();
+                    agiOneInit = true;
+                }
+                 }, { offset: '25%' });
+
 
             $('.content').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
