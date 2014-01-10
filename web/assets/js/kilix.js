@@ -183,16 +183,23 @@ var Kilix = {
     },
 
     loadKilixSvg: function(){
-        var s = Snap("#KILIX-logo");
+        var s = Snap("#KILIX-logo"),
+            valueReloadSvg = Snap('#valeur-reload');
+
         Snap.load("./assets/img/logo_big.svg", function(f) {
             s.append(f.select("#kilixSvg"));
+        });
+
+        Snap.load("./assets/img/svg/reload.svg", function(f) {
+            console.log(valueReloadSvg);
+            valueReloadSvg.append(f.select("#reload-group"));
+  
         });
     },
 
     animations:{
    	    //Prototyped by animations-*.js
     },
-
 
     /* -- PAGES -- */
     home: {
