@@ -16,8 +16,9 @@
 		padding-top: rem-calc(120);
 
 		background-image: url('../img/landing-bg.jpg');background-size: cover; background-position: top right;
-		position: fixed; top:0; left:0;
-
+		&.desktop {
+			position: fixed; top:0; left:0;
+		}
 	}
 
 	@media #{$xlarge-up}{
@@ -141,7 +142,9 @@
 		// }
 	}
 	
-
+	.anim-item {
+		
+	}
 
 	.anim-content{
 		z-index:2;
@@ -163,6 +166,7 @@
 	svg{
 		width: 100%;
 		height: rem-calc(250);
+		cursor:pointer;
 		
 		@media #{$medium-up}{
 			height: rem-calc(500);
@@ -199,9 +203,19 @@
 			#amelio-kart-gant1, #amelio-kart-gant2, #amelio-f1-gant1, #amelio-f1-gant2{@include colorize($col3);}
 		}
 
-		&#EXTIA{
+		&#EXTIA-animation{
 			@media #{$xlarge-up}{
 				transform:scale(1.2) translateX(-3rem);
+			}
+
+			#fil-valeur, #fil-risque, #fil-amelio{
+				path{
+					animation: movePowerLine 2s linear infinite;
+					stroke-dasharray: 10, 20;
+					stroke-dashoffset: 0;
+					stroke-width: 4;
+					stroke: transparent;
+				}
 			}
 		}
 	}
@@ -293,9 +307,16 @@
 .svg-valeur{
 	box-shadow: 0 -7px 0 rgba(0,0,0,.1);
 
-	@media #{$medium-up} {
-		margin-top:rem-calc($medium-margin);
+	&.desktop {
+		@media #{$medium-up} {
+			margin-top:rem-calc($medium-margin);
+		}		
+		@media #{$xlarge-up} { 
+			margin-top:rem-calc($large-margin); 
+			h2{font-size:rem-calc(65);} 
+		}
 	}
+
 
 	@media #{$large-up} {
 		
@@ -321,10 +342,6 @@
 		}
 	}
 
-	@media #{$xlarge-up} { 
-		margin-top:rem-calc($large-margin); 
-		h2{font-size:rem-calc(65);} 
-	}
 
 	h3:after, &:before{background:$col1;}
 	.row .next-section i:hover{ background: $col1; }
