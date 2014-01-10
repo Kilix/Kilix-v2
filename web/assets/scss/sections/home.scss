@@ -173,8 +173,15 @@
 		}
 
 		&#VALEUR-dispatch{
+			height: rem-calc(400);
+
 			@media #{$medium-up} {
-				transform: scale(1.35) translateX(-8rem);
+				transform: scale(1.30) translateX(-3rem);
+				height: rem-calc(500);
+			}
+
+			@media #{$small-only} {
+				transform: translateX(-1rem);
 			}
 
 			// #valeur-carenage-front{@include colorize($col1);}
@@ -188,7 +195,7 @@
 
 		&#RISK-dispatch{
 			@media #{$medium-up} {
-				transform: scale(1.32) translateX(-1rem);
+				transform: scale(1.13) translateX(-1rem);
 			}
 			height: rem-calc(250);
 			@media #{$medium-up} {
@@ -199,6 +206,9 @@
 		}
 
 		&#AMELIO-transform{
+			@media #{$medium-up}{
+				height: rem-calc(500);
+			}
 			#amelio-casque1, #amelio-casque2, #aileron-front, #aileron-back, 
 			#amelio-kart-gant1, #amelio-kart-gant2, #amelio-f1-gant1, #amelio-f1-gant2{@include colorize($col3);}
 		}
