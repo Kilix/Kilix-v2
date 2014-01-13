@@ -24,6 +24,7 @@ extiaAnim = {
   getelements: function(f) {
       extiaAnim.extiaFactory = f.select("#extia-factory");
 
+      extiaAnim.elements['reload'] = f.select("#extia-reload").attr({"fill-opacity": 0}),
       extiaAnim.elements['logoExtia'] = f.select("#logo-extia").attr({"fill-opacity": 0}),
       extiaAnim.elements['valeurKart'] = f.select("#valeur-kart").attr({"fill-opacity": 0}),
       extiaAnim.elements['valeurDispatch'] = f.select("#valeur-dispatch"),
@@ -127,6 +128,7 @@ extiaAnim = {
           extiaAnim.elements['amelioKart'].attr({'fill-opacity': 0});
           bounce(extiaAnim.elements['amelioF1'], 1000, 1000, function() {
             extiaAnim.valueAnimStatus = true;
+            extiaAnim.elements['reload'].animate({'fill-opacity': 1}, 400);
           });
         });
       }, 400);
@@ -138,25 +140,27 @@ extiaAnim = {
     }
 
     function resetAnim() {
-      // reset value elements
-      extiaAnim.elements['valeurKart'].animate({'fill-opacity': 0}, 400);
-      extiaAnim.elements['valeurMini'].attr({'fill-opacity': 0});
-      extiaAnim.elements['valeurDispatch'].attr({transform: 't0,s1,1'});
+      extiaAnim.elements['reload'].animate({'fill-opacity': 0}, 100, function() {
+        // reset value elements
+        extiaAnim.elements['valeurKart'].animate({'fill-opacity': 0}, 400);
+        extiaAnim.elements['valeurMini'].attr({'fill-opacity': 0});
+        extiaAnim.elements['valeurDispatch'].attr({transform: 't0,s1,1'});
 
-      // reset risk elements
-      extiaAnim.elements['risqueRock'].animate({'fill-opacity': 0}, 400);
-      extiaAnim.elements['risquePointe'].animate({'fill-opacity': 0}, 400);
-      extiaAnim.elements['risqueTrajectoire'].animate({'fill-opacity': 0}, 400);
-      extiaAnim.elements['risquePanneau'].animate({'fill-opacity': 0}, 400);
-      extiaAnim.elements['risquesMini'].animate({'fill-opacity': 0}, 400);
+        // reset risk elements
+        extiaAnim.elements['risqueRock'].animate({'fill-opacity': 0}, 400);
+        extiaAnim.elements['risquePointe'].animate({'fill-opacity': 0}, 400);
+        extiaAnim.elements['risqueTrajectoire'].animate({'fill-opacity': 0}, 400);
+        extiaAnim.elements['risquePanneau'].animate({'fill-opacity': 0}, 400);
+        extiaAnim.elements['risquesMini'].animate({'fill-opacity': 0}, 400);
 
-      // reset improve elements
-      extiaAnim.elements['amelioF1'].animate({'fill-opacity': 0}, 400);
-      window.clearInterval(extiaAnim.riskInterval);
+        // reset improve elements
+        extiaAnim.elements['amelioF1'].animate({'fill-opacity': 0}, 400);
+        window.clearInterval(extiaAnim.riskInterval);
 
-      setTimeout(function() {
-        animValue();
-      }, 400);
+        setTimeout(function() {
+          animValue();
+        }, 400);
+      });
     }
 
     startAnimation();
