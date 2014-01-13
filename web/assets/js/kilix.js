@@ -70,8 +70,12 @@ var Kilix = {
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
             $(".wrapper-new").load(url+" .container", function(data){
-                $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
-                $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+                // $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
+                // $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+
+                $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
+                $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+
                     $(".wrapper:first-child").remove();
                     $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
@@ -342,8 +346,7 @@ var Kilix = {
                 offset: '60%'
             });
 
-            Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');
-
+            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
             console.log('Init AGILITY');
         },
         destroy: function(){
@@ -372,7 +375,8 @@ var Kilix = {
                 teamInit = true;
             }, { offset: offsetSvgAnim });
 
-            Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['col3']);
+            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['col3']);},300);
+            
         },
         destroy: function(){
             console.log('Destroy Team');
