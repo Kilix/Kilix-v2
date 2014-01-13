@@ -14,7 +14,7 @@
 		}
 	}
 
-	box-shadow: 0 -7px 0 rgba(0,0,0,.1);
+	//box-shadow: 0 -7px 0 rgba(0,0,0,.1);
 	background:$col1;
 
 	p{
@@ -26,7 +26,6 @@
 	}
 
 	.columns{
-		padding: 3rem;
 
 		@media #{$large-up} { 
 			padding: 6rem;
@@ -34,6 +33,7 @@
 	}
 
 	.intro-picto{
+		@extend .show-for-medium-up;
 		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
 		position: relative;
 		@media#{$large-up}{
@@ -72,6 +72,7 @@
 
 .landing-home{
 	height:rem-calc($small-margin);
+	transition:0.5s ease;
 	padding-top: rem-calc(63);
 
 	width: 100%;
@@ -142,7 +143,7 @@
 		
 		color:white;
 		font-weight: normal;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.56);
+		text-shadow: 4px 4px 0px rgba(0,0,0,.2);
 		cursor: pointer;
 		position: relative;
 		z-index:1;
@@ -157,7 +158,7 @@
 		}
 
 		@media #{$xlarge-up}{
-			margin-top: rem-calc(340);
+			margin-top: 17.25rem;
 			font-size: rem-calc(80);
 			line-height: rem-calc(90);
 		}
@@ -189,7 +190,7 @@
 	position:relative;
 	z-index:2;
 	background:#ECECF5;
-	border-bottom: 3px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
 
 	&.svg-extia{
 		.row{
