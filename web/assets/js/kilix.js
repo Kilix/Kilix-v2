@@ -203,6 +203,7 @@ var Kilix = {
 
     loadKilixSvg: function(){
         var s = Snap("#KILIX-logo");
+
         Snap.load("./assets/img/logo_big.svg", function(f) {
             s.append(f.select("#kilixSvg"));
         });
@@ -211,7 +212,6 @@ var Kilix = {
     animations:{
    	    //Prototyped by animations-*.js
     },
-
 
     /* -- PAGES -- */
     home: {

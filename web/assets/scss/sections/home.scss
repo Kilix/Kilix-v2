@@ -184,6 +184,11 @@
 				transform: translateX(-1rem);
 			}
 
+			#valeur-reload{
+				animation: pulse 1s linear infinite alternate;
+				transform-origin: 50% 50%;
+			}
+
 			// #valeur-carenage-front{@include colorize($col1);}
 			// #valeur-carenage-left{@include colorize($col1);}
 			// #valeur-carenage-right{@include colorize($col1);}
@@ -206,6 +211,12 @@
 		}
 
 		&#AMELIO-transform{
+
+			#amelio-reload{
+				animation: pulse 1s linear infinite alternate;
+				transform-origin: 50% 50%;
+			}
+
 			@media #{$medium-up}{
 				height: rem-calc(500);
 			}
@@ -216,6 +227,11 @@
 		&#EXTIA-animation{
 			@media #{$xlarge-up}{
 				transform:scale(1.2) translateX(-3rem);
+			}
+
+			#extia-reload{
+				animation: pulse 1s linear infinite alternate;
+				transform-origin: 50% 50%;
 			}
 
 			#fil-valeur, #fil-risque, #fil-amelio{
