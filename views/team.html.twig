@@ -2,8 +2,46 @@
 
 {% block content %} 
 	<div class="container team" data-page="team">
-		<section class="large-12 columns panel h2000">
-			team
+		<header class="landing landing-team {% if ress.isMobile ==  false %}desktop{% endif %}">
+			<div class="row">
+				<div class="large-8 columns">
+					<h1>Titre sur l'équipe <span></span><i class="icon-arrow-down4"> </i></h1>
+				</div>
+			</div>
+		</header>
+		<section class="intro push-top {% if ress.isMobile ==  false %}desktop{% endif %}">
+				<div class="row">
+					<div class="medium-4 columns intro-picto">
+						
+					</div>
+					<div class="medium-8 columns intro-content">
+						<h2>Ici un petit titre</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, rem, unde, possimus, sapiente iure officiis accusantium ducimus consequatur praesentium aperiam deserunt asperiores numquam eum ipsam maiores sequi voluptas cupiditate vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, rem, unde, possimus, sapiente iure officiis.</p>
+					</div>
+				</div>
 		</section>
+		<section class="content {% if ress.isMobile ==  false %}desktop{% endif %}">
+			<div class="row cene">
+				<div class="large-12 medium-7 columns">
+						<img src="http://placehold.it/1600x500&text=cène" alt="">
+				</div>
+			</div>
+		</section>
+		<section class="svg-anim" data-color="col1">
+			<div class="row">
+				<div class="large-8 medium-7 columns">
+					<svg id="TEAM-f1" x="0px" y="0px" viewBox="0 0 1500 900">
+    				</svg>
+				</div>
+				<div class="large-4 medium-5 columns ">
+					<h3>Soyons Agile</h3>
+					<p>La réussite d’un projet n’est pas conditionnée que par la qualité de l’équipe qui se charge de sa création. 
+					Quelque soit ses forces, elle ne pourra jamais comprendre et définir les besoins utilisateurs (user story) mieux que le demandeur.
+					</p><p>Il nous parait évident que l’équipe parfaite sera constituée des réalisateurs avec le décideur.
+					Ce dernier devient l’acteur principal d’une démarche itérative et incrémentale au service de son projet.</p>
+				</div>
+			</div>
+		</section>
+		{% include "contact-footer.html.twig" %}
 	</div>
 {% endblock %}
