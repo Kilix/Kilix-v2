@@ -43,7 +43,9 @@ $large-margin:800;
 	to { stroke-dashoffset: 200px;}
 }
 
-
+@keyframes pulse{
+    to   {transform: scale(1.2);}
+}
 
 
 /* COMPONENTS */ 

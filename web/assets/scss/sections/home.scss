@@ -173,8 +173,20 @@
 		}
 
 		&#VALEUR-dispatch{
+			height: rem-calc(400);
+
 			@media #{$medium-up} {
-				transform: scale(1.35) translateX(-8rem);
+				transform: scale(1.30) translateX(-3rem);
+				height: rem-calc(500);
+			}
+
+			@media #{$small-only} {
+				transform: translateX(-1rem);
+			}
+
+			#valeur-reload{
+				animation: pulse 1s linear infinite alternate;
+				transform-origin: 50% 50%;
 			}
 
 			// #valeur-carenage-front{@include colorize($col1);}
@@ -188,7 +200,7 @@
 
 		&#RISK-dispatch{
 			@media #{$medium-up} {
-				transform: scale(1.32) translateX(-1rem);
+				transform: scale(1.13) translateX(-1rem);
 			}
 			height: rem-calc(250);
 			@media #{$medium-up} {
@@ -199,6 +211,15 @@
 		}
 
 		&#AMELIO-transform{
+
+			#amelio-reload{
+				animation: pulse 1s linear infinite alternate;
+				transform-origin: 50% 50%;
+			}
+
+			@media #{$medium-up}{
+				height: rem-calc(500);
+			}
 			#amelio-casque1, #amelio-casque2, #aileron-front, #aileron-back, 
 			#amelio-kart-gant1, #amelio-kart-gant2, #amelio-f1-gant1, #amelio-f1-gant2{@include colorize($col3);}
 		}
@@ -206,6 +227,11 @@
 		&#EXTIA-animation{
 			@media #{$xlarge-up}{
 				transform:scale(1.2) translateX(-3rem);
+			}
+
+			#extia-reload{
+				animation: pulse 1s linear infinite alternate;
+				transform-origin: 50% 50%;
 			}
 
 			#fil-valeur, #fil-risque, #fil-amelio{
@@ -421,17 +447,41 @@
 
 /*REFERENCES*/
 div.references{
-	background:#f2f8f8;
+	background:#fff;
 	position:relative;
 	z-index:2;
-	padding: 1.5rem 0 0 0;
+	padding: 2rem 0;
 
 	.columns{
-		margin-bottom:2rem;
+		margin-bottom:2rem; padding: 0;
 	}
 
-	@media #{$medium-up} {
-		padding: 3rem 0 1rem;
+	.reference {
+		text-align: center;
+		line-height: rem-calc(90);
+		width: 25%;
+		height: rem-calc(90);
+		display:inline-block;
+		padding: 0 25px;
+		margin-bottom:1rem;
 
+		img{
+			max-height: 90px;
+		}
+
+		@media #{$large-up}{
+
+			transition: all 0.5s ease;
+			filter: grayscale(1);
+			width: 12.5%;
+			padding: 0 25px;
+			opacity: 0.3;
+			margin-bottom:0;
+			
+			&:hover {
+				filter: grayscale(0);
+				opacity: 1;
+			}
+		}
 	}
 }

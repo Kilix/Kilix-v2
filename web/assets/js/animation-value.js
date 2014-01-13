@@ -14,17 +14,17 @@ Kilix.animations['valeur'] = {
   start: function() {
 
     var s = Snap("#VALEUR-dispatch"),
-              elements = new Array(),
-              colouredElements = new Array(),
-              kartElements = new Array(),
-              intervalEvents = new Array(),
-              kart = null,
-              delay = 50,
-              duration = 500
-              topTransDuration = 200,
-              topTransValue = -40,
-              topTransDelay = 100,
-              scatterDuration = 500;
+            elements = new Array(),
+            colouredElements = new Array(),
+            kartElements = new Array(),
+            intervalEvents = new Array(),
+            kart = null,
+            delay = 50,
+            duration = 500
+            topTransDuration = 200,
+            topTransValue = -40,
+            topTransDelay = 100,
+            scatterDuration = 500;
 
       Kilix.animations['valeur'].valueAnimStatus = false;
       if (!Kilix.animations['valeur'].valueLoadingStatus) {
@@ -105,6 +105,7 @@ Kilix.animations['valeur'] = {
 
     function getKartElements(file) {
       kartElements['pilote'] = file.select('#valeur-pilote');
+      kartElements['reload'] = file.select('#valeur-reload');
       kartElements['moteurElec'] = file.select('#valeur-moteur-elec');
       kartElements['roueBackRight'] = file.select('#valeur-roue-back-right-1');
       kartElements['roueBackRight2'] = file.select('#valeur-roue-back-right-2');
@@ -121,21 +122,23 @@ Kilix.animations['valeur'] = {
     }
 
     function resetValueAnimation() {
-      // We clear setInterval events
-      for (var i = intervalEvents.length - 1; i >= 0; i--) {
-        window.clearInterval(intervalEvents[i]);
-      };
-      kart = s.select("#valeur-kart");
+      kartElements['reload'].animate({'fill-opacity': 0}, 100, function() {
+        // We clear setInterval events
+        for (var i = intervalEvents.length - 1; i >= 0; i--) {
+          window.clearInterval(intervalEvents[i]);
+        };
+        kart = s.select("#valeur-kart");
 
-      var x = 1000,
-          y = 1000/2;
+        var x = 1000,
+            y = 1000/2;
 
-      kart.animate({transform: "t"+[x, y]}, 1000, mina.backin);
+        kart.animate({transform: "t"+[x, y]}, 1000, mina.backin);
 
-      window.setTimeout(function() {
-        resetValueGroup();
-        valueAnimationBootstrap();
-      }, 2000);
+        window.setTimeout(function() {
+          resetValueGroup();
+          valueAnimationBootstrap();
+        }, 2000);
+      });
     }
 
     function valueAnimationBootstrap() {
@@ -220,13 +223,13 @@ Kilix.animations['valeur'] = {
                             }, mina.backin);
 
                             // ... and we scatter elements
-                            move(elements['janteBackLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['janteFrontRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['aileron'], 'left', 'top', 600, scatterDuration-100, 100, 'undefined', mina.backin);
-                            move(elements['janteFrontLeft'], 'right', 'top', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['janteBackRight'], 'left', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['phare2'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
-                            move(elements['phare1'], 'right', 'bot', 500, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteBackLeft'], 'right', 'top', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteFrontRight'], 'left', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['aileron'], 'left', 'top', 700, scatterDuration-100, 100, 'undefined', mina.backin);
+                            move(elements['janteFrontLeft'], 'right', 'top', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['janteBackRight'], 'left', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['phare2'], 'right', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
+                            move(elements['phare1'], 'right', 'bot', 700, scatterDuration, 100, 'undefined', mina.backin);
                             move(elements['klaxon'], 'right', 'bot', 700, scatterDuration, 800, function () {
 
                               for (var element in colouredElements) {
@@ -270,7 +273,9 @@ Kilix.animations['valeur'] = {
         gatherPiece(kartElements['moteurElec'], elements['moteurElec'], 200, function() {
 
           for (var element in kartElements) {
-            kartElements[element].attr({'fill-opacity': 1});
+            if (element != 'reload') {
+              kartElements[element].attr({'fill-opacity': 1});
+            }
           }
 
           for (var element in elements) {
@@ -349,6 +354,7 @@ Kilix.animations['valeur'] = {
                                   kartElements['roueFrontLeft'].attr({'fill-opacity': 0});
                                 }, delay);
                               }, 200);
+              kartElements['reload'].animate({'fill-opacity': 1}, 400);
               Kilix.animations['valeur'].valueAnimStatus = true;
             }, 500); // STEP - 5
           }, 300);

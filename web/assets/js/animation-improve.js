@@ -59,6 +59,7 @@ Kilix.animations["amelioration"] = {
       }
 
       function getFormulaElements(f) {
+        elementsFormula['reload'] = f.select("#amelio-reload"),
         elementsFormula['roueBackLeft'] = f.select("#roue-back-left"),
         elementsFormula['roueFrontLeft'] = f.select("#roue-front-left"),
         elementsFormula['aileronFront'] = f.select("#aileron-front"),
@@ -73,24 +74,26 @@ Kilix.animations["amelioration"] = {
       }
 
       function resetImproveAnimation() {
-        move(formulaOne, 'right', 'bot', 1500, 1000, 2000, function() {
-          for (var element in elementsKart) {
-            elementsKart[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
-            elementsKart[element].animate({'fill-opacity': 1}, 700);
-          }
+        elementsFormula['reload'].animate({'fill-opacity': 0}, 100, function() {
+          move(formulaOne, 'right', 'bot', 1500, 1000, 2000, function() {
+            for (var element in elementsKart) {
+              elementsKart[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
+              elementsKart[element].animate({'fill-opacity': 1}, 700);
+            }
 
-          for (var element in elementsFormula) {
-            elementsFormula[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
-          };
+            for (var element in elementsFormula) {
+              elementsFormula[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
+            };
 
-          formulaOne.attr({transform: 't'+[0, 0],'fill-opacity': 0}, function() {
-            improveAnimation();
-          });
+            formulaOne.attr({transform: 't'+[0, 0],'fill-opacity': 0}, function() {
+              improveAnimation();
+            });
 
-          window.setTimeout(function() {
-            improveAnimation();
-          }, 100);
-        }, mina.backin);
+            window.setTimeout(function() {
+              improveAnimation();
+            }, 100);
+          }, mina.backin);
+        });
       }
 
       function improveAnimation() {
@@ -139,6 +142,7 @@ Kilix.animations["amelioration"] = {
                   bounce(elementsFormula['priseAir'], duration, 100, function() {
                     bounce(elementsFormula['aileronBack'], duration, 1000, function() {
                       Kilix.animations['amelioration'].animStatus = true;
+                      elementsFormula['reload'].animate({'fill-opacity': 1}, 400);
                     });
                     
                   });
