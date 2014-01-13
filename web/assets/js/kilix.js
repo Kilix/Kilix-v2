@@ -327,6 +327,14 @@ var Kilix = {
                     Kilix.animations['agilite'].start();
                     agiOneInit = true;
                 }
+                 }, { offset: '50%' });
+
+            var agiTwoInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiTwoInit == false) {
+                    Kilix.animations['agilite'].startSecond();
+                    agiTwoInit = true;
+                }
                  }, { offset: '25%' });
 
 
