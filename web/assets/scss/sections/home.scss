@@ -5,12 +5,11 @@
 	position: relative;
 	z-index: 2;
 
-	&.desktop {	
+	&.desktop {		
 		@media #{$medium-up} {
 			margin-top:rem-calc($medium-margin);
-		}		
+		}	
 		@media #{$xlarge-up} { 
-			margin-top:rem-calc($large-margin); 
 			h2{font-size:rem-calc(65);} 
 		}
 	}
@@ -52,6 +51,21 @@
 			}
 		}
 	}
+}
+
+.home .intro{	
+		@media #{$xlarge-up} { 
+			margin-top:rem-calc($large-margin); 
+			h2{font-size:rem-calc(65);} 
+		}
+}
+
+.team .intro{
+	background: $col3;
+}
+
+.agilite .intro{
+	background: #FFAD00;
 }
 		
 
@@ -143,7 +157,7 @@
 		}
 
 		@media #{$xlarge-up}{
-			margin-top: rem-calc(280);
+			margin-top: rem-calc(340);
 			font-size: rem-calc(80);
 			line-height: rem-calc(90);
 		}
