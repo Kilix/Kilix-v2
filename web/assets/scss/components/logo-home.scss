@@ -10,9 +10,14 @@
   left: 0;
   top: -8rem;
 
+  @media #{$large-up} {
+    width: 60rem;;
+    top: -6rem;
+  }
+
   @media #{$xlarge-up} {
-    width: 45rem;
-    top: -3rem;
+    width: 80rem;;
+    top: -5rem;
   }
 }
 .kilix-dispatch svg rect {
