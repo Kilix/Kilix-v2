@@ -9,6 +9,7 @@ body {
 	color: $primary-color;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	line-height: rem-calc(24);
 }
 
 
@@ -37,9 +38,10 @@ h1{
 
 h2{
 	font-family: Ubuntu;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: rem-calc(48);
 	color: $second-color;
+	line-height: rem-calc(50);
 
 }
 
@@ -186,17 +188,17 @@ a {
 	
 	&.desktop {
 			@media #{$medium-up} {
-			height:rem-calc($medium-margin);
-			padding-top: rem-calc(160);
-			position: fixed; top:0; left:0;	
-		}
+				height:rem-calc($medium-margin);
+				padding-top: rem-calc(160);
+				position: fixed; top:0; left:0;	
+			}
 	}
 	
 
 	h1{
 		margin:4rem 0;
 		color: white;
-		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.56);
+		text-shadow: 4px 4px 0 rgba(0,0,0,.2);
 		cursor: pointer;
 		position: relative;
 		z-index:1;
@@ -214,6 +216,15 @@ a {
 			i{opacity:1;transform:translateY(0);}
 		}
 	}
+
+	p{
+		margin-top: -4rem;
+		color:white;
+
+		@media #{$medium-up} {
+			width: 50%;
+		}
+	}
 }
 
 .push-top{
@@ -227,8 +238,11 @@ a {
 
 .content{
 	background: white;
-	box-shadow: 0 -7px 0 rgba(0,0,0,.1);
 	position: relative;
 	z-index:2;
-	padding:5rem 0;
+	padding:2rem 0;
+
+	@media #{$medium-up} {
+		padding:5rem 0;
+	}
 }

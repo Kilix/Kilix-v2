@@ -28,12 +28,12 @@ $mobile-contact-height: 40;
 				position: relative;
 
 			}
-
+		$height-navbar-top : 70px;
 		&.navbar-top {
-			background: transparent;
+			background: rgba(0,0,0,0.4);
 			box-shadow:none;
 
-			height:rem-calc(140);
+			height:rem-calc($height-navbar-top);
 
 			.nav-links-wrapper  .nav-link{
 				color:white;
@@ -42,14 +42,14 @@ $mobile-contact-height: 40;
 			.back-to-top{opacity:0!important; pointer-events:none;}
 
 			.row{
-				height: rem-calc(140);
-				line-height: rem-calc(140);
+				height: rem-calc($height-navbar-top);
+				line-height: rem-calc($height-navbar-top);
 				
 			}
 
 			.logo{opacity:0;}
 			.logo svg {
-				height: 140px;
+				height: $height-navbar-top;
 
 				g, #goutte1, #goutte2{
 					fill:white;
@@ -179,14 +179,15 @@ $mobile-contact-height: 40;
 				margin-left: 3rem;
 				padding-left: 0;
 				height: 45px;
+				font-size:rem-calc(14);
 				line-height: 45px;
 				border-bottom: none;
 
 					&:after{
 					position: absolute;
 					width: 100%;
-					height: 3px;
-					bottom: 0;
+					height: 2px;
+					bottom: 10px;
 					left: 0;
 					background: $second-color;
 					content: " ";
