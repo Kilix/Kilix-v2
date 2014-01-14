@@ -239,7 +239,7 @@ var Kilix = {
 
 
 
-            var offsetSvgAnim = '20%';
+            var offsetSvgAnim = '35%';
 
 
             $('.next-section').on('click',function(){
@@ -365,10 +365,10 @@ var Kilix = {
             console.log('Init Team');
 
 
-            var offsetSvgAnim = '25%';
+            var offsetSvgAnim = '35%';
 
              var teamInit = false;
-            $('.cene').waypoint(function(direction) {
+            $('.svg-anim').waypoint(function(direction) {
                 if(teamInit == false) {
                     Kilix.animations['team'].start();
                 }

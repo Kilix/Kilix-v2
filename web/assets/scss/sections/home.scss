@@ -263,7 +263,7 @@
 			}
 
 			#valeur-reload{
-				animation: pulse 1s linear infinite alternate;
+				animation: pulse 0.7s ease-in-out infinite alternate;
 				transform-origin: 50% 50%;
 			}
 
@@ -291,7 +291,7 @@
 		&#AMELIO-transform{
 
 			#amelio-reload{
-				animation: pulse 1s linear infinite alternate;
+				animation: pulse 0.7s ease-in-out infinite alternate;
 				transform-origin: 50% 50%;
 			}
 
@@ -308,7 +308,7 @@
 			}
 
 			#extia-reload{
-				animation: pulse 1s linear infinite alternate;
+				animation: pulse 0.7s ease-in-out infinite alternate;
 				transform-origin: 50% 50%;
 			}
 
@@ -411,12 +411,6 @@
 
 
 .svg-valeur{
-		@media #{$xlarge-up} { 
-			h2{font-size:rem-calc(65);
-		} 
-		
-	}
-
 
 	@media #{$large-up} {
 		
@@ -442,6 +436,11 @@
 		}
 	}
 
+	@media #{$xlarge-up} { 
+		h2{
+			font-size:rem-calc(65);
+		} 
+	}
 
 	h3:after, &:before{background:$col1;}
 	.row .next-section i:hover{ background: $col1; }
