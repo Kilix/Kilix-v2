@@ -75,6 +75,8 @@ Kilix.animations["agilite"] = {
               riskSVG.append(elementsRisk[element]);
           }
 
+          elementsRisk['riskScales'].attr({'opacity': 1});
+
         });
       }
 
@@ -124,6 +126,8 @@ Kilix.animations["agilite"] = {
               adaptSVG.append(elementsAdapt[element]);
           }
 
+          elementsAdapt['adaptScales'].attr({'opacity': 1});
+
         });
       }
 
@@ -157,6 +161,8 @@ Kilix.animations["agilite"] = {
               elementsVis[element].attr({'opacity': 0});
               visSVG.append(elementsVis[element]);
           }
+
+          elementsVis['visScales'].attr({'opacity': 1});
 
         });
       }
