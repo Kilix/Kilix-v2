@@ -14,8 +14,6 @@ $medium-margin:600;
 $large-margin:800;
 
 
-
-
 /* MIXINS */
 @mixin colorize($col){
 	/*Du plus foncé au plus clair*/
@@ -44,7 +42,7 @@ $large-margin:800;
 }
 
 @keyframes pulse{
-    to   {transform: scale(1.2);}
+    to   {transform: scale(1.1);}
 }
 
 
