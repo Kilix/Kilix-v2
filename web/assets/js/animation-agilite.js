@@ -39,6 +39,7 @@ Kilix.animations["agilite"] = {
       }
 
       function valAnimation() {
+        showCheckmark($('.agility-item:eq(0)'));
         scale(elementsValue['valuePlan'], 1, 500, 200, function(){});
         scale(elementsValue['valuePlan2'], 1, 500, 200, function() {
           drawPath(valSVG, elementsValue['valueOldGris'], 900, 1200, mina.easeout, function(){
@@ -80,6 +81,7 @@ Kilix.animations["agilite"] = {
       }
 
       function riskAnimation() {
+        showCheckmark($('.agility-item:eq(1)'));
         scale(elementsRisk['riskPlan'], 1, 500, 200, function(){});
         scale(elementsRisk['riskPlan2'], 1, 500, 200, function() {
            drawPath(riskSVG, elementsRisk['riskOldGris'], 900, 1200, mina.easeout, function(){
@@ -115,8 +117,8 @@ Kilix.animations["agilite"] = {
           elementsAdapt['adaptCourbeBleue'] = f.select("#a-courbe-bleue"),
           elementsAdapt['adaptOldGris'] = f.select("#a-old-gris"),
           elementsAdapt['adaptTime'] = f.select("#a-time"),
-           elementsAdapt['adaptPlan'] = f.select("#a-plan"),
-           elementsAdapt['adaptPlan2'] = f.select("#a-plan-2"),
+          elementsAdapt['adaptPlan'] = f.select("#a-plan"),
+          elementsAdapt['adaptPlan2'] = f.select("#a-plan-2"),
           elementsAdapt['adaptText'] = f.select("#a-valeur");
 
           for (var element in elementsAdapt) {
@@ -130,6 +132,7 @@ Kilix.animations["agilite"] = {
       }
 
       function adaptabilityAnimation() {
+        showCheckmark($('.agility-item:eq(2)'));
         scale(elementsAdapt['adaptPlan'], 1, 500, 200, function(){});
         scale(elementsAdapt['adaptPlan2'], 1, 500, 200, function() {
            drawPath(adaptSVG, elementsAdapt['adaptOldGris'], 900, 1200, mina.easeout, function(){
@@ -165,7 +168,7 @@ Kilix.animations["agilite"] = {
       }
 
       function visibilityAnimation() {
-
+        showCheckmark($('.agility-item:eq(3)'));
         scale(elementsVis['visPlan'], 1, 500, 200, function(){});
         scale(elementsVis['visPlan2'], 1, 500, 200, function() {
            drawPath(visSVG, elementsVis['visOldGris'], 900, 1200, mina.easeout, function(){
