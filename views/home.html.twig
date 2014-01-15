@@ -99,8 +99,8 @@
 						{% endif %}
 					{% else %}
 						<svg id="AMELIO-transform" x="0px" y="0px" viewBox="0 0 1500 900">
+						</svg>
 					{% endif %}
-    				</svg>
 				</div>
 			</div>
 		</section>
@@ -113,8 +113,16 @@
 					<a href="/agilite" class="button">En savoir plus</a>
 				</div>
 				<div class="large-6 large-pull-6 medium-7  columns">
-					<svg id="EXTIA-animation" x="0px" y="0px" viewBox="350 0 1400 800">
-    				</svg>
+				{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/extia-medium.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/extia-small.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="EXTIA-animation" x="0px" y="0px" viewBox="350 0 1400 800">
+    					</svg>
+					{% endif %}
 				</div>
 			</div>
 		</section>
