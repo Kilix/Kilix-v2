@@ -260,6 +260,7 @@ var Kilix = {
 
             // Start Risk Waypoint
             var risqueInit = false;
+            Kilix.animations['risques'].setAnimStatus(false);
             $('.svg-risque').waypoint(function(direction) {
                 if(risqueInit == false) {
                     Kilix.animations['risques'].start();

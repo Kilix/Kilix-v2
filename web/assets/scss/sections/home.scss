@@ -277,6 +277,14 @@
 		}
 
 		&#RISK-dispatch{
+
+			#risk-reload {
+				path, circle{
+					animation: pulse 1s linear infinite alternate;
+					transform-origin: 50% 50%;
+				}
+			}
+
 			@media #{$medium-up} {
 				transform: scale(1.13) translateX(-1rem);
 			}
