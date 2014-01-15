@@ -111,7 +111,7 @@
 		height:rem-calc($medium-margin);
 		padding-top: rem-calc(120);
 
-		background-image: url('../img/landing-bg.jpg');background-size: cover; background-position: top right;
+		background-image: url('../img/landing-bg.jpg');background-size: cover; background-position: center center;
 		&.desktop {
 			position: fixed; top:0; left:0;
 		}
@@ -165,7 +165,7 @@
 
 	.landing-main-text {
 
-		@include animateFadeToRight;
+		@include animateFadeToRight(1s);
 		
 		color:white;
 		font-weight: normal;

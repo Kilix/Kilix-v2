@@ -23,7 +23,7 @@ var Kilix = {
         function resizeLanding() {
             var windowHeight = $(window).height();
 
-            if (window.matchMedia("(min-width: 90em)").matches) {
+            if (window.matchMedia("(min-width: 40em)").matches) {
                 $('.landing-home').css('height', windowHeight);
                 $('.home .intro.desktop').css('margin-top', windowHeight);
             } else {
@@ -165,6 +165,13 @@ var Kilix = {
                 scrollTop:0   
             }, 'slow');
         });
+        $('.nav-link-contact').on('click',function(){
+            $('html, body').animate({  
+                scrollTop:$('body').height()
+            }, 'slow');
+        });
+
+        
     },
 
     wayPoints: function(){
@@ -364,9 +371,6 @@ var Kilix = {
                  }, { offset: '25%' });
 
 
-            $('.content').waypoint(function(direction) {
-                $('.navbar').toggleClass('navbar-top');
-            }, { offset: '300px' });
             console.log('Init AGILITY');
         },
         destroy: function(){
