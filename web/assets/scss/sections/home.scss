@@ -27,17 +27,22 @@
 
 	.columns{
 
-		@media #{$large-up} { 
-			padding: 6rem;
+		@media #{$medium-up} { 
+			padding: 1rem 2rem 2rem;
+		}
+
+		@media #{$xlarge-up} { 
+			padding: 3rem 6rem 6rem;
 		}
 	}
 
 	.intro-picto{
 		@extend .show-for-medium-up;
-		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
 		position: relative;
-		@media#{$large-up}{
-			height:30rem;
+
+
+		@media#{$medium-up}{
+			height:rem-calc(350);
 
 			&:after{
 				position: absolute;
@@ -50,22 +55,41 @@
 				content: " ";
 			}
 		}
+
+		@media #{$xlarge-up} { 
+			height:rem-calc(430);
+		}
 	}
 }
 
 .home .intro{	
-		@media #{$xlarge-up} { 
-			margin-top:rem-calc($large-margin); 
-			h2{font-size:rem-calc(65);} 
-		}
+	@media #{$xlarge-up} { 
+		margin-top:rem-calc($large-margin); 
+		h2{font-size:rem-calc(65);} 
+	}
+
+	.intro-picto{
+		background: url(../img/svg/x_white.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
+		background-size:40%;
+	}
 }
 
 .team .intro{
 	background: $col3;
+
+	.intro-picto{
+		background: url(../img/svg/team.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
+		background-size:50% 50%;
+	}
 }
 
 .agilite .intro{
 	background: #FFAD00;
+
+	.intro-picto{
+		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
+		background-size:65% 65%;
+	}
 }
 		
 
@@ -140,6 +164,8 @@
 	}
 
 	.landing-main-text {
+
+		@include animateFadeToRight;
 		
 		color:white;
 		font-weight: normal;
