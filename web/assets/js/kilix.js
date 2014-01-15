@@ -13,21 +13,22 @@ var Kilix = {
     	Kilix.pushState();
     	Kilix.switchSVG();
     	Kilix.nav();
-    	Kilix.wayPoints();
 
     	Kilix[$('.container').data('page')].init();
     },
 
     resize: function(){
-        var windowHeight = screen.height;
+        
 
         function resizeLanding() {
+            var windowHeight = $(window).height();
+
             if (window.matchMedia("(min-width: 90em)").matches) {
                 $('.landing-home').css('height', windowHeight);
-                $('.svg-valeur.desktop').css('margin-top', windowHeight);
+                $('.home .intro.desktop').css('margin-top', windowHeight);
             } else {
                  $('.landing-home').attr('style', '');
-                 $('.svg-valeur.desktop').attr('style', '');
+                 $('.home .intro.desktop').attr('style', '');
             }
         }
 
@@ -57,7 +58,7 @@ var Kilix = {
             var oldPage = $('.container').data('page');
             $('html, body').animate({  
                 scrollTop:0  
-            }, 500);
+            });
 
             newPos = pageToPosition[State.title.toLowerCase()];
 
@@ -65,22 +66,24 @@ var Kilix = {
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
             slideNext = newPos>currentPos ? true : false;
-            // $(".nav-links-wrapper").addClass('disabled');
             $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
             $(".wrapper-new").load(url+" .container", function(data){
-                $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
-                $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+                // $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
+                // $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+
+                $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
+                $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+
                     $(".wrapper:first-child").remove();
                     $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
                     $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
                     Pos = $(".container").data('pos');
+                    Kilix[State.title.toLowerCase()].init();
                 });
-
-                Kilix[oldPage].destroy();
-                Kilix[State.title.toLowerCase()].init();         
+                Kilix[oldPage].destroy();      
             });
 
         }
@@ -166,13 +169,25 @@ var Kilix = {
 
     wayPoints: function(){
 
-        $('footer').waypoint({
-            handler: function (direction) {
-                if(direction=="down")$(".back-to-top").addClass("force-opacity");
-                else $(".back-to-top").removeClass('force-opacity');
-            },
-            offset: 'bottom-in-view'
-        });
+            $('footer').waypoint({
+                handler: function (direction) {
+                    if(direction=="down")$(".back-to-top").addClass("force-opacity");
+                    else $(".back-to-top").removeClass('force-opacity');
+                },
+                offset: 'bottom-in-view'
+            });
+
+
+            $('.intro').waypoint(function(direction) {
+                $('.navbar').toggleClass('navbar-top');
+            }, { offset: '100px' });
+
+            $('.landing h1, .landing-main-text, #KILIX-logo').on('click',function(){
+                $('html, body').animate({  
+                    scrollTop:$(".intro").offset().top - 80    
+                }, 'slow');
+            });
+
     },
 
     changeXColor: function($el, col){
@@ -217,17 +232,15 @@ var Kilix = {
     home: {
         init: function(){
 
+            Kilix.wayPoints();
             Kilix.resize();
             Kilix.loadKilixSvg();
             Kilix.animations['extia'].loadExtiaSvg();
 
-            var offsetSvgAnim = '25%';
 
-            $('.landing-main-text').on('click',function(){
-                $('html, body').animate({  
-                    scrollTop:$(".svg-valeur").offset().top - 90
-                }, 'slow');
-            });
+
+            var offsetSvgAnim = '35%';
+
 
             $('.next-section').on('click',function(){
                 $('html, body').animate({  
@@ -244,9 +257,6 @@ var Kilix = {
                 offset: '25%'
             });
 
-            $('.svg-valeur').waypoint(function(direction) {
-                $('.navbar').toggleClass('navbar-top');
-            }, { offset: '100px' });
 
             // Start Risk Waypoint
             var risqueInit = false;
@@ -309,26 +319,19 @@ var Kilix = {
         },
         destroy: function(){
             console.log('Destroy Home');
-            $('.svg-valeur').waypoint('destroy');
-            $('.svg-amelio').waypoint('destroy');
-            $('.svg-risque').waypoint('destroy');
-            $('.landing-main-text').off();
+            $.waypoints('destroy');
             $('.next-section').off();
             $('.navbar').addClass('navbar-top');  
             Kilix.changeXColor($('.logo svg polygon'), 'none');     
+            $('.landing h1, .landing-main-text, #KILIX-logo').off();
         }
     },
 
     agilite: {
         init: function(){
 
+            Kilix.wayPoints();
             Kilix.switchSVG();
-
-            $('.landing h1').on('click',function(){
-                $('html, body').animate({  
-                    scrollTop:$(".content").offset().top - 100    
-                }, 'slow');
-            });
 
             $('.agility-item').waypoint({
                 handler: function ( direction) {
@@ -344,30 +347,67 @@ var Kilix = {
                 offset: '60%'
             });
 
+            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
+            var agiOneInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiOneInit == false) {
+                    Kilix.animations['agilite'].start();
+                    agiOneInit = true;
+                }
+                 }, { offset: '50%' });
+
+            var agiTwoInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiTwoInit == false) {
+                    Kilix.animations['agilite'].startSecond();
+                    agiTwoInit = true;
+                }
+                 }, { offset: '25%' });
+
+
             $('.content').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
-            }, { offset: '100px' });
+            }, { offset: '300px' });
             console.log('Init AGILITY');
         },
         destroy: function(){
             console.log('Destroy AGILITY');
-            $('.landing h1').off();
             $('.navbar').addClass('navbar-top');
-            $('.content').waypoint('destroy');  
+            $.waypoints('destroy');
+            Kilix.changeXColor($('.logo svg polygon'), 'none');
+            $('.landing h1, .landing-main-text, #KILIX-logo').off();
         }
     },
 
-    contact: {
+    team: {
         init: function(){
-            console.log('Init Contact');
+
+            Kilix.wayPoints();
+            console.log('Init Team');
+
+
+            var offsetSvgAnim = '35%';
+
+             var teamInit = false;
+            $('.svg-anim').waypoint(function(direction) {
+                if(teamInit == false) {
+                    Kilix.animations['team'].start();
+                }
+                teamInit = true;
+            }, { offset: offsetSvgAnim });
+
+            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['col3']);},300);
+            
         },
         destroy: function(){
-            console.log('Destroy Contact');
+            console.log('Destroy Team');
+            $.waypoints('destroy');
+            $('.navbar').addClass('navbar-top');
+            $('.landing h1, .landing-main-text, #KILIX-logo').off();
+            Kilix.changeXColor($('.logo svg polygon'), 'none');    
         }
-    },
-
-}
-
+    }
+};
 
 $(function(){
     console.log('init');
