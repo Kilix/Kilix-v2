@@ -128,7 +128,7 @@ extiaAnim = {
           extiaAnim.elements['amelioKart'].attr({'fill-opacity': 0});
           bounce(extiaAnim.elements['amelioF1'], 1000, 1000, function() {
             extiaAnim.valueAnimStatus = true;
-            extiaAnim.elements['reload'].animate({'fill-opacity': 1}, 400);
+            extiaAnim.elements['reload'].animate({'fill-opacity': 0}, 400);
           });
         });
       }, 400);

@@ -347,6 +347,26 @@ var Kilix = {
             });
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
+            var agiOneInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiOneInit == false) {
+                    Kilix.animations['agilite'].start();
+                    agiOneInit = true;
+                }
+                 }, { offset: '50%' });
+
+            var agiTwoInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiTwoInit == false) {
+                    Kilix.animations['agilite'].startSecond();
+                    agiTwoInit = true;
+                }
+                 }, { offset: '25%' });
+
+
+            $('.content').waypoint(function(direction) {
+                $('.navbar').toggleClass('navbar-top');
+            }, { offset: '300px' });
             console.log('Init AGILITY');
         },
         destroy: function(){

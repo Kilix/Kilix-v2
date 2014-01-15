@@ -24,16 +24,15 @@
 		<section class="content {% if ress.isMobile ==  false %}desktop{% endif %}">
 			<div class="row">
 				<article class="large-6 columns agility-item">
-					<h2>Gestion par les Risques</h2>
+					<h2>Gestion par la Valeur</h2>
 					<div class="large-6 columns">
-						<img src="http://placehold.it/790x500&text=svg" alt="">
+						<svg id="AGI-value" class="svg-agilite svg-auto-size" width="393px" height="269px" x="0px" y="0px" viewBox="0 0 393 269"></svg>
 					</div>
 					<div class="large-6 columns">
 						<ul>
 							<li>
-								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
-								Maximiser la valeur et par la complexité
-
+							<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
+								Maximiser l'apport de valeur par le ratio valeur/complexité
 							</li>
 							<li>
 								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
@@ -58,7 +57,7 @@
 				<article class="large-6 columns agility-item">
 					<h2>Gestion par les Risques</h2>
 					<div class="large-6 columns">
-						<img src="http://placehold.it/790x500&text=svg" alt="">
+						<svg id="AGI-risk" class="svg-agilite svg-auto-size" width="393px" height="269px" x="0px" y="0px" viewBox="0 0 393 269"></svg>
 					</div>
 					<div class="large-6 columns">
 						<ul>
@@ -76,7 +75,7 @@
 							</li>
 							<li>
 								<img src="assets/img/svg/check.svg" alt="" class='svg checkmark'>
-								Recette et validation en continue
+								Recette et validation en continu
 							</li>
 						</ul>
 					</div>
@@ -86,7 +85,7 @@
 				<article class="large-6 columns agility-item">
 					<h2>Adaptabilité</h2>
 					<div class="large-6 columns">
-						<img src="http://placehold.it/790x500&text=svg" alt="">
+						<svg id="AGI-adapt" class="svg-agilite svg-auto-size" width="393px" height="269px" x="0px" y="0px" viewBox="0 0 393 269"></svg>
 					</div>
 					<div class="large-6 columns">
 						<ul>
@@ -104,7 +103,7 @@
 				<article class="large-6 columns agility-item">
 					<h2>Visibilité</h2>
 					<div class="large-6 columns">
-						<img src="http://placehold.it/790x500&text=svg" alt="">
+						<svg id="AGI-vis" class="svg-agilite svg-auto-size" width="393px" height="269px" x="0px" y="0px" viewBox="0 0 393 269"></svg>
 					</div>
 					<div class="large-6 columns">
 						<ul>
@@ -128,8 +127,4 @@
 		</section>
 		{% include "contact-footer.html.twig" %}
 	</div>
-{% endblock %}
-
-{% block scripts %}
-<script src='agility.js'></script>
 {% endblock %}
