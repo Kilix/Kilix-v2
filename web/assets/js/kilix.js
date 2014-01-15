@@ -328,20 +328,6 @@ var Kilix = {
                 }, 'slow');
             });
 
-            $('.agility-item').waypoint({
-                handler: function ( direction) {
-
-                    if(!$(this).hasClass('checked')) {
-                        $(this).find('li path').each(function(i){
-                            $(this).css('-webkit-transition-delay', i*0.3+'s');
-                        });
-                        $(this).addClass('checked');
-
-                    }
-                },
-                offset: '60%'
-            });
-
             var agiOneInit = false;
             $('.svg-agilite').waypoint(function(direction) {
                 if(agiOneInit == false) {
