@@ -239,7 +239,7 @@ var Kilix = {
 
 
 
-            var offsetSvgAnim = '35%';
+            var offsetSvgAnim = '50%';
 
 
             $('.next-section').on('click',function(){

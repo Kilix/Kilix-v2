@@ -25,6 +25,11 @@ $large-margin:800;
 	*[fill="#9C9B9B"]{fill:#2c313f; /*darken($col,17%);*/} 	//+17%
 }
 
+@mixin animateFadeToRight{
+	animation: fadeToRight 1s ease-out;
+	animation-delay: 1s;
+}
+
 /* KEYFRAMES */
 @keyframes blink{
      from { opacity:0.05 }
@@ -43,6 +48,11 @@ $large-margin:800;
 
 @keyframes pulse{
     to   {transform: scale(1.1);}
+}
+
+@keyframes fadeToRight{
+	from{ opacity: 0; transform: translateX(-2rem);}
+	to{ opacity: 1; transform: translateX(0);}
 }
 
 
