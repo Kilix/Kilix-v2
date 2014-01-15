@@ -4,7 +4,7 @@
 	<div class="container home" data-page="home">
 		<header class="landing-home {% if ress.isMobile ==  false %}desktop{% endif %}">
 			<div class="row">
-				<div class="large-10 columns">
+				<div class="large-8 columns">
 					<div class="kilix-dispatch show-for-medium-up">
 						<svg x="0px" y="0px" id="KILIX-logo" viewBox="0 0 1500 200"></svg>	
 					</div>
@@ -20,12 +20,23 @@
 
 			</div>
 		</header>
-		<section class="svg-anim ❤ svg-valeur {% if ress.isMobile ==  false %}desktop{% endif %}" data-color="col1" data-title="Gestion par la valeur">
+		<section class="intro  {% if ress.isMobile ==  false %}desktop{% endif %}">
+			<div class="row">
+				<div class="medium-4 columns intro-picto">
+					
+				</div>
+				<div class="medium-8 columns intro-content">
+					<h2>Ici un petit titre</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, rem, unde, possimus, sapiente iure officiis accusantium ducimus consequatur praesentium aperiam deserunt asperiores numquam eum ipsam maiores sequi voluptas cupiditate vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, rem, unde, possimus, sapiente iure officiis.</p>
+				</div>
+			</div>
+		</section>
+		<section class="svg-anim ❤ svg-valeur" data-color="col1" data-title="Gestion par la valeur">
 			<div class="row">
 				<div class="large-6 medium-5 columns anim-content">
-					<h2><span>Gestion <span>par</span></span> <span>la</span> <span>valeur</span></h2>
-					<h3>L’essentiel avant tout !</h3>
-					<p>Parce que votre Time-to-Market est notre première priorité : Valorisez vos besoins, et reprenez le contrôle de vos projets. Ensemble, développons avant tout ce qui compte vraiment.</p>
+					<h2><span>Gestion <span>par </span></span><span>la</span> <span>valeur</span></h2>
+					<h3>Maximiser la création de valeur</h3>
+					<p>Ensemble, engageons-nous à produire ce qui aura le plus de valeur pour vos utilisateurs en priorisant en fonction du ratio valeur complexité.</p>
 				</div>
 				<div class="large-6 medium-7 columns anim-item">
 					{% if ress.isMobile ==  true %}
@@ -47,9 +58,9 @@
 		<section class="svg-anim ❤ svg-risque" data-color="col2" data-title="Gestion par les risques">
 			<div class="row">
 				<div class="large-6 large-push-6 medium-5 columns anim-content">
-					<h2><span>Gestion par</span> <span>les</span> <span>risques</span></h2>
-					<h3>Anticiper l’imprévu !</h3>
-					<p>Plus que jamais, l’imprg évisible est toujours le pire ennemi du projet. C’est en anticipant conjointement les futurs écueils que nous protégeons vos projets afin d’en assurer leur totale réussite.</p>
+					<h2><span>Gestion par </span><span>les</span> <span>risques</span></h2>
+					<h3>Piloter nos projets par le risque</h3>
+					<p>Plus que jamais, l’imprévisible est toujours le pire ennemi du projet. C’est en anticipant conjointement les futurs écueils que nous protégeons vos projets afin d’en assurer leur totale réussite.</p>
 				</div>
 				<div class="large-6 large-pull-6 medium-7 columns anim-item">
 					{% if ress.isMobile ==  true %}
@@ -75,11 +86,11 @@
 					<i class="icon-arrow-down4"> </i>
 				</a>
 				<div class="large-5 medium-5 columns anim-content">
-					<h2><span>Amélioration</span> <span>continue</span></h2>
-					<h3>Se perfectionner sans cesse</h3>
+					<h2><span>Amélioration</span><span> continue</span></h2>
+					<h3>Prototyper et améliorer</h3>
 					<p>Tous les projets sont différents. Nous profitons de cette diversité pour apprendre continuellement et toujours viser l’excellence. Ainsi, nous mettons à profit ces retours d’expérience au service de vos produits.</p>
 				</div>
-				<div class="large-8 medium-7 columns anim-item">
+				<div class="large-7 medium-7 columns anim-item">
 					{% if ress.isMobile ==  true %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/amelio-medium.gif" alt="">
@@ -97,27 +108,27 @@
 			<div class="row">
 				<div class="large-6 large-push-6 medium-5  columns anim-content">
 					<h2>Extia</h2>
-					<h3>Paré à toute éventualité !</h3>
-					<p>Nous tirons notre expertise d’Extia, qui met à votre disposition ses meilleurs consultants qui vous garantissent la réussite de votre projet au Time-To-Market optimisé, aux risques maîtrisés, avec les méthodes de gestion de projet les plus rodées. </p>
+					<h3>Booster nos projets avec l’energie d’Extia</h3>
+					<p>Nous tirons notre expertise d’Extia, qui met à votre disposition ses meilleurs consultants et qui vous garantissent la réussite de votre projet au Time-To-Market optimisé, aux risques maîtrisés, avec les méthodes de gestion de projet les plus rodées.</p>
 					<a href="/agilite" class="button">En savoir plus</a>
 				</div>
-				<div class="large-6 large-pull-6 medium-7 columns anim-item">
-					<img id="EXTIA" class="svg" src="assets/img/svg/kilix_anim_extia.svg">
+				<div class="large-6 large-pull-6 medium-7  columns">
+					<svg id="EXTIA-animation" x="0px" y="0px" viewBox="350 0 1400 800">
+    				</svg>
 				</div>
 			</div>
 		</section>
 		<div class="references">
-	  		<div class="row">
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
-	  			<div class="small-3 columns"><img src="http://placehold.it/300x150" alt=""></div>
+	  		<div class="row large-centered">
+	  			<div class="reference"><img src="/assets/img/ref-orange.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-ftv.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-aegis.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-publicis.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-generali.png" alt=""></div><!--
+	  			--><div class="reference tf1"><img src="/assets/img/ref-tf1.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-lagardere.png" alt=""></div><!--
+	  			--><div class="reference clear-fix"><img src="/assets/img/ref-sfr.png" alt=""></div>
 	  		</div>
 	  	</div>
-	  	{% include "contact-footer.html.twig" %}
 	</div>
 {% endblock %}

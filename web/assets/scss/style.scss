@@ -38,7 +38,14 @@ $large-margin:800;
      50%  {transform: translateY(-20px);}
      to   {transform: translateY(0);}
 }
+@keyframes movePowerLine{
+	from{ stroke-dashoffset: 0;}
+	to { stroke-dashoffset: 200px;}
+}
 
+@keyframes pulse{
+    to   {transform: scale(1.1);}
+}
 
 
 /* COMPONENTS */ 
