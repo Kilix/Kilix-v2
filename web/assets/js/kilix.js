@@ -14,7 +14,7 @@ var Kilix = {
     	Kilix.switchSVG();
     	Kilix.nav();
 
-    	Kilix[$('.container').data('page')].init();
+    	setTimeout(function(){Kilix[$('.container').data('page')].init();},300);
     },
 
     resize: function(){
@@ -62,6 +62,8 @@ var Kilix = {
 
             newPos = pageToPosition[State.title.toLowerCase()];
 
+            
+
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
@@ -70,8 +72,9 @@ var Kilix = {
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
             $(".wrapper-new").load(url+" .container", function(data){
-                // $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
-                // $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+
+                Kilix[oldPage].destroy();
+                setTimeout(function(){Kilix[State.title.toLowerCase()].init()},1000);
 
                 $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
                 $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
@@ -81,9 +84,10 @@ var Kilix = {
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
                     $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
                     Pos = $(".container").data('pos');
-                    Kilix[State.title.toLowerCase()].init();
+                    
+
                 });
-                Kilix[oldPage].destroy();      
+                   
             });
 
         }
@@ -175,7 +179,7 @@ var Kilix = {
     },
 
     wayPoints: function(){
-
+            console.log("ThisIsAWayPoint");
             $('footer').waypoint({
                 handler: function (direction) {
                     if(direction=="down")$(".back-to-top").addClass("force-opacity");
@@ -242,6 +246,7 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.resize();
             Kilix.loadKilixSvg();
+
             Kilix.animations['extia'].loadExtiaSvg();
 
 
