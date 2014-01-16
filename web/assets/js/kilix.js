@@ -74,7 +74,7 @@ var Kilix = {
 
                 Kilix[oldPage].destroy();
                 Kilix.resizeLanding();
-                setTimeout(function(){Kilix[State.title.toLowerCase()].init()},1000);
+
 
                 $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
                 $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
@@ -85,7 +85,7 @@ var Kilix = {
                     $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
                     Pos = $(".container").data('pos');
                     
-
+                    Kilix[State.title.toLowerCase()].init();
                 });
                    
             });
@@ -272,6 +272,7 @@ var Kilix = {
 
             // Start Risk Waypoint
             var risqueInit = false;
+            Kilix.animations['risques'].setAnimStatus(false);
             $('.svg-risque').waypoint(function(direction) {
                 if(risqueInit == false) {
                     Kilix.animations['risques'].start();
@@ -279,9 +280,6 @@ var Kilix = {
                 risqueInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop Risk Waypoint
-            // $('.svg-risque').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-risque').height()+"px" });
 
             // Start Value Waypoint
             var valueInit = false;
@@ -294,9 +292,6 @@ var Kilix = {
                 valueInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop Value Waypoint
-            // $('.svg-valeur').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-valeur').height()+"px" });
 
             // Start Amelio Waypoint
             var amelioInit = false;
@@ -308,9 +303,6 @@ var Kilix = {
                 amelioInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop Amelio Waypoint
-            // $('.svg-amelioration').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-amelioration').height()+"px" });
             
             // Start Extia Waypoint
             var extiaInit = false;
@@ -322,9 +314,6 @@ var Kilix = {
                 extiaInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop ExtiaS Waypoint
-            // $('.svg-extia').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-extia').height()+"px" });
 
             console.log('Init Home');
         },
@@ -344,21 +333,22 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.switchSVG();
 
-            $('.agility-item').waypoint({
-                handler: function ( direction) {
+            // $('.agility-item').waypoint({
+            //     handler: function ( direction) {
 
-                    if(!$(this).hasClass('checked')) {
-                        $(this).find('li path').each(function(i){
-                            $(this).css('-webkit-transition-delay', i*0.3+'s');
-                        });
-                        $(this).addClass('checked');
+            //         if(!$(this).hasClass('checked')) {
+            //             $(this).find('li path').each(function(i){
+            //                 $(this).css('-webkit-transition-delay', i*0.3+'s');
+            //             });
+            //             $(this).addClass('checked');
 
-                    }
-                },
-                offset: '60%'
-            });
+            //         }
+            //     },
+            //     offset: '60%'
+            // });
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
+
             var agiOneInit = false;
             $('.svg-agilite').waypoint(function(direction) {
                 if(agiOneInit == false) {
