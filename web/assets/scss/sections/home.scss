@@ -27,17 +27,22 @@
 
 	.columns{
 
-		@media #{$large-up} { 
-			padding: 6rem;
+		@media #{$medium-up} { 
+			padding: 1rem 2rem 2rem;
+		}
+
+		@media #{$xlarge-up} { 
+			padding: 3rem 6rem 6rem;
 		}
 	}
 
 	.intro-picto{
 		@extend .show-for-medium-up;
-		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
 		position: relative;
-		@media#{$large-up}{
-			height:30rem;
+
+
+		@media#{$medium-up}{
+			height:rem-calc(350);
 
 			&:after{
 				position: absolute;
@@ -50,29 +55,48 @@
 				content: " ";
 			}
 		}
+
+		@media #{$xlarge-up} { 
+			height:rem-calc(430);
+		}
 	}
 }
 
 .home .intro{	
-		@media #{$xlarge-up} { 
-			margin-top:rem-calc($large-margin); 
-			h2{font-size:rem-calc(65);} 
-		}
+	@media #{$xlarge-up} { 
+		margin-top:rem-calc($large-margin); 
+		h2{font-size:rem-calc(65);} 
+	}
+
+	.intro-picto{
+		background: url(../img/svg/x_white.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
+		background-size:40%;
+	}
 }
 
 .team .intro{
 	background: $col3;
+
+	.intro-picto{
+		background: url(../img/svg/team.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
+		background-size:50% 50%;
+	}
 }
 
 .agilite .intro{
 	background: #FFAD00;
+
+	.intro-picto{
+		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
+		background-size:65% 65%;
+	}
 }
 		
 
 
 .landing-home{
 	height:rem-calc($small-margin);
-	transition:0.5s ease;
+	transition:0.2s ease;
 	padding-top: rem-calc(63);
 
 	width: 100%;
@@ -87,7 +111,7 @@
 		height:rem-calc($medium-margin);
 		padding-top: rem-calc(120);
 
-		background-image: url('../img/landing-bg.jpg');background-size: cover; background-position: top right;
+		background-image: url('../img/landing-bg.jpg');background-size: cover; background-position: center center;
 		&.desktop {
 			position: fixed; top:0; left:0;
 		}
@@ -140,6 +164,8 @@
 	}
 
 	.landing-main-text {
+
+		@include animateFadeToRight(1s);
 		
 		color:white;
 		font-weight: normal;
@@ -277,6 +303,14 @@
 		}
 
 		&#RISK-dispatch{
+
+			#risk-reload {
+				path, circle{
+					animation: pulse 1s linear infinite alternate;
+					transform-origin: 50% 50%;
+				}
+			}
+
 			@media #{$medium-up} {
 				transform: scale(1.13) translateX(-1rem);
 			}

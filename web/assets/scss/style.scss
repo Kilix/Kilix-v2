@@ -14,8 +14,6 @@ $medium-margin:600;
 $large-margin:800;
 
 
-
-
 /* MIXINS */
 @mixin colorize($col){
 	/*Du plus foncé au plus clair*/
@@ -25,6 +23,18 @@ $large-margin:800;
 	*[fill="#C6C6C5"]{fill:$col;} 				//Couleur de base
 	*[fill="#B1B1B1"]{fill:darken($col,7%);} 	//+7%
 	*[fill="#9C9B9B"]{fill:#2c313f; /*darken($col,17%);*/} 	//+17%
+}
+
+@mixin animateFadeToRight($timer){
+	animation: fadeToRight 1.3s ease-out;
+	animation-delay: $timer;
+	animation-fill-mode: backwards;
+}
+
+@mixin animateSlideToBottom($timer){
+	animation: slideToBottom 0.5s ease-in-out;
+	animation-delay: $timer;
+	animation-fill-mode: backwards;
 }
 
 /* KEYFRAMES */
@@ -47,6 +57,16 @@ $large-margin:800;
     to   {transform: scale(1.1);}
 }
 
+@keyframes fadeToRight{
+	from{ opacity: 0; transform: translateX(-2rem);}
+	to{ opacity: 1; transform: translateX(0);}
+}
+
+@keyframes slideToBottom{
+	from{transform: translateY(-100%);}
+	to{transform: translateY(0%);}
+}
+
 
 /* COMPONENTS */ 
 
@@ -55,13 +75,7 @@ $large-margin:800;
 @import "components/menu";
 @import "components/footer";
 
+@import "sections/team";
 @import "sections/home";
 @import "sections/agilite";
 @import "sections/contact";
-
-
-
-
-
-
-

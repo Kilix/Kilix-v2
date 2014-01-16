@@ -14,28 +14,27 @@ var Kilix = {
     	Kilix.switchSVG();
     	Kilix.nav();
 
-    	Kilix[$('.container').data('page')].init();
+    	setTimeout(function(){Kilix[$('.container').data('page')].init();},300);
     },
 
-    resize: function(){
-        
+    resize: function(){   
 
-        function resizeLanding() {
-            var windowHeight = $(window).height();
-
-            if (window.matchMedia("(min-width: 90em)").matches) {
-                $('.landing-home').css('height', windowHeight);
-                $('.home .intro.desktop').css('margin-top', windowHeight);
-            } else {
-                 $('.landing-home').attr('style', '');
-                 $('.home .intro.desktop').attr('style', '');
-            }
-        }
-
-        resizeLanding();
+        Kilix.resizeLanding();
         $(window).resize(function() {
-            resizeLanding();
+            Kilix.resizeLanding();
         });
+    },
+
+    resizeLanding: function(){
+        var windowHeight = $(window).height();
+
+        if (window.matchMedia("(min-width: 40em)").matches) {
+            $('.landing-home').css('height', windowHeight);
+            $('.home .intro.desktop').css('margin-top', windowHeight);
+        } else {
+             $('.landing-home').attr('style', '');
+             $('.home .intro.desktop').attr('style', '');
+        }
     },
 
     pushState: function(){
@@ -70,8 +69,9 @@ var Kilix = {
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
             $(".wrapper-new").load(url+" .container", function(data){
-                // $(".wrapper:first-child").transition({ x: slideNext?'-5%':'5%', opacity: 0, delay: 500 }, 1200);
-                // $(".wrapper-new").css({opacity:0, x: slideNext?'-5%':'5%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+
+                Kilix[oldPage].destroy();
+                Kilix.resizeLanding();
 
                 $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
                 $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
@@ -81,9 +81,10 @@ var Kilix = {
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
                     $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
                     Pos = $(".container").data('pos');
+
                     Kilix[State.title.toLowerCase()].init();
                 });
-                Kilix[oldPage].destroy();      
+                   
             });
 
         }
@@ -165,10 +166,17 @@ var Kilix = {
                 scrollTop:0   
             }, 'slow');
         });
+        $('.nav-link-contact').on('click',function(){
+            $('html, body').animate({  
+                scrollTop:$('body').height()
+            }, 'slow');
+        });
+
+        
     },
 
     wayPoints: function(){
-
+            console.log("ThisIsAWayPoint");
             $('footer').waypoint({
                 handler: function (direction) {
                     if(direction=="down")$(".back-to-top").addClass("force-opacity");
@@ -235,11 +243,8 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.resize();
             Kilix.loadKilixSvg();
-            Kilix.animations['extia'].loadExtiaSvg();
 
-
-
-            var offsetSvgAnim = '35%';
+            var offsetSvgAnim = '50%';
 
 
             $('.next-section').on('click',function(){
@@ -260,6 +265,7 @@ var Kilix = {
 
             // Start Risk Waypoint
             var risqueInit = false;
+            Kilix.animations['risques'].setAnimStatus(false);
             $('.svg-risque').waypoint(function(direction) {
                 if(risqueInit == false) {
                     Kilix.animations['risques'].start();
@@ -267,9 +273,6 @@ var Kilix = {
                 risqueInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop Risk Waypoint
-            // $('.svg-risque').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-risque').height()+"px" });
 
             // Start Value Waypoint
             var valueInit = false;
@@ -282,9 +285,6 @@ var Kilix = {
                 valueInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop Value Waypoint
-            // $('.svg-valeur').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-valeur').height()+"px" });
 
             // Start Amelio Waypoint
             var amelioInit = false;
@@ -296,13 +296,10 @@ var Kilix = {
                 amelioInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop Amelio Waypoint
-            // $('.svg-amelioration').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-amelioration').height()+"px" });
             
             // Start Extia Waypoint
             var extiaInit = false;
-            Kilix.animations['extia'].setValueAnimStatus(false);
+            Kilix.animations['extia'].setAnimStatus(false);
             $('.svg-extia').waypoint(function(direction) {
                 if(extiaInit == false) {
                     Kilix.animations['extia'].start();
@@ -310,13 +307,12 @@ var Kilix = {
                 extiaInit = true;
             }, { offset: offsetSvgAnim });
 
-            // Stop ExtiaS Waypoint
-            // $('.svg-extia').waypoint(function(direction) {
-            // }, { offset: '-'+$('.svg-extia').height()+"px" });
 
             console.log('Init Home');
         },
         destroy: function(){
+            Kilix.animations["extia"].freeIntervals();
+
             console.log('Destroy Home');
             $.waypoints('destroy');
             $('.next-section').off();
@@ -332,21 +328,25 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.switchSVG();
 
-            $('.agility-item').waypoint({
-                handler: function ( direction) {
-
-                    if(!$(this).hasClass('checked')) {
-                        $(this).find('li path').each(function(i){
-                            $(this).css('-webkit-transition-delay', i*0.3+'s');
-                        });
-                        $(this).addClass('checked');
-
-                    }
-                },
-                offset: '60%'
-            });
-
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
+
+            var agiOneInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiOneInit == false) {
+                    Kilix.animations['agilite'].start();
+                    agiOneInit = true;
+                }
+                 }, { offset: '50%' });
+
+            var agiTwoInit = false;
+            $('.svg-agilite').waypoint(function(direction) {
+                if(agiTwoInit == false) {
+                    Kilix.animations['agilite'].startSecond();
+                    agiTwoInit = true;
+                }
+                 }, { offset: '25%' });
+
+
             console.log('Init AGILITY');
         },
         destroy: function(){
@@ -364,10 +364,10 @@ var Kilix = {
             Kilix.wayPoints();
             console.log('Init Team');
 
+            var offsetSvgAnim = '70%';
 
-            var offsetSvgAnim = '35%';
-
-             var teamInit = false;
+            var teamInit = false;
+            Kilix.animations['team'].setAnimStatus(false);
             $('.svg-anim').waypoint(function(direction) {
                 if(teamInit == false) {
                     Kilix.animations['team'].start();
