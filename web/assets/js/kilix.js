@@ -385,7 +385,7 @@ var Kilix = {
             Kilix.wayPoints();
             console.log('Init Team');
 
-            var offsetSvgAnim = '35%';
+            var offsetSvgAnim = '70%';
 
             var teamInit = false;
             Kilix.animations['team'].setAnimStatus(false);
