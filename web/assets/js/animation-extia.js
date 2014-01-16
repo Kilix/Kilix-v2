@@ -101,6 +101,7 @@ Kilix.animations["extia"] = {
     }
 
     function animValuePowerLine() {
+      $("#fil-valeur path").css({'stroke': powerLinesColor});
       Kilix.animations["extia"].powerLinesIntervals[0] = setInterval(function() {
         $("#fil-valeur path").css({'stroke': powerLinesColor});
       }, 500);
@@ -130,6 +131,7 @@ Kilix.animations["extia"] = {
     }
 
     function animRiskPowerLine() {
+      $("#fil-risque path").css({'stroke': powerLinesColor});
       Kilix.animations["extia"].powerLinesIntervals[1] = setInterval(function(){
         $("#fil-risque path").css({'stroke': powerLinesColor});
       }, 500);
@@ -155,6 +157,7 @@ Kilix.animations["extia"] = {
     }
 
     function animImprovePowerLine() {
+      $("#fil-amelio path").css({'stroke': powerLinesColor});
       Kilix.animations["extia"].powerLinesIntervals[2] = setInterval(function(){
         $("#fil-amelio path").css({'stroke': powerLinesColor});
       }, 500);

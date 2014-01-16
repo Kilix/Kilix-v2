@@ -162,6 +162,24 @@ $mobile-contact-height: 40;
 					background: rgba(255,255,255,0.1);
 				}
 			}
+
+			.phone-contact{
+				background:transparent url('../img/svg/mobile.svg') center center no-repeat;
+				text-indent: -9999px;
+
+				&:hover{
+					background:transparent url('../img/svg/mobile.svg') center center no-repeat;
+				}
+			}
+
+			.mail-contact{
+				background:transparent url('../img/svg/mail.svg') center center no-repeat;
+				text-indent: -9999px;
+
+				&:hover{
+					background:transparent url('../img/svg/mail.svg') center center no-repeat;
+				}
+			}
 		}
 		.nav-link-contact{
 			@include linkedIn;
