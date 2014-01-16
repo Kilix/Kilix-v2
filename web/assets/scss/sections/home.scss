@@ -27,12 +27,16 @@
 
 	.columns{
 
-		@media #{$medium-up} { 
-			padding: 1rem 2rem 2rem;
-		}
+// <<<<<<< HEAD
+// 		@media #{$medium-up} { 
+// 			padding: 1rem 2rem 2rem;
+// 		}
 
-		@media #{$xlarge-up} { 
-			padding: 3rem 6rem 6rem;
+// 		@media #{$xlarge-up} { 
+// 			padding: 3rem 6rem 6rem;
+// =======
+		@media #{$large-up} { 
+			padding: 3rem;
 		}
 	}
 
@@ -184,7 +188,7 @@
 		}
 
 		@media #{$xlarge-up}{
-			margin-top: 17.25rem;
+			margin-top: 25rem;
 			font-size: rem-calc(80);
 			line-height: rem-calc(90);
 		}
@@ -224,27 +228,6 @@
 		}
 	}
 
-
-	@media #{$xlarge-up}{
-		// &:before{
-		// 	display: block;
-		// 	text-align: center;
-		// 	color: white;
-		// 	font-size: rem-calc(24);
-		// 	text-transform: uppercase;
-		// 	font-weight: bold;
-		// 	padding: 1.5rem 0;
-		// 	font-family: Ubuntu;
-		// 	content: attr(data-title);
-		// 	box-shadow:0px 1px 0px 0px rgba(0, 0, 0, 0.4);
-		// 	text-shadow:0px 1px 0px rgba(0, 0, 0, 0.4);
-		// 	width: 32rem;
-		// 	margin: 0 auto;
-		// 	border-radius: 0 0 10px 10px;
-		// 	z-index: 10;
-		// 	position: relative;
-		// }
-	}
 	
 	.anim-item {
 		
@@ -483,6 +466,11 @@
 }
 .agilitypage.losange:hover{
 	background: #FFAD00;
+}
+
+.intro-content h2{
+	line-height: rem-calc(70);
+	margin-top:0;
 }
 
 .svg-valeur{
