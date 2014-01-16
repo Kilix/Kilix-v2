@@ -62,7 +62,6 @@ var Kilix = {
             newPos = pageToPosition[State.title.toLowerCase()];
 
             
-
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
@@ -383,10 +382,10 @@ var Kilix = {
             Kilix.wayPoints();
             console.log('Init Team');
 
+            var offsetSvgAnim = '70%';
 
-            var offsetSvgAnim = '35%';
-
-             var teamInit = false;
+            var teamInit = false;
+            Kilix.animations['team'].setAnimStatus(false);
             $('.svg-anim').waypoint(function(direction) {
                 if(teamInit == false) {
                     Kilix.animations['team'].start();
