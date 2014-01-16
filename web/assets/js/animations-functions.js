@@ -110,11 +110,12 @@ function scalePulse(element, scale, duration, delay, callback) {
   var interval = setInterval(function() {
     element.animate({transform:"t0s"+scale}, duration, function() {
     });
-  }, pulseDuration)
+  }, pulseDuration);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
   }
+
   return interval;
 }
 
@@ -142,7 +143,7 @@ function colorPulse(element, newColor, duration, delay, callback) {
     element.animate({fill: newColor}, duration, function() {
       element.animate({fill: color}, duration);
     });
-  }, pulseDuration)
+  }, pulseDuration);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
