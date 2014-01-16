@@ -289,8 +289,10 @@
 			}
 
 			#valeur-reload{
-				animation: pulse 0.7s ease-in-out infinite alternate;
-				transform-origin: 50% 50%;
+				path, circle{
+					animation: pulse 0.7s ease-in-out infinite alternate;
+					transform-origin: 50% 50%;
+				}
 			}
 
 			// #valeur-carenage-front{@include colorize($col1);}
@@ -306,7 +308,7 @@
 
 			#risk-reload {
 				path, circle{
-					animation: pulse 1s linear infinite alternate;
+					animation: pulse 0.7s linear infinite alternate;
 					transform-origin: 50% 50%;
 				}
 			}
@@ -325,8 +327,11 @@
 		&#AMELIO-transform{
 
 			#amelio-reload{
-				animation: pulse 0.7s ease-in-out infinite alternate;
-				transform-origin: 50% 50%;
+				path, circle{
+					animation: pulse 0.7s ease-in-out infinite alternate;
+					transform-origin: 50% 50%;
+				}
+
 			}
 
 			@media #{$medium-up}{
@@ -342,9 +347,12 @@
 			}
 
 			#extia-reload{
-				animation: pulse 0.7s ease-in-out infinite alternate;
-				transform-origin: 50% 50%;
+				path, circle{
+					animation: pulse 0.7s ease-in-out infinite alternate;
+					transform-origin: 50% 50%;
+				}
 			}
+
 
 			#fil-valeur, #fil-risque, #fil-amelio{
 				path{
@@ -355,6 +363,7 @@
 					stroke: transparent;
 				}
 			}
+			
 		}
 	}
 	 
