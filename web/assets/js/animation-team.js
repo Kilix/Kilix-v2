@@ -6,8 +6,7 @@ Kilix.animations["team"] = {
 
   start: function () {
       var s = Snap("#TEAM-f1"),
-          elementsKart = new Array(),
-          elementsFormula = new Array()
+          elementsFormula = new Array(),
           formulaOne = null,
           delay = 50,
           duration = 500;
@@ -15,7 +14,7 @@ Kilix.animations["team"] = {
       $('#TEAM-f1').on('click', function() {
         if (Kilix.animations['team'].animStatus == true) {
           Kilix.animations['team'].animStatus = false;
-          resetImproveAnimation();
+          resetTeamAnimation();
         }
       });
 
@@ -34,6 +33,7 @@ Kilix.animations["team"] = {
       }
 
       function getFormulaElements(f) {
+        elementsFormula['reload'] = f.select("#reload"),
         elementsFormula['roueBackLeft'] = f.select("#roue-back-left"),
         elementsFormula['roueFrontLeft'] = f.select("#roue-front-left"),
         elementsFormula['aileronFront'] = f.select("#aileron-front"),
@@ -47,21 +47,23 @@ Kilix.animations["team"] = {
 
       }
 
-      function resetImproveAnimation() {
-        move(formulaOne, 'right', 'bot', 1500, 1000, 2000, function() {
+      function resetTeamAnimation() {
+        elementsFormula['reload'].animate({'fill-opacity': 0}, 100, function() {
+          move(formulaOne, 'right', 'bot', 1500, 1000, 2000, function() {
 
-          for (var element in elementsFormula) {
-            elementsFormula[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
-          };
+            for (var element in elementsFormula) {
+              elementsFormula[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
+            };
 
-          formulaOne.attr({transform: 't'+[0, 0],'fill-opacity': 0}, function() {
-            improveAnimation();
-          });
+            formulaOne.attr({transform: 't'+[0, 0],'fill-opacity': 0}, function() {
+              improveAnimation();
+            });
 
-          window.setTimeout(function() {
-            improveAnimation();
-          }, 100);
-        }, mina.backin);
+            window.setTimeout(function() {
+              improveAnimation();
+            }, 100);
+          }, mina.backin);
+        });
       }
 
       function improveAnimation() {
@@ -78,7 +80,8 @@ Kilix.animations["team"] = {
               bounce(elementsFormula['aileronFront'], duration, 100, function() {
                 bounce(elementsFormula['priseAir'], duration, 100, function() {
                   bounce(elementsFormula['aileronBack'], duration, 1000, function() {
-                    Kilix.animations['amelioration'].animStatus = true;
+                    elementsFormula['reload'].animate({'fill-opacity': 1}, 400);
+                    Kilix.animations['team'].animStatus = true;
                   });
                 });
               });
