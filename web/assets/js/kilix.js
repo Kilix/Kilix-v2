@@ -243,8 +243,14 @@ var Kilix = {
 
 
             $('.next-section').on('click',function(){
-                $('html, body').animate({  
+                $('html, body').animate({ 
                     scrollTop:$(this).closest(".❤").next().offset().top - 90
+                }, 'slow');
+            });
+
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.svg-valeur').offset().top - 90
                 }, 'slow');
             });
 
@@ -333,6 +339,12 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.switchSVG();
 
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.content.desktop').offset().top - 90
+                }, 'slow');
+            });
+
             $('.agility-item').waypoint({
                 handler: function ( direction) {
 
@@ -386,6 +398,12 @@ var Kilix = {
             console.log('Init Team');
 
             var offsetSvgAnim = '70%';
+
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.content.desktop').offset().top - 90
+                }, 'slow');
+            });
 
             var teamInit = false;
             Kilix.animations['team'].setAnimStatus(false);
