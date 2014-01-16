@@ -328,20 +328,6 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.switchSVG();
 
-            // $('.agility-item').waypoint({
-            //     handler: function ( direction) {
-
-            //         if(!$(this).hasClass('checked')) {
-            //             $(this).find('li path').each(function(i){
-            //                 $(this).css('-webkit-transition-delay', i*0.3+'s');
-            //             });
-            //             $(this).addClass('checked');
-
-            //         }
-            //     },
-            //     offset: '60%'
-            // });
-
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
 
             var agiOneInit = false;
@@ -378,10 +364,10 @@ var Kilix = {
             Kilix.wayPoints();
             console.log('Init Team');
 
+            var offsetSvgAnim = '70%';
 
-            var offsetSvgAnim = '35%';
-
-             var teamInit = false;
+            var teamInit = false;
+            Kilix.animations['team'].setAnimStatus(false);
             $('.svg-anim').waypoint(function(direction) {
                 if(teamInit == false) {
                     Kilix.animations['team'].start();
