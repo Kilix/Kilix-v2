@@ -4,7 +4,19 @@ $mobile-link-height: 70;
 $mobile-link-nav: 63;
 $mobile-contact-height: 40;
 
+@mixin linkedIn{
+	display: inline-block;
+	margin-left: 3rem;
+	padding-left: 0;
+	height: 45px;
+	font-size:rem-calc(14);
+	line-height: 45px;
+}
+
 .navbar {
+
+	@include animateSlideToBottom(0.8s);
+
 	background: #2c313f; //Test couleur #fff;
 	overflow: visible;
 	transform: perspective(800px);
@@ -17,7 +29,7 @@ $mobile-contact-height: 40;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 8px 0px;
 	transition:height .3s cubic-bezier(0.165,0.840,0.440,1.000),top .3s cubic-bezier(0.165,0.840,0.440,1.000),transform .6s cubic-bezier(0.165,0.840,0.440,1.000), background .6s cubic-bezier(0.165,0.840,0.440,1.000);	
 	
-
+	
 	@media #{$medium-up} {
 		height: rem-calc(100);
 		.row{
@@ -151,6 +163,40 @@ $mobile-contact-height: 40;
 				}
 			}
 		}
+		.nav-link-contact{
+			@include linkedIn;
+			font-family: Ubuntu;
+			
+			color: white;
+			text-transform:uppercase;
+			position: relative;
+			z-index:1;
+			font-weight: bold;
+			transition: color 0.5s;
+
+			&:hover{
+				
+				color: $primary-color;
+				&:after{
+					
+					background: #fff; 
+				}
+			}
+
+				&:after{
+					width: 85px;
+					height: 25px;
+					background: transparent;
+					z-index: -1;
+					content: " ";
+					position: absolute;
+					top: 10px;
+					left: -9px;
+					border-radius: 3px;
+					border:2px solid white;
+					transition: background 0.5s;
+				}
+		}
 
 		.nav-link {
 			font-family: Ubuntu;
@@ -175,12 +221,7 @@ $mobile-contact-height: 40;
 
 
 			@media #{$medium-up} {
-				display: inline-block;
-				margin-left: 3rem;
-				padding-left: 0;
-				height: 45px;
-				font-size:rem-calc(14);
-				line-height: 45px;
+				@include linkedIn;
 				border-bottom: none;
 
 					&:after{

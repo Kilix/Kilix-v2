@@ -185,17 +185,24 @@ a {
 	padding-top: rem-calc(30);
 	width: 100%;
 	z-index:1;
+
+	@media #{$medium-up}{
+		height:rem-calc($medium-margin);
+		padding-top: rem-calc(160);
+	}
 	
 	&.desktop {
 			@media #{$medium-up} {
-				height:rem-calc($medium-margin);
-				padding-top: rem-calc(160);
 				position: fixed; top:0; left:0;	
 			}
 	}
 	
 
 	h1{
+
+		@include animateFadeToRight(1s);
+
+
 		margin:4rem 0;
 		color: white;
 		text-shadow: 4px 4px 0 rgba(0,0,0,.2);
@@ -218,6 +225,10 @@ a {
 	}
 
 	p{
+
+		@include animateFadeToRight(1.3s);
+
+
 		margin-top: -4rem;
 		color:white;
 
@@ -245,4 +256,8 @@ a {
 	@media #{$medium-up} {
 		padding:5rem 0;
 	}
+}
+
+.svg-auto-size{
+	width: 100%;
 }
