@@ -7,6 +7,11 @@
 	background-image: url('../img/landing-bg-team.jpg'); background-size: cover;
 }
 
+.intro-content h2{
+	line-height: rem-calc(70);
+	padding: rem-calc(30);
+}
+
 .agility-item {
 
 	ul {

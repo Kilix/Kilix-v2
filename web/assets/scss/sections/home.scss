@@ -28,7 +28,7 @@
 	.columns{
 
 		@media #{$large-up} { 
-			padding: 6rem;
+			padding: 3rem;
 		}
 	}
 
@@ -457,6 +457,11 @@
 }
 .agilitypage.losange:hover{
 	background: #FFAD00;
+}
+
+.intro-content h2{
+	line-height: rem-calc(70);
+	padding: rem-calc(30);
 }
 
 .svg-valeur{
