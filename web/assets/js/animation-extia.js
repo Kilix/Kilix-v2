@@ -15,6 +15,7 @@ extiaAnim = {
   },
 
   loadExtiaSvg: function() {
+      console.log('huhuhu');
       Snap.load("./assets/img/svg/kilix_anim_extia.svg", function(f) {
         extiaAnim.getelements(f);
         extiaAnim.s.append(extiaAnim.extiaFactory);
