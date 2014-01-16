@@ -40,8 +40,9 @@ Kilix.animations["agilite"] = {
 
       function valAnimation() {
 
-         alterBounce(elementsValue['valuePlan'], 600, 'undefined', function() {});
-         alterBounce(elementsValue['valuePlan2'], 600, 400, function() {
+        showCheckmark($('.agility-item:eq(0)'));
+        alterBounce(elementsValue['valuePlan'], 600, 'undefined', function() {});
+        alterBounce(elementsValue['valuePlan2'], 600, 400, function() {
           drawPath(valSVG, elementsValue['valueOldGris'], 900, 1200, mina.easeout, function(){
             drawPath(valSVG, elementsValue['valueCourbeBleue'], 780, 800, mina.easeinout, function(){
               alterBounce(elementsValue['valuePointBleu'], 400, 400, function() {
@@ -82,16 +83,17 @@ Kilix.animations["agilite"] = {
 
       function riskAnimation() {
 
+        showCheckmark($('.agility-item:eq(1)'));
         alterBounce(elementsRisk['riskPlan'], 600, 'undefined', function() {});
-          alterBounce(elementsRisk['riskPlan2'], 600, 400, function() {
-           drawPath(riskSVG, elementsRisk['riskOldGris'], 900, 1200, mina.easeout, function(){
-             drawPath(riskSVG, elementsRisk['riskCourbeBleue'], 780, 800, mina.easeinout, function(){
-                elementsRisk['riskText'].animate({opacity:1} ,400 );
-                  alterBounce(elementsRisk['riskTime'], 600, 400, function() {
-                });
-             });
-           });
-         });
+        alterBounce(elementsRisk['riskPlan2'], 600, 400, function() {
+          drawPath(riskSVG, elementsRisk['riskOldGris'], 900, 1200, mina.easeout, function(){
+            drawPath(riskSVG, elementsRisk['riskCourbeBleue'], 780, 800, mina.easeinout, function(){
+              elementsRisk['riskText'].animate({opacity:1} ,400 );
+                alterBounce(elementsRisk['riskTime'], 600, 400, function() {
+              });
+            });
+          });
+        });
       }
 
     loadValSvg();
@@ -117,8 +119,8 @@ Kilix.animations["agilite"] = {
           elementsAdapt['adaptCourbeBleue'] = f.select("#a-courbe-bleue"),
           elementsAdapt['adaptOldGris'] = f.select("#a-old-gris"),
           elementsAdapt['adaptTime'] = f.select("#a-time"),
-           elementsAdapt['adaptPlan'] = f.select("#a-plan"),
-           elementsAdapt['adaptPlan2'] = f.select("#a-plan-2"),
+          elementsAdapt['adaptPlan'] = f.select("#a-plan"),
+          elementsAdapt['adaptPlan2'] = f.select("#a-plan-2"),
           elementsAdapt['adaptText'] = f.select("#a-valeur");
 
           for (var element in elementsAdapt) {
@@ -133,17 +135,18 @@ Kilix.animations["agilite"] = {
 
       function adaptabilityAnimation() {
 
+        showCheckmark($('.agility-item:eq(2)'));
         alterBounce(elementsAdapt['adaptPlan'], 600, 'undefined', function() {});
-          alterBounce(elementsAdapt['adaptPlan2'], 600, 400, function() {
-           drawPath(adaptSVG, elementsAdapt['adaptOldGris'], 900, 1200, mina.easeout, function(){
-             drawPath(adaptSVG, elementsAdapt['adaptCourbeBleue'], 780, 800, mina.easeinout, function(){
-                elementsAdapt['adaptText'].animate({opacity:1} ,400 );
-                  alterBounce(elementsAdapt['adaptTime'], 600, 400, function() {
-                    visibilityAnimation();
-                });
-             });
-           });
-         });
+        alterBounce(elementsAdapt['adaptPlan2'], 600, 400, function() {
+          drawPath(adaptSVG, elementsAdapt['adaptOldGris'], 900, 1200, mina.easeout, function(){
+            drawPath(adaptSVG, elementsAdapt['adaptCourbeBleue'], 780, 800, mina.easeinout, function(){
+              elementsAdapt['adaptText'].animate({opacity:1} ,400 );
+                alterBounce(elementsAdapt['adaptTime'], 600, 400, function() {
+                  visibilityAnimation();
+              });
+            });
+          });
+        });
       }
 
       function loadVisibilitySvg() {
@@ -169,15 +172,16 @@ Kilix.animations["agilite"] = {
 
       function visibilityAnimation() {
 
+        showCheckmark($('.agility-item:eq(3)'));
         alterBounce(elementsVis['visPlan'], 600, 'undefined', function() {});
-          alterBounce(elementsVis['visPlan2'], 600, 400, function() {
-           drawPath(visSVG, elementsVis['visOldGris'], 900, 1200, mina.easeout, function(){
-             drawPath(visSVG, elementsVis['visCourbeBleue'], 780, 800, mina.easeinout, function(){
-                elementsVis['visText'].animate({opacity:1} ,400 );
-                  alterBounce(elementsVis['visTime'], 600, 400, function() {
-                });
-             });
-           });
+        alterBounce(elementsVis['visPlan2'], 600, 400, function() {
+          drawPath(visSVG, elementsVis['visOldGris'], 900, 1200, mina.easeout, function(){
+            drawPath(visSVG, elementsVis['visCourbeBleue'], 780, 800, mina.easeinout, function(){
+              elementsVis['visText'].animate({opacity:1} ,400 );
+                alterBounce(elementsVis['visTime'], 600, 400, function() {
+              });
+            });
+          });
          });
       }
 

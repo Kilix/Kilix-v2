@@ -332,21 +332,22 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.switchSVG();
 
-            $('.agility-item').waypoint({
-                handler: function ( direction) {
+            // $('.agility-item').waypoint({
+            //     handler: function ( direction) {
 
-                    if(!$(this).hasClass('checked')) {
-                        $(this).find('li path').each(function(i){
-                            $(this).css('-webkit-transition-delay', i*0.3+'s');
-                        });
-                        $(this).addClass('checked');
+            //         if(!$(this).hasClass('checked')) {
+            //             $(this).find('li path').each(function(i){
+            //                 $(this).css('-webkit-transition-delay', i*0.3+'s');
+            //             });
+            //             $(this).addClass('checked');
 
-                    }
-                },
-                offset: '60%'
-            });
+            //         }
+            //     },
+            //     offset: '60%'
+            // });
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
+
             var agiOneInit = false;
             $('.svg-agilite').waypoint(function(direction) {
                 if(agiOneInit == false) {
