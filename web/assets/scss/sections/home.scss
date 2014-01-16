@@ -3,7 +3,7 @@
 .intro{
 
 	position: relative;
-	z-index: 2;
+	z-index: 5;
 
 	&.desktop {		
 		@media #{$medium-up} {
@@ -417,6 +417,47 @@
 
 }
 
+.losange{
+	position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #384047;
+    left: -30px;
+    bottom: -30px;
+    z-index: 45;
+    text-align: center;
+    font-family: "Arial";
+    font-size: rem-calc(25px);
+    line-height: 60px;
+    color: #FFF;
+    font-weight: bold;
+    transform: rotate(45deg);
+    transition: all 0.2s;
+	
+}
+
+.losange-arrow{
+	display: block;
+	transform: rotate(-45deg);
+	line-height: 60px;
+}
+
+.losange:hover .losange-arrow{
+	transition: all .2s;
+	transform: translateY(5px) translateX(5px) rotate(-45deg);;
+
+}
+
+.homepage.losange:hover{
+	background: #61aff0;
+}
+
+.teampage.losange:hover{
+	background: #009884;
+}
+.agilitypage.losange:hover{
+	background: #FFAD00;
+}
 
 .svg-valeur{
 
