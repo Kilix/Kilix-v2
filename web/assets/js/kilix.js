@@ -17,25 +17,24 @@ var Kilix = {
     	setTimeout(function(){Kilix[$('.container').data('page')].init();},300);
     },
 
-    resize: function(){
-        
+    resize: function(){   
 
-        function resizeLanding() {
-            var windowHeight = $(window).height();
-
-            if (window.matchMedia("(min-width: 40em)").matches) {
-                $('.landing-home').css('height', windowHeight);
-                $('.home .intro.desktop').css('margin-top', windowHeight);
-            } else {
-                 $('.landing-home').attr('style', '');
-                 $('.home .intro.desktop').attr('style', '');
-            }
-        }
-
-        resizeLanding();
+        Kilix.resizeLanding();
         $(window).resize(function() {
-            resizeLanding();
+            Kilix.resizeLanding();
         });
+    },
+
+    resizeLanding: function(){
+        var windowHeight = $(window).height();
+
+        if (window.matchMedia("(min-width: 40em)").matches) {
+            $('.landing-home').css('height', windowHeight);
+            $('.home .intro.desktop').css('margin-top', windowHeight);
+        } else {
+             $('.landing-home').attr('style', '');
+             $('.home .intro.desktop').attr('style', '');
+        }
     },
 
     pushState: function(){
@@ -74,6 +73,8 @@ var Kilix = {
             $(".wrapper-new").load(url+" .container", function(data){
 
                 Kilix[oldPage].destroy();
+                Kilix.resizeLanding();
+
 
                 $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
                 $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
