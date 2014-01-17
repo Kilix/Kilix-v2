@@ -164,17 +164,19 @@ $mobile-contact-height: 40;
 			}
 
 			.phone-contact{
-				background:transparent url('../img/svg/mobile.svg') center center no-repeat;
+				background:transparent url('../img/svg/phone.svg') center center no-repeat;
 				text-indent: -9999px;
+				border-right: 1px solid rgba(255,255,255,.1);
 
 				&:hover{
-					background:transparent url('../img/svg/mobile.svg') center center no-repeat;
+					background:transparent url('../img/svg/phone.svg') center center no-repeat;
 				}
 			}
 
 			.mail-contact{
 				background:transparent url('../img/svg/mail.svg') center center no-repeat;
 				text-indent: -9999px;
+				border-left: 1px solid rgba(255,255,255,.1);
 
 				&:hover{
 					background:transparent url('../img/svg/mail.svg') center center no-repeat;
