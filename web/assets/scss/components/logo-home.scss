@@ -50,7 +50,7 @@
 .kilix-dispatch svg polygon {
   transform: translateX(0) translateY(0) scale(1) rotate(0);
 }
-.landing-home .large-8:hover polygon:nth-child(1) {
+.landing-home .large-8:hover polygon:nth-child(1), .landing-home.play polygon:nth-child(1) {
   transform: translateX(-188px) translateY(-150px) scale(1.2) rotate(-160deg);
 }
 .landing-home .large-8:hover polygon:nth-child(2) {
