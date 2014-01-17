@@ -50,7 +50,7 @@ function moveTop(element, px, duration, delay, callback) {
   }
 }
 
-// Move element with a boune
+// Move element with a bounce
 function moveWithBounce(element, xAxis, yAxis, px, duration, delay, callback) {
 
   var px2 = 40,
@@ -67,7 +67,7 @@ function moveWithBounce(element, xAxis, yAxis, px, duration, delay, callback) {
   }
 }
 
-// Trigger bounce effect on svg element
+// Trigger bounce effect on svg element (fill-opacity)
 function bounce(element, duration, delay, callback) {
     var x = element.getBBox().x;
     offset = x/2 + 25;
@@ -83,7 +83,7 @@ function bounce(element, duration, delay, callback) {
   }
 }
 
-// Trigger bounce effect on svg element
+// Trigger bounce effect on svg element (opacity)
 function alterBounce(element, duration, delay, callback) {
     var x = element.getBBox().x;
     offset = x/2 + 25;
@@ -109,14 +109,25 @@ function scalePulse(element, scale, duration, delay, callback) {
 
   var interval = setInterval(function() {
     element.animate({transform:"t0s"+scale}, duration, function() {
-      element.animate({transform:"t0s1"}, duration);
     });
-  }, pulseDuration)
+  }, pulseDuration);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
   }
+
   return interval;
+}
+
+// Trigger pulse effect on the scale
+function scale(element, scale, duration, delay, callback) {
+
+    element.animate({'opacity':1, transform:"t0s"+scale}, duration, function() {
+    });
+
+  if (typeof callback !== 'undefined') {
+    window.setTimeout(callback, delay);
+  }
 }
 
 // Trigger pulse effect on the color
@@ -132,7 +143,7 @@ function colorPulse(element, newColor, duration, delay, callback) {
     element.animate({fill: newColor}, duration, function() {
       element.animate({fill: color}, duration);
     });
-  }, pulseDuration)
+  }, pulseDuration);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
