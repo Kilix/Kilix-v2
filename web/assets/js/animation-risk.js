@@ -11,8 +11,7 @@ Kilix.animations['risques'] = {
       elements = new Array(),
       elements2 = new Array(),
       delay = 50,
-      duration = 100,
-      intervalCounter = 0;
+      duration = 100;
 
       $('#RISK-dispatch').on('click', function() {
         if (Kilix.animations["risques"].animStatus == true) {
@@ -81,22 +80,15 @@ Kilix.animations['risques'] = {
                             bounce(svgElements['hole'], duration, duration, function(){
                               moveWithBounce(svgElements['hole'],'right','top', 1350, 2250, 500, function(){
                                 setTimeout(function(){
-                                  removeWithBounce(svgElements['hole'], 500, 3000, function() {
+                                  removeWithBounce(svgElements['hole'], 500);
 
-                                    // set config to reset animation
-                                    if (intervalCounter > 1) {
-                                      intervalCounter = 0;
-                                      
-                                      for (var i = intervalEvents.length - 1; i >= 0; i--) {
-                                        window.clearInterval(intervalEvents[i]);
-                                      };
-                                      elements['reload'].animate({'fill-opacity': 1}, 400, function() {
-                                        Kilix.animations["risques"].animStatus = true;
-                                      });
+                                    for (var i = intervalEvents.length - 1; i >= 0; i--) {
+                                      window.clearInterval(intervalEvents[i]);
+                                    };
+                                    elements['reload'].animate({'fill-opacity': 1}, 400, function() {
+                                      Kilix.animations["risques"].animStatus = true;
+                                    });
 
-                                    }
-
-                                  })
                                 },1450);
 
                                 moveWithBounce(svgElements['kart'],'left','top', 0, 500);
@@ -112,13 +104,10 @@ Kilix.animations['risques'] = {
             });
           });
         },duration);
-
-        intervalCounter++;
       }
 
       function startAnimRisk() {
         animRisk(elements,true);
-        intervalEvents[0] = setInterval(function(){animRisk(elements)},4500);
 
         intervalEvents[1] = window.setInterval(function(){
             roll(elements2['roueFrontLeft'], duration, 2);
@@ -147,8 +136,6 @@ Kilix.animations['risques'] = {
         for (var element in elements) {
           elements[element].attr({'fill-opacity': 0});
         }
-
-        
           startAnimRisk();
         });
       }

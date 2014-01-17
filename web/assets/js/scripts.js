@@ -715,8 +715,7 @@ Kilix.animations['risques'] = {
       elements = new Array(),
       elements2 = new Array(),
       delay = 50,
-      duration = 100,
-      intervalCounter = 0;
+      duration = 100;
 
       $('#RISK-dispatch').on('click', function() {
         if (Kilix.animations["risques"].animStatus == true) {
@@ -785,22 +784,15 @@ Kilix.animations['risques'] = {
                             bounce(svgElements['hole'], duration, duration, function(){
                               moveWithBounce(svgElements['hole'],'right','top', 1350, 2250, 500, function(){
                                 setTimeout(function(){
-                                  removeWithBounce(svgElements['hole'], 500, 3000, function() {
+                                  removeWithBounce(svgElements['hole'], 500);
 
-                                    // set config to reset animation
-                                    if (intervalCounter > 1) {
-                                      intervalCounter = 0;
-                                      
-                                      for (var i = intervalEvents.length - 1; i >= 0; i--) {
-                                        window.clearInterval(intervalEvents[i]);
-                                      };
-                                      elements['reload'].animate({'fill-opacity': 1}, 400, function() {
-                                        Kilix.animations["risques"].animStatus = true;
-                                      });
+                                    for (var i = intervalEvents.length - 1; i >= 0; i--) {
+                                      window.clearInterval(intervalEvents[i]);
+                                    };
+                                    elements['reload'].animate({'fill-opacity': 1}, 400, function() {
+                                      Kilix.animations["risques"].animStatus = true;
+                                    });
 
-                                    }
-
-                                  })
                                 },1450);
 
                                 moveWithBounce(svgElements['kart'],'left','top', 0, 500);
@@ -816,13 +808,10 @@ Kilix.animations['risques'] = {
             });
           });
         },duration);
-
-        intervalCounter++;
       }
 
       function startAnimRisk() {
         animRisk(elements,true);
-        intervalEvents[0] = setInterval(function(){animRisk(elements)},4500);
 
         intervalEvents[1] = window.setInterval(function(){
             roll(elements2['roueFrontLeft'], duration, 2);
@@ -851,8 +840,6 @@ Kilix.animations['risques'] = {
         for (var element in elements) {
           elements[element].attr({'fill-opacity': 0});
         }
-
-        
           startAnimRisk();
         });
       }
@@ -873,7 +860,7 @@ Kilix.animations["amelioration"] = {
           elementsFormula = new Array()
           formulaOne = null,
           delay = 50,
-          duration = 500;
+          duration = 600;
 
       $('#AMELIO-transform').on('click', function() {
         if (Kilix.animations['amelioration'].animStatus == true) {
@@ -996,19 +983,18 @@ Kilix.animations["amelioration"] = {
           },1000);
 
           setTimeout(function(){
-            bounce(elementsFormula['pilote'], 200, delay);
+            elementsFormula['pilote'].attr({'fill-opacity': 1});
             elementsKart['pilote'].attr({'fill-opacity': 0});
             elementsKart['siege'].attr({'fill-opacity': 0});
-            bounce(elementsFormula['carrosserie'], duration, 100, function() {
-              bounce(elementsFormula['siege'], duration, 100, function() {
-                bounce(elementsFormula['aileronFront'], duration, 100, function() {
-                  bounce(elementsFormula['priseAir'], duration, 100, function() {
+            bounce(elementsFormula['carrosserie'], duration, 300, function() {
+              elementsFormula['siege'].attr({'fill-opacity': 1});
+                bounce(elementsFormula['aileronFront'], duration, 400, function() {
+                  bounce(elementsFormula['priseAir'], duration, 400, function() {
                     bounce(elementsFormula['aileronBack'], duration, 1000, function() {
                       Kilix.animations['amelioration'].animStatus = true;
                       elementsFormula['reload'].animate({'fill-opacity': 1}, 400);
                     });
                     
-                  });
                 });
               });
             });
@@ -1213,7 +1199,7 @@ Kilix.animations["extia"] = {
 
         },1000);
         
-      },400);
+      },600);
     }
 
     function animValuePowerLine() {

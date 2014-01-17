@@ -10,7 +10,7 @@ Kilix.animations["amelioration"] = {
           elementsFormula = new Array()
           formulaOne = null,
           delay = 50,
-          duration = 500;
+          duration = 600;
 
       $('#AMELIO-transform').on('click', function() {
         if (Kilix.animations['amelioration'].animStatus == true) {
@@ -133,19 +133,18 @@ Kilix.animations["amelioration"] = {
           },1000);
 
           setTimeout(function(){
-            bounce(elementsFormula['pilote'], 200, delay);
+            elementsFormula['pilote'].attr({'fill-opacity': 1});
             elementsKart['pilote'].attr({'fill-opacity': 0});
             elementsKart['siege'].attr({'fill-opacity': 0});
-            bounce(elementsFormula['carrosserie'], duration, 100, function() {
-              bounce(elementsFormula['siege'], duration, 100, function() {
-                bounce(elementsFormula['aileronFront'], duration, 100, function() {
-                  bounce(elementsFormula['priseAir'], duration, 100, function() {
+            bounce(elementsFormula['carrosserie'], duration, 300, function() {
+              elementsFormula['siege'].attr({'fill-opacity': 1});
+                bounce(elementsFormula['aileronFront'], duration, 400, function() {
+                  bounce(elementsFormula['priseAir'], duration, 400, function() {
                     bounce(elementsFormula['aileronBack'], duration, 1000, function() {
                       Kilix.animations['amelioration'].animStatus = true;
                       elementsFormula['reload'].animate({'fill-opacity': 1}, 400);
                     });
                     
-                  });
                 });
               });
             });
