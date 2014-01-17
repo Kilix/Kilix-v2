@@ -78,7 +78,8 @@
 			</div>
 		</footer>
 		<!-- TODO : Par la suite le fichier mix.js générera le min.js -->
-  		{% include "scripts-debug.html.twig" %}
+  		{#{% include "scripts-debug.html.twig" %}#}
+  		<script src="/assets/js/scripts.min.js"></script>
   		{% block scripts %}{% endblock %}
 	</body>
 </html>
