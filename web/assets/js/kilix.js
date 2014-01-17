@@ -244,6 +244,9 @@ var Kilix = {
             Kilix.resize();
             Kilix.loadKilixSvg();
 
+            $('.landing-home').addClass('play');
+            setTimeout(function(){$('.landing-home').removeClass('play');},1000);
+
             var offsetSvgAnim = '50%';
 
 
