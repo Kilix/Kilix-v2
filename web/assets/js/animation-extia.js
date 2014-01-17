@@ -96,7 +96,7 @@ Kilix.animations["extia"] = {
 
         },1000);
         
-      },400);
+      },600);
     }
 
     function animValuePowerLine() {
