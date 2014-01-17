@@ -340,20 +340,6 @@ var Kilix = {
                 }, 'slow');
             });
 
-            $('.agility-item').waypoint({
-                handler: function ( direction) {
-
-                    if(!$(this).hasClass('checked')) {
-                        $(this).find('li path').each(function(i){
-                            $(this).css('-webkit-transition-delay', i*0.3+'s');
-                        });
-                        $(this).addClass('checked');
-
-                    }
-                },
-                offset: '60%'
-            });
-
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
 
             var agiOneInit = false;
