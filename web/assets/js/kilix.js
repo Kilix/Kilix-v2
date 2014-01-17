@@ -248,8 +248,14 @@ var Kilix = {
 
 
             $('.next-section').on('click',function(){
-                $('html, body').animate({  
+                $('html, body').animate({ 
                     scrollTop:$(this).closest(".❤").next().offset().top - 90
+                }, 'slow');
+            });
+
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.svg-valeur').offset().top - 90
                 }, 'slow');
             });
 
@@ -328,6 +334,12 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.switchSVG();
 
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.content.desktop').offset().top - 90
+                }, 'slow');
+            });
+
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
 
             var agiOneInit = false;
@@ -365,6 +377,12 @@ var Kilix = {
             console.log('Init Team');
 
             var offsetSvgAnim = '70%';
+
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.svg-anim').offset().top - 90
+                }, 'slow');
+            });
 
             var teamInit = false;
             Kilix.animations['team'].setAnimStatus(false);

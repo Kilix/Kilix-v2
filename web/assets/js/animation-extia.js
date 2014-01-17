@@ -5,7 +5,6 @@ Kilix.animations["extia"] = {
   colorInterval: null,
   riskInterval: null,
 
-
   setAnimStatus: function(status) {
     Kilix.animations["extia"].animStatus = status;
   },
@@ -97,10 +96,11 @@ Kilix.animations["extia"] = {
 
         },1000);
         
-      },400);
+      },600);
     }
 
     function animValuePowerLine() {
+      $("#fil-valeur path").css({'stroke': powerLinesColor});
       Kilix.animations["extia"].powerLinesIntervals[0] = setInterval(function() {
         $("#fil-valeur path").css({'stroke': powerLinesColor});
       }, 500);
@@ -117,7 +117,7 @@ Kilix.animations["extia"] = {
           bounce(elements['risquesMini'], 700, 700, function() {
           elements['risqueRock'].animate({'fill-opacity': 1}, 600, function() {
             bounce(elements['risquePanneau'], 800);
-            Kilix.animations["extia"].riskInterval = scalePulse(elements['risquePanneau'], 1.2, 300, 1000, function() {
+            Kilix.animations["extia"].riskInterval = scalePulse(elements['risquePanneau'], '1.2', 500, 1000, function() {
               elements['risquePointe'].animate({'fill-opacity': 1}, 500);
               elements['risqueTrajectoire'].animate({'fill-opacity': 1}, 500, function() {
                 elements['risqueText'].animate({fillOpacity: 1}, 500);
@@ -130,6 +130,7 @@ Kilix.animations["extia"] = {
     }
 
     function animRiskPowerLine() {
+      $("#fil-risque path").css({'stroke': powerLinesColor});
       Kilix.animations["extia"].powerLinesIntervals[1] = setInterval(function(){
         $("#fil-risque path").css({'stroke': powerLinesColor});
       }, 500);
@@ -155,6 +156,7 @@ Kilix.animations["extia"] = {
     }
 
     function animImprovePowerLine() {
+      $("#fil-amelio path").css({'stroke': powerLinesColor});
       Kilix.animations["extia"].powerLinesIntervals[2] = setInterval(function(){
         $("#fil-amelio path").css({'stroke': powerLinesColor});
       }, 500);
