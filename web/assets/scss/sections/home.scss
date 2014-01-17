@@ -487,9 +487,19 @@
 	background: #FFAD00;
 }
 
+.intro-content {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
 .intro-content h2{
-	line-height: rem-calc(70);
+	line-height: rem-calc(55);
 	margin-top:0;
+
+
+	@media #{$xlarge-up} {
+		line-height: rem-calc(70);
+	}
 }
 
 .svg-valeur{
