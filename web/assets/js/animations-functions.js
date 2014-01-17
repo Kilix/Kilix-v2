@@ -109,6 +109,7 @@ function scalePulse(element, scale, duration, delay, callback) {
 
   var interval = setInterval(function() {
     element.animate({transform:"t0s"+scale}, duration, function() {
+      element.animate({transform:"t0s1"}, duration);
     });
   }, pulseDuration);
 

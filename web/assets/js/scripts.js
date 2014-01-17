@@ -152,6 +152,7 @@ function scalePulse(element, scale, duration, delay, callback) {
 
   var interval = setInterval(function() {
     element.animate({transform:"t0s"+scale}, duration, function() {
+      element.animate({transform:"t0s1"}, duration);
     });
   }, pulseDuration);
 
@@ -1121,7 +1122,6 @@ Kilix.animations["extia"] = {
   colorInterval: null,
   riskInterval: null,
 
-
   setAnimStatus: function(status) {
     Kilix.animations["extia"].animStatus = status;
   },
@@ -1234,7 +1234,7 @@ Kilix.animations["extia"] = {
           bounce(elements['risquesMini'], 700, 700, function() {
           elements['risqueRock'].animate({'fill-opacity': 1}, 600, function() {
             bounce(elements['risquePanneau'], 800);
-            Kilix.animations["extia"].riskInterval = scalePulse(elements['risquePanneau'], 1.2, 300, 1000, function() {
+            Kilix.animations["extia"].riskInterval = scalePulse(elements['risquePanneau'], '1.2', 500, 1000, function() {
               elements['risquePointe'].animate({'fill-opacity': 1}, 500);
               elements['risqueTrajectoire'].animate({'fill-opacity': 1}, 500, function() {
                 elements['risqueText'].animate({fillOpacity: 1}, 500);
