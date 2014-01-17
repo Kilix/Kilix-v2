@@ -23,22 +23,22 @@
 		</g>
 	</g>
 	
-		<text id="r-valeur" transform="matrix(1 0 0 1 2.441406e-004 25.3855)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="16.5">valeur</text>
+		<text id="r-valeur" transform="matrix(-4.371139e-008 -1 1 -4.371139e-008 39.8425 74.5188)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="16.5">risques</text>
 	<g id="r-scales" opacity="0.3">
 		<line id="r-scale-1" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="126.898" x2="388.582" y2="126.898"/>
 		<line id="r-scale-2" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="73.898" x2="388.582" y2="73.898"/>
 		<line id="r-scale-3" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="182.898" x2="388.582" y2="182.898"/>
 		<line id="r-scale-4" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="21.898" x2="388.582" y2="21.898"/>
 	</g>
-	<path id="r-time" fill="#CECECE" d="M369.948,264.532l-4.116-4.116v-5.517h2.5v4.482l3.385,3.385L369.948,264.532z
-		 M367.082,249.898c-5.522,0-10,4.477-10,10c0,5.522,4.478,10,10,10c5.523,0,10-4.478,10-10
-		C377.082,254.375,372.605,249.898,367.082,249.898z M367.082,267.398c-4.142,0-7.5-3.358-7.5-7.5c0-4.143,3.358-7.5,7.5-7.5
-		c4.143,0,7.5,3.357,7.5,7.5C374.582,264.04,371.224,267.398,367.082,267.398z"/>
+	<path id="r-time" fill="#CECECE" d="M369.948,264.532l-4.116-4.116v-5.517h2.5v4.48l3.387,3.387L369.948,264.532z M367.082,249.898
+		c-5.521,0-10,4.477-10,10c0,5.521,4.479,10,10,10c5.523,0,10-4.479,10-10C377.082,254.375,372.605,249.898,367.082,249.898z
+		 M367.082,267.398c-4.142,0-7.5-3.358-7.5-7.5c0-4.145,3.358-7.5,7.5-7.5c4.145,0,7.5,3.355,7.5,7.5
+		C374.582,264.04,371.224,267.398,367.082,267.398z"/>
 	<g>
 		<g>
 			<g>
 				<path id="r-old-gris" fill="none" stroke="#C6C6C6" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
-					M65.823,23.544c299.092-5.021,294.366,151.423,310.516,206.664"/>
+					M65.823,23.544c299.092-5.021,294.366,151.423,310.518,206.664"/>
 			</g>
 		</g>
 	</g>
@@ -46,7 +46,7 @@
 		<g>
 			<g>
 				<path id="r-courbe-bleue" fill="none" stroke="#61AFF0" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
-					M65.823,23.544c10.908,116.051,45.908,209.051,310.516,206.664"/>
+					M65.823,23.544c10.908,116.051,45.908,209.051,310.518,206.664"/>
 			</g>
 		</g>
 	</g>
