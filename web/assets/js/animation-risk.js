@@ -84,7 +84,7 @@ Kilix.animations['risques'] = {
                                   removeWithBounce(svgElements['hole'], 500, 3000, function() {
 
                                     // set config to reset animation
-                                    if (intervalCounter > 2) {
+                                    if (intervalCounter > 1) {
                                       intervalCounter = 0;
                                       
                                       for (var i = intervalEvents.length - 1; i >= 0; i--) {

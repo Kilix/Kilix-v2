@@ -61,8 +61,6 @@ var Kilix = {
 
             newPos = pageToPosition[State.title.toLowerCase()];
 
-            
-
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
@@ -75,7 +73,6 @@ var Kilix = {
                 Kilix[oldPage].destroy();
                 Kilix.resizeLanding();
 
-
                 $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
                 $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
 
@@ -84,7 +81,7 @@ var Kilix = {
                     $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
                     $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
                     Pos = $(".container").data('pos');
-                    
+
                     Kilix[State.title.toLowerCase()].init();
                 });
                    
@@ -247,16 +244,18 @@ var Kilix = {
             Kilix.resize();
             Kilix.loadKilixSvg();
 
-            Kilix.animations['extia'].loadExtiaSvg();
-
-
-
             var offsetSvgAnim = '50%';
 
 
             $('.next-section').on('click',function(){
-                $('html, body').animate({  
+                $('html, body').animate({ 
                     scrollTop:$(this).closest(".❤").next().offset().top - 90
+                }, 'slow');
+            });
+
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.svg-valeur').offset().top - 90
                 }, 'slow');
             });
 
@@ -306,7 +305,7 @@ var Kilix = {
             
             // Start Extia Waypoint
             var extiaInit = false;
-            Kilix.animations['extia'].setValueAnimStatus(false);
+            Kilix.animations['extia'].setAnimStatus(false);
             $('.svg-extia').waypoint(function(direction) {
                 if(extiaInit == false) {
                     Kilix.animations['extia'].start();
@@ -318,6 +317,8 @@ var Kilix = {
             console.log('Init Home');
         },
         destroy: function(){
+            Kilix.animations["extia"].freeIntervals();
+
             console.log('Destroy Home');
             $.waypoints('destroy');
             $('.next-section').off();
@@ -333,19 +334,11 @@ var Kilix = {
             Kilix.wayPoints();
             Kilix.switchSVG();
 
-            // $('.agility-item').waypoint({
-            //     handler: function ( direction) {
-
-            //         if(!$(this).hasClass('checked')) {
-            //             $(this).find('li path').each(function(i){
-            //                 $(this).css('-webkit-transition-delay', i*0.3+'s');
-            //             });
-            //             $(this).addClass('checked');
-
-            //         }
-            //     },
-            //     offset: '60%'
-            // });
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.content.desktop').offset().top - 90
+                }, 'slow');
+            });
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
 
@@ -383,10 +376,16 @@ var Kilix = {
             Kilix.wayPoints();
             console.log('Init Team');
 
+            var offsetSvgAnim = '70%';
 
-            var offsetSvgAnim = '35%';
+            $('.losange').on('click',function(){
+                $('html, body').animate({ 
+                    scrollTop:$('.svg-anim').offset().top - 90
+                }, 'slow');
+            });
 
-             var teamInit = false;
+            var teamInit = false;
+            Kilix.animations['team'].setAnimStatus(false);
             $('.svg-anim').waypoint(function(direction) {
                 if(teamInit == false) {
                     Kilix.animations['team'].start();
