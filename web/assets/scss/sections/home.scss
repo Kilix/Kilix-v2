@@ -265,6 +265,7 @@
 
 		&#VALEUR-dispatch{
 			height: rem-calc(400);
+			overflow:hidden;
 
 			@media #{$medium-up} {
 				transform: scale(1.30) translateX(-3rem);
@@ -292,6 +293,7 @@
 		}
 
 		&#RISK-dispatch{
+			overflow:hidden;
 
 			#risk-reload {
 				path, circle{
@@ -312,6 +314,7 @@
 		}
 
 		&#AMELIO-transform{
+			overflow:hidden;
 
 			#amelio-reload{
 				path, circle{
@@ -329,6 +332,7 @@
 		}
 
 		&#EXTIA-animation{
+			overflow:hidden;
 			height: rem-calc(400);
 
 			@media #{$medium-up}{
