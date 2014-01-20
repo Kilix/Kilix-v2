@@ -32,7 +32,6 @@
 
 }
 
-
 footer{
 
 	background: #202529;
@@ -59,7 +58,6 @@ footer{
 		position: relative;
 		z-index:2;
 
-
 		i{ color:$col4; 
 			&:before{
 				width: 18px;
@@ -76,7 +74,7 @@ footer{
 			@media #{$medium-up} {
 				margin-top:0;
 			}
-			strong, a{
+			strong, a {
 				color: #e7e7e7;
 				font-size:rem-calc(18);
 				font-weight: normal;
@@ -90,6 +88,14 @@ footer{
 		.large-12{
 			text-align: center;
 			margin-top:rem-calc(70);
+		}
+
+		.footer-links a {
+			font-family: Ubuntu;
+			font-size: rem-calc(14);
+			font-weight: bold;
+			text-transform:uppercase;
+			color:white; //Test couleur color:$primary-color;
 		}
 	}
 }
