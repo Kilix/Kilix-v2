@@ -194,31 +194,31 @@ $mobile-contact-height: 40;
 			font-weight: bold;
 			transition: color 0.5s;
 
-			&:hover{
+			&:hover{		
 				
-				color: $primary-color;
 				&:after{
-					
-					background: #fff; 
+					opacity:1;
 				}
 			}
 
-				&:after{
-					width: 85px;
-					height: 25px;
-					background: transparent;
-					z-index: -1;
-					content: " ";
-					position: absolute;
-					top: 10px;
-					left: -9px;
-					border-radius: 3px;
-					border:2px solid white;
-					transition: background 0.5s;
-				}
+			&:after{
+				opacity:0;
+				width: 85px;
+				height: 25px;
+				background: transparent;
+				z-index: -1;
+				content: " ";
+				position: absolute;
+				top: 10px;
+				left: -9px;
+				border-radius: 3px;
+				border:2px solid white;
+				transition: opacity 0.5s;
+			}
 		}
 
 		.nav-link {
+			opacity: .8;
 			font-family: Ubuntu;
 			font-size: rem-calc(16);
 			font-weight: bold;
@@ -232,7 +232,8 @@ $mobile-contact-height: 40;
 			pointer-events: visible;
 			position: relative;
 			border-bottom: 1px solid rgba(255,255,255,.1);
-			
+			transition: opacity 0.5s;
+
 			@media #{$small-only} {
 				&:hover{
 					background: rgba(255,255,255,0.1);
@@ -265,6 +266,11 @@ $mobile-contact-height: 40;
 				}
 			}
 		}
+
+		.enabled {
+			opacity: 1;
+		}
+
 	}
 
 	.logo {
