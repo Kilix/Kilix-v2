@@ -92,15 +92,15 @@ Kilix.animations['valeur'] = {
       elements['janteBackRight'] = file.select("#dispatch-jante-back-right"),
       elements['janteFrontRight'] = file.select("#dispatch-jante-front-right");
 
-      colouredElements['carenageRight'] = file.select('#dispatch-carenage-right-vert');
-      colouredElements['carenageLeft'] = file.select('#dispatch-carenage-left-vert');
-      colouredElements['siege'] = file.select('#dispatch-siege-vert');
-      colouredElements['roueBackLeft'] = file.select('#dispatch-roue-back-left-vert');
-      colouredElements['roueFrontLeft'] = file.select('#dispatch-roue-front-left-vert');
-      colouredElements['roueBackRight'] = file.select('#dispatch-roue-back-right-vert');
-      colouredElements['roueFrontRight'] = file.select('#dispatch-roue-front-right-vert');
-      colouredElements['moteurElec'] = file.select('#dispatch-moteur-elec-green');
-      colouredElements['carenageFront'] = file.select('#dispatch-carenage-front-vert');
+      colouredElements['carenageRight'] = file.select('#dispatch-carenage-right-color');
+      colouredElements['carenageLeft'] = file.select('#dispatch-carenage-left-color');
+      colouredElements['siege'] = file.select('#dispatch-siege-color');
+      colouredElements['roueBackLeft'] = file.select('#dispatch-roue-back-left-color');
+      colouredElements['roueFrontLeft'] = file.select('#dispatch-roue-front-left-color');
+      colouredElements['roueBackRight'] = file.select('#dispatch-roue-back-right-color');
+      colouredElements['roueFrontRight'] = file.select('#dispatch-roue-front-right-color');
+      colouredElements['moteurElec'] = file.select('#dispatch-moteur-elec-color');
+      colouredElements['carenageFront'] = file.select('#dispatch-carenage-front-color');
     }
 
     function getKartElements(file) {
