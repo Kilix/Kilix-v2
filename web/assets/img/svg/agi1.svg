@@ -43,12 +43,6 @@
 		</g>
 	</g>
 	<g>
-		<g id="v-fleches" opacity="0.1">
-			
-				<line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" enable-background="new    " x1="227.082" y1="43.398" x2="227.082" y2="225.398"/>
-			
-				<line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" enable-background="new    " x1="222.582" y1="36.898" x2="75.582" y2="36.898"/>
-		</g>
 		<g>
 			<g id="v-pointilles">
 				
