@@ -1,17 +1,137 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-	<div class="container home" data-pos="1">
-		<div class="loading"></div>
-		<section class="large-12 columns panel h800" id='lol'>
+	<div class="container home" data-page="home">
+		<header class="landing-home {% if ress.isMobile ==  false %}desktop{% endif %}">
+			<div class="row">
+				<div class="large-8 columns">
+					<div class="kilix-dispatch show-for-medium-up">
+						<svg x="0px" y="0px" id="KILIX-logo" viewBox="0 0 1500 200"></svg>	
+					</div>
+					<h1 class='landing-main-text'>
+						L’agence digitale Agile, <br> by EXTIA <i class="icon-arrow-down4"> </i>
+					</h1>
+				</div>
+
+			</div>
+		</header>
+		<section class="intro  {% if ress.isMobile ==  false %}desktop{% endif %}">
+			<div class="row">
+				<div class="medium-4 columns intro-picto">
+					<a class="homepage losange show-for-large-up"><i class="icon-arrow-down4 losange-arrow"> </i></a>
+				</div>
+				<div class="medium-8 columns intro-content">
+					<h2>L’agence digitale Agile by EXTIA</h2>
+					<p>Une agence digitale se doit de maîtriser les différentes technologies en appliquant des contraintes simples mais très fortes : tenir ces engagements de délais, périmètre et enfin de coûts. Pour Kilix, la meilleur manière de produire vos projets est de les respecter en appliquant une stratégie Agile. Nous pilotons nos projets par la valeur, les risques et dans un souci d’amélioration continue, en  s’appuyant sur les forces de production d’Extia.</p>
+				</div>
+			</div>
 		</section>
-		<section class="large-12 columns panel h400">
+		<section class="svg-anim ❤ svg-valeur" data-color="col1" data-title="Gestion par la valeur">
+			<div class="row">
+				<div class="large-6 medium-5 columns anim-content">
+					<h2><span>Gestion <span>par </span></span><span>la</span> <span>valeur</span></h2>
+					<h3>Maximiser la création de valeur</h3>
+					<p>Ensemble, engageons-nous à produire ce qui aura le plus de valeur pour vos utilisateurs en priorisant en fonction du ratio valeur complexité.</p>
+				</div>
+				<div class="large-6 medium-7 columns anim-item">
+					{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/value-medium.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/value-small.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="VALEUR-dispatch" x="0px" y="0px" viewBox="0 0 1400 700"></svg>
+					{% endif %}					
+				</div>
+
+				<a class='next-section'>
+					<i class="icon-arrow-down4"> </i>
+				</a>
+			</div>
 		</section>
-		<section class="large-12 columns panel h400">
+		<section class="svg-anim ❤ svg-risque" data-color="col2" data-title="Gestion par les risques">
+			<div class="row">
+				<div class="large-6 large-push-6 medium-5 columns anim-content">
+					<h2><span>Gestion par </span><span>les</span> <span>risques</span></h2>
+					<h3>Piloter nos projets par le risque</h3>
+					<p>Plus que jamais, l’imprévisible est toujours le pire ennemi du projet. C’est en anticipant conjointement les futurs écueils que nous protégeons vos projets afin d’en assurer leur totale réussite.</p>
+				</div>
+				<div class="large-6 large-pull-6 medium-7 columns anim-item">
+					{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/risk-medium.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/risk-small.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="RISK-dispatch" x="0px" y="0px" viewBox="600 100 800 600">
+    					</svg>
+					{% endif %}
+					
+				</div>
+				<a class='next-section'>
+					<i class="icon-arrow-down4"> </i>
+				</a>
+			</div>
 		</section>
-		<section class="large-12 columns panel h400">
+		<section class="svg-anim ❤ svg-amelio" data-color="col3" data-title="Amélioration continue">
+			<div class="row">
+				<a class='next-section'>
+					<i class="icon-arrow-down4"> </i>
+				</a>
+				<div class="large-5 medium-5 columns anim-content">
+					<h2><span>Amélioration</span><span> continue</span></h2>
+					<h3>Prototyper et améliorer</h3>
+					<p>Tous les projets sont différents. Nous profitons de cette diversité pour apprendre continuellement et toujours viser l’excellence. Ainsi, nous mettons à profit ces retours d’expérience au service de vos produits.</p>
+				</div>
+				<div class="large-7 medium-7 columns anim-item">
+					{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/amelio-medium.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/amelio-small.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="AMELIO-transform" x="0px" y="0px" viewBox="0 0 1500 900">
+						</svg>
+					{% endif %}
+				</div>
+			</div>
 		</section>
-		<section class="large-12 columns panel h400">
+		<section class="svg-anim ❤ svg-extia" data-color="col4" data-title="Extia">
+			<div class="row">
+				<div class="large-6 large-push-6 medium-5  columns anim-content">
+					<h2>Extia</h2>
+					<h3>Booster nos projets avec l’energie d’Extia</h3>
+					<p>Nous tirons notre expertise d’Extia, qui met à votre disposition ses meilleurs consultants et qui vous garantissent la réussite de votre projet au Time-To-Market optimisé, aux risques maîtrisés, avec les méthodes de gestion de projet les plus rodées.</p>
+					<a href="http://www.extia.fr" target=_blank class="button">Extia.fr</a>
+				</div>
+				<div class="large-6 large-pull-6 medium-7  columns">
+				{% if ress.isMobile ==  true %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/gif/extia-medium.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/extia-small.gif" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="EXTIA-animation" x="0px" y="0px" viewBox="350 0 1400 800">
+    					</svg>
+					{% endif %}
+				</div>
+			</div>
 		</section>
+		<div class="references">
+	  		<div class="row large-centered">
+	  			<div class="reference"><img src="/assets/img/ref-orange.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-ftv.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-aegis.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-publicis.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-generali.png" alt=""></div><!--
+	  			--><div class="reference tf1"><img src="/assets/img/ref-tf1.png" alt=""></div><!--
+	  			--><div class="reference"><img src="/assets/img/ref-lagardere.png" alt=""></div><!--
+	  			--><div class="reference clear-fix"><img src="/assets/img/ref-sfr.png" alt=""></div>
+	  		</div>
+	  	</div>
 	</div>
 {% endblock %}
