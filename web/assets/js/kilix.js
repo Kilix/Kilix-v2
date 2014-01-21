@@ -225,6 +225,7 @@ var Kilix = {
     },
 
     loadKilixSvg: function(){
+        $('#KILIX-logo').attr('viewBox', '0 0 1500 200');
         var s = Snap("#KILIX-logo");
 
         Snap.load("./assets/img/logo_big.svg", function(f) {
