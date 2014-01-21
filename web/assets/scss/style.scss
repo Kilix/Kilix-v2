@@ -17,12 +17,20 @@ $large-margin:800;
 /* MIXINS */
 @mixin colorize($col){
 	/*Du plus foncé au plus clair*/
-	*[fill="#FFFFFF"]{fill:lighten($col,23%);} 	//-23%
-	*[fill="#ECECEC"]{fill:lighten($col,15%);} 	//-15%
-	*[fill="#D9D9D9"]{fill:lighten($col,8%);} 	//-8%
-	*[fill="#C6C6C5"]{fill:$col;} 				//Couleur de base
-	*[fill="#B1B1B1"]{fill:darken($col,7%);} 	//+7%
-	*[fill="#9C9B9B"]{fill:#2c313f; /*darken($col,17%);*/} 	//+17%
+    [fill="#FFFFFF"]{fill:lighten($col,23%);}   //-23%
+    [fill="#ECECEC"]{fill:lighten($col,15%);}   //-15%
+    [fill="#D9D9D9"]{fill:lighten($col,8%);}    //-8%
+    [fill="#C6C6C5"]{fill:$col;}                //Couleur de base
+    [fill="#B1B1B1"]{fill:darken($col,7%);}     //+7%
+    [fill="#9C9B9B"]{fill:#2c313f; /*darken($col,17%);*/}   //+17%
+
+    /* fix IE ... */
+	[fill="#ffffff"]{fill:lighten($col,23%);} 	//-23%
+	[fill="#ececec"]{fill:lighten($col,15%);} 	//-15%
+	[fill="#d9d9d9"]{fill:lighten($col,8%);} 	//-8%
+	[fill="#c6c6c5"]{fill:$col;} 				//Couleur de base
+	[fill="#b1b1b1"]{fill:darken($col,7%);} 	//+7%
+	[fill="#9c9b9b"]{fill:#2c313f; /*darken($col,17%);*/} 	//+17%
 }
 
 @mixin animateFadeToRight($timer){

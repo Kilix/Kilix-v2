@@ -69,14 +69,9 @@ function moveWithBounce(element, xAxis, yAxis, px, duration, delay, callback) {
 
 // Trigger bounce effect on svg element (fill-opacity)
 function bounce(element, duration, delay, callback) {
-    var x = element.getBBox().x;
-    offset = x/2 + 25;
 
-    element.attr({
-      transform: "t"+offset+"s0.4, 0.4"
-    });
-
-    element.animate({'fill-opacity':1,transform:"t0s1,1,0,0"}, duration, mina.elastic);
+    element.attr({transform: "s0.4,0.4"});
+    element.animate({'fill-opacity':1,transform:"s1,1,0,0"}, duration, mina.elastic);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
@@ -85,14 +80,9 @@ function bounce(element, duration, delay, callback) {
 
 // Trigger bounce effect on svg element (opacity)
 function alterBounce(element, duration, delay, callback) {
-    var x = element.getBBox().x;
-    offset = x/2 + 25;
 
-    element.attr({
-      transform: "t"+offset+"s0.4, 0.4"
-    });
-
-    element.animate({'opacity':1,transform:"t0s1,1,0,0"}, duration, mina.elastic);
+    element.attr({transform: "s0.4, 0.4"});
+    element.animate({'opacity':1,transform:"s1,1,0,0"}, duration, mina.elastic);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
