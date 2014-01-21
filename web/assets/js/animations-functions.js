@@ -192,7 +192,7 @@ function drawPath(s, el, duration, delay, anim, callback) {
     var l = path.getTotalLength();
 
     path.attr({"stroke-dasharray": l+" "+l,
-      'stroke-dashoffset': l, 
+      'stroke-dashoffset': l/4, 
       fill: 'none', 
       strokeWidth: el.attr('stroke-width'),
       stroke: el.attr('stroke') });
