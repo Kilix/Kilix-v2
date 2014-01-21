@@ -377,8 +377,10 @@
 			bottom: rem-calc(-47);
 			left: 25%;
 			transform: translateX(-50%);
+			display: block;
 
 			i{
+				display: block !important;
 				text-align: center;
 				border-radius: 50%;
 				border: 2px solid #384047;
