@@ -25,7 +25,6 @@ Kilix.animations["agilite"] = {
           elementsValue['valueTime'] = f.select("#v-time"),
           elementsValue['valuePlan'] = f.select("#v-plan"),
           elementsValue['valuePlan2'] = f.select("#v-plan-2"),
-          elementsValue['valueFleches'] = f.select("#v-fleches"),
           elementsValue['valueText'] = f.select("#v-valeur");
 
           for (var element in elementsValue) {
@@ -33,7 +32,7 @@ Kilix.animations["agilite"] = {
               valSVG.append(elementsValue[element]);
           }
 
-          elementsValue['valueScales'].animate({'opacity':1}, 500, function() {});
+          elementsValue['valueScales'].animate({'opacity':1}, 500);
 
         });
       }
@@ -59,7 +58,7 @@ Kilix.animations["agilite"] = {
         });
       }
 
-      function loadRiskSvg() {
+      function loadRiskSvg(callback) {
 
         Snap.load("./assets/img/svg/agi2.svg", function(f) {
           elementsRisk['riskScales'] = f.select("#r-scales"),
@@ -75,7 +74,9 @@ Kilix.animations["agilite"] = {
               riskSVG.append(elementsRisk[element]);
           }
 
-          elementsRisk['riskScales'].animate({'opacity':1}, 500, function() {});
+          elementsRisk['riskScales'].animate({'opacity':1}, 500, function() {
+            callback();
+          });
 
         });
       }
@@ -95,9 +96,22 @@ Kilix.animations["agilite"] = {
       }
 
     loadValSvg();
-    loadRiskSvg();
+    loadRiskSvg(function() {
+      if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
 
-    setTimeout(function(){valAnimation()}, 600);
+        showCheckmark($('.agility-item:eq(0)'));
+        for (var element in elementsValue) {
+          elementsValue[element].animate({'opacity': 1}, 500);
+        }
+
+        showCheckmark($('.agility-item:eq(1)'));
+        for (var element in elementsRisk) {
+            elementsRisk[element].animate({'opacity': 1}, 500);
+        }
+      } else {
+        setTimeout(function(){valAnimation()}, 600);
+      }
+    });
 
   },
 
@@ -146,7 +160,7 @@ Kilix.animations["agilite"] = {
          });
       }
 
-      function loadVisibilitySvg() {
+      function loadVisibilitySvg(callback) {
 
         Snap.load("./assets/img/svg/agi4.svg", function(f) {
           elementsVis['visScales'] = f.select("#vis-scales"),
@@ -162,7 +176,7 @@ Kilix.animations["agilite"] = {
               visSVG.append(elementsVis[element]);
           }
 
-          elementsVis['visScales'].animate({'opacity':1}, 500, function() {});
+          elementsVis['visScales'].animate({'opacity':1}, 500, callback());
 
         });
       }
@@ -182,7 +196,23 @@ Kilix.animations["agilite"] = {
       }
 
     loadAdaptabilitySvg();
-    loadVisibilitySvg();
-    setTimeout(function(){adaptabilityAnimation()}, 600);
+    loadVisibilitySvg(function() {
+
+      if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+
+        showCheckmark($('.agility-item:eq(2)'));
+        for (var element in elementsAdapt) {
+          elementsAdapt[element].animate({'opacity': 1}, 500);
+        }
+
+        showCheckmark($('.agility-item:eq(3)'));
+        for (var element in elementsVis) {
+            elementsVis[element].animate({'opacity': 1}, 500);
+        }
+      } else {
+        setTimeout(function(){adaptabilityAnimation()}, 600);
+      }
+    });
+    
   }
 }
