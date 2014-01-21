@@ -1,71 +1,86 @@
-/* PROTOTYPING */
-html {
-	background: #000;
+/* VARIABLES */
+$primary-color : #384047;
+$second-color: #a8b7bf;
+$text-color : #8c989e;
+
+$col1: #61AFF0;
+$col2: #ff4a46;
+$col3: #009884;
+$col4: #e79027;
+$col5: #087ec2;
+
+$small-margin:500;
+$medium-margin:600;
+$large-margin:800;
+
+
+/* MIXINS */
+@mixin colorize($col){
+	/*Du plus foncé au plus clair*/
+	*[fill="#FFFFFF"]{fill:lighten($col,23%);} 	//-23%
+	*[fill="#ECECEC"]{fill:lighten($col,15%);} 	//-15%
+	*[fill="#D9D9D9"]{fill:lighten($col,8%);} 	//-8%
+	*[fill="#C6C6C5"]{fill:$col;} 				//Couleur de base
+	*[fill="#B1B1B1"]{fill:darken($col,7%);} 	//+7%
+	*[fill="#9C9B9B"]{fill:#2c313f; /*darken($col,17%);*/} 	//+17%
 }
 
-body {
-	background: navy;
-	@media #{$small-only} {
-		background: yellow;
-   	}
+@mixin animateFadeToRight($timer){
+	animation: fadeToRight 1.3s ease-out;
+	animation-delay: $timer;
+	animation-fill-mode: backwards;
 }
 
-/* BASE */
-
-body {
-	transition:transform .6s cubic-bezier(0.165,0.840,0.440,1.000);
-	backface-visibility:hidden;
-
-	&.unfolded {
-		-webkit-transform: translateY(rem-calc(130));
-		-moz-transform: translateY(rem-calc(130));
-		transform: translateY(rem-calc(130));
-		
-		@media #{$medium-up} {
-			-webkit-transform: translateY(0);
-			-moz-transform: translateY(0);
-			transform: translateY(0);
-		}
-		.nav-links-wrapper {
-			transform: rotateX(0deg);
-		}
-		.icon-folded {
-			transform:translateY(rem-calc(-35));
-		}
-		.icon-unfolded {
-			transform:translateY(rem-calc(-37));
-		}
-	}
+@mixin animateSlideToBottom($timer){
+	animation: slideToBottom 0.5s ease-in-out;
+	animation-delay: $timer;
+	animation-fill-mode: backwards;
 }
 
-.h800{
-	height:800px;
+/* KEYFRAMES */
+@keyframes blink{
+     from { opacity:0.05 }
+     35%  { opacity:0.2; }
+     to   { opacity:0.05; }
+}
+@keyframes bounce{
+     from {transform: translateY(0);}
+     50%  {transform: translateY(-20px);}
+     to   {transform: translateY(0);}
+}
+@keyframes movePowerLine{
+	from{ stroke-dashoffset: 0;}
+	to { stroke-dashoffset: 200px;}
 }
 
-.h400{
-	height:400px;
+@keyframes pulse{
+    to   {transform: scale(1.1);}
 }
 
-.h2000{
-	height:2000px;
+@keyframes fadeToRight{
+	from{ opacity: 0; transform: translateX(-2rem);}
+	to{ opacity: 1; transform: translateX(0);}
 }
 
-.wrapper-new{
-	transform: translateX(100%);
-	position: absolute;
-	width:100%;
-	z-index: 2;
-
-	&.wrapper-prev{
-		transform: translateX(-100%);
-	}
+@keyframes slideToBottom{
+	from{transform: translateY(-100%);}
+	to{transform: translateY(0%);}
 }
 
-
-.disabled{
-	pointer-events:none;
+@keyframes fade{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
 }
+
 
 /* COMPONENTS */ 
 
-@import "componenents/menu";
+@import "components/global";
+@import "components/logo-home";
+@import "components/menu";
+@import "components/footer";
+
+@import "sections/team";
+@import "sections/home";
+@import "sections/agilite";
+@import "sections/contact";

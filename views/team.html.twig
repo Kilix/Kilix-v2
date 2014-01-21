@@ -1,9 +1,49 @@
 {% extends "layout.html.twig" %}
 
 {% block content %} 
-	<div class="container team" data-pos="2">
-		<section class="large-12 columns panel h2000">
-			team
+	<div class="container team" data-page="team">
+		<header class="landing landing-team {% if ress.isMobile ==  false %}desktop{% endif %}">
+			<div class="row">
+				<div class="large-8 columns">
+					<h1>Vous et Nous <span></span><i class="icon-arrow-down4"> </i></h1>
+					<p>L’équipe de Kilix est composée d’experts reconnus qui interviennent sur l’ensemble du  projets. 
+Mais fondamentalement, il y a vous, apportant la vision “produit”.</p>
+				</div>
+			</div>
+		</header>
+		<section class="intro push-top {% if ress.isMobile ==  false %}desktop{% endif %}">
+				<div class="row">
+					<div class="medium-4 columns intro-picto">
+						<a class="teampage losange show-for-large-up"><i class="icon-arrow-down4 losange-arrow"> </i></a>
+					</div>
+					<div class="medium-8 columns intro-content">
+						<h2>Une autre approche de la relation client</h2>
+						<p>Nous croyons avec ferveur que vous êtes la pierre angulaire de l’équipe. Ensemble, nous profitons de la synergie créée par notre collaboration pour faire de votre produit une réussite. 
+Vous serez l’acteur principal de cette belle aventure, où chaque activité ajoutera de la valeur à votre produit en s'appuyant sur vos feedback.</p>
+					</div>
+				</div>
+		</section>
+		<!--<section class="content {% if ress.isMobile ==  false %}desktop{% endif %}">
+			<div class="row cene">
+				<div class="large-12 medium-7 columns">
+						<img src="http://placehold.it/1600x500&text=cène" alt="">
+				</div>
+			</div>
+		</section>-->
+		<section class="svg-anim" data-color="col1">
+			<div class="row">
+				<div class="large-8 medium-7 columns">
+					<svg id="TEAM-f1" x="0px" y="0px" viewBox="0 0 1500 900">
+    				</svg>
+				</div>
+				<div class="large-4 medium-5 columns ">
+					<h3>Soyons Agile</h3>
+					<p>La réussite d’un projet n’est pas conditionnée que par la qualité de l’équipe qui se charge de sa création. 
+					Quelque soit ses forces, elle ne pourra jamais comprendre et définir les besoins utilisateurs (user story) mieux que le demandeur.
+					</p><p>Il nous parait évident que l’équipe parfaite sera constituée des réalisateurs avec le décideur.
+					Ce dernier devient l’acteur principal d’une démarche itérative et incrémentale au service de son projet.</p>
+				</div>
+			</div>
 		</section>
 	</div>
 {% endblock %}
