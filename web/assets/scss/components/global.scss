@@ -46,7 +46,7 @@ h2{
 }
 
 h3{
-
+//ss
 }
 
 p{
@@ -60,16 +60,17 @@ a {
 	&.button {
 		font-family: "Source Sans Pro"; font-weight: 400;
 		transition:all .3s cubic-bezier(0.165,0.840,0.440,1.000);
-		background: transparent;
+		color: white;
+		background:$primary-color;
 		border: 2px solid $primary-color;
-		color: $primary-color;
+		
 		padding: .5em 1.1em;
 		border-radius: 3px;
 		font-size: 1.3rem;
 
 		&:hover{
-			color: white;
-			background:$primary-color;
+			color: $primary-color;
+			background: transparent;
 		}
 	}
 
