@@ -49,13 +49,13 @@ Kilix.animations["extia"] = {
 
       elements['reload'] = f.select("#extia-reload").attr({"fill-opacity": 0}),
       elements['logoExtia'] = f.select("#logo-extia").attr({"fill-opacity": 0}),
-      elements['valeurText'] = f.select("#text-valeur").attr({"fill-opacity": 0}),
+      elements['valeurText'] = f.select("#text-valeur"),
       elements['valeurKart'] = f.select("#valeur-kart").attr({"fill-opacity": 0}),
       elements['valeurDispatch'] = f.select("#valeur-dispatch"),
-      elements['amelioText'] = f.select("#text-amelio").attr({"fill-opacity": 0}),
+      elements['amelioText'] = f.select("#text-amelio"),
       elements['amelioF1'] = f.select("#amelio-f1").attr({"fill-opacity": 0}),
       elements['amelioKart'] = f.select("#amelio-kart"),
-      elements['risqueText'] = f.select("#text-risques").attr({"fill-opacity": 0}),
+      elements['risqueText'] = f.select("#text-risques"),
       elements['risquePanneau'] = f.select("#risque-panneau").attr({"fill-opacity": 0}),
       elements['risqueRock'] = f.select('#risque-rock').attr({"fill-opacity": 0}),
       elements['risqueTrajectoire'] = f.select('#risque-trajectoire').attr({"fill-opacity": 0}),
@@ -81,7 +81,8 @@ Kilix.animations["extia"] = {
     */
 
     function animValue() {
-      animValuePowerLine();
+      animPowerLine($("#fil-valeur path"), 0);
+      colorizeText(elements['valeurText'], elements['valeurKart'].attr('fill'));
 
       setTimeout(function(){
         bounce(elements['valeurMini'], 700, 700);
@@ -89,7 +90,6 @@ Kilix.animations["extia"] = {
         setTimeout(function(){
           elements['valeurDispatch'].animate({transform: 't0,s0,0'}, 100, function() {
             bounce(elements['valeurKart'], 500, 500, function() {
-              elements['valeurText'].animate({fillOpacity: 1}, 500);
               setTimeout(function(){animRisk();},500);
             });
           });
@@ -99,19 +99,13 @@ Kilix.animations["extia"] = {
       },600);
     }
 
-    function animValuePowerLine() {
-      $("#fil-valeur path").css({'stroke': powerLinesColor});
-      Kilix.animations["extia"].powerLinesIntervals[0] = setInterval(function() {
-        $("#fil-valeur path").css({'stroke': powerLinesColor});
-      }, 500);
-    }
-
     /*
     * Risk animation functions
     */
 
     function animRisk() {
-      animRiskPowerLine();
+      animPowerLine($("#fil-risque path"), 1);
+      colorizeText(elements['risqueText'], elements['risqueRock'].select('polygon').attr('fill'));
 
       setTimeout(function(){
           bounce(elements['risquesMini'], 700, 700, function() {
@@ -120,7 +114,6 @@ Kilix.animations["extia"] = {
             Kilix.animations["extia"].riskInterval = scalePulse(elements['risquePanneau'], '1.2', 500, 1000, function() {
               elements['risquePointe'].animate({'fill-opacity': 1}, 500);
               elements['risqueTrajectoire'].animate({'fill-opacity': 1}, 500, function() {
-                elements['risqueText'].animate({fillOpacity: 1}, 500);
                 setTimeout(function(){animImprove();},500);
               });
             });
@@ -129,37 +122,23 @@ Kilix.animations["extia"] = {
       }, 400);
     }
 
-    function animRiskPowerLine() {
-      $("#fil-risque path").css({'stroke': powerLinesColor});
-      Kilix.animations["extia"].powerLinesIntervals[1] = setInterval(function(){
-        $("#fil-risque path").css({'stroke': powerLinesColor});
-      }, 500);
-    }
-
     /*
     * Improve animation functions
     */
 
     function animImprove() {
-      animImprovePowerLine();
+      animPowerLine($("#fil-amelio path"), 2);
+      colorizeText(elements['amelioText'], elements['amelioKart'].attr('fill'));
 
       setTimeout(function(){
         bounce(elements['amelioKart'], 700, 750, function() {
           elements['amelioKart'].attr({'fill-opacity': 0});
           bounce(elements['amelioF1'], 1000, 1000, function() {
-            elements['amelioText'].animate({fillOpacity: 1}, 500);
             Kilix.animations["extia"].animStatus = true;
             elements['reload'].animate({'fill-opacity': 1}, 400);
           });
         });
       }, 400);
-    }
-
-    function animImprovePowerLine() {
-      $("#fil-amelio path").css({'stroke': powerLinesColor});
-      Kilix.animations["extia"].powerLinesIntervals[2] = setInterval(function(){
-        $("#fil-amelio path").css({'stroke': powerLinesColor});
-      }, 500);
     }
 
     function resetAnim() {
@@ -188,6 +167,22 @@ Kilix.animations["extia"] = {
           animValue();
         }, 400);
       });
+    }
+
+    function animPowerLine(el, i) {
+      el.css({'stroke': powerLinesColor});
+      Kilix.animations["extia"].powerLinesIntervals[i] = setInterval(function(){
+        el.css({'stroke': powerLinesColor});
+      }, 500);
+    }
+
+    function colorizeText(element, color) {
+      var elementPolygons = element.selectAll('[fill="#B8B8B8"]');
+      for (var polygon in elementPolygons) {
+        if (typeof elementPolygons[polygon].animate == 'function') {
+          elementPolygons[polygon].animate({fill: color}, 500);
+        }
+      }
     }
 
     loadExtiaSvg();
