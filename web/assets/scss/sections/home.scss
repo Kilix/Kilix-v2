@@ -30,15 +30,6 @@
 	}
 
 	.columns{
-
-// <<<<<<< HEAD
-// 		@media #{$medium-up} { 
-// 			padding: 1rem 2rem 2rem;
-// 		}
-
-// 		@media #{$xlarge-up} { 
-// 			padding: 3rem 6rem 6rem;
-// =======
 		@media #{$large-up} { 
 			padding: 3rem;
 		}
@@ -466,6 +457,7 @@
     font-weight: bold;
     transform: rotate(45deg);
     transition: all 0.2s;
+    border-radius: 3px;
 	
 }
 
