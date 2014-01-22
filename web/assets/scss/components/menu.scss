@@ -187,7 +187,7 @@ $mobile-contact-height: 40;
 			@include linkedIn;
 			font-family: Ubuntu;
 			
-			color: white;
+			color: $primary-color;
 			text-transform:uppercase;
 			position: relative;
 			z-index:1;
@@ -196,16 +196,17 @@ $mobile-contact-height: 40;
 
 			&:hover{		
 				
+				color: white;
+
 				&:after{
-					opacity:1;
+					background:transparent;
 				}
 			}
 
 			&:after{
-				opacity:0;
 				width: 85px;
 				height: 25px;
-				background: transparent;
+				background: white;
 				z-index: -1;
 				content: " ";
 				position: absolute;
@@ -213,7 +214,7 @@ $mobile-contact-height: 40;
 				left: -9px;
 				border-radius: 3px;
 				border:2px solid white;
-				transition: opacity 0.5s;
+				transition: all 0.5s;
 			}
 		}
 
