@@ -24,7 +24,10 @@ Kilix.animations["extia"] = {
     extiaFactory = null,
     powerLinesColor = '#FFFFFF',
     extiaColor = '#E6B171',
-    animStatus = null;
+    textColor = "#B8B8B8",
+    valueColor = null,
+    riskColor = null,
+    improveColor = null;
 
     $('#EXTIA-animation').on('click', function() {
       if (Kilix.animations["extia"].animStatus == true) {
@@ -33,6 +36,12 @@ Kilix.animations["extia"] = {
       }
     });
 
+    function init() {
+      valueColor = elements['valeurKart'].attr('fill');
+      riskColor = elements['risqueRock'].select('polygon').attr('fill');
+      improveColor = elements['amelioKart'].attr('fill');
+    }
+
     function loadExtiaSvg() {
       Snap.load("./assets/img/svg/kilix_anim_extia.svg", function(f) {
         getElements(f);
@@ -40,6 +49,7 @@ Kilix.animations["extia"] = {
         s.append(elements['valeurText']);
         s.append(elements['risqueText']);
         s.append(elements['amelioText']);
+        init();
         startAnimation();
       });
     }
@@ -82,7 +92,7 @@ Kilix.animations["extia"] = {
 
     function animValue() {
       animPowerLine($("#fil-valeur path"), 0);
-      colorizeText(elements['valeurText'], elements['valeurKart'].attr('fill'));
+      colorizeText(elements['valeurText'], valueColor);
 
       setTimeout(function(){
         bounce(elements['valeurMini'], 700, 700);
@@ -105,7 +115,7 @@ Kilix.animations["extia"] = {
 
     function animRisk() {
       animPowerLine($("#fil-risque path"), 1);
-      colorizeText(elements['risqueText'], elements['risqueRock'].select('polygon').attr('fill'));
+      colorizeText(elements['risqueText'], riskColor);
 
       setTimeout(function(){
           bounce(elements['risquesMini'], 700, 700, function() {
@@ -128,12 +138,13 @@ Kilix.animations["extia"] = {
 
     function animImprove() {
       animPowerLine($("#fil-amelio path"), 2);
-      colorizeText(elements['amelioText'], elements['amelioKart'].attr('fill'));
+      colorizeText(elements['amelioText'], improveColor);
 
       setTimeout(function(){
         bounce(elements['amelioKart'], 700, 750, function() {
           elements['amelioKart'].attr({'fill-opacity': 0});
           bounce(elements['amelioF1'], 1000, 1000, function() {
+            decolorizeText();
             Kilix.animations["extia"].animStatus = true;
             elements['reload'].animate({'fill-opacity': 1}, 400);
           });
@@ -183,6 +194,25 @@ Kilix.animations["extia"] = {
           elementPolygons[polygon].animate({fill: color}, 500);
         }
       }
+    }
+
+    function decolorizeText() {
+
+      var valueElements = elements['valeurText'].selectAll('[fill="'+valueColor+'"]'),
+          riskElements = elements['risqueText'].selectAll('[fill="'+riskColor+'"]'),
+          improveElements = elements['amelioText'].selectAll('[fill="'+improveColor+'"]');
+
+      for (var i = valueElements.length - 1; i >= 0; i--) {
+        valueElements[i].animate({fill: textColor}, 500);
+      };
+
+      for (var i = riskElements.length - 1; i >= 0; i--) {
+        riskElements[i].animate({fill: textColor}, 500);
+      };
+
+      for (var i = improveElements.length - 1; i >= 0; i--) {
+        improveElements[i].animate({fill: textColor}, 500);
+      };
     }
 
     loadExtiaSvg();
