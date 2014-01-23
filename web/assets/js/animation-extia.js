@@ -24,7 +24,7 @@ Kilix.animations["extia"] = {
     extiaFactory = null,
     powerLinesColor = '#FFFFFF',
     extiaColor = '#E6B171',
-    textColor = "#B8B8B8",
+    textColor = "#b8b8b8",
     valueColor = null,
     riskColor = null,
     improveColor = null;
@@ -156,7 +156,7 @@ Kilix.animations["extia"] = {
       elements['reload'].animate({'fill-opacity': 0}, 100, function() {
         // reset value elements
         elements['valeurKart'].animate({'fill-opacity': 0}, 400);
-        elements['valeurText'].animate({'fill-opacity': 0}, 400);
+        // elements['valeurText'].animate({'fill-opacity': 0}, 400);
         elements['valeurMini'].attr({'fill-opacity': 0});
         elements['valeurDispatch'].attr({transform: 't0,s1,1'});
 
@@ -166,11 +166,11 @@ Kilix.animations["extia"] = {
         elements['risqueTrajectoire'].animate({'fill-opacity': 0}, 400);
         elements['risquePanneau'].animate({'fill-opacity': 0}, 400);
         elements['risquesMini'].animate({'fill-opacity': 0}, 400);
-        elements['risqueText'].animate({'fill-opacity': 0}, 400);
+        // elements['risqueText'].animate({'fill-opacity': 0}, 400);
 
         // reset improve elements
         elements['amelioF1'].animate({'fill-opacity': 0}, 400);
-        elements['amelioText'].animate({'fill-opacity': 0}, 400);
+        // elements['amelioText'].animate({'fill-opacity': 0}, 400);
         
         Kilix.animations["extia"].freeIntervals();
 
@@ -188,8 +188,9 @@ Kilix.animations["extia"] = {
     }
 
     function colorizeText(element, color) {
-      var elementPolygons = element.selectAll('[fill="#B8B8B8"]');
+      var elementPolygons = element.selectAll('[fill="#b8b8b8"]');
       for (var polygon in elementPolygons) {
+        console.log('wadawdaw');
         if (typeof elementPolygons[polygon].animate == 'function') {
           elementPolygons[polygon].animate({fill: color}, 500);
         }
@@ -201,7 +202,6 @@ Kilix.animations["extia"] = {
       var valueElements = elements['valeurText'].selectAll('[fill="'+valueColor+'"]'),
           riskElements = elements['risqueText'].selectAll('[fill="'+riskColor+'"]'),
           improveElements = elements['amelioText'].selectAll('[fill="'+improveColor+'"]');
-
       for (var i = valueElements.length - 1; i >= 0; i--) {
         valueElements[i].animate({fill: textColor}, 500);
       };

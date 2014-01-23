@@ -6,7 +6,9 @@
 			<div class="row">
 				<div class="large-8 columns">
 					<div class="kilix-dispatch show-for-medium-up">
-						<svg x="0px" y="0px" id="KILIX-logo" viewBox="0 0 1500 200"></svg>
+						
+							<img  x="0px" y="0px" src="assets/img/logo_big.svg" id="KILIX-logo"  viewBox="0 0 1500 200" alt="" class='svg'>
+							<!-- <svg x="0px" y="0px" id="KILIX-logo" viewBox="0 0 1500 200"></svg> -->
 					</div>
 					<h1 class='landing-main-text'>
 						Nous sommes une agence Web avec des post-it<sup>®</sup> sur les murs.<i class="icon-arrow-down4"> </i>
@@ -35,11 +37,13 @@
 					<a data-pos="3" data-scroll="" href="/agilite" class="button enabled">En savoir plus</a>
 				</div>
 				<div class="large-6 medium-7 columns anim-item">
-					{% if ress.isMobile ==  true %}
+					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/value-medium.gif" alt="">
-						{% else %}
+						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/value-small.gif" alt="">
+						{% else %}
+							<img src="assets/img/gif/value-medium.gif" alt="">
 						{% endif %}
 					{% else %}
 						<svg id="VALEUR-dispatch" x="0px" y="0px" viewBox="0 0 1400 700"></svg>
@@ -63,7 +67,7 @@
 					{% if ress.isMobile ==  true %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/risk-medium.gif" alt="">
-						{% else %}
+						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/risk-small.gif" alt="">
 						{% endif %}
 					{% else %}
@@ -92,7 +96,7 @@
 					{% if ress.isMobile ==  true %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/amelio-medium.gif" alt="">
-						{% else %}
+						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/amelio-small.gif" alt="">
 						{% endif %}
 					{% else %}
@@ -114,7 +118,7 @@
 				{% if ress.isMobile ==  true %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/extia-medium.gif" alt="">
-						{% else %}
+						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/extia-small.gif" alt="">
 						{% endif %}
 					{% else %}

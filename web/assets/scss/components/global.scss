@@ -54,7 +54,13 @@ p{
 	line-height: rem-calc(28);
 	color: $text-color;
 }
+
+img {
+	border: 0;
+}
+
 a {
+	border: 0;
 	text-decoration: none;
 
 	&.button {
