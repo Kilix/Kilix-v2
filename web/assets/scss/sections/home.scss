@@ -220,11 +220,10 @@
 .svg-anim{
 	position:relative;
 	z-index:2;
-	background:#FAFAFC;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-	// border-bottom: 5px solid rgba(85, 122, 162, 0.05);
+	background:#ebeff2;
 
-	&.svg-extia{
+	&.svg-risque, &.svg-extia{
+		background: white;
 		.row{
 			border:0;
 		}
