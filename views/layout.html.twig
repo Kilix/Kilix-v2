@@ -13,6 +13,19 @@
 				}
 			</style>
   		{% endif %}
+  		{% if browser.browser == "IE" and browser.majorver < 10 %}
+  			<style>
+	  			@media only screen and (min-width: 90.06em) {
+					.navbar .logo img {
+						height: 0 !important;
+					}
+	  			}
+	  			.svg-anim {
+					background: #fbfbfb;
+				}
+  			</style>
+  			<script src='assets/js/matchMedia.min.js'></script>
+  		{% endif %}
 	</head>
 	<body>
 		<nav class="navbar navbar-top">
@@ -24,7 +37,13 @@
 					</span>
 				</i>
 				<div class="logo">
-					<a href="/"><img class="svg" src="assets/img/logo_small.svg" alt=""></a>
+					<a href="/">
+						{% if browser.browser == "IE" and browser.majorver < 10 %}
+							<img class="" src="assets/img/logo_small.png" alt="">
+						{% else %}
+							<img class="svg" src="assets/img/logo_small.svg" alt="">
+						{% endif %}
+					</a>
 				</div>
 				<div class='nav-links-wrapper nav-links-hidden'>
 					<a class='nav-link enabled {% if page == 'home' %}current{% endif %}' href="/" data-pos="1">Home</a>

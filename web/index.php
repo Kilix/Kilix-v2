@@ -17,28 +17,32 @@ $app->register(new MobileDetectServiceProvider());
 $app->get('/', function() use ($app) {
     return $app['twig']->render('home.html.twig', array(
         'page' => 'home',
-        'ress' => $app["mobile_detect"]
+        'ress' => $app["mobile_detect"],
+        'browser' =>  get_browser(null, true)
     ));
 });
 
 $app->get('/team', function() use ($app) {
     return $app['twig']->render('team.html.twig', array(
         'page' => 'team',
-        'ress' => $app["mobile_detect"]
+        'ress' => $app["mobile_detect"],
+        'browser' =>  get_browser(null, true)
     ));
 });
 
 $app->get('/agilite', function() use ($app) {
     return $app['twig']->render('agilite.html.twig', array(
         'page' => 'agilite',
-        'ress' => $app["mobile_detect"]
+        'ress' => $app["mobile_detect"],
+        'browser' =>  get_browser(null, true)
     ));
 });
 
 $app->get('/contact', function() use ($app) {
     return $app['twig']->render('contact.html.twig', array(
-        'page' => 'contact',
-        'ress' => $app["mobile_detect"]
+        'page'    => 'contact',
+        'ress'    => $app["mobile_detect"],
+        'browser' =>  get_browser(null, true)
     ));
 });
 
