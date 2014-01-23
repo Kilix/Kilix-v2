@@ -10,9 +10,6 @@
 	z-index: 5;
 
 	&.desktop {		
-		@media #{$medium-up} {
-			margin-top:rem-calc($medium-margin);
-		}	
 		@media #{$xlarge-up} { 
 			h2{font-size:rem-calc(65);} 
 		}
@@ -83,7 +80,7 @@
 }
 
 .agilite .intro{
-	background: #FFAD00;
+	background: $col4;
 
 	.intro-picto{
 		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
@@ -215,7 +212,7 @@
 	position:relative;
 	z-index:2;
 	background:#ECECF5;
-	border-bottom: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 5px solid rgba(85, 122, 162, 0.05);
 
 	&.svg-extia{
 		.row{
@@ -362,6 +359,8 @@
 		}
 		
 		.next-section{
+			@extend .show-for-medium-up;
+
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -374,7 +373,6 @@
 				display: block !important;
 				text-align: center;
 				border-radius: 50%;
-				border: 2px solid #384047;
 				width: rem-calc(90);
 				height: rem-calc(90);
 				font-size: rem-calc(27);
@@ -382,9 +380,8 @@
 				transition: all .2s;
 				transition: all .2s;
 				line-height: rem-calc(50);
-				background: #384047;
-				color: white;
-				@extend .show-for-medium-up;
+				color: $primary-color;
+				
 
 
 				&:hover{
@@ -501,6 +498,7 @@
 
 .svg-valeur{
 
+
 	@media #{$large-up} {
 		
 
@@ -531,7 +529,7 @@
 		} 
 	}
 
-	h3:after, &:before{background:$col1;}
+	h3:after, &:before, a.button span:before{background:$col1;}
 	.row .next-section i:hover{ background: $col1; }
 }
 .svg-risque{
@@ -559,7 +557,7 @@
 
 	@media #{$xlarge-up} { h2{font-size:rem-calc(65);} }
 
-	h3:after,&:before{background:$col2;}
+	h3:after,&:before, a.button span:before{background:$col2;}
 	.row .next-section i:hover{ background: $col2; }
 	.row .next-section { left: 75%; }
 }
@@ -585,7 +583,7 @@
 
 	@media #{$xlarge-up} { h2{font-size:rem-calc(65);} }
 
-	h3:after, &:before{background:$col3;}
+	h3:after, &:before, a.button span:before{background:$col3;}
 	.row .next-section i:hover{ background: $col3; }
 }
 .svg-extia{
@@ -597,7 +595,7 @@
 	}
 	@media #{$xlarge-up} { h2{font-size:rem-calc(100);} }
 
-	h3:after, &:before{background:$col4;}
+	h3:after, &:before, a.button span:before{background:$col4;}
 	.row .next-section i:hover{ background: $col4; }
 	.row .next-section { left: 75%; }
 
