@@ -220,8 +220,8 @@
 .svg-anim{
 	position:relative;
 	z-index:2;
-	background:#ECECF5;
-	border-bottom: 5px solid rgba(85, 122, 162, 0.05);
+	background:#FAFAFC;
+	// border-bottom: 5px solid rgba(85, 122, 162, 0.05);
 
 	&.svg-extia{
 		.row{
@@ -364,7 +364,7 @@
 		padding: 2rem 0;position: relative;
 
 		@media #{$xlarge-up}{
-			padding: 5rem 0;
+			padding: 8rem 0;
 		}
 		
 		.next-section{
@@ -631,6 +631,7 @@ div.references{
 	position:relative;
 	z-index:2;
 	padding: 2rem 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
 	.columns{
 		margin-bottom:2rem; padding: 0;
