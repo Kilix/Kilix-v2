@@ -60,6 +60,7 @@ var Kilix = {
             });
 
             newPos = pageToPosition[State.title.toLowerCase()];
+            console.log(newPos);
 
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
@@ -72,9 +73,10 @@ var Kilix = {
 
                 Kilix[oldPage].destroy();
                 Kilix.resizeLanding();
+                Kilix.switchSVG();
 
-                $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
-                $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
+                $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 600);
+                $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 600, function(){
 
                     $(".wrapper:first-child").remove();
                     $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
@@ -102,19 +104,25 @@ var Kilix = {
             updateContent(State);
         });
 
-        $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", function(evt) {
+        $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", Kilix.bindPushState);
+    },
+
+    bindPushState: function(evt) {
             evt.preventDefault();
             if(!$(this).hasClass('enabled')) {
                 return;
             }
-            $(".nav-links-wrapper a, .footer-links a").removeClass('enabled');
+            $(".nav-links-wrapper a, .footer-links a, .svg-anim a").removeClass('enabled');
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
 
-            History.pushState(null, this.textContent, this.href);
+            
+            var title = $(this).attr('data-scroll') ? 'Agilite' : this.textContent ;
+            console.log("test" + title );
+
+            History.pushState(null, title, this.href);
             evt.preventDefault();
-       });
     },
 
     switchSVG: function(){
@@ -261,6 +269,8 @@ var Kilix = {
                     scrollTop:$('.svg-valeur').offset().top - 90
                 }, 'slow');
             });
+
+            $(".svg-anim a.button.enabled").on("click", Kilix.bindPushState);
 
             var slide = $('.❤');
             slide.waypoint({
