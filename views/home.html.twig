@@ -6,8 +6,11 @@
 			<div class="row">
 				<div class="large-8 columns">
 					<div class="kilix-dispatch show-for-medium-up">
-						
+						{% if browser.browser == "IE" and browser.majorver < 10 %}
+							<img  x="0px" y="0px" src="assets/img/logo_small.png" id="KILIX-logo">
+						{% else %}
 							<img  x="0px" y="0px" src="assets/img/logo_big.svg" id="KILIX-logo"  viewBox="0 0 1500 200" alt="" class='svg'>
+						{% endif %}
 							<!-- <svg x="0px" y="0px" id="KILIX-logo" viewBox="0 0 1500 200"></svg> -->
 					</div>
 					<h1 class='landing-main-text'>
@@ -43,7 +46,7 @@
 						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/value-small.gif" alt="">
 						{% else %}
-							<img src="assets/img/gif/value-medium.gif" alt="">
+							<video src="assets/video/valeur-IE.mp4" autoplay loop></video>
 						{% endif %}
 					{% else %}
 						<svg id="VALEUR-dispatch" x="0px" y="0px" viewBox="0 0 1400 700"></svg>
@@ -64,11 +67,13 @@
 					<a data-pos="3" data-scroll="" href="/agilite" class="button enabled">En savoir plus</a>
 				</div>
 				<div class="large-6 large-pull-6 medium-7 columns anim-item">
-					{% if ress.isMobile ==  true %}
+					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/risk-medium.gif" alt="">
 						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/risk-small.gif" alt="">
+						{% else %}
+							<video src="assets/video/risk-IE.mp4" autoplay loop></video>
 						{% endif %}
 					{% else %}
 						<svg id="RISK-dispatch" x="0px" y="0px" viewBox="600 100 800 600">
@@ -93,11 +98,13 @@
 					<a data-pos="3" data-scroll="" href="/agilite" class="button enabled">En savoir plus</a>
 				</div>
 				<div class="large-6 medium-6 columns anim-item">
-					{% if ress.isMobile ==  true %}
+					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/amelio-medium.gif" alt="">
 						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/amelio-small.gif" alt="">
+						{% else %}
+							<video src="assets/video/amelio-IE.mp4" autoplay loop></video>
 						{% endif %}
 					{% else %}
 						<svg id="AMELIO-transform" x="0px" y="0px" viewBox="0 0 1500 900">
@@ -115,11 +122,13 @@
 					<a href="http://www.extia.fr" target=_blank class="button">Accéder à Extia.fr</a>
 				</div>
 				<div class="large-6 large-pull-6 medium-7  columns">
-				{% if ress.isMobile ==  true %}
+				{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
 							<img src="assets/img/gif/extia-medium.gif" alt="">
 						{% elseif ress.isMobile == true %}
 							<img src="assets/img/gif/extia-small.gif" alt="">
+						{% else %}
+							<video src="assets/video/extia-IE.mp4" autoplay loop></video>
 						{% endif %}
 					{% else %}
 						<svg id="EXTIA-animation" x="0px" y="0px" viewBox="350 0 1400 800">
