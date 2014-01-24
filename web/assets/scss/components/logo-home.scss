@@ -31,12 +31,12 @@
   top: -8rem;
 
   @media #{$large-up} {
-    width: 60rem;;
+    width: 40rem;;
     top: -6rem;
   }
 
   @media #{$xlarge-up} {
-    width: 70rem;;
+    width: 50rem;;
     top: 2rem;
   }
 }

@@ -7,6 +7,24 @@
 	background-image: url('../img/landing-bg-team.jpg'); background-size: cover;
 }
 
+.agilite{
+
+	.content{
+		padding:0;
+	}
+	.content article{
+		border-bottom: 5px solid rgba(85, 122, 162, 0.05);
+
+		.row{max-width:65rem;}
+	}
+	
+	@media #{$medium-up}{
+		svg{
+			margin: 100px 0;
+		}
+	}
+}
+
 
 .agility-item {
 
