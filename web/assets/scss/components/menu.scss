@@ -219,7 +219,7 @@ $mobile-contact-height: 40;
 		}
 
 		.nav-link {
-			opacity: .8;
+			opacity: .2;
 			font-family: Ubuntu;
 			font-size: rem-calc(16);
 			font-weight: bold;
@@ -233,7 +233,7 @@ $mobile-contact-height: 40;
 			pointer-events: visible;
 			position: relative;
 			border-bottom: 1px solid rgba(255,255,255,.1);
-			transition: opacity 0.5s;
+			transition: opacity 0.3s;
 
 			@media #{$small-only} {
 				&:hover{
