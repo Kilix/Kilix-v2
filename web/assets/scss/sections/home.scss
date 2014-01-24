@@ -221,6 +221,7 @@
 	position:relative;
 	z-index:2;
 	background:#ebeff2;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
 	&.svg-risque, &.svg-extia{
 		background: white;
@@ -264,14 +265,20 @@
 			height: rem-calc(400);
 			overflow:hidden;
 
+			@media #{$small-only} {
+				transform: translateX(-1rem);
+			}
+
 			@media #{$medium-up} {
 				transform: scale(1.30) translateX(-3rem);
 				height: rem-calc(500);
 			}
 
-			@media #{$small-only} {
-				transform: translateX(-1rem);
+			@media #{$xlarge-up} {
+				transform: scale(1.4) translateX(0rem);
 			}
+
+			
 
 			#valeur-reload{
 				path, circle{
@@ -305,6 +312,9 @@
 			@media #{$medium-up} {
 				height: rem-calc(500);
 			}
+			@media #{$xlarge-up} {
+				transform: scale(1.5) translateX(-2.5rem);
+			}
 
 			#risk-casque, #risk-gant1, #risk-gant2{@include colorize($col2);}
 		}
@@ -317,6 +327,11 @@
 					animation: pulse 0.7s ease-in-out infinite alternate;
 					transform-origin: 50% 50%;
 				}
+
+				@media #{$xlarge-up} {
+					transform: scale(1.5);
+				}
+
 
 			}
 
@@ -382,6 +397,7 @@
 				display: block !important;
 				text-align: center;
 				border-radius: 50%;
+				border: 2px solid rgba(56, 64, 71, 0.39);
 				width: rem-calc(90);
 				height: rem-calc(90);
 				font-size: rem-calc(27);
@@ -508,7 +524,7 @@
 
 .intro-content h2{
 	line-height: rem-calc(55);
-	margin-top:0;
+	margin:0 0 1rem 0;
 
 
 	@media #{$xlarge-up} {
@@ -631,7 +647,7 @@ div.references{
 	position:relative;
 	z-index:2;
 	padding: 2rem 0;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
 	.columns{
 		margin-bottom:2rem; padding: 0;
