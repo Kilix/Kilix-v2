@@ -73,6 +73,7 @@ var Kilix = {
 
                 Kilix[oldPage].destroy();
                 Kilix.resizeLanding();
+                Kilix.switchSVG();
 
                 $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
                 $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
