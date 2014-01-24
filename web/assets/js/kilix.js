@@ -1,5 +1,7 @@
 var Kilix = {
 
+    currentScroll: null,
+
     colors: {
         col1: '#61AFF0',
         col2: '#ff4a46',
@@ -43,7 +45,7 @@ var Kilix = {
             alert('The HTML5 History API (and thus History.js) do not work on files, please upload it to a server.');
         }
 
-        // Establish Variables
+        // Establish Variable!
         var
             History = window.History, // Note: We are using a capital H instead of a lower h
             State = History.getState(),
@@ -53,10 +55,10 @@ var Kilix = {
             pageToPosition = { home:1,team:2,agilite:3,contact:4 };
 
         function loadAjaxContent(State){
-            var url = State.url;       
+            var url = State.url;
             var oldPage = $('.container').data('page');
-            $('html, body').animate({  
-                scrollTop:0  
+            $('html, body').animate({
+                scrollTop:0
             });
 
             newPos = pageToPosition[State.title.toLowerCase()];
@@ -66,7 +68,7 @@ var Kilix = {
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
             slideNext = newPos>currentPos ? true : false;
-            $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
+            $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>");
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
             $(".wrapper-new").load(url+" .container", function(data){
@@ -84,6 +86,7 @@ var Kilix = {
                     Pos = $(".container").data('pos');
 
                     Kilix[State.title.toLowerCase()].init();
+
                 });
                    
             });
@@ -107,21 +110,22 @@ var Kilix = {
     },
 
     bindPushState: function(evt) {
-            evt.preventDefault();
-            if(!$(this).hasClass('enabled')) {
-                return;
-            }
-            $(".nav-links-wrapper a, .footer-links a, .svg-anim a").removeClass('enabled');
-            $('body').removeClass('unfolded');
-            //Prevent the browsers default behaviour of navigating to the hyperlink
-            currentPos = $(".nav-link.current").data('pos');
+        evt.preventDefault();
+        if(!$(this).hasClass('enabled')) {
+            return;
+        }
+        $(".nav-links-wrapper a, .footer-links a, .svg-anim a").removeClass('enabled');
+        $('body').removeClass('unfolded');
+        // Prevent the browsers default behaviour of navigating to the hyperlink
+        currentPos = $(".nav-link.current").data('pos');
+        if ($(this).data('scroll') != undefined)
+            Kilix.currentScroll = $(this).data('scroll');
+        else
+            Kilix.currentScroll = null;
 
-            
-            var title = $(this).attr('data-scroll') ? 'Agilite' : this.textContent ;
-            console.log("test" + title );
+        var title = $(this).attr('data-scroll') ? 'Agilite' : this.textContent;
 
-            History.pushState(null, title, this.href);
-            evt.preventDefault();
+        History.pushState(null, title, this.href);
     },
 
     switchSVG: function(){
@@ -179,7 +183,6 @@ var Kilix = {
             }, 'slow');
         });
 
-        
     },
 
     wayPoints: function(){
@@ -191,7 +194,6 @@ var Kilix = {
                 },
                 offset: 'bottom-in-view'
             });
-
 
             $('.intro').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
@@ -231,14 +233,6 @@ var Kilix = {
         }
     },
 
-    loadKilixSvg: function(){
-        var s = Snap("#KILIX-logo");
-
-        Snap.load("", function(f) {
-            s.append(f.select("#kilixSvg"));
-        });
-    },
-
     animations:{
    	    //Prototyped by animations-*.js
     },
@@ -249,7 +243,6 @@ var Kilix = {
 
             Kilix.wayPoints();
             Kilix.resize();
-            Kilix.loadKilixSvg();
 
             $('.landing-home').addClass('play');
             setTimeout(function(){$('.landing-home').removeClass('play');},1000);
@@ -268,8 +261,6 @@ var Kilix = {
                     scrollTop:$('.svg-valeur').offset().top - 90
                 }, 'slow');
             });
-
-            $(".svg-anim a.button.enabled").on("click", Kilix.bindPushState);
 
             var slide = $('.❤');
             slide.waypoint({
@@ -334,8 +325,8 @@ var Kilix = {
             console.log('Destroy Home');
             $.waypoints('destroy');
             $('.next-section').off();
-            $('.navbar').addClass('navbar-top');  
-            Kilix.changeXColor($('.logo svg polygon'), 'none');     
+            $('.navbar').addClass('navbar-top');
+            Kilix.changeXColor($('.logo svg polygon'), 'none');
             $('.landing h1, .landing-main-text, #KILIX-logo').off();
         }
     },
@@ -354,22 +345,43 @@ var Kilix = {
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
 
-            var agiOneInit = false;
-            $('.svg-agilite').waypoint(function(direction) {
-                if(agiOneInit == false) {
-                    Kilix.animations['agilite'].start();
-                    agiOneInit = true;
+            var agiValInit = false;
+            $('.svg-agilite').eq('0').waypoint(function(direction) {
+                if(agiValInit == false) {
+                    Kilix.animations['agilite'].startValueAnimation();
+                    agiValInit = true;
                 }
-                 }, { offset: '50%' });
+                 }, { offset: '70%' });
 
-            var agiTwoInit = false;
-            $('.svg-agilite').waypoint(function(direction) {
-                if(agiTwoInit == false) {
-                    Kilix.animations['agilite'].startSecond();
-                    agiTwoInit = true;
+            var agiRiskInit = false;
+            $('.svg-agilite').eq('1').waypoint(function(direction) {
+                if(agiRiskInit == false) {
+                    Kilix.animations['agilite'].startRiskAnimation();
+                    agiRiskInit = true;
                 }
-                 }, { offset: '25%' });
+                 }, { offset: '70%' });
 
+            var agiAdaptInit = false;
+            $('.svg-agilite').eq('2').waypoint(function(direction) {
+                if(agiAdaptInit == false) {
+                    Kilix.animations['agilite'].startAdaptAnimation();
+                    agiAdaptInit = true;
+                }
+                 }, { offset: '70%' });
+
+            var agiVisInit = false;
+            $('.svg-agilite').eq('3').waypoint(function(direction) {
+                if(agiVisInit == false) {
+                    Kilix.animations['agilite'].startVisAnimation();
+                    agiVisInit = true;
+                }
+                 }, { offset: '70%' });
+
+            if (Kilix.currentScroll != null) {
+                $('html, body').animate({ 
+                    scrollTop: $('.agility-item').eq(Kilix.currentScroll).offset().top - 90
+                }, 'slow');
+            }
 
             console.log('Init AGILITY');
         },
