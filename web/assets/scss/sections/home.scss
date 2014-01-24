@@ -10,9 +10,6 @@
 	z-index: 5;
 
 	&.desktop {		
-		@media #{$medium-up} {
-			margin-top:rem-calc($medium-margin);
-		}	
 		@media #{$xlarge-up} { 
 			h2{font-size:rem-calc(65);} 
 		}
@@ -83,7 +80,7 @@
 }
 
 .agilite .intro{
-	background: #FFAD00;
+	background: $col4;
 
 	.intro-picto{
 		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
@@ -187,6 +184,15 @@
 			font-size: rem-calc(80);
 			line-height: rem-calc(90);
 		}
+
+		sup{
+			line-height: 0px;
+			font-size: 20px;
+
+			@media #{$medium-up}{
+				font-size: 50px;
+			}
+		}
 	}
 
 	.landing-next-section-wrapper {
@@ -214,10 +220,11 @@
 .svg-anim{
 	position:relative;
 	z-index:2;
-	background:#ECECF5;
-	border-bottom: 1px solid rgba(0,0,0,0.1);
+	background:#ebeff2;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-	&.svg-extia{
+	&.svg-risque, &.svg-extia{
+		background: white;
 		.row{
 			border:0;
 		}
@@ -258,14 +265,20 @@
 			height: rem-calc(400);
 			overflow:hidden;
 
+			@media #{$small-only} {
+				transform: translateX(-1rem);
+			}
+
 			@media #{$medium-up} {
 				transform: scale(1.30) translateX(-3rem);
 				height: rem-calc(500);
 			}
 
-			@media #{$small-only} {
-				transform: translateX(-1rem);
+			@media #{$xlarge-up} {
+				transform: scale(1.4) translateX(0rem);
 			}
+
+			
 
 			#valeur-reload{
 				path, circle{
@@ -299,6 +312,9 @@
 			@media #{$medium-up} {
 				height: rem-calc(500);
 			}
+			@media #{$xlarge-up} {
+				transform: scale(1.5) translateX(-2.5rem);
+			}
 
 			#risk-casque, #risk-gant1, #risk-gant2{@include colorize($col2);}
 		}
@@ -311,6 +327,11 @@
 					animation: pulse 0.7s ease-in-out infinite alternate;
 					transform-origin: 50% 50%;
 				}
+
+				@media #{$xlarge-up} {
+					transform: scale(1.5);
+				}
+
 
 			}
 
@@ -358,10 +379,12 @@
 		padding: 2rem 0;position: relative;
 
 		@media #{$xlarge-up}{
-			padding: 5rem 0;
+			padding: 8rem 0;
 		}
 		
 		.next-section{
+			@extend .show-for-medium-up;
+
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -374,7 +397,7 @@
 				display: block !important;
 				text-align: center;
 				border-radius: 50%;
-				border: 2px solid #384047;
+				border: 2px solid rgba(56, 64, 71, 0.39);
 				width: rem-calc(90);
 				height: rem-calc(90);
 				font-size: rem-calc(27);
@@ -382,9 +405,8 @@
 				transition: all .2s;
 				transition: all .2s;
 				line-height: rem-calc(50);
-				background: #384047;
-				color: white;
-				@extend .show-for-medium-up;
+				color: $primary-color;
+				
 
 
 				&:hover{
@@ -458,7 +480,18 @@
     transform: rotate(45deg);
     transition: all 0.2s;
     border-radius: 3px;
-	
+	overflow: hidden;
+
+	&:before{
+		content: " ";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 75%;
+		height: 180%;
+		background: rgba(255, 255, 255, 0.08);
+		transform: rotate(-45deg);
+	}
 }
 
 .losange-arrow{
@@ -491,7 +524,7 @@
 
 .intro-content h2{
 	line-height: rem-calc(55);
-	margin-top:0;
+	margin:0 0 1rem 0;
 
 
 	@media #{$xlarge-up} {
@@ -500,6 +533,7 @@
 }
 
 .svg-valeur{
+
 
 	@media #{$large-up} {
 		
@@ -531,7 +565,7 @@
 		} 
 	}
 
-	h3:after, &:before{background:$col1;}
+	h3:after, &:before, a.button span:before{background:$col1;}
 	.row .next-section i:hover{ background: $col1; }
 }
 .svg-risque{
@@ -559,7 +593,7 @@
 
 	@media #{$xlarge-up} { h2{font-size:rem-calc(65);} }
 
-	h3:after,&:before{background:$col2;}
+	h3:after,&:before, a.button span:before{background:$col2;}
 	.row .next-section i:hover{ background: $col2; }
 	.row .next-section { left: 75%; }
 }
@@ -585,7 +619,7 @@
 
 	@media #{$xlarge-up} { h2{font-size:rem-calc(65);} }
 
-	h3:after, &:before{background:$col3;}
+	h3:after, &:before, a.button span:before{background:$col3;}
 	.row .next-section i:hover{ background: $col3; }
 }
 .svg-extia{
@@ -597,7 +631,7 @@
 	}
 	@media #{$xlarge-up} { h2{font-size:rem-calc(100);} }
 
-	h3:after, &:before{background:$col4;}
+	h3:after, &:before, a.button span:before{background:$col4;}
 	.row .next-section i:hover{ background: $col4; }
 	.row .next-section { left: 75%; }
 
@@ -613,6 +647,7 @@ div.references{
 	position:relative;
 	z-index:2;
 	padding: 2rem 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
 	.columns{
 		margin-bottom:2rem; padding: 0;
