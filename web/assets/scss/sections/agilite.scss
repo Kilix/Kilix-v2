@@ -7,12 +7,33 @@
 	background-image: url('../img/landing-bg-team.jpg'); background-size: cover;
 }
 
+
 #tps, #val{
 	font-size: 16px;
 	letter-spacing: 1px;
 	font-weight: bold;
 	fill: #61AFF0;
 }
+.agilite{
+
+	.content article{
+		padding: 50px 0;
+	}
+	
+	@media #{$medium-up}{
+		.svg-auto-size{
+			padding: 20px;
+			background: rgba(0, 0, 0, 0.02);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	.large-4.columns{
+		border: 1px solid rgba(0, 0, 0, 0.11);
+		background: rgba(230, 230, 230, 0.07);
+	}
+}
+
 
 .agility-item {
 
@@ -22,8 +43,8 @@
 		li {
 			position: relative;
 			min-height: rem-calc(25);
-			font-size: rem-calc(16);
-			line-height: rem-calc(25);
+			font-size: rem-calc(14);
+			line-height: rem-calc(17);
 			margin-bottom: rem-calc(15);
 		}
 	}
@@ -58,7 +79,7 @@
 		.checkmark {
 			path {
 				opacity: 1;
-				stroke: #43c747;
+				stroke: #e79027;
 				stroke-dashoffset: 0px;
 			}
 		}

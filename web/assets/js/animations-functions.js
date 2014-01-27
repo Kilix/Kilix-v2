@@ -113,8 +113,7 @@ function scalePulse(element, scale, duration, delay, callback) {
 // Trigger pulse effect on the scale
 function scale(element, scale, duration, delay, callback) {
 
-    element.animate({'opacity':1, transform:"t0s"+scale}, duration, function() {
-    });
+  element.animate({'opacity':1, transform:"t0s"+scale}, duration);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
@@ -227,6 +226,7 @@ function lineDistance( x1, y1, x2, y2 ) {
  
   return Math.sqrt( xs + ys );
 }
+
 
 function showCheckmark(el) {
 

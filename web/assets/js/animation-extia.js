@@ -10,10 +10,10 @@ Kilix.animations["extia"] = {
   },
 
   freeIntervals: function() {
-    clearInterval(Kilix.animations["extia"].riskInterval);
-    clearInterval(Kilix.animations["extia"].colorInterval);
+    window.clearInterval(Kilix.animations["extia"].riskInterval);
+    window.clearInterval(Kilix.animations["extia"].colorInterval);
     for (var powerLine in Kilix.animations["extia"].powerLinesIntervals) {
-      clearInterval(powerLine);
+      window.clearInterval(powerLine);
     }
   },
 
@@ -190,7 +190,6 @@ Kilix.animations["extia"] = {
     function colorizeText(element, color) {
       var elementPolygons = element.selectAll('[fill="#b8b8b8"]');
       for (var polygon in elementPolygons) {
-        console.log('wadawdaw');
         if (typeof elementPolygons[polygon].animate == 'function') {
           elementPolygons[polygon].animate({fill: color}, 500);
         }

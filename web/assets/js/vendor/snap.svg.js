@@ -4910,8 +4910,12 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
             return rectPath(bbox.x, bbox.y, bbox.width, bbox.height);
         },
         g: function (el) {
-            var bbox = el.node.getBBox();
-            return rectPath(bbox.x, bbox.y, bbox.width, bbox.height);
+            try {
+                var bbox = el.node.getBBox();
+                return rectPath(bbox.x, bbox.y, bbox.width, bbox.height);
+            } catch (e) {
+
+            }
         },
         symbol: function (el) {
             var bbox = el.getBBox();
