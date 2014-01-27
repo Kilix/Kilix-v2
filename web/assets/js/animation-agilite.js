@@ -21,10 +21,12 @@ Kilix.animations["agilite"] = {
           elementsValue['valuePointilles2'] = f.select("#v-pointilles2"),
           elementsValue['valueCourbeBleue'] = f.select("#v-courbe-bleue"),
           elementsValue['valueOldGris'] = f.select("#v-old-gris"),
-          elementsValue['valuePointBleu'] = f.select("#v-point-bleu"),
           elementsValue['valueTime'] = f.select("#v-time"),
           elementsValue['valuePlan'] = f.select("#v-plan"),
           elementsValue['valuePlan2'] = f.select("#v-plan-2"),
+          elementsValue['valueTps'] = f.select("#tps"),
+          elementsValue['valueVal'] = f.select("#val"),
+          elementsValue['valuePointBleu'] = f.select("#v-point-bleu"),
           elementsValue['valueText'] = f.select("#v-valeur");
 
           for (var element in elementsValue) {
@@ -37,17 +39,38 @@ Kilix.animations["agilite"] = {
         });
       }
 
+      //Incrémente un nombre
+      function incrementNumber(el, start, end, duration, easing, f){
+        $({someValue: start}).animate({someValue: end}, {
+            duration: duration,
+            easing:easing,
+            step: function() { 
+            el.text(Math.ceil(this.someValue)+"%")        
+            },
+            done: function() {
+              el.text(end+"%");
+              f();
+            }
+        });
+      }
+
       function valAnimation() {
         showCheckmark($('.agility-item:eq(0)'));
         scale(elementsValue['valuePlan'], 1, 500, 200, function(){});
         scale(elementsValue['valuePlan2'], 1, 500, 200, function() {
           drawPath(valSVG, elementsValue['valueOldGris'], 900, 1200, mina.easeout, function(){
             drawPath(valSVG, elementsValue['valueCourbeBleue'], 780, 800, mina.easeinout, function(){
-              alterBounce(elementsValue['valuePointBleu'], 400, 400, function() {
-                elementsValue['valueText'].animate({opacity:1} ,400 );
-                alterBounce(elementsValue['valueTime'], 600, 400, function() {
-                  drawLine(valSVG, elementsValue['valuePointilles1'], 500, 700, mina.easeout, function(){
-                    drawLine(valSVG, elementsValue['valuePointilles2'], 500, 1200, mina.easeout, function(){
+              elementsValue['valueText'].animate({opacity:1} ,400 );
+              alterBounce(elementsValue['valueTime'], 600, 400, function() {
+                $('#tps').text("0");
+                elementsValue['valueTps'].animate({opacity: 1}, 200, function() {});
+                incrementNumber($('#tps'), 0, 50, 700, 'swing', function(){});
+                drawLine(valSVG, elementsValue['valuePointilles1'], 700, 1200, mina.easeout, function(){
+                  $('#val').text("0");
+                  elementsValue['valueVal'].animate({opacity: 1}, 200, function() {});
+                  incrementNumber($('#val'), 0, 80, 900, 'swing', function(){});
+                  drawLine(valSVG, elementsValue['valuePointilles2'], 900, 500, mina.easeout, function(){
+                    alterBounce(elementsValue['valuePointBleu'], 400, 400, function() {
                       riskAnimation();
                     });
                   });
