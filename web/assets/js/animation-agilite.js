@@ -33,11 +33,11 @@ Kilix.animations["agilite"] = {
         elements['pointilles2'] = f.select("#v-pointilles2"),
         elements['courbeBleue'] = f.select("#v-courbe-bleue"),
         elements['oldGris'] = f.select("#v-old-gris"),
-        elements['pointBleu'] = f.select("#v-point-bleu"),
         elements['time'] = f.select("#v-time"),
         elements['plan'] = f.select("#v-plan"),
         elements['plan2'] = f.select("#v-plan-2"),
-        elements['text'] = f.select("#v-valeur");
+        elements['text'] = f.select("#v-valeur"),
+        elements['pointBleu'] = f.select("#v-point-bleu");
 
         Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], valAnimation);
 
