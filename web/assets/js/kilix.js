@@ -62,7 +62,6 @@ var Kilix = {
             });
 
             newPos = pageToPosition[State.title.toLowerCase()];
-            console.log(newPos);
 
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
@@ -102,7 +101,7 @@ var Kilix = {
         History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
             // Log the State
             var State = History.getState(); // Note: We are using History.getState() instead of event.state
-            History.log('statechange:', State.data, State.title, State.url);
+            //History.log('statechange:', State.data, State.title, State.url);
             updateContent(State);
         });
 
@@ -110,22 +109,20 @@ var Kilix = {
     },
 
     bindPushState: function(evt) {
-        evt.preventDefault();
-        if(!$(this).hasClass('enabled')) {
-            return;
-        }
-        $(".nav-links-wrapper a, .footer-links a, .svg-anim a").removeClass('enabled');
-        $('body').removeClass('unfolded');
-        // Prevent the browsers default behaviour of navigating to the hyperlink
-        currentPos = $(".nav-link.current").data('pos');
-        if ($(this).data('scroll') != undefined)
-            Kilix.currentScroll = $(this).data('scroll');
-        else
-            Kilix.currentScroll = null;
+            evt.preventDefault();
+            if(!$(this).hasClass('enabled') || $(this).hasClass('current')) {
+                return;
+            }
+            $(".nav-links-wrapper a, .footer-links a").removeClass('enabled');
+            $('body').removeClass('unfolded');
+            //Prevent the browsers default behaviour of navigating to the hyperlink
+            currentPos = $(".nav-link.current").data('pos');
 
-        var title = $(this).attr('data-scroll') ? 'Agilite' : this.textContent;
+            
+            var titleu = $(this).attr('data-scroll') ? 'Agilite' : this.textContent ;
 
-        History.pushState(null, title, this.href);
+            History.pushState(null, titleu, this.href);
+            evt.preventDefault();
     },
 
     switchSVG: function(){
@@ -186,7 +183,6 @@ var Kilix = {
     },
 
     wayPoints: function(){
-            console.log("ThisIsAWayPoint");
             $('footer').waypoint({
                 handler: function (direction) {
                     if(direction=="down")$(".back-to-top").addClass("force-opacity");
@@ -317,16 +313,11 @@ var Kilix = {
                 extiaInit = true;
             }, { offset: offsetSvgAnim });
 
-
-            console.log('Init Home');
         },
         destroy: function(){
             Kilix.animations["extia"].freeIntervals();
             Kilix.animations["valeur"].freeIntervals();
             Kilix.animations["risques"].freeIntervals();
-
-
-            console.log('Destroy Home');
             $.waypoints('destroy');
             $(".svg-anim a.button.enabled").off();
             $('.next-section').off();
@@ -393,10 +384,8 @@ var Kilix = {
                 }, 'slow');
             }
 
-            console.log('Init AGILITY');
         },
         destroy: function(){
-            console.log('Destroy AGILITY');
             $('.navbar').addClass('navbar-top');
             $.waypoints('destroy');
             Kilix.changeXColor($('.logo svg polygon'), 'none');
@@ -408,7 +397,6 @@ var Kilix = {
         init: function(){
 
             Kilix.wayPoints();
-            console.log('Init Team');
 
             var offsetSvgAnim = '70%';
 
@@ -431,7 +419,6 @@ var Kilix = {
             
         },
         destroy: function(){
-            console.log('Destroy Team');
             $.waypoints('destroy');
             $('.navbar').addClass('navbar-top');
             $('.landing h1, .landing-main-text, #KILIX-logo').off();
@@ -441,6 +428,5 @@ var Kilix = {
 };
 
 $(function(){
-    console.log('init');
 	Kilix.init();
 });
