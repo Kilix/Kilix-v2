@@ -23,22 +23,22 @@
 		</g>
 	</g>
 	
-		<text id="v-valeur" transform="matrix(-4.371139e-008 -1 1 -4.371139e-008 39.8425 66.2346)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="16.5">valeur</text>
+		<text id="v-valeur" transform="matrix(-4.371139e-008 -1 1 -4.371139e-008 39.8425 228.2341)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="16.5">valeur</text>
 	<g id="v-scales" opacity="0.3">
 		<line id="v-scale-1" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="126.898" x2="388.582" y2="126.898"/>
 		<line id="v-scale-2" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="73.898" x2="388.582" y2="73.898"/>
 		<line id="v-scale-3" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="182.898" x2="388.582" y2="182.898"/>
 		<line id="v-scale-4" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="21.898" x2="388.582" y2="21.898"/>
 	</g>
-	<path id="v-time" fill="#CECECE" d="M369.948,264.532l-4.116-4.116v-5.517h2.5v4.482l3.385,3.385L369.948,264.532z
-		 M367.082,249.898c-5.522,0-10,4.477-10,10c0,5.522,4.478,10,10,10c5.523,0,10-4.478,10-10
-		C377.082,254.375,372.605,249.898,367.082,249.898z M367.082,267.398c-4.142,0-7.5-3.358-7.5-7.5c0-4.143,3.358-7.5,7.5-7.5
-		c4.143,0,7.5,3.357,7.5,7.5C374.582,264.04,371.224,267.398,367.082,267.398z"/>
+	<path id="v-time" opacity="0.8" fill="#919191" d="M84.948,261.532l-4.116-4.116v-5.517h2.5v4.481l3.386,3.386L84.948,261.532z
+		 M82.082,246.898c-5.521,0-10,4.477-10,10c0,5.521,4.479,10,10,10c5.523,0,10-4.479,10-10
+		C92.082,251.375,87.605,246.898,82.082,246.898z M82.082,264.398c-4.142,0-7.5-3.358-7.5-7.5c0-4.144,3.358-7.5,7.5-7.5
+		c4.144,0,7.5,3.356,7.5,7.5C89.582,261.04,86.224,264.398,82.082,264.398z"/>
 	<g>
 		<g>
 			<g>
 				<path id="v-old-gris" fill="none" stroke="#C6C6C6" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
-					M64.582,228.062c226.908,0,292.5-69.946,310.517-206.664"/>
+					M64.582,228.062c226.908,0,292.5-69.946,310.518-206.664"/>
 			</g>
 		</g>
 	</g>
@@ -63,4 +63,6 @@
 		</g>
 	</g>
 </g>
+<text id="tps" transform="matrix(1 0 0 1 212.49 260.449)" opacity="0.4" font-family="'MyriadPro-Regular'" font-size="16.5">50%</text>
+<text id="val" transform="matrix(1 0 0 1 18.49 38.449)" opacity="0.4" font-family="'MyriadPro-Regular'" font-size="16.5">80%</text>
 </svg>
