@@ -23,13 +23,10 @@ Kilix.animations["team"] = {
         Snap.load("./assets/img/svg/kilix_anim_team_f1.svg", function(f) {
           getFormulaElements(f);
           formulaOne = f.select("#F1");
-          //formulaOne.attr({'fill-opacity': 0});
 
           elementsFormula['contourF1'].selectAll("path").attr({'stroke-width':0});
           elementsFormula['contourF1'].selectAll("path").attr({'stroke-width':0});
-
           elementsFormula['contourPilote'].attr({'stroke-width':0});
-
           elementsFormula['infosKilix'].select("polyline").attr({'stroke-width':0});
           elementsFormula['infosClient'].select("polyline").attr({'stroke-width':0});
 
@@ -57,32 +54,45 @@ Kilix.animations["team"] = {
         elementsFormula['contourF1'] = f.select("#contour-f1"),
         elementsFormula['infosClient'] = f.select("#infos-client"),
         elementsFormula['infosKilix'] = f.select("#infos-kilix");
+        elementsFormula['moustache'] = f.select("#Moustache");
 
 
       }
 
       function resetTeamAnimation() {
         elementsFormula['reload'].animate({'fill-opacity': 0}, 100, function() {
-          move(formulaOne, 'right', 'bot', 1500, 1000, 2000, function() {
 
-            elementsFormula['contourF1'].selectAll("path").attr({'stroke-width':0});
-            elementsFormula['contourF1'].selectAll("path").attr({'stroke-width':0});
-            elementsFormula['contourPilote'].attr({'stroke-width':0});
-            elementsFormula['infosKilix'].select("polyline").attr({'stroke-width':0});
-            elementsFormula['infosClient'].select("polyline").attr({'stroke-width':0});
+          elementsFormula['contourF1'].attr({'fill-opacity': 1}).select("path:first-child").animate({'stroke-width': 0},300);
+          elementsFormula['contourF1'].attr({'fill-opacity': 1}).select("path:last-child").animate({'stroke-width': 0},300);
 
-            for (var element in elementsFormula) {
-              elementsFormula[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
-            };
+          elementsFormula['infosClient'].select("polyline").animate({'stroke-width':0},300,function(){
 
-            formulaOne.attr({transform: 't'+[0, 0],'fill-opacity': 0}, function() {
-              improveAnimation();
+            move(formulaOne, 'right', 'bot', 1500, 1000, 2000, function() {
+
+              elementsFormula['contourF1'].selectAll("path").attr({'stroke-width':0});
+              elementsFormula['contourF1'].selectAll("path").attr({'stroke-width':0});
+              elementsFormula['contourPilote'].attr({'stroke-width':0});
+              elementsFormula['infosKilix'].select("polyline").attr({'stroke-width':0});
+              elementsFormula['infosClient'].select("polyline").attr({'stroke-width':0});
+              elementsFormula['infosClient'].animate({'fill-opacity':0},300);
+              
+              for (var element in elementsFormula) {
+                elementsFormula[element].attr({transform: 't'+[0, 0], 'fill-opacity': 0});
+              };
+
+              formulaOne.attr({transform: 't'+[0, 0],'fill-opacity': 0}, function() {
+                improveAnimation();
+              });
+
+              window.setTimeout(function() {
+                improveAnimation();
+              }, 100);
+            }, mina.backin);
+
+
+
             });
 
-            window.setTimeout(function() {
-              improveAnimation();
-            }, 100);
-          }, mina.backin);
         });
       }
 
