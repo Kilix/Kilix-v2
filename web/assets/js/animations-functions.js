@@ -175,6 +175,21 @@ function roll(element, duration, amp) {
   element.animate({transform:"t0, "+-amp}, duration, mina.elastic);
 }
 
+function drawCircle(s, el, duration, delay, callback) {
+  var circle = s.circle();
+
+  circle.attr({fill: el.attr('fill'),
+    'stroke': el.attr('stroke'),
+    'stroke-width': el.attr('stroke-width'),
+    'stroke-miterlimit': el.attr('stroke-miterlimit'),
+    'cx': el.attr('cx'),
+    'cy': el.attr('cy'),
+    'r': el.attr('r')
+  });
+
+  alterBounce(circle, duration, delay, callback);
+}
+
 function drawPath(s, el, duration, delay, anim, callback) {
 
     var path = s.path(el.attr('d'));
