@@ -87,7 +87,6 @@ var Kilix = {
                     Pos = $(".container").data('pos');
 
                     Kilix[State.title.toLowerCase()].init();
-
                 });
                    
             });
@@ -250,7 +249,7 @@ var Kilix = {
             setTimeout(function(){$('.landing-home').removeClass('play');},1000);
 
             var offsetSvgAnim = '50%';
-
+            $(".svg-anim a.button.enabled").on("click", Kilix.bindPushState);
 
             $('.next-section').on('click',function(){
                 $('html, body').animate({ 
@@ -302,7 +301,7 @@ var Kilix = {
             Kilix.animations['amelioration'].setAnimStatus(false);
             $('.svg-amelio').waypoint(function(direction) {
                 if(amelioInit == false) {
-                    Kilix.animations['amelioration'].start();
+                    Kilix.animations['amelioration'].start();   
                 }
                 amelioInit = true;
             }, { offset: offsetSvgAnim });
@@ -323,9 +322,13 @@ var Kilix = {
         },
         destroy: function(){
             Kilix.animations["extia"].freeIntervals();
+            Kilix.animations["valeur"].freeIntervals();
+            Kilix.animations["risques"].freeIntervals();
+
 
             console.log('Destroy Home');
             $.waypoints('destroy');
+            $(".svg-anim a.button.enabled").off();
             $('.next-section').off();
             $('.navbar').addClass('navbar-top');
             Kilix.changeXColor($('.logo svg polygon'), 'none');
@@ -350,7 +353,12 @@ var Kilix = {
             var agiValInit = false;
             $('.svg-agilite').eq('0').waypoint(function(direction) {
                 if(agiValInit == false) {
-                    Kilix.animations['agilite'].startValueAnimation();
+                    setTimeout(function(){
+                        Kilix.animations['agilite'].startValueAnimation();
+                    },500);
+
+
+                    
                     agiValInit = true;
                 }
                  }, { offset: '70%' });
