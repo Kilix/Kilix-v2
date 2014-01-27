@@ -50,7 +50,7 @@ Kilix.animations["agilite"] = {
       scale(elements['plan2'], 1, 500, 200, function() {
         drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
           drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
-            alterBounce(elements['pointBleu'], 400, 400, function() {
+            drawCircle(svg, elements['pointBleu'], 400, 400, function() {
               elements['text'].animate({opacity:1} ,400 );
               alterBounce(elements['time'], 600, 400, function() {
                 drawLine(svg, elements['pointilles1'], 500, 700, mina.easeout, function(){
