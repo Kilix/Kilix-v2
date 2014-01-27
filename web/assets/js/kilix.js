@@ -117,11 +117,15 @@ var Kilix = {
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
             currentPos = $(".nav-link.current").data('pos');
+            if ($(this).data('scroll') != undefined)
+                Kilix.currentScroll = $(this).data('scroll');
+            else
+                Kilix.currentScroll = null;
 
             
-            var titleu = $(this).attr('data-scroll') ? 'Agilite' : this.textContent ;
+            var title = $(this).attr('data-scroll') ? 'Agilite' : this.textContent ;
 
-            History.pushState(null, titleu, this.href);
+            History.pushState(null, title, this.href);
             evt.preventDefault();
     },
 
@@ -380,7 +384,7 @@ var Kilix = {
 
             if (Kilix.currentScroll != null) {
                 $('html, body').animate({ 
-                    scrollTop: $('.agility-item').eq(Kilix.currentScroll).offset().top - 90
+                    scrollTop: $('.agility-item').eq(Kilix.currentScroll).offset().top - 110
                 }, 'slow');
             }
 
