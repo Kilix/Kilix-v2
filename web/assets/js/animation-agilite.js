@@ -61,12 +61,14 @@ Kilix.animations["agilite"] = {
       });
     }
 
-      function valAnimation() {
-        showCheckmark($('.agility-item:eq(0)'));
-        scale(elements['plan'], 1, 500, 200, function(){});
-        scale(elements['plan2'], 1, 500, 200, function() {
-          drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
-            drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
+
+    function valAnimation() {
+      showCheckmark($('.agility-item:eq(0)'));
+      scale(elements['plan'], 1, 500, 200, function(){});
+      scale(elements['plan2'], 1, 500, 200, function() {
+        drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
+          drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
+            
               elements['text'].animate({opacity:1} ,400 );
               alterBounce(elements['time'], 600, 400, function() {
                 $('#tps').text("0");
@@ -77,7 +79,7 @@ Kilix.animations["agilite"] = {
                   elements['val'].animate({opacity: 1}, 200, function() {});
                   incrementNumber($('#val'), 0, 80, 900, 'swing', function(){});
                   drawLine(svg, elements['pointilles2'], 900, 500, mina.easeout, function(){
-                    alterBounce(elements['pointBleu'], 400);
+                    drawCircle(svg, elements['pointBleu'], 400); 
                   });
                 });
               });
