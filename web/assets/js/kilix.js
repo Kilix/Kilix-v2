@@ -99,7 +99,7 @@ var Kilix = {
         History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
             // Log the State
             var State = History.getState(); // Note: We are using History.getState() instead of event.state
-            History.log('statechange:', State.data, State.title, State.url);
+            //History.log('statechange:', State.data, State.title, State.url);
             updateContent(State);
         });
 
