@@ -22,8 +22,9 @@
 	}
 
 	.large-4.columns{
-		border: 1px solid rgba(0, 0, 0, 0.11);
-		background: rgba(230, 230, 230, 0.07);
+		border: 1px solid rgba(190, 190, 190, 1);
+		background: rgba(97, 175, 240, 0.69);
+		color:white;
 	}
 }
 
@@ -72,7 +73,7 @@
 		.checkmark {
 			path {
 				opacity: 1;
-				stroke: #e79027;
+				stroke: #fff;
 				stroke-dashoffset: 0px;
 			}
 		}
