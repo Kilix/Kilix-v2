@@ -190,7 +190,6 @@ Kilix.animations["extia"] = {
     function colorizeText(element, color) {
       var elementPolygons = element.selectAll('[fill="#b8b8b8"]');
       for (var polygon in elementPolygons) {
-        console.log('wadawdaw');
         if (typeof elementPolygons[polygon].animate == 'function') {
           elementPolygons[polygon].animate({fill: color}, 500);
         }
