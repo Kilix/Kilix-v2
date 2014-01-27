@@ -45,6 +45,7 @@ Kilix.animations["agilite"] = {
     }
 
     function valAnimation() {
+      showCheckmark($('.agility-item:eq(0)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
         drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
@@ -85,6 +86,7 @@ Kilix.animations["agilite"] = {
     }
 
     function riskAnimation() {
+      showCheckmark($('.agility-item:eq(1)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
          drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
@@ -119,6 +121,7 @@ Kilix.animations["agilite"] = {
     }
 
     function adaptabilityAnimation() {
+      showCheckmark($('.agility-item:eq(2)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
         drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
@@ -153,6 +156,7 @@ Kilix.animations["agilite"] = {
     }
 
     function visibilityAnimation() {
+      showCheckmark($('.agility-item:eq(3)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
         drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){

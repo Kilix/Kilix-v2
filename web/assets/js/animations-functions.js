@@ -226,3 +226,12 @@ function lineDistance( x1, y1, x2, y2 ) {
  
   return Math.sqrt( xs + ys );
 }
+
+
+function showCheckmark(el) {
+
+  $('li path', el).each(function(i){
+      $(this).css('-webkit-transition-delay', i*0.3+'s');
+  });
+  el.addClass('checked');
+}
