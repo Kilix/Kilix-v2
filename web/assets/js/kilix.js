@@ -60,7 +60,7 @@ var Kilix = {
             $('html, body').animate({
                 scrollTop:0
             });
-
+            console.log(State);
             newPos = pageToPosition[State.title.toLowerCase()];
 
             $('.nav-link.current').removeClass('current');
@@ -123,7 +123,7 @@ var Kilix = {
                 Kilix.currentScroll = null;
 
             
-            var title = $(this).attr('data-scroll') ? 'Agilite' : this.textContent ;
+            var title = $(this).attr('data-scroll') ? $(this).data('page-title') : this.textContent ;
 
             History.pushState(null, title, this.href);
             evt.preventDefault();
@@ -241,7 +241,6 @@ var Kilix = {
     /* -- PAGES -- */
     home: {
         init: function(){
-
             Kilix.wayPoints();
             Kilix.resize();
 
@@ -317,6 +316,12 @@ var Kilix = {
                 extiaInit = true;
             }, { offset: offsetSvgAnim });
 
+            if (Kilix.currentScroll != null) {
+                $('html, body').animate({ 
+                    scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top - 200
+                }, 'slow');
+            }
+
         },
         destroy: function(){
             Kilix.animations["extia"].freeIntervals();
@@ -336,6 +341,7 @@ var Kilix = {
 
             Kilix.wayPoints();
             Kilix.switchSVG();
+            $(".row a.button.enabled").on("click", Kilix.bindPushState);
 
             $('.losange').on('click',function(){
                 $('html, body').animate({ 
@@ -384,7 +390,7 @@ var Kilix = {
 
             if (Kilix.currentScroll != null) {
                 $('html, body').animate({ 
-                    scrollTop: $('.agility-item').eq(Kilix.currentScroll).offset().top - 110
+                    scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top - 110
                 }, 'slow');
             }
 
@@ -394,6 +400,7 @@ var Kilix = {
             $.waypoints('destroy');
             Kilix.changeXColor($('.logo svg polygon'), 'none');
             $('.landing h1, .landing-main-text, #KILIX-logo').off();
+            $(".row a.button.enabled").off();
         }
     },
 
@@ -421,6 +428,7 @@ var Kilix = {
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['col3']);},300);
             
+
         },
         destroy: function(){
             $.waypoints('destroy');
