@@ -4,7 +4,7 @@
 body {
 	font-family: "Source Sans Pro";
 	transition: height 1s;
-	background: #fff;
+	background: #384047;
 	min-height: 800px;
 	color: $primary-color;
 	-webkit-font-smoothing: antialiased;
@@ -209,7 +209,7 @@ a {
 }
 
 .wrapper-new{
-	transform: translateX(100%);
+	//transform: translateX(100%);
 	position: absolute;
 	top:0;
 	left:0;
@@ -217,7 +217,7 @@ a {
 	z-index: 10;
 
 	&.wrapper-prev{
-		transform: translateX(-100%);
+		//transform: translateX(-100%);
 	}
 }
 

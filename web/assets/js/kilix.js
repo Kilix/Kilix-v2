@@ -1,6 +1,7 @@
 var Kilix = {
 
     currentScroll: null,
+    currentPos: null,
 
     colors: {
         col1: '#61AFF0',
@@ -49,10 +50,19 @@ var Kilix = {
         var
             History = window.History, // Note: We are using a capital H instead of a lower h
             State = History.getState(),
-            currentPos,
             newPos,
             slideNext = true,
-            pageToPosition = { home:1,team:2,agilite:3,contact:4 };
+            pageToPosition = { home:1,team:2,agilite:3,contact:4 },
+            animEndEventNames = {
+                'WebkitAnimation' : 'webkitAnimationEnd',
+                'OAnimation' : 'oAnimationEnd',
+                'msAnimation' : 'MSAnimationEnd',
+                'animation' : 'animationend'
+            },
+            // animation end event name
+            animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
+            // support css animations
+            support = Modernizr.cssanimations;
 
         function loadAjaxContent(State){
             var url = State.url;
@@ -66,7 +76,9 @@ var Kilix = {
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
-            slideNext = newPos>currentPos ? true : false;
+            console.log(Kilix.currentPos + " et " +newPos);
+
+            slideNext = newPos>Kilix.currentPos ? true : false;
             $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>");
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
@@ -76,17 +88,33 @@ var Kilix = {
                 Kilix.resizeLanding();
                 Kilix.switchSVG();
 
-                $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 600);
-                $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 600, function(){
 
-                    $(".wrapper:first-child").remove();
-                    $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
-                    $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
-                    $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
-                    Pos = $(".container").data('pos');
+                var $currPage = $(".wrapper:first-child");
+                var $nextPage = $(".wrapper-new");
 
-                    Kilix[State.title.toLowerCase()].init();
-                });
+                
+                var outClass = 'page-fade';
+                var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
+
+
+
+                $currPage.addClass( outClass );
+                $nextPage.addClass( inClass ).addClass('page-ontop').on( animEndEventName, function() {
+                    $nextPage.off( animEndEventName );
+
+
+                        $(".wrapper:first-child").remove();
+
+                        $('.wrapper').removeClass( inClass ).removeClass('page-ontop');
+                        $(".wrapper-new").removeClass('wrapper-new');
+                        $(".wrapper-prev").removeClass('wrapper-prev');
+                        $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
+                        Pos = $(".container").data('pos');
+
+                        Kilix[State.title.toLowerCase()].init();
+
+
+                } );
                    
             });
 
@@ -116,7 +144,7 @@ var Kilix = {
             $(".nav-links-wrapper a, .footer-links a").removeClass('enabled');
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
-            currentPos = $(".nav-link.current").data('pos');
+            Kilix.currentPos = $(".nav-link.current").data('pos');
             if ($(this).data('scroll') != undefined)
                 Kilix.currentScroll = $(this).data('scroll');
             else
