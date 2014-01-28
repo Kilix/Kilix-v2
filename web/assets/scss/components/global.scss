@@ -4,7 +4,7 @@
 body {
 	font-family: "Source Sans Pro";
 	transition: height 1s;
-	background: #fff;
+	background: #384047;
 	min-height: 800px;
 	color: $primary-color;
 	-webkit-font-smoothing: antialiased;
@@ -49,8 +49,8 @@ h3{
 }
 
 p{
-	font-size: rem-calc(18);
-	line-height: rem-calc(28);
+	font-size: rem-calc(20);
+	line-height: rem-calc(32);
 	color: $text-color;
 }
 
@@ -209,7 +209,7 @@ a {
 }
 
 .wrapper-new{
-	transform: translateX(100%);
+	//transform: translateX(100%);
 	position: absolute;
 	top:0;
 	left:0;
@@ -217,7 +217,7 @@ a {
 	z-index: 10;
 
 	&.wrapper-prev{
-		transform: translateX(-100%);
+		//transform: translateX(-100%);
 	}
 }
 
@@ -286,6 +286,14 @@ a {
 		cursor: pointer;
 		position: relative;
 		z-index:1;
+		@media #{$medium-up} {
+			font-size:rem-calc(60);
+		}
+
+		@media #{$large-up} {
+			font-size:rem-calc(80);
+		}
+			
 
 		span{
 			font-size:rem-calc(30);
@@ -312,6 +320,14 @@ a {
 
 		@media #{$medium-up} {
 			width: 60%;
+			font-size: 23px;
+			line-height: 33px;
+		}
+
+		@media #{$large-up} {
+			width: 65%;
+			font-size: 28px;
+			line-height: 44px;
 		}
 	}
 }
