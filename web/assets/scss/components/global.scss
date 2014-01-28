@@ -40,7 +40,6 @@ h2{
 	font-family: Source Sans Pro;
 	font-weight: 400;
 	font-size: rem-calc(48);
-	color: $second-color;
 	line-height: rem-calc(50);
 
 }
@@ -50,8 +49,8 @@ h3{
 }
 
 p{
-	font-size: rem-calc(18);
-	line-height: rem-calc(28);
+	font-size: rem-calc(20);
+	line-height: rem-calc(32);
 	color: $text-color;
 }
 
@@ -287,6 +286,14 @@ a {
 		cursor: pointer;
 		position: relative;
 		z-index:1;
+		@media #{$medium-up} {
+			font-size:rem-calc(60);
+		}
+
+		@media #{$large-up} {
+			font-size:rem-calc(80);
+		}
+			
 
 		span{
 			font-size:rem-calc(30);
@@ -313,6 +320,14 @@ a {
 
 		@media #{$medium-up} {
 			width: 60%;
+			font-size: 23px;
+			line-height: 33px;
+		}
+
+		@media #{$large-up} {
+			width: 65%;
+			font-size: 28px;
+			line-height: 44px;
 		}
 	}
 }

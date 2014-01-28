@@ -213,21 +213,42 @@
 	}
 }
 
-
-
-
-
 .svg-anim{
 	position:relative;
 	z-index:2;
 	background:#ECECF5;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-	&.svg-risque, &.svg-extia{
-		.row{
-			border:0;
+	@media #{$medium-up}{
+		background: rgb(236,236,245); /* Old browsers */
+		background: -moz-linear-gradient(70deg,  rgba(236,236,245,1) 0%, rgba(236,236,245,1) 70%, rgba(230,230,237,1) 70%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(236,236,245,1)), color-stop(70%,rgba(236,236,245,1)), color-stop(70%,rgba(230,230,237,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* IE10+ */
+		background: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* W3C */
+
+
+		&.svg-risque, &.svg-extia{
+			@media #{$large-up}{
+				background: rgb(236,236,245); /* Old browsers */
+				background: -moz-linear-gradient(70deg,  rgba(236,236,245,1) 0%, rgba(236,236,245,1) 30%, rgba(230,230,237,1) 30%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(236,236,245,1)), color-stop(30%,rgba(236,236,245,1)), color-stop(30%,rgba(230,230,237,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* IE10+ */
+				background: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececf5', endColorstr='#e6e6ed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+			.row{
+				border:0;
+			}
 		}
 	}
+
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	
+
+	
 
 	
 	.anim-item {
@@ -396,7 +417,7 @@
 				display: block !important;
 				text-align: center;
 				border-radius: 50%;
-				border: 2px solid rgba(56, 64, 71, 0.39);
+				background: rgba(211, 215, 218, 0.26);
 				width: rem-calc(90);
 				height: rem-calc(90);
 				font-size: rem-calc(27);
@@ -506,7 +527,7 @@
 }
 
 .homepage.losange:hover{
-	background: #61aff0;
+	background: #ff4a46;
 }
 
 .teampage.losange:hover{
@@ -671,7 +692,7 @@ div.references{
 			filter: grayscale(1);
 			width: 12.5%;
 			padding: 0 25px;
-			opacity: 0.3;
+			opacity: 0.6;
 			margin-bottom:0;
 			
 			&:hover {
