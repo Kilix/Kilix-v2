@@ -343,7 +343,7 @@ var Kilix = {
                 }, 'slow');
             });
 
-            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
+            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), 'none');},300);
 
             var agiValInit = false;
             $('.svg-agilite').eq('0').waypoint(function(direction) {

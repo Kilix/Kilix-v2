@@ -82,7 +82,7 @@ function bounce(element, duration, delay, callback) {
 function alterBounce(element, duration, delay, callback) {
 
     element.attr({transform: "s0.4, 0.4"});
-    element.animate({'opacity':1,transform:"s1,1,0,0"}, duration, mina.elastic);
+    element.animate({'opacity':1,transform:"s1,1"}, duration, mina.elastic);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
