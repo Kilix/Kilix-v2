@@ -17,7 +17,16 @@
 .agilite{
 
 	.content article{
-		padding: 50px 0;
+		.row{
+			padding: 50px 0;
+			border-bottom: 4px double rgba(0, 0, 0, 0.06);
+		}
+
+	&:last-child{
+		.row{
+			border:0;
+		}
+	}
 	}
 	
 	@media #{$medium-up}{
@@ -40,12 +49,14 @@
 }
 
 .agilite article:nth-child(3) .large-4{
-	//background: lighten($col3, 5%);
+	background: lighten(#77cc33, 5%);
 }
 
-.agilite article:nth-child(3) .large-4{
-	//background: lighten($col3, 5%);
+.agilite article:nth-child(4) .large-4{
+	background: lighten(#FFD204, 5%);
 }
+
+
 
 .agility-item {
 
