@@ -47,7 +47,7 @@
 	<g>
 		<g>
 			<g>
-				<path id="vis-courbe-bleue" fill="none" stroke="#61AFF0" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
+				<path id="vis-courbe-bleue" fill="none" stroke="#FFD204" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
 					M64.582,21.398c0,0,7.908,22.68,41.908,22.057c39.597-3.073,48.601-23.057,79.049-22.057s29.736,17,62.951,17.051
 					c33.216,0.051,41.243-15.051,68-17.051s58.142,22.057,58.142,22.057"/>
 			</g>
