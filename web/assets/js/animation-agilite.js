@@ -25,6 +25,21 @@ Kilix.animations["agilite"] = {
     var svg = Snap("#AGI-value"),
         elements = new Array();
 
+    //Incrémente un nombre
+    function incrementNumber(el, start, end, duration, easing, f){
+      $({someValue: start}).animate({someValue: end}, {
+          duration: duration,
+          easing:easing,
+          step: function() { 
+          el.text(Math.ceil(this.someValue)+"%")        
+          },
+          done: function() {
+            el.text(end+"%");
+            f();
+          }
+      });
+    }
+
     function loadSvg() {
 
       Snap.load("./assets/img/svg/agiValue.svg", function(f) {
@@ -35,6 +50,8 @@ Kilix.animations["agilite"] = {
         elements['oldGris'] = f.select("#v-old-gris"),
         elements['time'] = f.select("#v-time"),
         elements['plan'] = f.select("#v-plan"),
+        elements['tps'] = f.select("#tps"),
+        elements['val'] = f.select("#val"),
         elements['plan2'] = f.select("#v-plan-2"),
         elements['text'] = f.select("#v-valeur"),
         elements['pointBleu'] = f.select("#v-point-bleu");
@@ -44,24 +61,32 @@ Kilix.animations["agilite"] = {
       });
     }
 
+
     function valAnimation() {
       showCheckmark($('.agility-item:eq(0)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
         drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
           drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
-            drawCircle(svg, elements['pointBleu'], 400, 400, function() {
+            
               elements['text'].animate({opacity:1} ,400 );
               alterBounce(elements['time'], 600, 400, function() {
-                drawLine(svg, elements['pointilles1'], 500, 700, mina.easeout, function(){
-                  drawLine(svg, elements['pointilles2'], 500, 1200, mina.easeout);
+                $('#tps').text("0");
+                elements['tps'].animate({opacity: 1}, 200, function() {});
+                incrementNumber($('#tps'), 0, 50, 700, 'swing', function(){});
+                drawLine(svg, elements['pointilles1'], 700, 1200, mina.easeout, function(){
+                  $('#val').text("0");
+                  elements['val'].animate({opacity: 1}, 200, function() {});
+                  incrementNumber($('#val'), 0, 80, 900, 'swing', function(){});
+                  drawLine(svg, elements['pointilles2'], 900, 500, mina.easeout, function(){
+                    drawCircle(svg, elements['pointBleu'], 400); 
+                  });
                 });
               });
             });
           });
         });
-      });
-    }
+      }
 
     loadSvg();
   },

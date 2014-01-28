@@ -56,10 +56,9 @@
 		<g>
 			<g>
 				
-					
+					<circle id="v-point-bleu" fill="#FFFFFF" stroke="#61AFF0" stroke-width="4" stroke-miterlimit="10" cx="226.082" cy="33.898" r="7"/>
 				<path id="v-courbe-bleue" fill="none" stroke="#61AFF0" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
 					M64.066,228.062C81.721,67.092,154.417,21.398,374.582,21.398"/>
-				<circle id="v-point-bleu" fill="#FFFFFF" stroke="#61AFF0" stroke-width="4" stroke-miterlimit="10" cx="226.082" cy="33.898" r="7"/>
 			</g>
 		</g>
 	</g>
