@@ -28,15 +28,23 @@
 		}
 	}
 
-	.large-4.columns{
+	.large-4{
 		border: 1px solid rgba(190, 190, 190, 1);
 		background: lighten($col1, 5%);
 		color:white;
 	}
 }
 
-article:nth-child(2) .large-4{
+.agilite article:nth-child(2) .large-4{
 	background: lighten($col2, 5%);
+}
+
+.agilite article:nth-child(3) .large-4{
+	//background: lighten($col3, 5%);
+}
+
+.agilite article:nth-child(3) .large-4{
+	//background: lighten($col3, 5%);
 }
 
 .agility-item {
