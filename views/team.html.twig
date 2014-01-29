@@ -44,8 +44,17 @@ Mais fondamentalement, il y a vous, apportant la vision “produit”.</p>
 		<section class="svg-anim" data-color="col1">
 			<div class="row">
 				<div class="large-8 medium-7 columns">
-					<svg id="TEAM-f1" x="0px" y="0px" viewBox="0 0 1500 900">
-    				</svg>
+					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/f1-team.png" alt="">
+						{% elseif ress.isMobile == true %}
+							<img src="assets/img/f1-team.png" alt="">
+						{% else %}
+							<img src="assets/img/f1-team.png" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="TEAM-f1" x="0px" y="0px" viewBox="0 0 1500 900"></svg>
+					{% endif %}
 				</div>
 				<article class="large-4 medium-5 columns ">
 					<h3>Soyons Agile</h3>
