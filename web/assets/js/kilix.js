@@ -385,9 +385,6 @@ var Kilix = {
                     setTimeout(function(){
                         Kilix.animations['agilite'].startValueAnimation();
                     },500);
-
-
-                    
                     agiValInit = true;
                 }
                  }, { offset: '70%' });
@@ -418,7 +415,7 @@ var Kilix = {
 
             if (Kilix.currentScroll != null) {
                 $('html, body').animate({ 
-                    scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top - 110
+                    scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top-150
                 }, 'slow');
             }
 
