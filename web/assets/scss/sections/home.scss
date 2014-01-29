@@ -238,16 +238,16 @@
 
 
 		&.svg-risque, &.svg-extia{
-			// @media #{$large-up}{
-			// 	background: rgb(236,236,245); /* Old browsers */
-			// 	background: -moz-linear-gradient(70deg,  rgba(236,236,245,1) 0%, rgba(236,236,245,1) 30%, rgba(230,230,237,1) 30%); /* FF3.6+ */
-			// 	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(236,236,245,1)), color-stop(30%,rgba(236,236,245,1)), color-stop(30%,rgba(230,230,237,1))); /* Chrome,Safari4+ */
-			// 	background: -webkit-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Chrome10+,Safari5.1+ */
-			// 	background: -o-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Opera 11.10+ */
-			// 	background: -ms-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* IE10+ */
-			// 	background: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* W3C */
-			// 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececf5', endColorstr='#e6e6ed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-			// }
+			@media #{$large-up}{
+				background: rgb(236,236,245); /* Old browsers */
+				background: -moz-linear-gradient(70deg,  rgba(236,236,245,1) 0%, rgba(236,236,245,1) 30%, rgba(230,230,237,1) 30%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(236,236,245,1)), color-stop(30%,rgba(236,236,245,1)), color-stop(30%,rgba(230,230,237,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* IE10+ */
+				background: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececf5', endColorstr='#e6e6ed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
 			.row{
 				border:0;
 			}
