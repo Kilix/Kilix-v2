@@ -126,13 +126,15 @@ Kilix.animations["team"] = {
                                 elementsFormula['contourPilote'].animate({'stroke-width': 10},300,function(){
 
                                 elementsFormula['infosKilix'].select("polyline").animate({'stroke-width':5},300);
-                                elementsFormula['infosKilix'].animate({'fill-opacity':1},300, function(){
+                                elementsFormula['infosKilix'].animate({'fill-opacity':1},600, function(){
+                                    bounce(elementsFormula['moustache'], 600, 500,function(){
 
-                                  elementsFormula['reload'].animate({'fill-opacity': 1}, 400);
-                                  Kilix.animations['team'].animStatus = true;
+                                    elementsFormula['reload'].animate({'fill-opacity': 1}, 400);
+                                    Kilix.animations['team'].animStatus = true;
 
+                                  });
                                 });
-
+                                
                               });
 
                                 
