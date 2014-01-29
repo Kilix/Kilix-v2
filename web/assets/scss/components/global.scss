@@ -208,6 +208,33 @@ a {
 	position: relative;
 }
 
+.wrapper{
+	
+	transition: 0.5s ease;
+	transform-origin: 50% 30%;
+
+	&:after{
+		content:" ";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0,0,0,0);
+		z-index:10;
+		pointer-events:none;
+		transition: 0.5s ease;
+	}
+
+	&.loading{
+		&:after{
+			background: rgba(0,0,0,0.7);
+		}
+
+		transform:scale(0.97);
+	}
+}
+
 .wrapper-new{
 	//transform: translateX(100%);
 	position: absolute;
