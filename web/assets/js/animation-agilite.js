@@ -4,7 +4,7 @@ Kilix.animations["agilite"] = {
     Kilix.animations["agilite"].animStatus = status;
   },
 
-  initAnimElements: function(elements, svg, scales, callback) {
+  initAnimElements: function(elements, svg, scales, callback, node) {
     for (var element in elements) {
       elements[element].attr({'opacity': 0});
       svg.append(elements[element]);
@@ -16,6 +16,8 @@ Kilix.animations["agilite"] = {
       for (var element in elements) {
         elements[element].animate({'opacity': 1}, 500);
       }
+
+      node.find('li').find('path').css({'opacity':'1', 'stroke-dasharray': '0'});
     } else {
       setTimeout(callback(), 400);
     }
@@ -56,7 +58,7 @@ Kilix.animations["agilite"] = {
         elements['text'] = f.select("#v-valeur"),
         elements['pointBleu'] = f.select("#v-point-bleu");
 
-        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], valAnimation);
+        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], valAnimation, $('.agility-item:eq(0)'));
 
       });
     }
@@ -106,7 +108,7 @@ Kilix.animations["agilite"] = {
         elements['plan2'] = f.select("#r-plan-2"),
         elements['text'] = f.select("#r-valeur");
 
-        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], riskAnimation);
+        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], riskAnimation, $('.agility-item:eq(1)'));
       });
     }
 
@@ -141,7 +143,7 @@ Kilix.animations["agilite"] = {
         elements['plan2'] = f.select("#a-plan-2"),
         elements['text'] = f.select("#a-valeur");
 
-        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], adaptabilityAnimation);
+        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], adaptabilityAnimation, $('.agility-item:eq(2)'));
       });
     }
 
@@ -176,7 +178,7 @@ Kilix.animations["agilite"] = {
         elements['plan2'] = f.select("#vis-plan-2"),
         elements['text'] = f.select("#vis-valeur");
 
-        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], visibilityAnimation);
+        Kilix.animations["agilite"].initAnimElements(elements, svg, elements['scales'], visibilityAnimation, $('.agility-item:eq(3)'));
       });
     }
 
