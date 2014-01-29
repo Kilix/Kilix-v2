@@ -17,17 +17,22 @@
 			</style>
   		{% endif %}
   		{% if browser.browser == "IE" and browser.majorver < 10 %}
+  			<script src='assets/js/matchMedia.min.js'></script>
   			<style>
-	  			@media only screen and (min-width: 90.06em) {
-					.navbar .logo img {
-						height: 0 !important;
-					}
-	  			}
+				.navbar .logo img {
+					height: auto;
+				}
 	  			.svg-anim {
+					background: #fff;
+				}
+				.anim-item video {
+					width: 80%;
 					background: #fbfbfb;
 				}
+				.landing-main-text {
+					margin-top: 0rem !important;
+				}
   			</style>
-  			<script src='assets/js/matchMedia.min.js'></script>
   		{% endif %}
 	</head>
 	<body>
