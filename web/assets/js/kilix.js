@@ -67,16 +67,16 @@ var Kilix = {
         function loadAjaxContent(State){
             var url = State.url;
             var oldPage = $('.container').data('page');
-            $('html, body').animate({
-                scrollTop:0
-            });
-            console.log(State);
+            
+            $('html, body').scrollTop(0);
             newPos = pageToPosition[State.title.toLowerCase()];
+
+
+            $(".wrapper:first-child").addClass('loading');
 
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
-            console.log(Kilix.currentPos + " et " +newPos);
 
             slideNext = newPos>Kilix.currentPos ? true : false;
             $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>");

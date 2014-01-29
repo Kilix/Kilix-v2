@@ -16,10 +16,16 @@
 }
 .agilite{
 
+	a.button{
+		margin: 60px 0 10px;
+	}
+
 	.content article{
 		.row{
+			
 			padding: 50px 0;
 			border-bottom: 4px double rgba(0, 0, 0, 0.06);
+			position: relative;
 		}
 
 	&:last-child{
@@ -49,11 +55,11 @@
 }
 
 .agilite article:nth-child(3) .large-4{
-	background: lighten(#77cc33, 5%);
+	background: lighten($col3, 5%);
 }
 
 .agilite article:nth-child(4) .large-4{
-	background: lighten(#FFD204, 5%);
+	background: lighten($col4, 5%);
 }
 
 
