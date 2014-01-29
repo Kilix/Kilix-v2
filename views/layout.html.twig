@@ -40,11 +40,11 @@
 				</i>
 				<div class="logo">
 					<a href="/">
-						{% if browser.browser == "IE" and browser.majorver < 10 %}
-							<img class="" src="assets/img/logo_small.png" alt="Logo kilix">
-						{% else %}
-							<img class="svg" src="assets/img/logo_small.svg" alt="Logo Kilix">
-						{% endif %}
+					{% if browser.browser == "IE" and browser.majorver < 10 %}
+						<img class="" src="assets/img/logo_small.png" alt="Logo kilix">
+					{% else %}
+						<img class="svg" src="assets/img/logo_small.svg" alt="Logo Kilix">
+					{% endif %}
 					</a>
 				</div>
 				<nav class='nav-links-wrapper nav-links-hidden'>
@@ -72,9 +72,9 @@
 		  	</div>
 		</div>
 		<footer>
-			<div class="map">
+			{#<div class="map">
 				<iframe width='100%' height='100%' src='http://a.tiles.mapbox.com/v3/bulby97.map-zj10lv4w/mm/index.html?secure=1#18/48.82681/2.22268'></iframe>
-			</div>
+			</div>#}
 			<div class="copyright row">
 					<div class="medium-4 columns">
 						<strong>Kilix by Extia</strong> <br>
