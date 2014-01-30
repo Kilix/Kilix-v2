@@ -68,7 +68,6 @@ var Kilix = {
             var url = State.url;
             var oldPage = $('.container').data('page');
             
-            $('html, body').scrollTop(0);
             newPos = pageToPosition[State.title.toLowerCase()];
 
 
@@ -91,10 +90,16 @@ var Kilix = {
 
                 var $currPage = $(".wrapper:first-child");
                 var $nextPage = $(".wrapper-new");
+                var $wrapper = $(".main-wrapper");
 
-                
+                $wrapper.addClass('page-perspective');
+
                 var outClass = 'page-fade';
                 var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
+
+                //$('html, body').scrollTop(0);
+                // var outClass = slideNext ? 'page-rotateCubeLeftOut' : 'page-rotateCubeRightOut';
+                // var inClass = slideNext ? 'page-rotateCubeLeftIn' : 'page-rotateCubeRightIn';
 
 
 
@@ -102,7 +107,7 @@ var Kilix = {
                 $nextPage.addClass( inClass ).addClass('page-ontop').on( animEndEventName, function() {
                     $nextPage.off( animEndEventName );
 
-
+                        $wrapper.removeClass('page-perspective');
                         $(".wrapper:first-child").remove();
 
                         $('.wrapper').removeClass( inClass ).removeClass('page-ontop');
