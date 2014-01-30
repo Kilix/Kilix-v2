@@ -2,6 +2,7 @@ var Kilix = {
 
     currentScroll: null,
     currentPos: null,
+    animSvg: !$('html').hasClass('no-anim-svg'),
 
     colors: {
         col1: '#61AFF0',
@@ -68,7 +69,6 @@ var Kilix = {
             var url = State.url;
             var oldPage = $('.container').data('page');
             
-            $('html, body').scrollTop(0);
             newPos = pageToPosition[State.title.toLowerCase()];
 
 
@@ -91,10 +91,16 @@ var Kilix = {
 
                 var $currPage = $(".wrapper:first-child");
                 var $nextPage = $(".wrapper-new");
+                var $wrapper = $(".main-wrapper");
 
-                
+                $wrapper.addClass('page-perspective');
+
                 var outClass = 'page-fade';
                 var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
+
+                //$('html, body').scrollTop(0);
+                // var outClass = slideNext ? 'page-rotateCubeLeftOut' : 'page-rotateCubeRightOut';
+                // var inClass = slideNext ? 'page-rotateCubeLeftIn' : 'page-rotateCubeRightIn';
 
 
 
@@ -102,7 +108,7 @@ var Kilix = {
                 $nextPage.addClass( inClass ).addClass('page-ontop').on( animEndEventName, function() {
                     $nextPage.off( animEndEventName );
 
-
+                        $wrapper.removeClass('page-perspective');
                         $(".wrapper:first-child").remove();
 
                         $('.wrapper').removeClass( inClass ).removeClass('page-ontop');
@@ -300,55 +306,60 @@ var Kilix = {
             });
 
 
-            // Start Risk Waypoint
-            var risqueInit = false;
-            Kilix.animations['risques'].setAnimStatus(false);
-            $('.svg-risque').waypoint(function(direction) {
-                if(risqueInit == false) {
-                    Kilix.animations['risques'].start();
+            if(Kilix.animSvg){
+
+                // Start Risk Waypoint
+                var risqueInit = false;
+                Kilix.animations['risques'].setAnimStatus(false);
+                $('.svg-risque').waypoint(function(direction) {
+                    if(risqueInit == false) {
+                        Kilix.animations['risques'].start();
+                    }
+                    risqueInit = true;
+                }, { offset: offsetSvgAnim });
+
+
+                // Start Value Waypoint
+                var valueInit = false;
+                Kilix.animations['valeur'].setValueAnimStatus(true);
+                Kilix.animations['valeur'].setValueLoadingStatus(false);
+                $('.svg-valeur').waypoint(function(direction) {
+                    if (valueInit == false) {
+                        Kilix.animations['valeur'].start();
+                    }
+                    valueInit = true;
+                }, { offset: offsetSvgAnim });
+
+
+                // Start Amelio Waypoint
+                var amelioInit = false;
+                Kilix.animations['amelioration'].setAnimStatus(false);
+                $('.svg-amelio').waypoint(function(direction) {
+                    if(amelioInit == false) {
+                        Kilix.animations['amelioration'].start();   
+                    }
+                    amelioInit = true;
+                }, { offset: offsetSvgAnim });
+
+                
+                // Start Extia Waypoint
+                var extiaInit = false;
+                Kilix.animations['extia'].setAnimStatus(false);
+                $('.svg-extia').waypoint(function(direction) {
+                    if(extiaInit == false) {
+                        Kilix.animations['extia'].start();
+                    }
+                    extiaInit = true;
+                }, { offset: offsetSvgAnim });
+
+                if (Kilix.currentScroll != null) {
+                    $('html, body').animate({ 
+                        scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top - 200
+                    }, 'slow');
                 }
-                risqueInit = true;
-            }, { offset: offsetSvgAnim });
 
-
-            // Start Value Waypoint
-            var valueInit = false;
-            Kilix.animations['valeur'].setValueAnimStatus(true);
-            Kilix.animations['valeur'].setValueLoadingStatus(false);
-            $('.svg-valeur').waypoint(function(direction) {
-                if (valueInit == false) {
-                    Kilix.animations['valeur'].start();
-                }
-                valueInit = true;
-            }, { offset: offsetSvgAnim });
-
-
-            // Start Amelio Waypoint
-            var amelioInit = false;
-            Kilix.animations['amelioration'].setAnimStatus(false);
-            $('.svg-amelio').waypoint(function(direction) {
-                if(amelioInit == false) {
-                    Kilix.animations['amelioration'].start();   
-                }
-                amelioInit = true;
-            }, { offset: offsetSvgAnim });
-
-            
-            // Start Extia Waypoint
-            var extiaInit = false;
-            Kilix.animations['extia'].setAnimStatus(false);
-            $('.svg-extia').waypoint(function(direction) {
-                if(extiaInit == false) {
-                    Kilix.animations['extia'].start();
-                }
-                extiaInit = true;
-            }, { offset: offsetSvgAnim });
-
-            if (Kilix.currentScroll != null) {
-                $('html, body').animate({ 
-                    scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top - 200
-                }, 'slow');
             }
+
 
         },
         destroy: function(){
@@ -442,14 +453,16 @@ var Kilix = {
                 }, 'slow');
             });
 
-            var teamInit = false;
-            Kilix.animations['team'].setAnimStatus(false);
-            $('.svg-anim').waypoint(function(direction) {
-                if(teamInit == false) {
-                    Kilix.animations['team'].start();
-                }
-                teamInit = true;
-            }, { offset: offsetSvgAnim });
+            if(Kilix.animSvg){
+                var teamInit = false;
+                Kilix.animations['team'].setAnimStatus(false);
+                $('.svg-anim').waypoint(function(direction) {
+                    if(teamInit == false) {
+                        Kilix.animations['team'].start();
+                    }
+                    teamInit = true;
+                }, { offset: offsetSvgAnim });
+            }
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['col3']);},300);
             
