@@ -23,22 +23,22 @@
 		</g>
 	</g>
 	
-		<text id="a-valeur" transform="matrix(-4.371139e-008 -1 1 -4.371139e-008 39.8425 106.3235)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="16.5">adaptabilité</text>
+		<text id="a-valeur" transform="matrix(-4.371139e-008 -1 1 -4.371139e-008 43.9485 180.8982)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="21.4061">adaptabilité</text>
 	<g id="a-scales" opacity="0.3">
 		<line id="a-scale-1" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="126.898" x2="388.582" y2="126.898"/>
 		<line id="a-scale-2" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="73.898" x2="388.582" y2="73.898"/>
 		<line id="a-scale-3" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="182.898" x2="388.582" y2="182.898"/>
 		<line id="a-scale-4" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="21.898" x2="388.582" y2="21.898"/>
 	</g>
-	<path id="a-time" fill="#CECECE" d="M369.948,264.532l-4.116-4.116v-5.517h2.5v4.481l3.386,3.386L369.948,264.532z
-		 M367.082,249.898c-5.521,0-10,4.477-10,10c0,5.521,4.479,10,10,10c5.523,0,10-4.479,10-10
-		C377.082,254.375,372.605,249.898,367.082,249.898z M367.082,267.398c-4.142,0-7.5-3.358-7.5-7.5c0-4.144,3.358-7.5,7.5-7.5
-		c4.144,0,7.5,3.356,7.5,7.5C374.582,264.04,371.224,267.398,367.082,267.398z"/>
+	<path id="a-time" fill="#CECECE" d="M369.948,264.532l-4.116-4.116v-5.517h2.5v4.48l3.387,3.387L369.948,264.532z M367.082,249.898
+		c-5.521,0-10,4.477-10,10c0,5.521,4.479,10,10,10c5.523,0,10-4.479,10-10C377.082,254.375,372.605,249.898,367.082,249.898z
+		 M367.082,267.398c-4.142,0-7.5-3.358-7.5-7.5c0-4.145,3.358-7.5,7.5-7.5c4.145,0,7.5,3.355,7.5,7.5
+		C374.582,264.04,371.224,267.398,367.082,267.398z"/>
 	<g>
 		<g>
 			<g>
 				<path id="a-old-gris" fill="none" stroke="#C6C6C6" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
-					M64.582,21.398c18.018,136.718,83.608,206.664,310.518,206.664"/>
+					M64.582,21.398C82.6,158.116,148.19,228.062,375.1,228.062"/>
 			</g>
 		</g>
 	</g>
@@ -46,7 +46,7 @@
 		<g>
 			<g>
 				<path id="a-courbe-bleue" fill="none" stroke="#009884" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
-					M64.582,21.398c0,0,4.125,88.051,310.518,88.051"/>
+					M64.582,21.398c0,0,4.125,88.051,310.519,88.051"/>
 			</g>
 		</g>
 	</g>
