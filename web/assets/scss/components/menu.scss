@@ -339,6 +339,7 @@ $mobile-contact-height: 40;
 		}
 		box-sizing: content-box;
 		@media #{$medium-up} {
+			line-height: rem-calc(100);
 			width: rem-calc(80);
 			left:0;
 		}
