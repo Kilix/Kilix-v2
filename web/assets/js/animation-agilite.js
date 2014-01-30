@@ -68,15 +68,15 @@ Kilix.animations["agilite"] = {
       showCheckmark($('.agility-item:eq(0)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
-        drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
-          drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
+        drawPath(svg, elements['oldGris'], 1600, 1500, mina.easeout, function(){
+          drawPath(svg, elements['courbeBleue'], 1400, 1300, mina.easeinout, function(){
             
               elements['text'].animate({opacity:1} ,400 );
               alterBounce(elements['time'], 600, 400, function() {
                 $('#tps').text("0");
                 elements['tps'].animate({opacity: 1}, 200, function() {});
                 incrementNumber($('#tps'), 0, 50, 700, 'swing', function(){});
-                drawLine(svg, elements['pointilles1'], 700, 1200, mina.easeout, function(){
+                drawLine(svg, elements['pointilles1'], 900, 1300, mina.easeout, function(){
                   $('#val').text("0");
                   elements['val'].animate({opacity: 1}, 200, function() {});
                   incrementNumber($('#val'), 0, 80, 900, 'swing', function(){});
@@ -116,8 +116,8 @@ Kilix.animations["agilite"] = {
       showCheckmark($('.agility-item:eq(1)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
-         drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
-           drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
+         drawPath(svg, elements['oldGris'], 1600, 1500, mina.easeout, function(){
+           drawPath(svg, elements['courbeBleue'], 1400, 1300, mina.easeinout, function(){
               elements['text'].animate({opacity:1}, 400);
               alterBounce(elements['time'], 600, 400);
            });
@@ -151,8 +151,8 @@ Kilix.animations["agilite"] = {
       showCheckmark($('.agility-item:eq(2)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
-        drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
-          drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
+        drawPath(svg, elements['oldGris'], 1600, 1500, mina.easeout, function(){
+          drawPath(svg, elements['courbeBleue'], 1400, 1300, mina.easeinout, function(){
             elements['text'].animate({opacity:1}, 400);
             alterBounce(elements['time'], 600, 400);
           });
@@ -186,8 +186,8 @@ Kilix.animations["agilite"] = {
       showCheckmark($('.agility-item:eq(3)'));
       scale(elements['plan'], 1, 500, 200, function(){});
       scale(elements['plan2'], 1, 500, 200, function() {
-        drawPath(svg, elements['oldGris'], 900, 1200, mina.easeout, function(){
-          drawPath(svg, elements['courbeBleue'], 780, 800, mina.easeinout, function(){
+        drawPath(svg, elements['oldGris'], 1600, 1500, mina.easeout, function(){
+          drawPath(svg, elements['courbeBleue'], 1400, 1300, mina.easeinout, function(){
             elements['text'].animate({opacity:1}, 400);
             alterBounce(elements['time'], 600, 400);
           });
