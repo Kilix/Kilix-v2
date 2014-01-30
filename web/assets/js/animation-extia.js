@@ -172,7 +172,8 @@ Kilix.animations["extia"] = {
         elements['amelioF1'].animate({'fill-opacity': 0}, 400);
         // elements['amelioText'].animate({'fill-opacity': 0}, 400);
         
-        Kilix.animations["extia"].freeIntervals();
+        //Disable pulse on Extia logo on reset
+        //Kilix.animations["extia"].freeIntervals();
 
         setTimeout(function() {
           animValue();
