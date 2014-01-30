@@ -48,7 +48,7 @@
 				</i>
 				<div class="logo">
 					<a href="/">
-					{% if browser.browser == "IE" and browser.majorver < 10 %}
+					{% if (browser.browser == "IE" and browser.majorver < 10) or (ress.isMobile ==  true) %}
 						<img class="" src="assets/img/logo_small.png" alt="Logo kilix">
 					{% else %}
 						<img class="svg" src="assets/img/logo_small.svg" alt="Logo Kilix">
