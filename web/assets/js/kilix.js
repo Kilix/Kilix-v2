@@ -32,7 +32,7 @@ var Kilix = {
     resizeLanding: function(){
         var windowHeight = $(window).height();
 
-        if (window.matchMedia("(min-width: 40em)").matches) {
+        if (matchMedia('(min-width: 40em)').matches) {
             $('.landing-home').css('height', windowHeight);
             $('.home .intro.desktop').css('margin-top', windowHeight);
         } else {
