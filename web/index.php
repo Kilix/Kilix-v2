@@ -41,30 +41,36 @@ $app->get('/agilite', function() use ($app) {
     ));
 });
 
-$app->get('/contact', function() use ($app) {
-    return $app['twig']->render('contact.html.twig', array(
-        'page'    => 'contact',
-        'ress'    => $app["mobile_detect"],
-        'browser' =>  get_browser(null, true)
+// $app->get('/contact', function() use ($app) {
+//     return $app['twig']->render('contact.html.twig', array(
+//         'page'    => 'contact',
+//         'ress'    => $app["mobile_detect"],
+//         'browser' =>  get_browser(null, true)
+//     ));
+// });
+
+$app->get('/how-about-no', function() use ($app) {
+    return $app['twig']->render('how-about-no.html.twig', array(
+        'page' => '',
     ));
 });
 
 // MODE DEBUG : Route for animation developpement, to delete when release come
-$app->get('/anim', function() use ($app) {
-    return $app['twig']->render('animation.html.twig', array(
-        'page' => '',
-    ));
-});
+// $app->get('/anim', function() use ($app) {
+//     return $app['twig']->render('animation.html.twig', array(
+//         'page' => '',
+//     ));
+// });
 
-$app->get('/anim2', function() use ($app) {
-    return $app['twig']->render('animation2.html.twig', array(
-        'page' => '',
-    ));
-});
-$app->get('/anim2', function() use ($app) {
-    return $app['twig']->render('animation2.html.twig', array(
-    ));
-});
+// $app->get('/anim2', function() use ($app) {
+//     return $app['twig']->render('animation2.html.twig', array(
+//         'page' => '',
+//     ));
+// });
+// $app->get('/anim2', function() use ($app) {
+//     return $app['twig']->render('animation2.html.twig', array(
+//     ));
+// });
 
 
 $app->run();
