@@ -48,7 +48,7 @@
 				</i>
 				<div class="logo">
 					<a href="/">
-					{% if browser.browser == "IE" and browser.majorver < 10 %}
+					{% if (browser.browser == "IE" and browser.majorver < 10) or (ress.isMobile ==  true) %}
 						<img class="" src="assets/img/logo_small.png" alt="Logo kilix">
 					{% else %}
 						<img class="svg" src="assets/img/logo_small.svg" alt="Logo Kilix">
@@ -61,7 +61,13 @@
 					<a class='nav-link enabled {% if page == 'agilite' %}current{% endif %}' href="/agilite" data-pos="3">Agilite</a>
 
 					<a class="nav-link-contact hide-for-small-only">Contact</a>
-					<a class='nav-link extia' href="http://extia.fr" target="_blank"><img src="assets/img/svg/logo_extia.svg" alt="Logo extia" class="svg"></a>
+					<a class='nav-link extia' href="http://extia.fr" target="_blank">
+						{% if ress.isMobile ==  true %}
+							<img src="assets/img/logo_extia.png" alt="Logo extia" class=""></a>
+						{% else %}
+							<img src="assets/img/svg/logo_extia.svg" alt="Logo extia" class="svg"></a>
+				  		{% endif %}
+						
 					<div class="nav-contact show-for-small-only">
 						<a class="phone-contact" href="tel:0146999191">Phone</a><!--
 						--><a class="mail-contact" href="mailto:contact@kilix.fr">Email</a>

@@ -54,9 +54,9 @@
 				<div class="large-6 medium-7 columns anim-item">
 					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
-							<img src="assets/img/gif/value-medium.gif" alt="Animation valeur" class="medium-gif">
+							<img src="assets/img/value.png" alt="Animation valeur" class="medium-gif">
 						{% elseif ress.isMobile == true %}
-							<img src="assets/img/gif/value-small.gif" alt="Animation valeur">
+							<img src="assets/img/value.png" alt="Animation valeur">
 						{% else %}
 							<div class="video-head"></div>
 							<video src="assets/video/valeur-IE.mp4" autoplay loop></video>
@@ -82,9 +82,9 @@
 				<div class="large-6 large-pull-6 medium-7 columns anim-item">
 					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
-							<img src="assets/img/gif/risk-medium.gif" alt="Animation risque" class="medium-gif">
+							<img src="assets/img/risk.png" alt="Animation risque" class="medium-gif">
 						{% elseif ress.isMobile == true %}
-							<img src="assets/img/gif/risk-small.gif" alt="">
+							<img src="assets/img/risk.png" alt="">
 						{% else %}
 							<video src="assets/video/risk-IE.mp4" autoplay loop></video>
 						{% endif %}
@@ -112,9 +112,9 @@
 				<div class="large-6 medium-6 columns anim-item">
 					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
-							<img src="assets/img/gif/amelio-medium.gif" alt="Animation amélioration continue"  class="medium-gif">
+							<img src="assets/img/amelio.png" alt="Animation amélioration continue" class="medium-gif">
 						{% elseif ress.isMobile == true %}
-							<img src="assets/img/gif/amelio-small.gif" alt="">
+							<img src="assets/img/amelio.png" alt="">
 						{% else %}
 							<video src="assets/video/amelio-IE.mp4" autoplay loop></video>
 						{% endif %}
@@ -128,17 +128,25 @@
 		<section class="svg-anim ❤ svg-extia" data-color="col4" data-title="Extia">
 			<div class="row">
 				<article class="large-6 large-push-6 medium-5  columns anim-content">
-					<h2><img src="assets/img/svg/logo_extia_big.svg" alt="" class="svg extia-big"></h2>
+					<h2>
+						<p class='title'>
+							Extia
+						</p>
+						<p class='logo'>
+							<img src="/assets/img/extia-logo.png" alt="Logo Extia">
+						</p>
+						
+					</h2>
 					<h3>Boostez vos projets grâce à l'énergie d’Extia</h3>
 					<p>Nous nous appuyons sur l'expertise d’Extia, acteur reconnu du conseil depuis 7 ans, qui met à votre disposition ses meilleurs consultants et vous garantit l'atteinte de vos objectifs dans les délais impartis.</p>
 					<a href="http://www.extia.fr" target=_blank class="button"><span data-hover="Accéder à Extia.fr">Accéder à Extia.fr</span></a>
 				</article>
-				<div class="large-6 large-pull-6 medium-7  columns">
+				<div class="large-6 large-pull-6 medium-7  columns anim-item">
 				{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
 						{% if ress.isTablet == true %}
-							<img src="assets/img/gif/extia-medium.gif" alt="Animation Extia"  class="medium-gif">
+							<img src="assets/img/extia.png" alt="Animation Extia" class="medium-gif">
 						{% elseif ress.isMobile == true %}
-							<img src="assets/img/gif/extia-small.gif" alt="">
+							<img src="assets/img/extia.png" alt="">
 						{% else %}
 							<video src="assets/video/extia-IE.mp4" autoplay loop></video>
 						{% endif %}
