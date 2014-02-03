@@ -81,6 +81,10 @@
 		display: inline-block;
 	}
 
+	&.risques:after{
+		background: url(../img/risk-thumb.png) center center no-repeat #fff;
+	}
+
 	&:after{
 		content: " ";
 		background: url(../img/value-thumb.png) center center no-repeat #fff;
