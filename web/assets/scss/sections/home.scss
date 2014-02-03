@@ -261,7 +261,7 @@
 
 	
 	.anim-item {
-		
+		text-align: center;
 	}
 
 	.anim-content{
@@ -670,10 +670,19 @@
 	.row .next-section i:hover{ background: $col3; }
 }
 .svg-extia{
+	h2 { 
+		.title {
+			text-indent: -9999px;
+		}
+		.logo img {
+			max-height: 90px;
+		}
+	}
 
 	@media #{$large-up} {
 		h2 { 
 			font-size:rem-calc(80); line-height: 0.9em; color:$col4; font-weight: bold;
+			text-align: center;
 		}
 	}
 	@media #{$xlarge-up} { h2{font-size:rem-calc(100);} }
