@@ -4,9 +4,11 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use Silex\Application;
 use Binfo\Silex\MobileDetectServiceProvider;
+use Symfony\Component\HttpFoundation\Response;
+
 
 $app = new Application();
-$app['debug'] = true;
+$app['debug'] = false;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
@@ -49,21 +51,15 @@ $app->get('/contact', function() use ($app) {
     ));
 });
 
-// MODE DEBUG : Route for animation developpement, to delete when release come
-$app->get('/anim', function() use ($app) {
-    return $app['twig']->render('animation.html.twig', array(
-        'page' => '',
-    ));
-});
+$app->error(function (\Exception $e, $code) use ($app){
+    switch ($code) {
+        case 404:
+            return $app['twig']->render('404.html.twig', array(
+                ));
+            break;
+    }
 
-$app->get('/anim2', function() use ($app) {
-    return $app['twig']->render('animation2.html.twig', array(
-        'page' => '',
-    ));
-});
-$app->get('/anim2', function() use ($app) {
-    return $app['twig']->render('animation2.html.twig', array(
-    ));
+    return new Response($message);
 });
 
 
