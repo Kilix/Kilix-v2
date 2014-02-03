@@ -18,7 +18,8 @@ $app->get('/', function() use ($app) {
     return $app['twig']->render('home.html.twig', array(
         'page' => 'home',
         'ress' => $app["mobile_detect"],
-        'browser' =>  get_browser(null, true)
+        'browser' =>  get_browser(null, true),
+        'title' => "Kilix - L'Usine digitale"
     ));
 });
 
@@ -26,7 +27,8 @@ $app->get('/team', function() use ($app) {
     return $app['twig']->render('team.html.twig', array(
         'page' => 'team',
         'ress' => $app["mobile_detect"],
-        'browser' =>  get_browser(null, true)
+        'browser' =>  get_browser(null, true),
+        'title' => "Kilix | Team"
     ));
 });
 
@@ -34,7 +36,8 @@ $app->get('/agilite', function() use ($app) {
     return $app['twig']->render('agilite.html.twig', array(
         'page' => 'agilite',
         'ress' => $app["mobile_detect"],
-        'browser' =>  get_browser(null, true)
+        'browser' =>  get_browser(null, true),
+        'title' => "Kilix | Agilité"
     ));
 });
 

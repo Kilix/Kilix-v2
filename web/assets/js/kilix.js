@@ -98,7 +98,7 @@ var Kilix = {
                 var outClass = 'page-fade';
                 var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
 
-                //$('html, body').scrollTop(0);
+                $('html, body').scrollTop(0);
                 // var outClass = slideNext ? 'page-rotateCubeLeftOut' : 'page-rotateCubeRightOut';
                 // var inClass = slideNext ? 'page-rotateCubeLeftIn' : 'page-rotateCubeRightIn';
 
@@ -380,7 +380,7 @@ var Kilix = {
 
             Kilix.wayPoints();
             Kilix.switchSVG();
-            $(".row a.button.enabled").on("click", Kilix.bindPushState);
+            $(".button-back").on("click", Kilix.bindPushState);
 
             $('.losange').on('click',function(){
                 $('html, body').animate({ 
@@ -436,7 +436,7 @@ var Kilix = {
             $.waypoints('destroy');
             Kilix.changeXColor($('.logo svg polygon'), 'none');
             $('.landing h1, .landing-main-text, #KILIX-logo').off();
-            $(".row a.button.enabled").off();
+            $(".button-back").off();
         }
     },
 
