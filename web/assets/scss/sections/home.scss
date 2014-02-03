@@ -93,6 +93,7 @@
 
 .landing-home{
 	height:rem-calc($small-margin);
+	transform: translate3d(0,0,0);
 	transition:0.2s ease;
 	padding-top: rem-calc(63);
 
@@ -225,7 +226,7 @@
 .svg-anim{
 	position:relative;
 	z-index:2;
-	// background:#ECECF5;
+	background:#ECECF5;
 
 	@media #{$medium-up}{
 		background: rgb(236,236,245); /* Old browsers */
@@ -238,8 +239,7 @@
 
 
 		&.svg-risque, &.svg-extia{
-			@media #{$large-up}{
-				background: rgb(236,236,245); /* Old browsers */
+			@media #{$xlarge-up}{
 				background: -moz-linear-gradient(70deg,  rgba(236,236,245,1) 0%, rgba(236,236,245,1) 30%, rgba(230,230,237,1) 30%); /* FF3.6+ */
 				background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(236,236,245,1)), color-stop(30%,rgba(236,236,245,1)), color-stop(30%,rgba(230,230,237,1))); /* Chrome,Safari4+ */
 				background: -webkit-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Chrome10+,Safari5.1+ */
@@ -261,7 +261,7 @@
 
 	
 	.anim-item {
-		
+		text-align: center;
 	}
 
 	.anim-content{
@@ -281,7 +281,25 @@
 		}
 	}
 
-	svg{
+	.medium-gif{
+		width: 100%;
+	}
+
+	svg.extia-big{
+		height: 3rem;
+		display: inline-block;
+		width: 100%;
+
+		@media #{$medium-up}{
+			height: 5rem;
+		}
+
+		@media #{$large-up}{
+			height: 7rem;
+		}
+	}
+
+	svg:not(.replaced-svg){
 		width: 100%;
 		height: rem-calc(250);
 		cursor:pointer;
@@ -652,10 +670,19 @@
 	.row .next-section i:hover{ background: $col3; }
 }
 .svg-extia{
+	h2 { 
+		.title {
+			text-indent: -9999px;
+		}
+		.logo img {
+			max-height: 90px;
+		}
+	}
 
 	@media #{$large-up} {
 		h2 { 
 			font-size:rem-calc(80); line-height: 0.9em; color:$col4; font-weight: bold;
+			text-align: center;
 		}
 	}
 	@media #{$xlarge-up} { h2{font-size:rem-calc(100);} }
