@@ -66,25 +66,40 @@ footer{
 		@media #{$medium-up} {
 			padding:5rem 0;
 		}
-
-		.medium-4,.medium-2{
-			text-align: left;
-			//font-size:rem-calc(15);
-			line-height: rem-calc(24);
-			margin-top:3rem;
-			
-			.reference {
+		.references-footer{
+			@media #{$large-up} {
+				padding-right: 3rem;
+			}
+		}
+		.reference {
 				width: 23%;
 				height: rem-calc(48);
 				line-height: rem-calc(48);
 				margin: 1%;
 				float: left;
 				text-align: center;
+				padding: 0;
+
+				@media #{$small-only} {
+					padding: 0 10px;
+				}
+
+				@media #{$large-up} {
+					padding: 0 10px;
+				}
 
 				img {
 					max-height: 100%;
 				}
 			}
+
+		.medium-3,.medium-2{
+			text-align: left;
+			//font-size:rem-calc(15);
+			line-height: rem-calc(24);
+			margin-top:3rem;
+			
+			
 
 			@media #{$medium-up} {
 				margin-top:0;
