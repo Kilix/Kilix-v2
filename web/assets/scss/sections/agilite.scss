@@ -69,10 +69,10 @@
 }
 
 .button-back{
-	font-size: rem-calc(50);
+	font-size: 2.5rem;
 	position: absolute;
 	bottom: 3.5rem;
-	left: 0;
+	left: 1rem;	
 	color: #cecece;
 	transition: color 0.5s;
 
@@ -83,14 +83,14 @@
 
 	&:after{
 		content: " ";
-		background: white;
-		border: 2px solid rgba(0,0,0,.02);
+		background: url(../img/value-thumb.png) center center no-repeat #fff;
+		border: 2px solid rgba(228, 228, 228, 1);
 		width: 140px;
 		height: 140px;
 		position: absolute;
 		display: block;
 		top: 50%;
-		left: 60px;
+		left: 40px;
 		border-radius: 50%;
 		transform: translateY(-50%) scale(0.7);
 		transform-origin: 50% 50%;
@@ -108,7 +108,7 @@
 .agility-item {
 
 	@media #{$medium-up}{
-		margin-bottom: 7rem;
+		margin-bottom: 8rem;
 	}
 
 	ul {

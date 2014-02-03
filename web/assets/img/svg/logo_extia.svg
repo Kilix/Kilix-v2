@@ -24,9 +24,9 @@
 	c-23.404,0.535-50.054,1.077-62.791-16.939c-18.721-26.481-17.583-52.372-10.985-105.372C289.679,2.546,290.93,1,290.93,1
 	l24.659,0.049c0,0-4.714,30.389-13.973,106.698S308.801,202.922,350.204,201.614z"/>
 <circle fill="#F26E25" stroke="#F26E25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="212.67" cy="40.838" r="29.438"/>
-<polygon fill="#F26E25" stroke="#F26E25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+<polygon id='logo-x_1' fill="#F26E25" stroke="#F26E25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
 	236.668,229.927 125.349,66.282 152.85,59.465 268.359,229.927 "/>
-<path fill="#F26E25" stroke="#F26E25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+<path id='logo-x_2'  fill="#F26E25" stroke="#F26E25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 	M115.347,229.927H79.216c0.682-1.729,23.294-51.5,68.469-91.913c26.43-23.643,57.144-43.233,91.6-56.254
 	c42.926-16.223,95.679-23.45,148.573-22.137l-0.085,25.474c-111.575-2.795-182.755,41.048-221.022,75.283
 	C125.518,197.264,115.347,229.927,115.347,229.927z"/>
