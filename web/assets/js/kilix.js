@@ -98,7 +98,7 @@ var Kilix = {
                 var outClass = 'page-fade';
                 var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
 
-                //$('html, body').scrollTop(0);
+                $('html, body').scrollTop(0);
                 // var outClass = slideNext ? 'page-rotateCubeLeftOut' : 'page-rotateCubeRightOut';
                 // var inClass = slideNext ? 'page-rotateCubeLeftIn' : 'page-rotateCubeRightIn';
 
