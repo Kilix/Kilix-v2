@@ -139,7 +139,7 @@ var Kilix = {
             updateContent(State);
         });
 
-        $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", Kilix.bindPushState);
+        if (history.pushState) $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", Kilix.bindPushState);
     },
 
     bindPushState: function(evt) {
@@ -282,7 +282,7 @@ var Kilix = {
             setTimeout(function(){$('.landing-home').removeClass('play');},1000);
 
             var offsetSvgAnim = '50%';
-            $(".svg-anim a.button.enabled").on("click", Kilix.bindPushState);
+            if (history.pushState) $(".svg-anim a.button.enabled").on("click", Kilix.bindPushState);
 
             $('.next-section').on('click',function(){
                 $('html, body').animate({ 
