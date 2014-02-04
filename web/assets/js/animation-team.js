@@ -11,12 +11,7 @@ Kilix.animations["team"] = {
           delay = 50,
           duration = 500;
 
-      $('#TEAM-f1').on('click', function() {
-        if (Kilix.animations['team'].animStatus == true) {
-          Kilix.animations['team'].animStatus = false;
-          resetTeamAnimation();
-        }
-      });
+      
 
       function loadImproveSvg() {
 
@@ -60,6 +55,13 @@ Kilix.animations["team"] = {
             $('body').raptorize();
 
         });
+
+        elementsFormula['reload'].click(function() {
+        if (Kilix.animations['team'].animStatus == true) {
+          Kilix.animations['team'].animStatus = false;
+          resetTeamAnimation();
+        }
+      });
 
 
       }
