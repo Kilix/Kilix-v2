@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 
 $app = new Application();
-$app['debug'] = false;
+$app['debug'] = true;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
