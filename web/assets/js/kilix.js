@@ -445,6 +445,7 @@ var Kilix = {
 
             Kilix.wayPoints();
 
+
             var offsetSvgAnim = '70%';
 
             $('.losange').on('click',function(){
@@ -465,6 +466,11 @@ var Kilix = {
             }
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['col3']);},300);
+
+
+            $('.raptor').on('click',function(){
+                $('body').raptorize();
+            });
             
 
         },
@@ -475,7 +481,7 @@ var Kilix = {
             Kilix.changeXColor($('.logo svg polygon'), 'none');    
         }
     }
-};
+}; 
 
 $(function(){
 	Kilix.init();

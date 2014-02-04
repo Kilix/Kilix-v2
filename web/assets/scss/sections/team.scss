@@ -7,3 +7,12 @@
 
 
 #aileron-back, #aileron-front{@include colorize(#2c313f);}
+
+#elRaptor {
+	z-index: 299999;
+}
+
+#Moustache {
+	animation:MegaPulse 2s ease both infinite;
+	transform-origin: 50% 50%;
+}
