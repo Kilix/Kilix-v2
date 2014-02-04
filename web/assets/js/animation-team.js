@@ -55,6 +55,11 @@ Kilix.animations["team"] = {
         elementsFormula['infosClient'] = f.select("#infos-client"),
         elementsFormula['infosKilix'] = f.select("#infos-kilix");
         elementsFormula['moustache'] = f.select("#Moustache");
+        elementsFormula['moustache'].click(function(e){
+            e.stopPropagation();
+            $('body').raptorize();
+
+        });
 
 
       }
