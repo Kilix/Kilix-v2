@@ -72,7 +72,7 @@ var Kilix = {
             newPos = pageToPosition[State.title.toLowerCase()];
 
 
-            $(".wrapper:first-child").addClass('loading');
+            // $(".wrapper:first-child").addClass('loading');
 
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
@@ -93,25 +93,25 @@ var Kilix = {
                 var $nextPage = $(".wrapper-new");
                 var $wrapper = $(".main-wrapper");
 
-                $wrapper.addClass('page-perspective');
+                //$wrapper.addClass('page-perspective');
 
-                var outClass = 'page-fade';
-                var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
+                // var outClass = 'page-fade';
+                // var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
 
                 $('html, body').scrollTop(0);
-                // var outClass = slideNext ? 'page-rotateCubeLeftOut' : 'page-rotateCubeRightOut';
-                // var inClass = slideNext ? 'page-rotateCubeLeftIn' : 'page-rotateCubeRightIn';
+                var outClass = slideNext ? 'page-moveToLeftEasing' : 'page-moveToRightEasing';
+                var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
 
 
 
-                $currPage.addClass( outClass );
-                $nextPage.addClass( inClass ).addClass('page-ontop').on( animEndEventName, function() {
+                $currPage.addClass( outClass ).addClass('page-ontop');
+                $nextPage.addClass( inClass ).on( animEndEventName, function() {
                     $nextPage.off( animEndEventName );
 
                         $wrapper.removeClass('page-perspective');
                         $(".wrapper:first-child").remove();
 
-                        $('.wrapper').removeClass( inClass ).removeClass('page-ontop');
+                        $('.wrapper').removeClass( inClass );
                         $(".wrapper-new").removeClass('wrapper-new');
                         $(".wrapper-prev").removeClass('wrapper-prev');
                         $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
