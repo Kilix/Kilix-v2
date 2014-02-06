@@ -362,15 +362,16 @@ var Kilix = {
 
             $('.png-anim').on('click',function() {
                 var image = new Image();
-                console.log($(this).height());
                 image.style.height = $(this).height()+"px";
                 image.style.marginLeft = "auto";
                 image.style.marginRight = "auto";
                 image.style.marginTop = "-"+$(this).height()+"px";
                 image.style.display = "none";
 
+                $(this).off();
 
                 $(this).after(image);
+
                 image.onload = function (img, parent) {
                     img.style.display = 'block';
                     parent.css('opacity',0);
