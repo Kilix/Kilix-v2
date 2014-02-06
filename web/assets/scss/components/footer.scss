@@ -70,12 +70,16 @@ footer{
 			@media #{$large-up} {
 				padding-right: 3rem;
 			}
+			// @media #{$small-only} {
+			// 	background: #fff;
+			// 	padding:1rem 0;
+			// }
 		}
 		.reference {
-				width: 23%;
+				width: 31%;
 				height: rem-calc(48);
 				line-height: rem-calc(48);
-				margin: 1%;
+				margin: 14px 1%;
 				float: left;
 				text-align: center;
 				padding: 0;
@@ -85,7 +89,7 @@ footer{
 				}
 
 				@media #{$large-up} {
-					padding: 0 10px;
+					padding: 0 15px;
 				}
 
 				img {
