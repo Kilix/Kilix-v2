@@ -21,7 +21,7 @@ $app->get('/', function() use ($app) {
         'page' => 'home',
         'ress' => $app["mobile_detect"],
         'browser' =>  get_browser(null, true),
-        'title' => "Kilix - L'Usine digitale"
+        'title' => "Kilix - l'agence digitale by EXTIA"
     ));
 });
 
@@ -30,7 +30,7 @@ $app->get('/team', function() use ($app) {
         'page' => 'team',
         'ress' => $app["mobile_detect"],
         'browser' =>  get_browser(null, true),
-        'title' => "Kilix | Team"
+        'title' => "Kilix - l'agence digitale by EXTIA | Team"
     ));
 });
 
@@ -39,7 +39,7 @@ $app->get('/agilite', function() use ($app) {
         'page' => 'agilite',
         'ress' => $app["mobile_detect"],
         'browser' =>  get_browser(null, true),
-        'title' => "Kilix | Agilité"
+        'title' => "Kilix - l'agence digitale by EXTIA | Agilité"
     ));
 });
 
