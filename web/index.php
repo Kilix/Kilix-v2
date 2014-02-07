@@ -21,7 +21,7 @@ $app->get('/', function() use ($app) {
         'page' => 'home',
         'ress' => $app["mobile_detect"],
         'browser' =>  get_browser(null, true),
-        'title' => "Kilix - l'agence digitale by EXTIA",
+        'title' => "Kilix - L'agence digitale by EXTIA",
         'description' => "Kilix est une agence digitale fondée sur l'Agilité. Elle réalise des projets au forfait, du site vitrine à l'ERP sur mesure en passant par les middlewares."
     ));
 });
@@ -31,7 +31,7 @@ $app->get('/team', function() use ($app) {
         'page' => 'team',
         'ress' => $app["mobile_detect"],
         'browser' =>  get_browser(null, true),
-        'title' => "Kilix - l'agence digitale by EXTIA | Team",
+        'title' => "L'équipe de Kilix - L'agence digitale by EXTIA",
         'description' => "L’équipe Kilix est composée d’experts reconnus qui interviennent avec VOUS sur l’ensemble du projet."
     ));
 });
@@ -41,7 +41,7 @@ $app->get('/agilite', function() use ($app) {
         'page' => 'agilite',
         'ress' => $app["mobile_detect"],
         'browser' =>  get_browser(null, true),
-        'title' => "Kilix - l'agence digitale by EXTIA | Agilité",
+        'title' => "L'agilité chez Kilix - L'agence digitale by EXTIA",
         'description' => "Notre ADN : la culture Agile, pour nous, elle ne se limite pas à une méthodologie de gestion de projet. C’est notre philosophie."
     ));
 });
