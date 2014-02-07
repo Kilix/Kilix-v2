@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{{title}}</title>
 		<link rel="shortcut icon" href="favicon.ico">
+        <meta property="og:image" content="http://kilix.fr/assets/img/logo_x.png" />
 		<meta name="description" content="{{description}}" />
   		<link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" media="all"/>
   		<script src="assets/js/vendor/modernizr.min.js"></script>
@@ -39,6 +40,17 @@
 				}
   			</style>
   		{% endif %}
+
+  		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-47856519-1', 'kilix.fr');
+		  ga('send', 'pageview');
+
+		</script>
 	</head>
 	<body>
 		<header class="navbar navbar-top">
@@ -126,6 +138,6 @@
 			</div>
 		</footer>
   		{# {% include "scripts-debug.html.twig" %} #}
-  		<script src="/assets/js/scripts.min.js"></script>
+		<!----> <script src="/assets/js/scripts.min.js"></script> 
 	</body>
 </html>
