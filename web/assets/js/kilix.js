@@ -127,7 +127,6 @@ var Kilix = {
         }
 
         function updateContent(State){
-
             loadAjaxContent(State);
         }
 
@@ -136,6 +135,26 @@ var Kilix = {
             // Log the State
             var State = History.getState(); // Note: We are using History.getState() instead of event.state
             //History.log('statechange:', State.data, State.title, State.url);
+            if(State.title == "") {
+                url = State.url;
+                var baseUrlPattern = /^https?:\/\/[a-z\:0-9.\-\_]+/;
+                var result = "";
+             
+                var match = baseUrlPattern.exec(url);
+                if (match != null) {
+                    result = match[0];
+                }
+             
+                if (result.length > 0) {
+                    url = url.replace(result, "");
+                    url = url.replace('/', "");
+                    if (url == '') {
+                        url = "home";
+                    }
+                }
+             
+                State.title = url.toLowerCase();
+            } 
             updateContent(State);
         });
 
@@ -155,7 +174,6 @@ var Kilix = {
                 Kilix.currentScroll = $(this).data('scroll');
             else
                 Kilix.currentScroll = null;
-
             
             var title = $(this).attr('data-scroll') ? $(this).data('page-title') : this.textContent ;
 
