@@ -54,6 +54,10 @@ var Kilix = {
             newPos,
             slideNext = true,
             pageToPosition = { home:1,team:2,agilite:3,contact:4 },
+            pageTitle = { home: $('#link-home').attr('title'),
+                           team: $('#link-team').attr('title'),
+                           agilite:$('#link-agilite').attr('title'),
+                           contact:$('#link-contact').attr('title') },
             animEndEventNames = {
                 'WebkitAnimation' : 'webkitAnimationEnd',
                 'OAnimation' : 'oAnimationEnd',
@@ -69,6 +73,8 @@ var Kilix = {
             var url = State.url;
             var oldPage = $('.container').data('page');
             
+            $('title').html(pageTitle[State.title.toLowerCase()]);
+
             newPos = pageToPosition[State.title.toLowerCase()];
 
 
@@ -120,7 +126,8 @@ var Kilix = {
                         Kilix[State.title.toLowerCase()].init();
 
 
-                } );
+                });
+
                    
             });
 
