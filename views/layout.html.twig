@@ -66,11 +66,11 @@
 					</a>
 				</div>
 				<nav class='nav-links-wrapper nav-links-hidden'>
-					<a class='nav-link enabled {% if page == 'home' %}current{% endif %}' href="/" data-pos="1" title="Kilix, l'agence digitale by EXTIA">Home</a>
-					<a class='nav-link enabled {% if page == 'team' %}current{% endif %}' href="/team" data-pos="2" title="La team Kilix">Team</a>
-					<a class='nav-link enabled {% if page == 'agilite' %}current{% endif %}' href="/agilite" data-pos="3" title="La culture Agile by Kilix">Agilite</a>
+					<a class='nav-link enabled {% if page == 'home' %}current{% endif %}' id='link-home' href="/" data-pos="1" title="{{titles.home}}">Home</a>
+					<a class='nav-link enabled {% if page == 'team' %}current{% endif %}' id='link-team' href="/team" data-pos="2" title="{{titles.team}}">Team</a>
+					<a class='nav-link enabled {% if page == 'agilite' %}current{% endif %}' id='link-agilite' href="/agilite" data-pos="3" title="{{titles.agilite}}">Agilite</a>
 
-					<a class="nav-link-contact hide-for-small-only" title="Contactez Kilix">Contact</a>
+					<a class="nav-link-contact hide-for-small-only" id='link-contact' title="Contactez Kilix">Contact</a>
 					<a class='nav-link extia' href="http://extia.fr" target="_blank" title="EXTIA - Incubateur de talents">
 						{% if ress.isMobile ==  true %}
 							<img src="assets/img/logo_extia.png" alt="Logo extia"></a>
