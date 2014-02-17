@@ -311,17 +311,17 @@ FileETag None
 # Turning on the rewrite engine is necessary for the following rules and features.
 # FollowSymLinks must be enabled for this to work.
 
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    Options +FollowSymlinks
-    #<IfModule mod_vhost_alias.c>
-    #    RewriteBase /
-    #</IfModule>
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ index.php [QSA,L]
-</IfModule>
+#<IfModule mod_rewrite.c>
+#    RewriteEngine On
+#
+#    Options +FollowSymlinks
+#    #<IfModule mod_vhost_alias.c>
+#    #    RewriteBase /
+#    #</IfModule>"
+#
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^(.*)$ index.php [QSA,L]
+#</IfModule>
 
 
 # ----------------------------------------------------------------------
@@ -345,11 +345,12 @@ FileETag None
 # Rewrite "www.example.com -> example.com" 
 
 <IfModule mod_rewrite.c>
-  RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
   RewriteCond %{HTTP_HOST} \.net$
-  RewriteRule ^(.*)$ http://kilix.fr/ [R=301,L]
+  RewriteRule ^(.*)$ http://kilix.fr/$1 [R=301,L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
 
 # ----------------------------------------------------------------------
