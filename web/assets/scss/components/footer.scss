@@ -32,51 +32,89 @@
 
 }
 
-
 footer{
 
 	background: #202529;
-	padding: 1.5rem 0;
 	position: relative;
 	z-index: 5;
+	padding: 0;
 
 	@media #{$medium-up} {
-		padding: 7rem 0 1.5rem 0;
+		
 	}
 
-	&:hover .copyright i:before{
+	&:hover .copyright2 i:before{
 		content: attr(data-text); 
 		color: #8b8b8b;
 		font-family: Source Sans Pro;
-		width: 120px;
+		width: rem-calc(206);
+	}
+
+	.map{
+		opacity:0;
 	}
 
 	.copyright{
 		font-size: rem-calc(18);
-		color: #8b8b8b;
+		color: rgba(199, 199, 199, 0.67);
 		font-weight: 400;
 		line-height: 22px;
 		position: relative;
 		z-index:2;
+		padding:2rem 0;
 
-
-		i{ color:$col4; 
-			&:before{
-				width: 18px;
-				display: inline-block;
-			}
+		.columns{
+			display: inline-block!important;
+			float: none!important;
+			vertical-align: middle!important;
 		}
 
-		.medium-4{
+		@media #{$medium-up} {
+			padding:5rem 0;
+		}
+		.references-footer{
+			@media #{$large-up} {
+				padding-right: 6rem;
+			}
+			// @media #{$small-only} {
+			// 	background: #fff;
+			// 	padding:1rem 0;
+			// }
+		}
+		.reference {
+				width: 31%;
+				height: rem-calc(48);
+				line-height: rem-calc(48);
+				margin: 14px 1%;
+				float: left;
+				text-align: center;
+				padding: 0;
+
+				@media #{$small-only} {
+					padding: 0 10px;
+				}
+
+				@media #{$large-up} {
+					padding: 0 15px;
+				}
+
+				img {
+					max-height: 100%;
+				}
+			}
+
+		.medium-3,.medium-2{
 			text-align: left;
-			font-size:rem-calc(15);
-			line-height: rem-calc(30);
+			//font-size:rem-calc(15);
+			line-height: rem-calc(24);
 			margin-top:3rem;
 			
+			
+
 			@media #{$medium-up} {
 				margin-top:0;
 			}
-			strong, a{
+			strong, a {
 				color: #e7e7e7;
 				font-size:rem-calc(18);
 				font-weight: normal;
@@ -90,6 +128,30 @@ footer{
 		.large-12{
 			text-align: center;
 			margin-top:rem-calc(70);
+		}
+
+		.footer-links a {
+			font-family: Ubuntu;
+			font-size: rem-calc(14);
+			font-weight: bold;
+			text-transform:uppercase;
+			color:white; //Test couleur color:$primary-color;
+		}
+	}
+
+	.copyright2{
+		position: relative;
+		z-index: 3;
+		text-align: center;
+		color: #8b8b8b;
+		font-weight: 400;
+		line-height: 22px;
+
+		i{ color:$col4; 
+			&:before{
+				width: 18px;
+				display: inline-block;
+			}
 		}
 	}
 }

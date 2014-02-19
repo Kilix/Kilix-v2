@@ -6,8 +6,7 @@
 			<div class="row">
 				<div class="large-8 columns">
 					<h1>Vous et Nous <span></span><i class="icon-arrow-down4"> </i></h1>
-					<p>L’équipe de Kilix est composée d’experts reconnus qui interviennent sur l’ensemble du  projets. 
-Mais fondamentalement, il y a vous, apportant la vision “produit”.</p>
+					<p>L’équipe Kilix est composée d’experts reconnus qui interviennent avec VOUS sur l’ensemble du projet.</p>
 				</div>
 			</div>
 		</header>
@@ -16,33 +15,61 @@ Mais fondamentalement, il y a vous, apportant la vision “produit”.</p>
 					<div class="medium-4 columns intro-picto">
 						<a class="teampage losange show-for-large-up"><i class="icon-arrow-down4 losange-arrow"> </i></a>
 					</div>
-					<div class="medium-8 columns intro-content">
-						<h2>Une autre approche de la relation client</h2>
-						<p>Nous croyons avec ferveur que vous êtes la pierre angulaire de l’équipe. Ensemble, nous profitons de la synergie créée par notre collaboration pour faire de votre produit une réussite. 
-Vous serez l’acteur principal de cette belle aventure, où chaque activité ajoutera de la valeur à votre produit en s'appuyant sur vos feedback.</p>
-					</div>
+					<article class="medium-8 columns intro-content">
+						<h2>Vous...</h2>
+						<p>Le client est la pierre angulaire de l’équipe. Vous bénéficiez d’une visibilité totale sur votre projet à tout moment. Contrairement aux modes de gestion de projet classiques, vous accompagnez le développement de votre produit et pouvez affiner votre vision à tout moment. </p>
+						<h2>...Et nous</h2>
+						<p>
+							L’équipe de Kilix se compose d’experts reconnus qui interviennent sur tous les métiers : 
+								UX et UI Design, 
+								référencement, 
+								technologies front-end et back-end avant-gardistes, 
+								analyse approfondie des tendances à venir…
+
+							La synergie ainsi créée favorise la réussite de notre aventure.
+						</p>
+					</article>
 				</div>
 		</section>
-		<!--<section class="content {% if ress.isMobile ==  false %}desktop{% endif %}">
+		{#
+		<section class="content {% if ress.isMobile ==  false %}desktop{% endif %}">
 			<div class="row cene">
 				<div class="large-12 medium-7 columns">
 						<img src="http://placehold.it/1600x500&text=cène" alt="">
 				</div>
 			</div>
-		</section>-->
+		</section>
+		#}
 		<section class="svg-anim" data-color="col1">
 			<div class="row">
 				<div class="large-8 medium-7 columns">
-					<svg id="TEAM-f1" x="0px" y="0px" viewBox="0 0 1500 900">
-    				</svg>
+					{% if ress.isMobile ==  true or (browser.browser == "IE" and browser.majorver < 10) %}
+						{% if ress.isTablet == true %}
+							<img src="assets/img/f1-team.png" alt="">
+						{% elseif ress.isMobile == true %}
+							<img src="assets/img/f1-team.png" alt="">
+						{% else %}
+							<img src="assets/img/f1-team.png" alt="">
+						{% endif %}
+					{% else %}
+						<svg id="TEAM-f1" x="0px" y="0px" viewBox="0 0 1500 900"></svg>
+					{% endif %}
 				</div>
-				<div class="large-4 medium-5 columns ">
-					<h3>Soyons Agile</h3>
-					<p>La réussite d’un projet n’est pas conditionnée que par la qualité de l’équipe qui se charge de sa création. 
-					Quelque soit ses forces, elle ne pourra jamais comprendre et définir les besoins utilisateurs (user story) mieux que le demandeur.
-					</p><p>Il nous parait évident que l’équipe parfaite sera constituée des réalisateurs avec le décideur.
-					Ce dernier devient l’acteur principal d’une démarche itérative et incrémentale au service de son projet.</p>
-				</div>
+				<article class="large-4 medium-5 columns ">
+					<h3 class='hide-for-medium-down show-for-medium-large-up'>Soyons Agile</h3>
+					<h3 class='raptor hide-for-large-up'>Soyons Agile</h3>
+					<p>
+						La réussite de votre projet est conditionnée par la qualité des experts en charge de sa conception.
+					</p>
+					<p>
+						Néanmoins, qui peut comprendre et définir votre besoin mieux que vous ?
+					</p>
+					<p>
+						Il nous paraît évident que l’équipe idéale vous intègre au même titre que nos développeurs.
+						Vous devenez ainsi l’acteur principal de votre projet !
+					</p>
+					
+				</article>
 			</div>
 		</section>
 	</div>

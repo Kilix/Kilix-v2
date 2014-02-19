@@ -69,14 +69,9 @@ function moveWithBounce(element, xAxis, yAxis, px, duration, delay, callback) {
 
 // Trigger bounce effect on svg element (fill-opacity)
 function bounce(element, duration, delay, callback) {
-    var x = element.getBBox().x;
-    offset = x/2 + 25;
 
-    element.attr({
-      transform: "t"+offset+"s0.4, 0.4"
-    });
-
-    element.animate({'fill-opacity':1,transform:"t0s1,1,0,0"}, duration, mina.elastic);
+    element.attr({transform: "s0.4,0.4"});
+    element.animate({'fill-opacity':1,transform:"s1,1,0,0"}, duration, mina.elastic);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
@@ -85,14 +80,9 @@ function bounce(element, duration, delay, callback) {
 
 // Trigger bounce effect on svg element (opacity)
 function alterBounce(element, duration, delay, callback) {
-    var x = element.getBBox().x;
-    offset = x/2 + 25;
 
-    element.attr({
-      transform: "t"+offset+"s0.4, 0.4"
-    });
-
-    element.animate({'opacity':1,transform:"t0s1,1,0,0"}, duration, mina.elastic);
+    element.attr({transform: "s0.4, 0.4"});
+    element.animate({'opacity':1,transform:"s1,1"}, duration, mina.elastic);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
@@ -123,8 +113,7 @@ function scalePulse(element, scale, duration, delay, callback) {
 // Trigger pulse effect on the scale
 function scale(element, scale, duration, delay, callback) {
 
-    element.animate({'opacity':1, transform:"t0s"+scale}, duration, function() {
-    });
+  element.animate({'opacity':1, transform:"t0s"+scale}, duration);
 
   if (typeof callback !== 'undefined') {
     window.setTimeout(callback, delay);
@@ -186,6 +175,21 @@ function roll(element, duration, amp) {
   element.animate({transform:"t0, "+-amp}, duration, mina.elastic);
 }
 
+function drawCircle(s, el, duration, delay, callback) {
+  var circle = s.circle();
+
+  circle.attr({fill: el.attr('fill'),
+    'stroke': el.attr('stroke'),
+    'stroke-width': el.attr('stroke-width'),
+    'stroke-miterlimit': el.attr('stroke-miterlimit'),
+    'cx': el.attr('cx'),
+    'cy': el.attr('cy'),
+    'r': el.attr('r')
+  });
+
+  alterBounce(circle, duration, delay, callback);
+}
+
 function drawPath(s, el, duration, delay, anim, callback) {
 
     var path = s.path(el.attr('d'));
@@ -237,6 +241,7 @@ function lineDistance( x1, y1, x2, y2 ) {
  
   return Math.sqrt( xs + ys );
 }
+
 
 function showCheckmark(el) {
 

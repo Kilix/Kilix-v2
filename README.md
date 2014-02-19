@@ -15,7 +15,7 @@ VHOST :
                 ServerAlias www.kilix-v2.loc.com
 
                 DocumentRoot /var/www/kilix-v2/web
-                <Directory /var/www/kilix-2/web>
+                <Directory /var/www/kilix-v2/web>
                         Options Indexes FollowSymLinks MultiViews
                         AllowOverride All
                         Order allow,deny
