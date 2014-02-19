@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="agilite-valeur" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="393.98px" height="269.898px" viewBox="0 0 393.98 269.898" enable-background="new 0 0 393.98 269.898"
+	 xml:space="preserve">
+<g id="full">
+	<g>
+		<g id="v-plan">
+			
+				<line fill="none" stroke="#CECECE" stroke-width="4" stroke-miterlimit="10" x1="57.582" y1="238.398" x2="384.582" y2="238.398"/>
+			<g>
+				<polygon fill="#CECECE" points="382.582,244.98 393.98,238.398 382.582,231.817 				"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g id="v-plan-2">
+			<line fill="none" stroke="#CECECE" stroke-width="4" stroke-miterlimit="10" x1="56.582" y1="240.398" x2="56.582" y2="9.398"/>
+			<g>
+				<polygon fill="#CECECE" points="63.164,11.398 56.583,0 50.001,11.398 				"/>
+			</g>
+		</g>
+	</g>
+	
+		<text id="v-valeur" transform="matrix(-4.371139e-008 -1 1 -4.371139e-008 44.4963 158.5486)" fill="#919191" font-family="'MyriadPro-Regular'" font-size="22.0608">valeur</text>
+	<g id="v-scales" opacity="0.3">
+		<line id="v-scale-1" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="126.898" x2="388.582" y2="126.898"/>
+		<line id="v-scale-2" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="73.898" x2="388.582" y2="73.898"/>
+		<line id="v-scale-3" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="182.898" x2="388.582" y2="182.898"/>
+		<line id="v-scale-4" fill="none" stroke="#CECECE" stroke-miterlimit="10" x1="56.582" y1="21.898" x2="388.582" y2="21.898"/>
+	</g>
+	<path id="v-time" opacity="0.8" fill="#919191" enable-background="new    " d="M367.948,264.532l-4.116-4.116v-5.517h2.5v4.48
+		l3.386,3.387L367.948,264.532z M365.082,249.898c-5.521,0-10,4.477-10,10c0,5.521,4.479,10,10,10c5.523,0,10-4.479,10-10
+		C375.082,254.375,370.605,249.898,365.082,249.898z M365.082,267.398c-4.142,0-7.5-3.358-7.5-7.5c0-4.145,3.358-7.5,7.5-7.5
+		c4.145,0,7.5,3.355,7.5,7.5C372.582,264.04,369.224,267.398,365.082,267.398z"/>
+	<g>
+		<g>
+			<g>
+				<path id="v-old-gris" fill="none" stroke="#C6C6C6" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
+					M64.582,228.062c226.908,0,292.5-69.946,310.519-206.664"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<g id="v-pointilles">
+				
+					<line id="v-pointilles1" opacity="0.4" fill="none" stroke="#61AFF0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" enable-background="new    " x1="226.082" y1="41.398" x2="226.082" y2="223.398"/>
+				
+					<line id="v-pointilles2" opacity="0.4" fill="none" stroke="#61AFF0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="10" enable-background="new    " x1="221.582" y1="34.898" x2="74.582" y2="34.898"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<g>
+				<path id="v-courbe-bleue" fill="none" stroke="#61AFF0" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="
+					M64.066,228.062C81.721,67.092,154.417,21.398,374.582,21.398"/>
+				
+					<circle id="v-point-bleu" fill="#FFFFFF" stroke="#61AFF0" stroke-width="4" stroke-miterlimit="10" cx="226.082" cy="33.898" r="7"/>
+			</g>
+		</g>
+	</g>
+</g>
+<text id="tps" transform="matrix(1 0 0 1 212.49 260.449)" opacity="0.4" enable-background="new    " font-family="'MyriadPro-Regular'" font-size="16.5">50%</text>
+<text id="val" transform="matrix(1 0 0 1 18.4905 38.449)" opacity="0.4" enable-background="new    " font-family="'MyriadPro-Regular'" font-size="16.5">80%</text>
+</svg>

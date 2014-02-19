@@ -1,13 +1,20 @@
 Kilix.animations['risques'] = {
 
+  intervalEvents: new Array(),
+
   setAnimStatus: function(status) {
     Kilix.animations["risques"].animStatus = status;
+  },
+
+  freeIntervals: function() {
+    for (var i = Kilix.animations['risques'].intervalEvents.length - 1; i >= 0; i--) {
+      window.clearInterval(Kilix.animations['risques'].intervalEvents[i]);
+    };
   },
 
   start: function () {
 
       var s = Snap("#RISK-dispatch"),
-      intervalEvents = new Array(),
       elements = new Array(),
       elements2 = new Array(),
       delay = 50,
@@ -82,9 +89,7 @@ Kilix.animations['risques'] = {
                                 setTimeout(function(){
                                   removeWithBounce(svgElements['hole'], 500);
 
-                                    for (var i = intervalEvents.length - 1; i >= 0; i--) {
-                                      window.clearInterval(intervalEvents[i]);
-                                    };
+                                    Kilix.animations['risques'].freeIntervals();
                                     elements['reload'].animate({'fill-opacity': 1}, 400, function() {
                                       Kilix.animations["risques"].animStatus = true;
                                     });
@@ -109,7 +114,7 @@ Kilix.animations['risques'] = {
       function startAnimRisk() {
         animRisk(elements,true);
 
-        intervalEvents[1] = window.setInterval(function(){
+        Kilix.animations['risques'].intervalEvents[1] = window.setInterval(function(){
             roll(elements2['roueFrontLeft'], duration, 2);
             roll(elements2['roueFrontRight'], duration, 2);
             setTimeout(function(){
@@ -119,7 +124,7 @@ Kilix.animations['risques'] = {
                 
           },100);
 
-        intervalEvents[2] = window.setInterval(function(){
+        Kilix.animations['risques'].intervalEvents[2] = window.setInterval(function(){
             roll(elements2['roueFrontLeft'], duration, 8);
             roll(elements2['roueFrontRight'], duration, 8);
             setTimeout(function(){

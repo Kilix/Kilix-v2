@@ -4,7 +4,7 @@
 body {
 	font-family: "Source Sans Pro";
 	transition: height 1s;
-	background: #fff;
+	background: #384047;
 	min-height: 800px;
 	color: $primary-color;
 	-webkit-font-smoothing: antialiased;
@@ -15,7 +15,7 @@ body {
 
 
 h1{
-	font-family: Ubuntu;
+	font-family: Source Sans Pro;
 	font-weight: normal;
 	font-size: rem-calc(40);
 	line-height: rem-calc(48);
@@ -24,7 +24,7 @@ h1{
 	@media #{$medium-up} {
 			margin-top: rem-calc(220);
 			font-size: rem-calc(50);
-			line-height: rem-calc(50);
+			line-height: rem-calc(70);
 		}
 
 		@media #{$xlarge-up} {
@@ -37,39 +37,148 @@ h1{
 }
 
 h2{
-	font-family: Ubuntu;
+	font-family: Source Sans Pro;
 	font-weight: 400;
 	font-size: rem-calc(48);
-	color: $second-color;
 	line-height: rem-calc(50);
 
 }
 
 h3{
-
+//ss
 }
 
 p{
-	font-size: rem-calc(18);
-	line-height: rem-calc(28);
+	font-size: rem-calc(20);
+	line-height: rem-calc(32);
 	color: $text-color;
 }
+
+strong{
+	text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+img {
+	border: 0;
+}
+
+.valeurIE span:hover{
+	background-color: #61AFF0;
+}
+.risquesIE span:hover{
+	background-color: #FF4A46;
+}
+.extiaIE span:hover{
+	background-color: #E76923;
+}
+
+.buttonIE {
+	font-family: "Source Sans Pro"; font-weight: 400;
+	padding:0;
+	margin:0;
+	margin-top: 2rem;
+
+	&:hover{
+		span{
+			color: #FFF;
+		}
+	}
+
+	span{
+		position: relative;
+		top:rem-calc(30);
+		display: inline-block;
+		color: white;
+		background:$primary-color;
+		line-height: 50px;
+		padding: 0 25px;
+		font-size: rem-calc(16);
+		border-radius: 3px;
+		backface-visibility: hidden;
+	}
+}
+
 a {
+	border: 0;
 	text-decoration: none;
 
+
 	&.button {
+		perspective: 1000;
 		font-family: "Source Sans Pro"; font-weight: 400;
 		transition:all .3s cubic-bezier(0.165,0.840,0.440,1.000);
-		background: transparent;
-		border: 2px solid $primary-color;
-		color: $primary-color;
-		padding: .5em 1.1em;
-		border-radius: 3px;
-		font-size: 1.3rem;
+		background:transparent;
+		padding:0;
+		margin:0;
+		margin-top: 2rem;
 
 		&:hover{
+			background-color: transparent;
+			span{
+				transform: rotateX(91deg) translateY(-25px);
+				color:transparent;
+
+				&:after{
+					background:rgba(0,0,0,0);
+				}
+
+				&:before{
+				}
+			}
+		}
+
+		span{
+			position: relative;
+			display: inline-block;
+
+			transition: transform 0.3s, color 0.3s;
+			transform-origin: 50% 0;
+			transform-style: preserve-3d;
+
 			color: white;
 			background:$primary-color;
+			
+			line-height: 50px;
+			padding: 0 25px;
+			font-size: rem-calc(16);
+
+			border-radius: 3px;
+			backface-visibility: hidden;
+
+			&:before{
+				position: absolute;
+				color:white;
+
+				line-height: 50px;
+				padding: 0 25px;
+
+				top: 100%;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: $col1;
+				content: attr(data-hover);
+				transition: background 0.3s;
+				transform: rotateX(-90deg);
+				transform-origin: 50% 0;
+
+				border-radius: 3px;
+				backface-visibility: hidden;
+			}
+
+			&:after{
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+				background: rgba(0, 0, 0, 0.8);
+				content: " ";
+				transition: background 0.3s;
+				transform: rotateX(-90deg);
+				transform-origin: 50% 0;
+			}
 		}
 	}
 
@@ -135,16 +244,45 @@ a {
 	position: relative;
 }
 
+.wrapper{
+	
+	transition: 0.5s ease;
+	transform-origin: 50% 30%;
+	position: relative;
+
+	&:after{
+		content:" ";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0,0,0,0);
+		z-index:0;
+		pointer-events:none;
+		transition: background 0.5s ease;
+	}
+
+	&.loading{
+		&:after{
+			background: rgba(0,0,0,0.7);
+			z-index:10;
+		}
+
+		transform:scale(0.97);
+	}
+}
+
+
+
 .wrapper-new{
-	transform: translateX(100%);
+	//transform: translateX(100%);
 	position: absolute;
 	top:0;
 	left:0;
 	width:100%;
-	z-index: 10;
 
 	&.wrapper-prev{
-		transform: translateX(-100%);
 	}
 }
 
@@ -190,10 +328,15 @@ a {
 		height:rem-calc($medium-margin);
 		padding-top: rem-calc(160);
 	}
+
+	@media #{$large-up}{
+		height:rem-calc($large-margin);
+	}
 	
 	&.desktop {
 			@media #{$medium-up} {
 				position: fixed; top:0; left:0;	
+				transform: translate3d(0,0,0);
 			}
 	}
 	
@@ -209,6 +352,14 @@ a {
 		cursor: pointer;
 		position: relative;
 		z-index:1;
+		@media #{$medium-up} {
+			font-size:rem-calc(60);
+		}
+
+		@media #{$large-up} {
+			font-size:rem-calc(80);
+		}
+			
 
 		span{
 			font-size:rem-calc(30);
@@ -228,12 +379,21 @@ a {
 
 		@include animateFadeToRight(1.3s);
 
-
+		font-size: 19px;
+		line-height: 31px;
 		margin-top: -4rem;
 		color:white;
 
 		@media #{$medium-up} {
 			width: 60%;
+			font-size: 23px;
+			line-height: 33px;
+		}
+
+		@media #{$large-up} {
+			width: 65%;
+			font-size: 28px;
+			line-height: 44px;
 		}
 	}
 }
@@ -243,12 +403,15 @@ a {
 		@media #{$medium-up} {
 			margin-top:rem-calc($medium-margin);
 		}
+		@media #{$large-up} {
+			margin-top:rem-calc($large-margin);
+		}
 	}
 
 }
 
 .content{
-	background: white;
+	background:#FAFAFC;
 	position: relative;
 	z-index:2;
 	padding:2rem 0;
