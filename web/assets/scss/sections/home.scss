@@ -4,15 +4,13 @@
 	position:relative;
 }
 
+
 .intro{
 
 	position: relative;
 	z-index: 5;
 
 	&.desktop {		
-		@media #{$medium-up} {
-			margin-top:rem-calc($medium-margin);
-		}	
 		@media #{$xlarge-up} { 
 			h2{font-size:rem-calc(65);} 
 		}
@@ -30,15 +28,6 @@
 	}
 
 	.columns{
-
-// <<<<<<< HEAD
-// 		@media #{$medium-up} { 
-// 			padding: 1rem 2rem 2rem;
-// 		}
-
-// 		@media #{$xlarge-up} { 
-// 			padding: 3rem 6rem 6rem;
-// =======
 		@media #{$large-up} { 
 			padding: 3rem;
 		}
@@ -92,7 +81,7 @@
 }
 
 .agilite .intro{
-	background: #FFAD00;
+	background: $col4;
 
 	.intro-picto{
 		background: url(../img/svg/agility.svg) rgba(255, 255, 255, 0.1) no-repeat center center; 
@@ -104,6 +93,7 @@
 
 .landing-home{
 	height:rem-calc($small-margin);
+	transform: translate3d(0,0,0);
 	transition:0.2s ease;
 	padding-top: rem-calc(63);
 
@@ -196,6 +186,15 @@
 			font-size: rem-calc(80);
 			line-height: rem-calc(90);
 		}
+
+		sup{
+			line-height: 0px;
+			font-size: 20px;
+
+			@media #{$medium-up}{
+				font-size: 50px;
+			}
+		}
 	}
 
 	.landing-next-section-wrapper {
@@ -216,25 +215,53 @@
 	}
 }
 
-
-
+.video-head{
+	border:solid 4px white;
+	position:absolute;
+	width:80%;
+	top: -2px;
+}
 
 
 .svg-anim{
 	position:relative;
 	z-index:2;
 	background:#ECECF5;
-	border-bottom: 1px solid rgba(0,0,0,0.1);
 
-	&.svg-extia{
-		.row{
-			border:0;
+	@media #{$medium-up}{
+		background: rgb(236,236,245); /* Old browsers */
+		background: -moz-linear-gradient(70deg,  rgba(236,236,245,1) 0%, rgba(236,236,245,1) 70%, rgba(230,230,237,1) 70%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(236,236,245,1)), color-stop(70%,rgba(236,236,245,1)), color-stop(70%,rgba(230,230,237,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* IE10+ */
+		background: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); /* W3C */
+
+
+		&.svg-risque, &.svg-extia{
+			@media #{$xlarge-up}{
+				background: -moz-linear-gradient(70deg,  rgba(236,236,245,1) 0%, rgba(236,236,245,1) 30%, rgba(230,230,237,1) 30%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(236,236,245,1)), color-stop(30%,rgba(236,236,245,1)), color-stop(30%,rgba(230,230,237,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* IE10+ */
+				background: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 30%,rgba(230,230,237,1) 30%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececf5', endColorstr='#e6e6ed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+			.row{
+				border:0;
+			}
 		}
 	}
 
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	
+
+	
+
 	
 	.anim-item {
-		
+		text-align: center;
 	}
 
 	.anim-content{
@@ -254,7 +281,25 @@
 		}
 	}
 
-	svg{
+	.medium-gif{
+		width: 100%;
+	}
+
+	svg.extia-big{
+		height: 3rem;
+		display: inline-block;
+		width: 100%;
+
+		@media #{$medium-up}{
+			height: 5rem;
+		}
+
+		@media #{$large-up}{
+			height: 7rem;
+		}
+	}
+
+	svg:not(.replaced-svg){
 		width: 100%;
 		height: rem-calc(250);
 		cursor:pointer;
@@ -265,15 +310,22 @@
 
 		&#VALEUR-dispatch{
 			height: rem-calc(400);
+			overflow:hidden;
+
+			@media #{$small-only} {
+				transform: translateX(-1rem);
+			}
 
 			@media #{$medium-up} {
 				transform: scale(1.30) translateX(-3rem);
 				height: rem-calc(500);
 			}
 
-			@media #{$small-only} {
-				transform: translateX(-1rem);
+			@media #{$xlarge-up} {
+				transform: scale(1.4) translateX(0rem);
 			}
+
+			
 
 			#valeur-reload{
 				path, circle{
@@ -282,16 +334,12 @@
 				}
 			}
 
-			// #valeur-carenage-front{@include colorize($col1);}
-			// #valeur-carenage-left{@include colorize($col1);}
-			// #valeur-carenage-right{@include colorize($col1);}
-			// #valeur-volant{@include colorize($col1);}
 			#casque, #valeur-gant1, #valeur-gant2{@include colorize($col1);}
-			[fill="#95C11F"]{fill:$col1;}
 
 		}
 
 		&#RISK-dispatch{
+			overflow:hidden;
 
 			#risk-reload {
 				path, circle{
@@ -307,17 +355,26 @@
 			@media #{$medium-up} {
 				height: rem-calc(500);
 			}
+			@media #{$xlarge-up} {
+				transform: scale(1.5) translateX(-2.5rem);
+			}
 
 			#risk-casque, #risk-gant1, #risk-gant2{@include colorize($col2);}
 		}
 
 		&#AMELIO-transform{
+			overflow:hidden;
 
 			#amelio-reload{
 				path, circle{
 					animation: pulse 0.7s ease-in-out infinite alternate;
 					transform-origin: 50% 50%;
 				}
+
+				@media #{$xlarge-up} {
+					transform: scale(1.5);
+				}
+
 
 			}
 
@@ -329,6 +386,7 @@
 		}
 
 		&#EXTIA-animation{
+			overflow:hidden;
 			height: rem-calc(400);
 
 			@media #{$medium-up}{
@@ -358,27 +416,35 @@
 			}
 			
 		}
+
+		&#TEAM-f1{
+			transform: scale(1.2);
+		}
 	}
 	 
 	.row{
 		padding: 2rem 0;position: relative;
 
 		@media #{$xlarge-up}{
-			padding: 5rem 0;
+			padding: 8rem 0;
 		}
 		
 		.next-section{
+			@extend .show-for-medium-up;
+
 			position: absolute;
 			bottom: 0;
 			left: 0;
 			bottom: rem-calc(-47);
 			left: 25%;
 			transform: translateX(-50%);
+			display: block;
 
 			i{
+				display: block !important;
 				text-align: center;
 				border-radius: 50%;
-				border: 2px solid #384047;
+				background: rgba(211, 215, 218, 0.26);
 				width: rem-calc(90);
 				height: rem-calc(90);
 				font-size: rem-calc(27);
@@ -386,9 +452,8 @@
 				transition: all .2s;
 				transition: all .2s;
 				line-height: rem-calc(50);
-				background: #384047;
-				color: white;
-				@extend .show-for-medium-up;
+				color: $primary-color;
+				
 
 
 				&:hover{
@@ -424,11 +489,11 @@
 		line-height: rem-calc(50);
 
 		@media #{$medium-up} {
-			font-size:rem-calc(40);
+			font-size:rem-calc(34);
 		}
 
 		@media #{$xlarge-up} {
-			font-size:rem-calc(50);
+			font-size:rem-calc(42);
 			margin: 4rem 0 0 0;
 		}
 
@@ -461,7 +526,19 @@
     font-weight: bold;
     transform: rotate(45deg);
     transition: all 0.2s;
-	
+    border-radius: 3px;
+	overflow: hidden;
+
+	&:before{
+		content: " ";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 75%;
+		height: 180%;
+		background: rgba(255, 255, 255, 0.08);
+		transform: rotate(-45deg);
+	}
 }
 
 .losange-arrow{
@@ -494,7 +571,7 @@
 
 .intro-content h2{
 	line-height: rem-calc(55);
-	margin-top:0;
+	margin:0 0 1rem 0;
 
 
 	@media #{$xlarge-up} {
@@ -503,6 +580,7 @@
 }
 
 .svg-valeur{
+
 
 	@media #{$large-up} {
 		
@@ -534,7 +612,7 @@
 		} 
 	}
 
-	h3:after, &:before{background:$col1;}
+	h3:after, &:before, a.button span:before{background:$col1;}
 	.row .next-section i:hover{ background: $col1; }
 }
 .svg-risque{
@@ -562,7 +640,7 @@
 
 	@media #{$xlarge-up} { h2{font-size:rem-calc(65);} }
 
-	h3:after,&:before{background:$col2;}
+	h3:after,&:before, a.button span:before{background:$col2;}
 	.row .next-section i:hover{ background: $col2; }
 	.row .next-section { left: 75%; }
 }
@@ -588,19 +666,28 @@
 
 	@media #{$xlarge-up} { h2{font-size:rem-calc(65);} }
 
-	h3:after, &:before{background:$col3;}
+	h3:after, &:before, a.button span:before{background:$col3;}
 	.row .next-section i:hover{ background: $col3; }
 }
 .svg-extia{
+	h2 { 
+		.title {
+			text-indent: -9999px;
+		}
+		.logo img {
+			max-height: 90px;
+		}
+	}
 
 	@media #{$large-up} {
 		h2 { 
 			font-size:rem-calc(80); line-height: 0.9em; color:$col4; font-weight: bold;
+			text-align: center;
 		}
 	}
 	@media #{$xlarge-up} { h2{font-size:rem-calc(100);} }
 
-	h3:after, &:before{background:$col4;}
+	h3:after, &:before, a.button span:before{background:$col4;}
 	.row .next-section i:hover{ background: $col4; }
 	.row .next-section { left: 75%; }
 
@@ -616,6 +703,7 @@ div.references{
 	position:relative;
 	z-index:2;
 	padding: 2rem 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
 	.columns{
 		margin-bottom:2rem; padding: 0;
@@ -640,7 +728,7 @@ div.references{
 			filter: grayscale(1);
 			width: 12.5%;
 			padding: 0 25px;
-			opacity: 0.3;
+			opacity: 0.6;
 			margin-bottom:0;
 			
 			&:hover {
