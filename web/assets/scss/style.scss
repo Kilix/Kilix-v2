@@ -1,12 +1,12 @@
 /* VARIABLES */
 $primary-color : #384047;
 $second-color: #a8b7bf;
-$text-color : #8c989e;
+$text-color : #2A414C;
 
 $col1: #61AFF0;
 $col2: #ff4a46;
 $col3: #009884;
-$col4: #e79027;
+$col4: #f26e25;
 $col5: #087ec2;
 
 $small-margin:500;
@@ -17,12 +17,20 @@ $large-margin:800;
 /* MIXINS */
 @mixin colorize($col){
 	/*Du plus foncé au plus clair*/
-	*[fill="#FFFFFF"]{fill:lighten($col,23%);} 	//-23%
-	*[fill="#ECECEC"]{fill:lighten($col,15%);} 	//-15%
-	*[fill="#D9D9D9"]{fill:lighten($col,8%);} 	//-8%
-	*[fill="#C6C6C5"]{fill:$col;} 				//Couleur de base
-	*[fill="#B1B1B1"]{fill:darken($col,7%);} 	//+7%
-	*[fill="#9C9B9B"]{fill:#2c313f; /*darken($col,17%);*/} 	//+17%
+    [fill="#FFFFFF"]{fill:lighten($col,23%);}   //-23%
+    [fill="#ECECEC"]{fill:lighten($col,15%);}   //-15%
+    [fill="#D9D9D9"]{fill:lighten($col,8%);}    //-8%
+    [fill="#C6C6C5"]{fill:$col;}                //Couleur de base
+    [fill="#B1B1B1"]{fill:darken($col,7%);}     //+7%
+    [fill="#9C9B9B"]{fill:#2c313f; /*darken($col,17%);*/}   //+17%
+
+    /* fix IE ... */
+	[fill="#ffffff"]{fill:lighten($col,23%);} 	//-23%
+	[fill="#ececec"]{fill:lighten($col,15%);} 	//-15%
+	[fill="#d9d9d9"]{fill:lighten($col,8%);} 	//-8%
+	[fill="#c6c6c5"]{fill:$col;} 				//Couleur de base
+	[fill="#b1b1b1"]{fill:darken($col,7%);} 	//+7%
+	[fill="#9c9b9b"]{fill:#2c313f; /*darken($col,17%);*/} 	//+17%
 }
 
 @mixin animateFadeToRight($timer){
@@ -57,6 +65,11 @@ $large-margin:800;
     to   {transform: scale(1.1);}
 }
 
+@keyframes MegaPulse{
+	50% { transform: scale(1.15);}
+	100% { transform: scale(1); }
+}
+
 @keyframes fadeToRight{
 	from{ opacity: 0; transform: translateX(-2rem);}
 	to{ opacity: 1; transform: translateX(0);}
@@ -72,6 +85,108 @@ $large-margin:800;
 	to{ opacity: 1; }
 }
 
+@keyframes rotateCubeLeftOut {
+	50% { animation-timing-function: ease-out;  transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
+	100% { opacity: .3; transform: translateX(-100%) rotateY(-90deg); }
+}
+
+@keyframes rotateCubeLeftIn {
+	0% { opacity: .3; transform: translateX(100%) rotateY(90deg); }
+	50% { animation-timing-function: ease-out;  transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
+}
+
+@keyframes rotateCubeRightOut {
+	50% { animation-timing-function: ease-out; transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
+	100% { opacity: .3; transform: translateX(100%) rotateY(90deg); }
+}
+
+@keyframes rotateCubeRightIn {
+	0% { opacity: .3; transform: translateX(-100%) rotateY(-90deg); }
+	50% { animation-timing-function: ease-out; transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
+}
+
+@keyframes moveFromRight {
+	from { transform: translateX(100%); }
+}
+
+@keyframes moveFromLeft {
+	from { transform: translateX(-100%); }
+}
+
+@keyframes fadeout {
+	to { opacity: 0; }
+}
+
+
+.page-rotateCubeLeftOut {
+	transform-origin: 100% 50%;
+	animation: rotateCubeLeftOut .6s both ease-in;
+}
+.page-rotateCubeLeftIn {
+	transform-origin: 0% 50%;
+	animation: rotateCubeLeftIn .6s both ease-in;
+}
+.page-rotateCubeRightOut {
+	transform-origin: 0% 50%;
+	animation: rotateCubeRightOut .6s both ease-in;
+}
+.page-rotateCubeRightIn {
+	transform-origin: 100% 50%;
+	animation: rotateCubeRightIn .6s both ease-in;
+}
+
+
+
+
+
+.page-moveToLeftEasing {
+	animation: moveToLeft .7s ease-in-out both;
+}
+.page-moveToRightEasing {
+	animation: moveToRight .7s ease-in-out both;
+}
+
+.page-moveFromLeft {
+	animation: moveFromLeft .6s ease both;
+}
+
+.page-moveFromRight {
+	animation: moveFromRight .6s ease both;
+}
+
+@keyframes moveFromLeft {
+	from { transform: translateX(-100%); }
+}
+
+@keyframes moveFromRight {
+	from { transform: translateX(100%); }
+}
+
+@keyframes moveToLeft {
+	to { transform: translateX(-100%); }
+}
+
+@keyframes moveToRight { 
+	to { transform: translateX(100%); }
+}
+
+
+
+
+
+.page-fade {
+	animation: fadeout 0.7s ease;
+}
+
+.page-perspective {
+	-webkit-perspective: 2000px;
+	-moz-perspective: 2000px;
+	perspective: 2000px;
+}
+
+.page-ontop {
+	z-index: 999!important;
+}
 
 /* COMPONENTS */ 
 

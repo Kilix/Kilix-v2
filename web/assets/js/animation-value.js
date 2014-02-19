@@ -2,6 +2,7 @@ Kilix.animations['valeur'] = {
 
   valueLoadingStatus: false,
   valueAnimStatus: false,
+  intervalEvents: new Array(),
 
   setValueLoadingStatus: function(value) {
     Kilix.animations['valeur'].valueLoadingStatus = value;
@@ -11,13 +12,18 @@ Kilix.animations['valeur'] = {
     Kilix.animations['valeur'].valueAnimStatus = value;
   },
 
+   freeIntervals: function() {
+    for (var i = Kilix.animations['valeur'].intervalEvents.length - 1; i >= 0; i--) {
+      window.clearInterval(Kilix.animations['valeur'].intervalEvents[i]);
+    };
+  },
+
   start: function() {
 
     var s = Snap("#VALEUR-dispatch"),
             elements = new Array(),
             colouredElements = new Array(),
             kartElements = new Array(),
-            intervalEvents = new Array(),
             kart = null,
             delay = 50,
             duration = 500
@@ -92,15 +98,15 @@ Kilix.animations['valeur'] = {
       elements['janteBackRight'] = file.select("#dispatch-jante-back-right"),
       elements['janteFrontRight'] = file.select("#dispatch-jante-front-right");
 
-      colouredElements['carenageRight'] = file.select('#dispatch-carenage-right-vert');
-      colouredElements['carenageLeft'] = file.select('#dispatch-carenage-left-vert');
-      colouredElements['siege'] = file.select('#dispatch-siege-vert');
-      colouredElements['roueBackLeft'] = file.select('#dispatch-roue-back-left-vert');
-      colouredElements['roueFrontLeft'] = file.select('#dispatch-roue-front-left-vert');
-      colouredElements['roueBackRight'] = file.select('#dispatch-roue-back-right-vert');
-      colouredElements['roueFrontRight'] = file.select('#dispatch-roue-front-right-vert');
-      colouredElements['moteurElec'] = file.select('#dispatch-moteur-elec-green');
-      colouredElements['carenageFront'] = file.select('#dispatch-carenage-front-vert');
+      colouredElements['carenageRight'] = file.select('#dispatch-carenage-right-color');
+      colouredElements['carenageLeft'] = file.select('#dispatch-carenage-left-color');
+      colouredElements['siege'] = file.select('#dispatch-siege-color');
+      colouredElements['roueBackLeft'] = file.select('#dispatch-roue-back-left-color');
+      colouredElements['roueFrontLeft'] = file.select('#dispatch-roue-front-left-color');
+      colouredElements['roueBackRight'] = file.select('#dispatch-roue-back-right-color');
+      colouredElements['roueFrontRight'] = file.select('#dispatch-roue-front-right-color');
+      colouredElements['moteurElec'] = file.select('#dispatch-moteur-elec-color');
+      colouredElements['carenageFront'] = file.select('#dispatch-carenage-front-color');
     }
 
     function getKartElements(file) {
@@ -124,9 +130,7 @@ Kilix.animations['valeur'] = {
     function resetValueAnimation() {
       kartElements['reload'].animate({'fill-opacity': 0}, 100, function() {
         // We clear setInterval events
-        for (var i = intervalEvents.length - 1; i >= 0; i--) {
-          window.clearInterval(intervalEvents[i]);
-        };
+        Kilix.animations["valeur"].freeIntervals();
         kart = s.select("#valeur-kart");
 
         var x = 1000,
@@ -302,7 +306,7 @@ Kilix.animations['valeur'] = {
             // STEP 5, animation of wheels
             window.setTimeout(function() {
 
-              intervalEvents[0] = window.setInterval(function(){
+              Kilix.animations['valeur'].intervalEvents[0] = window.setInterval(function(){
                 roll(kartElements['roueFrontLeft'], duration, (littleRoll));
                 roll(kartElements['roueFrontRight'], duration, (littleRoll));
                 setTimeout(function(){
@@ -310,7 +314,7 @@ Kilix.animations['valeur'] = {
                   roll(kartElements['roueBackRight'], duration, (littleRoll));
                 }, delay);  
               },250);
-              intervalEvents[1] = window.setInterval(function(){
+              Kilix.animations['valeur'].intervalEvents[1] = window.setInterval(function(){
                 roll(kartElements['roueFrontLeft2'], duration, (littleRoll));
                 roll(kartElements['roueFrontRight2'], duration, (littleRoll));
                 setTimeout(function(){
@@ -318,7 +322,7 @@ Kilix.animations['valeur'] = {
                   roll(kartElements['roueBackRight2'], duration, (littleRoll));
                 }, delay);  
               },250);
-              intervalEvents[2] = window.setInterval(function(){
+              Kilix.animations['valeur'].intervalEvents[2] = window.setInterval(function(){
                 roll(kartElements['roueFrontLeft'], duration, (bigRoll));
                 roll(kartElements['roueFrontRight'], duration, (bigRoll));
                 setTimeout(function(){
@@ -326,7 +330,7 @@ Kilix.animations['valeur'] = {
                   roll(kartElements['roueBackRight'], duration, (bigRoll));
                 }, delay);  
               },3000);
-              intervalEvents[3] = window.setInterval(function(){
+              Kilix.animations['valeur'].intervalEvents[3] = window.setInterval(function(){
                 roll(kartElements['roueFrontLeft2'], duration, (bigRoll));
                 roll(kartElements['roueFrontRight2'], duration, (bigRoll));
                 setTimeout(function(){
@@ -334,7 +338,7 @@ Kilix.animations['valeur'] = {
                   roll(kartElements['roueBackRight2'], duration, (bigRoll));
                 }, delay); 
               },3000);
-              intervalEvents[4] = window.setInterval(function(){
+              Kilix.animations['valeur'].intervalEvents[4] = window.setInterval(function(){
                                 kartElements['roueBackRight2'].attr({'fill-opacity': 0});
                                 kartElements['roueBackLeft2'].attr({'fill-opacity': 0});
                                 kartElements['roueFrontRight2'].attr({'fill-opacity': 0});

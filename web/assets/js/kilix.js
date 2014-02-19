@@ -1,5 +1,9 @@
 var Kilix = {
 
+    currentScroll: null,
+    currentPos: null,
+    animSvg: !$('html').hasClass('no-anim-svg'),
+
     colors: {
         col1: '#61AFF0',
         col2: '#ff4a46',
@@ -28,7 +32,7 @@ var Kilix = {
     resizeLanding: function(){
         var windowHeight = $(window).height();
 
-        if (window.matchMedia("(min-width: 40em)").matches) {
+        if (matchMedia('(min-width: 40em)').matches) {
             $('.landing-home').css('height', windowHeight);
             $('.home .intro.desktop').css('margin-top', windowHeight);
         } else {
@@ -43,54 +47,93 @@ var Kilix = {
             alert('The HTML5 History API (and thus History.js) do not work on files, please upload it to a server.');
         }
 
-        // Establish Variables
+        // Establish Variable!
         var
             History = window.History, // Note: We are using a capital H instead of a lower h
             State = History.getState(),
-            currentPos,
             newPos,
             slideNext = true,
-            pageToPosition = { home:1,team:2,agilite:3,contact:4 };
+            pageToPosition = { home:1,team:2,agilite:3,contact:4 },
+            pageTitle = { home: $('#link-home').attr('title'),
+                           team: $('#link-team').attr('title'),
+                           agilite:$('#link-agilite').attr('title'),
+                           contact:$('#link-contact').attr('title') },
+            animEndEventNames = {
+                'WebkitAnimation' : 'webkitAnimationEnd',
+                'OAnimation' : 'oAnimationEnd',
+                'msAnimation' : 'MSAnimationEnd',
+                'animation' : 'animationend'
+            },
+            // animation end event name
+            animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
+            // support css animations
+            support = Modernizr.cssanimations;
 
         function loadAjaxContent(State){
-            var url = State.url;       
+            var url = State.url;
             var oldPage = $('.container').data('page');
-            $('html, body').animate({  
-                scrollTop:0  
-            });
+            
+            $('title').html(pageTitle[State.title.toLowerCase()]);
 
             newPos = pageToPosition[State.title.toLowerCase()];
+
+
+            // $(".wrapper:first-child").addClass('loading');
 
             $('.nav-link.current').removeClass('current');
             $('.nav-link[data-pos="'+newPos+'"]').addClass('current');
 
-            slideNext = newPos>currentPos ? true : false;
-            $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>" );
+
+            slideNext = newPos>Kilix.currentPos ? true : false;
+            $( ".main-wrapper" ).append( "<div class='wrapper wrapper-new'></div>");
             if(!slideNext){$('.wrapper-new').addClass('wrapper-prev');}
 
             $(".wrapper-new").load(url+" .container", function(data){
 
                 Kilix[oldPage].destroy();
                 Kilix.resizeLanding();
+                Kilix.switchSVG();
 
-                $(".wrapper:first-child").transition({ x: slideNext?'-100%':'100%', opacity: 1, delay: 500 }, 1200);
-                $(".wrapper-new").css({opacity:0, x: '0%'}).transition({ x: '0%', opacity:1, delay:500 }, 1200, function(){
 
-                    $(".wrapper:first-child").remove();
-                    $(".wrapper-new").attr('style', '').removeClass('wrapper-new');
-                    $(".wrapper-prev").attr('style', '').removeClass('wrapper-prev');
-                    $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
-                    Pos = $(".container").data('pos');
+                var $currPage = $(".wrapper:first-child");
+                var $nextPage = $(".wrapper-new");
+                var $wrapper = $(".main-wrapper");
 
-                    Kilix[State.title.toLowerCase()].init();
+                //$wrapper.addClass('page-perspective');
+
+                // var outClass = 'page-fade';
+                // var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
+
+                $('html, body').scrollTop(0);
+                var outClass = slideNext ? 'page-moveToLeftEasing' : 'page-moveToRightEasing';
+                var inClass = slideNext ? 'page-moveFromRight' : 'page-moveFromLeft';
+
+
+
+                $currPage.addClass( outClass ).addClass('page-ontop');
+                $nextPage.addClass( inClass ).on( animEndEventName, function() {
+                    $nextPage.off( animEndEventName );
+
+                        $wrapper.removeClass('page-perspective');
+                        $(".wrapper:first-child").remove();
+
+                        $('.wrapper').removeClass( inClass );
+                        $(".wrapper-new").removeClass('wrapper-new');
+                        $(".wrapper-prev").removeClass('wrapper-prev');
+                        $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
+                        Pos = $(".container").data('pos');
+
+                        Kilix[State.title.toLowerCase()].init();
+
+
                 });
+
                    
             });
 
         }
 
         function updateContent(State){
-
             loadAjaxContent(State);
         }
 
@@ -98,23 +141,51 @@ var Kilix = {
         History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
             // Log the State
             var State = History.getState(); // Note: We are using History.getState() instead of event.state
-            History.log('statechange:', State.data, State.title, State.url);
+            //History.log('statechange:', State.data, State.title, State.url);
+            if(State.title == "") {
+                url = State.url;
+                var baseUrlPattern = /^https?:\/\/[a-z\:0-9.\-\_]+/;
+                var result = "";
+             
+                var match = baseUrlPattern.exec(url);
+                if (match != null) {
+                    result = match[0];
+                }
+             
+                if (result.length > 0) {
+                    url = url.replace(result, "");
+                    url = url.replace('/', "");
+                    if (url == '') {
+                        url = "home";
+                    }
+                }
+             
+                State.title = url.toLowerCase();
+            } 
             updateContent(State);
         });
 
-        $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", function(evt) {
+        if (history.pushState) $(".nav-links-wrapper a.enabled, .footer-links a.enabled").on("click", Kilix.bindPushState);
+    },
+
+    bindPushState: function(evt) {
             evt.preventDefault();
-            if(!$(this).hasClass('enabled')) {
+            if(!$(this).hasClass('enabled') || $(this).hasClass('current')) {
                 return;
             }
             $(".nav-links-wrapper a, .footer-links a").removeClass('enabled');
             $('body').removeClass('unfolded');
             //Prevent the browsers default behaviour of navigating to the hyperlink
-            currentPos = $(".nav-link.current").data('pos');
+            Kilix.currentPos = $(".nav-link.current").data('pos');
+            if ($(this).data('scroll') != undefined)
+                Kilix.currentScroll = $(this).data('scroll');
+            else
+                Kilix.currentScroll = null;
+            
+            var title = $(this).attr('data-scroll') ? $(this).data('page-title') : this.textContent ;
 
-            History.pushState(null, this.textContent, this.href);
+            History.pushState(null, title, this.href);
             evt.preventDefault();
-       });
     },
 
     switchSVG: function(){
@@ -172,11 +243,9 @@ var Kilix = {
             }, 'slow');
         });
 
-        
     },
 
     wayPoints: function(){
-            console.log("ThisIsAWayPoint");
             $('footer').waypoint({
                 handler: function (direction) {
                     if(direction=="down")$(".back-to-top").addClass("force-opacity");
@@ -184,7 +253,6 @@ var Kilix = {
                 },
                 offset: 'bottom-in-view'
             });
-
 
             $('.intro').waypoint(function(direction) {
                 $('.navbar').toggleClass('navbar-top');
@@ -224,31 +292,22 @@ var Kilix = {
         }
     },
 
-    loadKilixSvg: function(){
-        var s = Snap("#KILIX-logo");
-
-        Snap.load("./assets/img/logo_big.svg", function(f) {
-            s.append(f.select("#kilixSvg"));
-        });
-    },
-
     animations:{
    	    //Prototyped by animations-*.js
     },
 
+
     /* -- PAGES -- */
     home: {
         init: function(){
-
             Kilix.wayPoints();
             Kilix.resize();
-            Kilix.loadKilixSvg();
 
             $('.landing-home').addClass('play');
             setTimeout(function(){$('.landing-home').removeClass('play');},1000);
 
             var offsetSvgAnim = '50%';
-
+            if (history.pushState) $(".svg-anim a.button.enabled").on("click", Kilix.bindPushState);
 
             $('.next-section').on('click',function(){
                 $('html, body').animate({ 
@@ -272,61 +331,90 @@ var Kilix = {
             });
 
 
-            // Start Risk Waypoint
-            var risqueInit = false;
-            Kilix.animations['risques'].setAnimStatus(false);
-            $('.svg-risque').waypoint(function(direction) {
-                if(risqueInit == false) {
-                    Kilix.animations['risques'].start();
+            if(Kilix.animSvg){
+
+                // Start Risk Waypoint
+                var risqueInit = false;
+                Kilix.animations['risques'].setAnimStatus(false);
+                $('.svg-risque').waypoint(function(direction) {
+                    if(risqueInit == false) {
+                        Kilix.animations['risques'].start();
+                    }
+                    risqueInit = true;
+                }, { offset: offsetSvgAnim });
+
+
+                // Start Value Waypoint
+                var valueInit = false;
+                Kilix.animations['valeur'].setValueAnimStatus(true);
+                Kilix.animations['valeur'].setValueLoadingStatus(false);
+                $('.svg-valeur').waypoint(function(direction) {
+                    if (valueInit == false) {
+                        Kilix.animations['valeur'].start();
+                    }
+                    valueInit = true;
+                }, { offset: offsetSvgAnim });
+
+
+                // Start Amelio Waypoint
+                var amelioInit = false;
+                Kilix.animations['amelioration'].setAnimStatus(false);
+                $('.svg-amelio').waypoint(function(direction) {
+                    if(amelioInit == false) {
+                        Kilix.animations['amelioration'].start();   
+                    }
+                    amelioInit = true;
+                }, { offset: offsetSvgAnim });
+
+                
+                // Start Extia Waypoint
+                var extiaInit = false;
+                Kilix.animations['extia'].setAnimStatus(false);
+                $('.svg-extia').waypoint(function(direction) {
+                    if(extiaInit == false) {
+                        Kilix.animations['extia'].start();
+                    }
+                    extiaInit = true;
+                }, { offset: offsetSvgAnim });
+
+                if (Kilix.currentScroll != null) {
+                    $('html, body').animate({ 
+                        scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top - 200
+                    }, 'slow');
                 }
-                risqueInit = true;
-            }, { offset: offsetSvgAnim });
+
+            }
+
+            $('.png-anim').on('click',function() {
+                var image = new Image();
+                image.style.height = $(this).height()+"px";
+                image.style.marginLeft = "auto";
+                image.style.marginRight = "auto";
+                image.style.marginTop = "-"+$(this).height()+"px";
+                image.style.display = "none";
+
+                $(this).off();
+
+                $(this).after(image);
+
+                image.onload = function (img, parent) {
+                    img.style.display = 'block';
+                    parent.css('opacity',0);
+                }(image, $(this));
+                image.src = $(this).attr('data-gif');
+            });
 
 
-            // Start Value Waypoint
-            var valueInit = false;
-            Kilix.animations['valeur'].setValueAnimStatus(true);
-            Kilix.animations['valeur'].setValueLoadingStatus(false);
-            $('.svg-valeur').waypoint(function(direction) {
-                if (valueInit == false) {
-                    Kilix.animations['valeur'].start();
-                }
-                valueInit = true;
-            }, { offset: offsetSvgAnim });
-
-
-            // Start Amelio Waypoint
-            var amelioInit = false;
-            Kilix.animations['amelioration'].setAnimStatus(false);
-            $('.svg-amelio').waypoint(function(direction) {
-                if(amelioInit == false) {
-                    Kilix.animations['amelioration'].start();
-                }
-                amelioInit = true;
-            }, { offset: offsetSvgAnim });
-
-            
-            // Start Extia Waypoint
-            var extiaInit = false;
-            Kilix.animations['extia'].setAnimStatus(false);
-            $('.svg-extia').waypoint(function(direction) {
-                if(extiaInit == false) {
-                    Kilix.animations['extia'].start();
-                }
-                extiaInit = true;
-            }, { offset: offsetSvgAnim });
-
-
-            console.log('Init Home');
         },
         destroy: function(){
             Kilix.animations["extia"].freeIntervals();
-
-            console.log('Destroy Home');
+            Kilix.animations["valeur"].freeIntervals();
+            Kilix.animations["risques"].freeIntervals();
             $.waypoints('destroy');
+            $(".svg-anim a.button.enabled").off();
             $('.next-section').off();
-            $('.navbar').addClass('navbar-top');  
-            Kilix.changeXColor($('.logo svg polygon'), 'none');     
+            $('.navbar').addClass('navbar-top');
+            Kilix.changeXColor($('.logo svg polygon'), 'none');
             $('.landing h1, .landing-main-text, #KILIX-logo').off();
         }
     },
@@ -336,6 +424,7 @@ var Kilix = {
 
             Kilix.wayPoints();
             Kilix.switchSVG();
+            $(".button-back").on("click", Kilix.bindPushState);
 
             $('.losange').on('click',function(){
                 $('html, body').animate({ 
@@ -343,33 +432,55 @@ var Kilix = {
                 }, 'slow');
             });
 
-            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), '#FFAD00');},300);
+            setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), 'none');},300);
 
-            var agiOneInit = false;
-            $('.svg-agilite').waypoint(function(direction) {
-                if(agiOneInit == false) {
-                    Kilix.animations['agilite'].start();
-                    agiOneInit = true;
+            var agiValInit = false;
+            $('.svg-agilite').eq('0').waypoint(function(direction) {
+                if(agiValInit == false) {
+                    setTimeout(function(){
+                        Kilix.animations['agilite'].startValueAnimation();
+                    },500);
+                    agiValInit = true;
                 }
-                 }, { offset: '50%' });
+                 }, { offset: '70%' });
 
-            var agiTwoInit = false;
-            $('.svg-agilite').waypoint(function(direction) {
-                if(agiTwoInit == false) {
-                    Kilix.animations['agilite'].startSecond();
-                    agiTwoInit = true;
+            var agiRiskInit = false;
+            $('.svg-agilite').eq('1').waypoint(function(direction) {
+                if(agiRiskInit == false) {
+                    Kilix.animations['agilite'].startRiskAnimation();
+                    agiRiskInit = true;
                 }
-                 }, { offset: '25%' });
+                 }, { offset: '70%' });
 
+            var agiAdaptInit = false;
+            $('.svg-agilite').eq('2').waypoint(function(direction) {
+                if(agiAdaptInit == false) {
+                    Kilix.animations['agilite'].startAdaptAnimation();
+                    agiAdaptInit = true;
+                }
+                 }, { offset: '70%' });
 
-            console.log('Init AGILITY');
+            var agiVisInit = false;
+            $('.svg-agilite').eq('3').waypoint(function(direction) {
+                if(agiVisInit == false) {
+                    Kilix.animations['agilite'].startVisAnimation();
+                    agiVisInit = true;
+                }
+                 }, { offset: '70%' });
+
+            if (Kilix.currentScroll != null) {
+                $('html, body').animate({ 
+                    scrollTop: $('.scroll-item').eq(Kilix.currentScroll).offset().top-150
+                }, 'slow');
+            }
+
         },
         destroy: function(){
-            console.log('Destroy AGILITY');
             $('.navbar').addClass('navbar-top');
             $.waypoints('destroy');
             Kilix.changeXColor($('.logo svg polygon'), 'none');
             $('.landing h1, .landing-main-text, #KILIX-logo').off();
+            $(".button-back").off();
         }
     },
 
@@ -377,7 +488,7 @@ var Kilix = {
         init: function(){
 
             Kilix.wayPoints();
-            console.log('Init Team');
+
 
             var offsetSvgAnim = '70%';
 
@@ -387,29 +498,35 @@ var Kilix = {
                 }, 'slow');
             });
 
-            var teamInit = false;
-            Kilix.animations['team'].setAnimStatus(false);
-            $('.svg-anim').waypoint(function(direction) {
-                if(teamInit == false) {
-                    Kilix.animations['team'].start();
-                }
-                teamInit = true;
-            }, { offset: offsetSvgAnim });
+            if(Kilix.animSvg){
+                var teamInit = false;
+                Kilix.animations['team'].setAnimStatus(false);
+                $('.svg-anim').waypoint(function(direction) {
+                    if(teamInit == false) {
+                        Kilix.animations['team'].start();
+                    }
+                    teamInit = true;
+                }, { offset: offsetSvgAnim });
+            }
 
             setTimeout(function(){Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['col3']);},300);
+
+
+            $('.raptor').on('click',function(){
+                $('body').raptorize();
+            });
             
+
         },
         destroy: function(){
-            console.log('Destroy Team');
             $.waypoints('destroy');
             $('.navbar').addClass('navbar-top');
             $('.landing h1, .landing-main-text, #KILIX-logo').off();
             Kilix.changeXColor($('.logo svg polygon'), 'none');    
         }
     }
-};
+}; 
 
 $(function(){
-    console.log('init');
 	Kilix.init();
 });
