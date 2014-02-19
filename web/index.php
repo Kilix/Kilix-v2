@@ -16,8 +16,8 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new MobileDetectServiceProvider());
 
 $titles = array('home'    => "Kilix - L'agence digitale by EXTIA",
-                'agilite' => "L'équipe de Kilix - L'agence digitale by EXTIA",
-                'team'    => "L'agilité chez Kilix - L'agence digitale by EXTIA");
+                'team' => "L'équipe de Kilix - L'agence digitale by EXTIA",
+                'agilite'    => "L'agilité chez Kilix - L'agence digitale by EXTIA");
 
 $app->get('/', function() use ($app, $titles) {
     return $app['twig']->render('home.html.twig', array(
