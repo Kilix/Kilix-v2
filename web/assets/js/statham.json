@@ -1,0 +1,20 @@
+{
+	"files" : [
+        "vendor/jquery.min.js",
+        "vendor/jquery.raptorize.1.0.js",
+        "vendor/zepto.min.js",
+        "vendor/fastclick.min.js",
+        "vendor/jquery.transit.min.js",
+        "vendor/history.min.js",
+        "vendor/waypoints.min.js",
+        "vendor/snap.svg.min.js",
+        "kilix.min.js",
+        "animations-functions.min.js",
+        "animation-value.min.js",
+        "animation-risk.min.js",
+        "animation-improve.min.js",
+        "animation-team.min.js",
+        "animation-extia.min.js",
+        "animation-agilite.min.js"
+	]
+}
