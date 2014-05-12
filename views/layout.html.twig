@@ -53,6 +53,15 @@
 		</script>
 	</head>
 	<body>
+		<div class="career-widget">
+		    <div class="toggle-career-widget">
+		        <img src="assets/img/svg/kilix_wants_you.svg" alt="Logo extia" class="svg kilix-wants-you">
+		        <img src="assets/img/svg/close_career_widget.svg" alt="Logo extia" class="svg close-career-widget">
+		    </div>
+		  	<img src="assets/img/svg/widget_career_content.svg" alt="Logo extia" class="svg widget-career-content">
+		  	<a href="mailto:contact@kilix.fr" class="button mailto">contact@extia.com</a>
+		</div>
+
 		<header class="navbar navbar-top">
 			<div class="row">
 				<i class="toggle-menu show-for-small-only">
@@ -139,5 +148,10 @@
 		</footer>
   		{# {% include "scripts-debug.html.twig" %} #}
 		<!----> <script src="/assets/js/scripts.min.js"></script> 
+		<script>
+			$("body").on("click", ".toggle-career-widget", function(){
+		        $("body").toggleClass('toggled-career-widget');
+		    });
+		</script>
 	</body>
 </html>
