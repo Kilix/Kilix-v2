@@ -4,3 +4,4 @@ mixture.json
 .DS_Store
 .pid
 .pid_debug
+node_modules/*
