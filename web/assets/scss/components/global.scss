@@ -454,8 +454,8 @@ a {
 			height: rem-calc(70);
 			line-height: rem-calc(70);
 
-			top: rem-calc(100);
-			left: rem-calc(-70);
+			top: 7.25rem;
+			left: -5.375rem;
 		}
 
 		.kilix-wants-you {
@@ -487,7 +487,8 @@ a {
 		color: rgb(51, 51, 51);
 
 		position: absolute;
-		top: rem-calc(655);
+		top: 44rem;
+		font-size: 23px;
 		left: 50%;
 		transform: translateX(-50%);
 
