@@ -42,4 +42,4 @@ ___
 
 Host à rajouter (Windows ou Mac) :
 
-        127.0.0.1       kilix-v2.loc.com
+        127.0.0.1       kilix-v2.loc.comi
