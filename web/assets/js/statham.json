@@ -1,6 +1,6 @@
 {
 	"files" : [
-        "vendor/jquery.min.js",
+        "vendor/jquery.js",
         "vendor/jquery.raptorize.1.0.js",
         "vendor/zepto.min.js",
         "vendor/fastclick.min.js",
