@@ -5,3 +5,4 @@ mixture.json
 .pid
 .pid_debug
 node_modules/*
+.sass-cache/
