@@ -8,7 +8,7 @@
         <meta property="og:image" content="http://kilix.fr/assets/img/logo_x.png" />
 		<meta name="description" content="{{description}}" />
   		<link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" media="all"/>
-  		<script src="assets/js/vendor/modernizr.min.js"></script>
+  		<script src="/assets/js/vendor/modernizr-custom.js"></script>
   		<!--[if IE 9]><script src='assets/js/matchMedia.min.js'><![endif]-->
   		<!--[if lt IE 9]>
             <script>
@@ -79,6 +79,7 @@
 					<a class='nav-link enabled {% if page == 'team' %}current{% endif %}' id='link-team' href="/team" data-pos="2" title="{{titles.team}}">Team</a>
 					<a class='nav-link enabled {% if page == 'agilite' %}current{% endif %}' id='link-agilite' href="/agilite" data-pos="3" title="{{titles.agilite}}">Agilite</a>
 
+
 					<a class="nav-link-contact hide-for-small-only" id='link-contact' title="Contactez Kilix">Contact</a>
 					<a class='nav-link extia' href="http://extia.fr" target="_blank" title="EXTIA - Incubateur de talents">
 						{% if ress.isMobile ==  true %}
@@ -86,7 +87,7 @@
 						{% else %}
 							<img src="assets/img/svg/logo_extia.svg" alt="Logo extia" class="svg"></a>
 				  		{% endif %}
-						
+
 					<div class="nav-contact show-for-small-only">
 						<a class="phone-contact" href="tel:0146999191">Phone</a><!--
 						--><a class="mail-contact" href="mailto:contact@kilix.fr">Email</a>
@@ -135,7 +136,7 @@
 					--><div class="copyright2 medium-3 columns">
 						© 2014 <br>Kilix <i class="icon-heart" data-text="est une marque déposée d'"></i>Extia<br>
 						<br>
-						
+
 						{% if ress.isMobile == false %}
 							<iframe allowtransparency="true" frameborder="0" scrolling="no"
 					        src="https://platform.twitter.com/widgets/tweet_button.html?text=Kilix - L'Usine digitale&url=http://www.kilix.fr/"
@@ -146,8 +147,10 @@
 					</div>
 			</div>
 		</footer>
-  		{# {% include "scripts-debug.html.twig" %} #}
-		<!----> <script src="/assets/js/scripts.min.js"></script> 
+
+  	{# {% include "scripts-debug.html.twig" %} #}
+		<script src="/assets/js/scripts.min.js"></script>
+
 		<script>
 			$("body").on("click", ".toggle-career-widget", function(){
 		        $("body").toggleClass('toggled-career-widget');
