@@ -1,6 +1,11 @@
 <div class="footer-contact">
 	<div class="row">
 		<q>Let's start a new project together!</q>
-		<a href="mailto:contact@kilix.fr" class="button button-white">Contactez-nous</a>	
+		<a id="link_contact" target="_blank" href="" class="button button-white">Contactez-nous</a>
 	</div>
 </div>
+<script type="text/javascript">
+  var email = "contact" + '@' + "kilix.fr";
+  $('#contact_link')
+  .attr('href', 'mailto:' + email);
+</script>

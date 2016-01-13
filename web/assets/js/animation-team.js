@@ -11,8 +11,6 @@ Kilix.animations["team"] = {
           delay = 50,
           duration = 500;
 
-      
-
       function loadImproveSvg() {
 
         Snap.load("./assets/img/svg/kilix_anim_team_f1.svg", function(f) {
@@ -57,13 +55,11 @@ Kilix.animations["team"] = {
         });
 
         elementsFormula['reload'].click(function() {
-        if (Kilix.animations['team'].animStatus == true) {
-          Kilix.animations['team'].animStatus = false;
-          resetTeamAnimation();
-        }
-      });
-
-
+          if (Kilix.animations['team'].animStatus == true) {
+            Kilix.animations['team'].animStatus = false;
+            resetTeamAnimation();
+          }
+        });
       }
 
       function resetTeamAnimation() {
@@ -96,11 +92,7 @@ Kilix.animations["team"] = {
                 improveAnimation();
               }, 100);
             }, mina.backin);
-
-
-
             });
-
         });
       }
 
@@ -112,7 +104,7 @@ Kilix.animations["team"] = {
           bounce(elementsFormula['roueFrontRight'], 600, 100, function() {});
         },1000);
         setTimeout(function(){
-          
+
           bounce(elementsFormula['carrosserie'], duration, 100, function() {
             bounce(elementsFormula['siege'], duration, 100, function() {
               bounce(elementsFormula['aileronFront'], duration, 100, function() {
@@ -141,29 +133,12 @@ Kilix.animations["team"] = {
 
                                   });
                                 });
-                                
                               });
-
-                                
                             });
-
                             },1000);
-
-
-
                           });
                         });
-
-                        
-
-
-
                     });
-
-                    
-                    
-
-
                   });
                 });
               });

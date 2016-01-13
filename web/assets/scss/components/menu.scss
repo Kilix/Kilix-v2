@@ -48,23 +48,16 @@ $mobile-contact-height: 40;
 
 			height:rem-calc($height-navbar-top);
 
-			.nav-links-wrapper  .nav-link,
+			.nav-links-wrapper .nav-link,
 			.nav-links-wrapper .blog{
 				color:white;
 			}
-			.nav-links-wrapper .blog{
-				opacity: 1;
-			}
-
-			.back-to-top{opacity:0!important; pointer-events:none;}
 
 			.row{
 				height: rem-calc($height-navbar-top);
 				line-height: rem-calc($height-navbar-top);
 
 			}
-
-			.logo{opacity:0;}
 			.logo svg {
 				height: $height-navbar-top;
 
@@ -221,7 +214,6 @@ $mobile-contact-height: 40;
 
 		}
 
-
 		.nav-link,
 		.blog {
 			opacity: .2;
@@ -312,7 +304,8 @@ $mobile-contact-height: 40;
 			}
 		}
 
-		.enabled {
+		.enabled,
+		.blog {
 			opacity: 1;
 		}
 
