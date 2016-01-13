@@ -401,3 +401,30 @@ a {
 .svg-auto-size{
 	width: 100%;
 }
+
+
+.back-to-top{
+	display: block;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+	line-height: 40px;
+	background-color: #61aff0;
+	color: white;
+	text-align: center;
+	font-size: rem-calc(20);
+	cursor: pointer;
+	transition: background-color .5s, opacity .5s;
+	z-index: 9999;
+	opacity: 0;
+
+	&:hover{
+		background-color: #f26e25;
+	}
+}
+.show-back{
+	opacity: 1;
+}

@@ -53,37 +53,37 @@
             </script>
           </head>
           <body>
-          	<header class="navbar navbar-top">
-          		<div class="row">
-          			<i class="toggle-menu show-for-small-only">
-          				<span class='ham-folded'>≡</span>
-          				<span class='icon-unfolded'>
-          				</span>
-          			</i>
-          			<div class="logo">
-          				<a href="/">
-          					<img class="svg" src="assets/img/logo_small-white.svg" alt="Logo Kilix">
-          				</a>
-          			</div>
-          			<nav class='nav-links-wrapper nav-links-hidden'>
-          				<a class='back-to-top' href="#" title="Back to top"><i class="icon-arrow-up"></i></a>
-          				<a class='nav-link enabled {% if page == 'home' %}current{% endif %}' id='link-home' href="/" data-pos="1" title="{{titles.home}}">Home</a>
-          				<a class='nav-link enabled {% if page == 'team' %}current{% endif %}' id='link-team' href="/team" data-pos="2" title="{{titles.team}}">Team</a>
-          				<a class='nav-link enabled {% if page == 'agilite' %}current{% endif %}' id='link-agilite' href="/agilite" data-pos="3" title="{{titles.agilite}}">Agilite</a>
+            <a class='back-to-top' href="#" title="Back to top"><i class="icon-arrow-up"></i></a>
+            <header class="navbar navbar-top">
+              <div class="row">
+               <i class="toggle-menu show-for-small-only">
+                <span class='ham-folded'>≡</span>
+                <span class='icon-unfolded'>
+                </span>
+              </i>
+              <div class="logo">
+                <a href="/">
+                 <img class="svg" src="assets/img/logo_small-white.svg" alt="Logo Kilix">
+               </a>
+             </div>
+             <nav class='nav-links-wrapper nav-links-hidden'>
+              <a class='nav-link enabled {% if page == 'home' %}current{% endif %}' id='link-home' href="/" data-pos="1" title="{{titles.home}}">Home</a>
+              <a class='nav-link enabled {% if page == 'team' %}current{% endif %}' id='link-team' href="/team" data-pos="2" title="{{titles.team}}">Team</a>
+              <a class='nav-link enabled {% if page == 'agilite' %}current{% endif %}' id='link-agilite' href="/agilite" data-pos="3" title="{{titles.agilite}}">Agilite</a>
 
 
-          				<a class="nav-link-contact hide-for-small-only" id='link-contact' title="Contactez Kilix">Contact</a>
-          				<a class='nav-link blog' href="http://blog.kilix.fr" target="_blank" id='link-blog' title="Kilix - Blog">Blog</a>
-          				<a class='nav-link extia' href="http://extia.fr" target="_blank" title="EXTIA - Incubateur de talents">
-          					{% if ress.isMobile ==  true %}
-          					<img src="assets/img/logo_extia.png" alt="Logo extia"></a>
-          					{% else %}
-          					<img src="assets/img/svg/logo_extia.svg" alt="Logo extia" class="svg"></a>
-          					{% endif %}
+              <a class="nav-link-contact hide-for-small-only" id='link-contact' title="Contactez Kilix">Contact</a>
+              <a class='nav-link blog' href="http://blog.kilix.fr" target="_blank" id='link-blog' title="Kilix - Blog">Blog</a>
+              <a class='nav-link extia' href="http://extia.fr" target="_blank" title="EXTIA - Incubateur de talents">
+               {% if ress.isMobile ==  true %}
+               <img src="assets/img/logo_extia.png" alt="Logo extia"></a>
+               {% else %}
+               <img src="assets/img/svg/logo_extia.svg" alt="Logo extia" class="svg"></a>
+               {% endif %}
 
-          					<div class="nav-contact show-for-small-only">
+               <div class="nav-contact show-for-small-only">
 						<a class="phone-contact" href="tel:0146999191">Phone</a><!--
-					--><a class="mail-contact" id="link_contact_mail" href="">Email</a>
+					--><a class="mail-contact" id="link_contact_mail" target="_blank" href="">Email</a>
 				</div>
 			</nav>
 		</div>
@@ -121,10 +121,10 @@
 				<strong>Contactez-nous</strong> <br>
 				Tél : 01 46 99 91 91 <br>
 				Fax : 01 46 99 91 90 <br>
-				<a id="contact_link" href="" title="Contactez Kilix"></a>
+				<a id="contact_link" href="" target="_blank" title="Contactez Kilix"></a>
 					</div><!--
 				--><div class="copyright2 medium-3 columns">
-				© 2014 <br>Kilix <i class="icon-heart" data-text="est une marque déposée d'"></i>Extia<br>
+				© 2014 <br>Kilix <i class="icon-heart" data-text="est une marque déposée d'"></i> Extia<br>
 				<br>
 
 				{% if ress.isMobile == false %}
@@ -137,16 +137,15 @@
 			</div>
 		</div>
 	</footer>
-
-	{# {% include "scripts-debug.html.twig" %} #}
-	<script src="/assets/js/scripts.min.js"></script>
-	<script type="text/javascript">
-		var email = "contact" + '@' + "kilix.fr";
-		$('#contact_link')
-		.attr('href', 'mailto:' + email)
-		.html(email);
-		$('#link_contact_mail')
-		.attr('href', 'mailto:' + email)
-	</script>
+  {# {% include "scripts-debug.html.twig" %} #}
+  <script src="/assets/js/scripts.min.js"></script>
+  <script type="text/javascript">
+    var email = "contact" + '@' + "kilix.fr";
+    $('#contact_link')
+    .attr('href', 'mailto:' + email)
+    .html(email);
+    $('#link_contact_mail')
+    .attr('href', 'mailto:' + email)
+  </script>
 </body>
 </html>

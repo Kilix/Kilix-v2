@@ -53,15 +53,11 @@ $mobile-contact-height: 40;
 				color:white;
 			}
 
-			.back-to-top{opacity:0!important; pointer-events:none;}
-
 			.row{
 				height: rem-calc($height-navbar-top);
 				line-height: rem-calc($height-navbar-top);
 
 			}
-
-			.logo{opacity:0;}
 			.logo svg {
 				height: $height-navbar-top;
 
@@ -307,20 +303,6 @@ $mobile-contact-height: 40;
 				}
 			}
 		}
-
-		.back-to-top{
-			position: relative;
-			top: 5px;
-			color: white;
-			font-size: rem-calc(30);
-			opacity:.2;
-			cursor: pointer;
-			transition: opacity 0.5s;
-
-			&:hover{opacity:1!important;}
-		}
-
-		.force-opacity{opacity:1!important;}
 
 		.enabled,
 		.blog {
