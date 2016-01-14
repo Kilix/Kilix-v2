@@ -11,7 +11,7 @@ require 'capistrano/deploy'
 require 'capistrano/composer'
 require 'capistrano/file-permissions'
 # require 'capistrano/npm'
-# require 'capistrano/gitinfos'
+require 'capistrano/gitinfos'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }

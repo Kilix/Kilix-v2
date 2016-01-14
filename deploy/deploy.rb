@@ -36,7 +36,7 @@ SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}
 set :gitinfos_format, "json"
 
 # relative path to version file from release_path and without file extension
-set :gitinfos_file, "app/config/version"
+set :gitinfos_file, "version"
 
 namespace :deploy do
 
