@@ -50,39 +50,41 @@ var Kilix = {
 
     // Establish Variable!
     var History = window.History, // Note: We are using a capital H instead of a lower h
-      State = History.getState(),
-      newPos,
-      slideNext = true,
-      pageToPosition = {
-        home: 1,
-        team: 2,
-        agilite: 3,
-        contact: 4
-      },
-      pageTitle = {
-        home: $('#link-home').attr('title'),
-        team: $('#link-team').attr('title'),
-        agilite: $('#link-agilite').attr('title'),
-        contact: $('#link-contact').attr('title')
-      },
-      animEndEventNames = {
-        'WebkitAnimation': 'webkitAnimationEnd',
-        'OAnimation': 'oAnimationEnd',
-        'msAnimation': 'MSAnimationEnd',
-        'animation': 'animationend'
-      },
+    State = History.getState(),
+    newPos,
+    slideNext = true,
+    pageToPosition = {
+      home: 1,
+      team: 2,
+      agilite: 3,
+      references: 4,
+      contact: 5
+    },
+    pageTitle = {
+      home: $('#link-home').attr('title'),
+      team: $('#link-team').attr('title'),
+      agilite: $('#link-agilite').attr('title'),
+      references: $('#link-references').attr('title'),
+      contact: $('#link-contact').attr('title')
+    },
+    animEndEventNames = {
+      'WebkitAnimation': 'webkitAnimationEnd',
+      'OAnimation': 'oAnimationEnd',
+      'msAnimation': 'MSAnimationEnd',
+      'animation': 'animationend'
+    },
       // animation end event name
       animEndEventName = animEndEventNames[Modernizr.prefixed('animation')],
       // support css animations
       support = Modernizr.cssanimations;
 
-    function loadAjaxContent(State) {
-      var url = State.url;
-      var oldPage = $('.container').data('page');
+      function loadAjaxContent(State) {
+        var url = State.url;
+        var oldPage = $('.container').data('page');
 
-      $('title').html(pageTitle[State.title.toLowerCase()]);
+        $('title').html(pageTitle[State.title.toLowerCase()]);
 
-      newPos = pageToPosition[State.title.toLowerCase()];
+        newPos = pageToPosition[State.title.toLowerCase()];
       // $(".wrapper:first-child").addClass('loading');
 
       $('.nav-link.current').removeClass('current');
@@ -127,15 +129,14 @@ var Kilix = {
           $(".wrapper-prev").removeClass('wrapper-prev');
           $(".nav-links-wrapper a, .footer-links a").addClass('enabled');
           Pos = $(".container").data('pos');
-
           Kilix[State.title.toLowerCase()].init();
         });
       });
-    }
+}
 
-    function updateContent(State) {
-      loadAjaxContent(State);
-    }
+function updateContent(State) {
+  loadAjaxContent(State);
+}
 
     // Bind to State Change
     History.Adapter.bind(window, 'statechange', function() { // Note: We are using statechange instead of popstate
@@ -318,7 +319,8 @@ var Kilix = {
 
       $('.intro').waypoint({
         handler: function(direction) {
-          Kilix.changeXColor($('.logo svg polygon'), '#FFF');
+          /*Kilix.changeXColor($('.logo svg polygon'), '#FFF');*/
+          Kilix.changeXColor($('.logo svg polygon'), 'none');
         },
         offset: '25%'
       });
@@ -539,6 +541,24 @@ var Kilix = {
         $('body').raptorize();
       });
 
+
+    },
+    destroy: function() {
+      $.waypoints('destroy');
+      $('.navbar').addClass('navbar-top');
+      $('.landing h1, .landing-main-text, #KILIX-logo').off();
+      Kilix.changeXColor($('.logo svg polygon'), 'none');
+    }
+  },
+  references: {
+    init: function() {
+      Kilix.wayPoints();
+
+      var offsetSvgAnim = '70%';
+
+      setTimeout(function() {
+        Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['none']);
+      }, 300);
 
     },
     destroy: function() {

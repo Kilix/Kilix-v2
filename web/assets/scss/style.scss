@@ -166,7 +166,7 @@ $large-margin:800;
 	to { transform: translateX(-100%); }
 }
 
-@keyframes moveToRight { 
+@keyframes moveToRight {
 	to { transform: translateX(100%); }
 }
 
@@ -188,7 +188,7 @@ $large-margin:800;
 	z-index: 999!important;
 }
 
-/* COMPONENTS */ 
+/* COMPONENTS */
 
 @import "components/global";
 @import "components/logo-home";
@@ -199,3 +199,4 @@ $large-margin:800;
 @import "sections/home";
 @import "sections/agilite";
 @import "sections/contact";
+@import "sections/references";
