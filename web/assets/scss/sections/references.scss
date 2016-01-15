@@ -1,3 +1,10 @@
+.references{
+  padding: 0!important;
+  .content{
+    background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%);
+  }
+}
+
 .landing-references{
   background-image: url('../img/landing-bg-agile.jpg'); background-size: cover; background-position: 50% 50%;
 }
@@ -7,111 +14,220 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 400px;
-  margin-bottom: 100px;
-  background-color: #fef200;
 
   .pictures{
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
-    display: -webkit-flex;
     justify-content: space-around;
     align-items: center;
-    cursor: pointer;
+    z-index: 10;
+    overflow: hidden;
 
-    #logo_amnesty{
+    img{ z-index: 10; }
+  }
+  .right-mask{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .infos{
+      flex: 1 0 0;
       position: relative;
       top: 0;
       left: 0;
-    }
-    #maquette_amnesty{
-      position: relative;
-      top: -50px;
-      left: -20%;
-      height: 110%;
-      opacity: 0;
-      transform: translateY(-20%);
-      transition: all .5s ease-out;
-      transition-delay: 0s;
-    }
-    &:hover{
-      #maquette_amnesty{
-        opacity: 1;
-        transform: translateY(0%);
-        transition-delay: .8s;
-      }
-    }
-  }
-  .pictures:hover + .left-mask{
-    -webkit-clip-path: polygon(-10% 0%, 10% 0%, 0% 100%, -30% 100%, -10% 0%);
-    transition-delay: 0s;
-  }
-  .pictures:hover + .left-mask + .right-mask{
-    -webkit-clip-path: polygon(80% 0%, 145% 0%, 145% 100%, 70% 100%);
-    transition-delay: 0s;
-  }
-  .left-mask{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: lighten(#fef200, 35%);
-    -webkit-clip-path: polygon(0% 0%, 15% 0%, 5% 100%, -20% 100%, 0% 0%);
-    transition: all .5s ease;
-    transition-delay: .5s;
-  }
-  .right-mask{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: lighten(#fef200, 35%);
-    -webkit-clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 25% 100%);
-    transition: all .8s ease;
-    transition-delay: .5s;
-
-    .infos{
       display: flex;
       display: -webkit-flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      height: 100%;
-      padding: 25px;
-      padding-left: 36%;
-      max-width: 90%;
-      h3{
-        padding: 0;
-        margin: 0;
+      transition: all .3s ease-out;
+
+      h3, h4, h5, p{ padding: 0; margin: 0; }
+    }
+  }
+}
+#amnesty{
+  .pictures{
+    background-color: #fef200;
+  }
+}
+#vamos{
+  .pictures{
+    background-color: #eb6516;
+  }
+}
+
+@media #{$small-only} {
+  .pictures{
+    flex-direction:column;
+
+    .logo-ref{
+      position: relative;
+      max-width: 250px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media #{$small-up} {
+  .ref{
+    height: auto;
+    .pictures{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px;
+
+      .logo-ref{
+        position: relative;
+        min-width: 250px;
       }
-      h4{
-        padding: 0;
-        margin: 0;
+      #maquette_amnesty{
+        position: relative;
+        height: 90%;
       }
-      h5{
-        padding: 0;
-        margin: 0;
-      }
-      p{
-        margin: 0;
-        padding: 0;
+      .ref-btn{display:none;}
+    }
+    .right-mask{
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      .infos{
+        padding: 20px;
+        .ref-btn-mobile{
+          display: inline-block;
+        }
       }
     }
   }
-  .icon-chevron-right{
-    position: absolute;
-    bottom: 10px;
-    left: 20%;
-    font-size: 1.8em;
-    color: #000;
-    z-index: 9999;
+}
+
+@media #{$large-up} {
+  .ref{
+    height: 400px;
+    margin-bottom: 100px;
+    .pictures{
+      position: absolute;
+      top: 0;
+      left: 70px;
+      width: 20%;
+      height: 100%;
+      transform: skewX(-25deg);
+      transition: width .5s .7s ease;
+
+      img{ height: 400px; }
+      svg, img{ transform: skewX(25deg); }
+
+      .logo-ref{
+        position: relative;
+        left: 35px;
+        min-width: 250px;
+      }
+      #maquette_amnesty{
+        position: relative;
+        top: -50px;
+        left: -100px;
+        height: 100%;
+        opacity: 0;
+        transform: translateY(-20%) skewX(25deg);
+        transition: transform .8s 0s ease,
+        opacity .8s 0s ease;
+      }
+
+      .ref-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 0;
+        overflow: hidden;
+        transition: background-color .5s 0s ease-out,
+        width .3s .85s ease;
+        cursor: pointer;
+
+        i{
+          font-size: 1.5em;
+          transform: skewX(25deg);
+          transition: color .5s ease-out;
+        }
+      }
+      .link-ref{ right: 0; }
+      .more-ref{ right: 49px; }
+
+      &:hover{
+        transition: width .9s 0s ease;
+        overflow: visible;
+        width: 75%;
+
+        #maquette_amnesty{
+          transition: transform .8s .85s ease,
+          opacity .8s .85s ease;
+          transform: translateY(0%) skewX(25deg);
+          opacity: 1;
+        }
+
+        .ref-btn{
+          transition: background-color .5s 0s ease-out, width .3s 0s ease;
+          width: 50px;
+        }
+      }
+    }
+    .right-mask{
+      position: absolute;
+      top: 0;
+      left: 25%;
+      width: 70%;
+      height: 400px;
+      transform: skewX(-25deg);
+      .infos{
+        left: 0;
+        padding: 25px;
+        max-width: 90%;
+        transform: skewX(25deg);
+        .ref-btn-mobile{
+          display: none;
+        }
+      }
+    }
+  }
+  #amnesty{
+    background-color: #eff0f1;
+    .ref-btn{
+      background-color: #2c313f;
+      &:hover{
+        background-color: #fef200;
+        i{ color: #2c313f; }
+      }
+      i{
+        color: #fef200;
+      }
+    }
+    .right-mask{
+      background-color: #eff0f1;
+    }
+  }
+}
+
+@media #{$xlarge-up} {
+  .ref{
+    height: 400px;
+
+    .pictures{
+      left: 150px;
+      width: 15%;
+
+      .logo-ref{
+        left: 50px;
+        min-width: 300px;
+      }
+      #maquette_amnesty{
+        height: 110%;
+      }
+    }
   }
 }

@@ -559,7 +559,6 @@ function updateContent(State) {
       setTimeout(function() {
         Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['none']);
       }, 300);
-
     },
     destroy: function() {
       $.waypoints('destroy');
