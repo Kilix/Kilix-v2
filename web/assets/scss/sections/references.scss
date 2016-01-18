@@ -1,19 +1,15 @@
 .references{
   padding: 0!important;
-  .content{
-    background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%);
-  }
+  .content{ background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); }
 }
-
-.landing-references{
-  background-image: url('../img/landing-bg-agile.jpg'); background-size: cover; background-position: 50% 50%;
-}
+.landing-references{ background-image: url('../img/landing-bg-agile.jpg'); background-size: cover; background-position: 50% 50%; }
 
 .ref{
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
+  background-color: #eff0f1;
 
   .pictures{
     margin: 0;
@@ -21,10 +17,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    align-content: center;
     z-index: 10;
     overflow: hidden;
 
     img{ z-index: 10; }
+    .logo-ref{
+      position: relative;
+      transition: left .3s 1s ease-out;
+    }
   }
   .right-mask{
     display: flex;
@@ -47,25 +48,18 @@
     }
   }
 }
-#amnesty{
-  .pictures{
-    background-color: #fef200;
-  }
-}
-#vamos{
-  .pictures{
-    background-color: #eb6516;
-  }
-}
 
 @media #{$small-only} {
   .pictures{
     flex-direction:column;
+    .logo-ref{ margin-bottom: 20px; }
+  }
 
-    .logo-ref{
-      position: relative;
-      max-width: 250px;
-      margin-bottom: 20px;
+  .ref:nth-child(even){
+    .pictures{
+      flex-direction:column;
+      .logo-ref{ margin-bottom: 20px; }
+      .maquette-ref{ height: auto; }
     }
   }
 }
@@ -76,15 +70,10 @@
     .pictures{
       position: relative;
       top: 0;
-      left: 0;
       width: 100%;
       padding: 15px;
-
-      .logo-ref{
-        position: relative;
-        min-width: 250px;
-      }
-      #maquette_amnesty{
+      .logo-ref{ min-width: 250px; }
+      .maquette-ref{
         position: relative;
         height: 90%;
       }
@@ -97,11 +86,20 @@
       width: 100%;
       .infos{
         padding: 20px;
-        .ref-btn-mobile{
-          display: inline-block;
-        }
+        .ref-btn-mobile{ display: inline-block; }
       }
     }
+  }
+}
+
+@media #{$medium-only} {
+  .ref.large{
+    .pictures{ flex-direction:column; }
+    .logo-ref{
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .maquette-ref{ height: auto; }
   }
 }
 
@@ -112,29 +110,22 @@
     .pictures{
       position: absolute;
       top: 0;
-      left: 70px;
-      width: 20%;
+      width: 75%;
       height: 100%;
       transform: skewX(-25deg);
-      transition: width .5s .7s ease;
 
       img{ height: 400px; }
       svg, img{ transform: skewX(25deg); }
-
       .logo-ref{
-        position: relative;
-        left: 35px;
+        left: 100px;
         min-width: 250px;
       }
-      #maquette_amnesty{
+      .maquette-ref{
         position: relative;
         top: -50px;
         left: -100px;
         height: 100%;
-        opacity: 0;
-        transform: translateY(-20%) skewX(25deg);
-        transition: transform .8s 0s ease,
-        opacity .8s 0s ease;
+        transform:translateY(0%) skewX(25deg);
       }
 
       .ref-btn{
@@ -144,10 +135,9 @@
         position: absolute;
         top: 0;
         height: 100%;
-        width: 0;
+        width: 50px;
         overflow: hidden;
-        transition: background-color .5s 0s ease-out,
-        width .3s .85s ease;
+        transition: background-color .5s 0s ease-out;
         cursor: pointer;
 
         i{
@@ -156,59 +146,38 @@
           transition: color .5s ease-out;
         }
       }
-      .link-ref{ right: 0; }
-      .more-ref{ right: 49px; }
-
-      &:hover{
-        transition: width .9s 0s ease;
-        overflow: visible;
-        width: 75%;
-
-        #maquette_amnesty{
-          transition: transform .8s .85s ease,
-          opacity .8s .85s ease;
-          transform: translateY(0%) skewX(25deg);
-          opacity: 1;
-        }
-
-        .ref-btn{
-          transition: background-color .5s 0s ease-out, width .3s 0s ease;
-          width: 50px;
-        }
+      .link-ref{ right: -1px; }
+      .more-ref{ right: 48px; }
+    }
+    &:nth-child(odd){
+      .pictures{ left: 150px; }
+      .right-mask{ left: 35%; }
+    }
+    &:nth-child(even){
+      .pictures{ right: 150px; }
+    }
+    .ref.large{
+      .logo-ref{ left: 100px; }
+      .maquette-ref{
+        height: 90%;
+        z-index: 1;
       }
     }
     .right-mask{
       position: absolute;
       top: 0;
-      left: 25%;
-      width: 70%;
+      left: 0;
+      width: 60%;
       height: 400px;
       transform: skewX(-25deg);
+      background-color: #eff0f1;
       .infos{
         left: 0;
         padding: 25px;
         max-width: 90%;
         transform: skewX(25deg);
-        .ref-btn-mobile{
-          display: none;
-        }
+        .ref-btn-mobile{ display: inline-block; }
       }
-    }
-  }
-  #amnesty{
-    background-color: #eff0f1;
-    .ref-btn{
-      background-color: #2c313f;
-      &:hover{
-        background-color: #fef200;
-        i{ color: #2c313f; }
-      }
-      i{
-        color: #fef200;
-      }
-    }
-    .right-mask{
-      background-color: #eff0f1;
     }
   }
 }
@@ -216,18 +185,109 @@
 @media #{$xlarge-up} {
   .ref{
     height: 400px;
-
     .pictures{
-      left: 150px;
-      width: 15%;
-
-      .logo-ref{
-        left: 50px;
-        min-width: 300px;
-      }
-      #maquette_amnesty{
-        height: 110%;
-      }
+      width: 75%;
+      .logo-ref{ min-width: 300px; }
+      .maquette-ref{ height: 110%; }
     }
+    &:nth-child(odd)  .pictures{ left: 200px; }
+    &:nth-child(even) .pictures{ right: 200px; }
+  }
+}
+
+/*
+CSS SPECIFIQUE A CHAQUE REFERENCE
+*/
+
+#amnesty{
+  .pictures{ background-color: #fef200; }
+  .ref-btn{
+    background-color: #2c313f;
+    &:hover{
+      background-color: #fef200;
+      i{ color: #2c313f; }
+    }
+    i{ color: #fef200; }
+  }
+  .right-mask .ref-btn-mobile span:before{
+    background-color: #fef200;
+    color: #2c313f;
+  }
+}
+#vamos{
+  .pictures{ background-color: #eb6516; }
+  .ref-btn{
+    z-index: 12;
+    background-color: #2c313f;
+    &:hover{
+      background-color: #eb6516;
+      i{ color: #2c313f; }
+    }
+    i{ color: #eb6516; }
+  }
+  .right-mask .ref-btn-mobile span:before{
+    background-color: #eb6516;
+    color: #2c313f;
+  }
+}
+#FFB-public{
+  .pictures{ background-color: #1bc7ad; }
+  .ref-btn{
+    background-color: #2c313f;
+    &:hover{
+      background-color: #1bc7ad;
+      i{ color: #2c313f; }
+    }
+    i{ color: #1bc7ad; }
+  }
+  .right-mask .ref-btn-mobile span:before{
+    background-color: #1bc7ad;
+    color: #2c313f;
+  }
+}
+#FFB{
+  .pictures{ background-color: #42b58e; }
+  .ref-btn{
+    background-color: #2c313f;
+    &:hover{
+      background-color: #42b58e;
+      i{ color: #2c313f; }
+    }
+    i{ color: #42b58e; }
+  }
+  .right-mask .ref-btn-mobile span:before{
+    background-color: #42b58e;
+    color: #2c313f;
+  }
+}
+#michelin{
+  .pictures{ background-color: #000099; }
+  .ref-btn{
+    background-color: #d3d4d7;
+    &:hover{
+      background-color: #000099;
+      i{ color: #d3d4d7; }
+    }
+    i{ color: #000099; }
+  }
+  .right-mask .ref-btn-mobile span:before{
+    background-color: #000099;
+    color: #d3d4d7;
+  }
+}
+#horizon{
+  .pictures{ background-color: #f3436c; }
+  .logo-ref{ height: 90px;}
+  .ref-btn{
+    background-color: #d3d4d7;
+    &:hover{
+      background-color: #f3436c;
+      i{ color: #d3d4d7; }
+    }
+    i{ color: #f3436c; }
+  }
+  .right-mask .ref-btn-mobile span:before{
+    background-color: #f3436c;
+    color: #d3d4d7;
   }
 }

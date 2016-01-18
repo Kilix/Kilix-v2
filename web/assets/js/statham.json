@@ -11,12 +11,14 @@
         "vendor/velocity.min.js",
         "kilix.min.js",
         "vendor/velocity.ui.js",
+        "foundation/foundation.js",
         "animations-functions.min.js",
         "animation-value.min.js",
         "animation-risk.min.js",
         "animation-improve.min.js",
         "animation-team.min.js",
         "animation-extia.min.js",
-        "animation-agilite.min.js"
+        "animation-agilite.min.js",
+        "animation-references.min.js"
         ]
 }
