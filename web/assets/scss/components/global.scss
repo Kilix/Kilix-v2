@@ -404,7 +404,7 @@ a {
 
 
 .back-to-top{
-	display: block;
+	display: none;
 	position: fixed;
 	bottom: 50px;
 	right: 50px;
@@ -423,6 +423,10 @@ a {
 
 	&:hover{
 		background-color: #f26e25;
+	}
+
+	@media #{$large-up} {
+		display: block;
 	}
 }
 .show-back{
