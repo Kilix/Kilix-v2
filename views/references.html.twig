@@ -91,7 +91,11 @@
 							<!--
 							<a href="#" class="ref-btn-mobile button enabled"><span data-hover="En savoir plus">En savoir plus</span></a>
 						-->
+						{% if browser.browser == "IE" %}
+						<a href="http://cop21horizon.com/fr/" target="_blank" class="ref-btn-mobile buttonIE valeurIE enabled"><span data-hover="Vers le site">Vers le site</span></a>
+						{% else %}
 						<a href="http://cop21horizon.com/fr/" target="_blank" class="ref-btn-mobile button enabled"><span data-hover="Vers le site">Vers le site</span></a>
+						{% endif %}
 					</p>
 				</div>
 			</div>
@@ -101,7 +105,7 @@
 			<div class="pictures" data-target='FFB-public'>
 				<img class="logo-ref svg" src="/assets/img/references/logo-ffb.svg" alt="logo FFB">
 				<img class="maquette-ref" src="/assets/img/references/ffb-public-home.png" alt="maquette FFB public">
-					<a href="https://www.ffbridge.fr/" target="_blank" class="ref-btn link-ref"><i class="icon-link"></i></a>
+				<a href="https://www.ffbridge.fr/" target="_blank" class="ref-btn link-ref"><i class="icon-link"></i></a>
 					<!--
 					<a href="#" class="ref-btn more-ref"><i class="icon-add"></i></a>
 				-->
@@ -116,7 +120,11 @@
 							<!--
 							<a href="#" class="ref-btn-mobile button enabled"><span data-hover="En savoir plus">En savoir plus</span></a>
 						-->
+						{% if browser.browser == "IE" %}
+						<a href="https://www.ffbridge.fr/" target="_blank" class="ref-btn-mobile buttonIE valeurIE enabled"><span data-hover="Vers le site">Vers le site</span></a>
+						{% else %}
 						<a href="https://www.ffbridge.fr/" target="_blank" class="ref-btn-mobile button enabled"><span data-hover="Vers le site">Vers le site</span></a>
+						{% endif %}
 					</p>
 				</div>
 			</div>
@@ -166,7 +174,12 @@
 							<!--
 							<a href="#" class="ref-btn-mobile button enabled"><span data-hover="En savoir plus">En savoir plus</span></a>
 						-->
+
+						{% if browser.browser == "IE" %}
+						<a href="http://simgm.michelin.fr/fr/" target="_blank" class="ref-btn-mobile buttonIE valeurIE enabled"><span data-hover="Vers le site">Vers le site</span></a>
+						{% else %}
 						<a href="http://simgm.michelin.fr/fr/" target="_blank" class="ref-btn-mobile button enabled"><span data-hover="Vers le site">Vers le site</span></a>
+						{% endif %}
 					</p>
 				</div>
 			</div>

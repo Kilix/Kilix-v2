@@ -130,7 +130,7 @@
     .pictures{
       position: absolute;
       top: 0;
-      width: 75%;
+      width: 80%;
       height: 100%;
       transform: translateX(0%) skewX(-25deg);
       transition: transform .8s .750s ease-out;
@@ -144,6 +144,7 @@
       .maquette-ref{
         height: 100%;
         transform:translateY(0%) skewX(25deg);
+        z-index: 5;
       }
 
       .ref-btn{
@@ -158,6 +159,7 @@
         overflow: hidden;
         transition: background-color .5s 0s ease-out;
         cursor: pointer;
+        z-index: 10;
 
         i{
           font-size: 1.5em;
@@ -187,7 +189,7 @@
         transform: skewX(-25deg) translateX(80%);
         &:hover{
           transform: translateX(0%) skewX(-25deg);
-          transition: transform .5s 0s ease-out;
+          transition: transform .8s 0s ease-out;
         }
       }
     }
@@ -213,9 +215,14 @@
 @media #{$xlarge-up} {
   .ref{
     height: 400px;
-    .pictures{ width: 75%; }
-    &:nth-child(odd)  .pictures{ left: 200px; }
-    &:nth-child(even) .pictures{ right: 200px; }
+    &:nth-child(odd){
+      .mask{ left: -150px; }
+      .pictures{ left: 200px;}
+    }
+    &:nth-child(even){
+      .mask{ right: -150px; }
+      .pictures{ right: 200px; }
+    }
   }
 }
 
