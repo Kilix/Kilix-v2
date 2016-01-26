@@ -133,7 +133,7 @@
       width: 80%;
       height: 100%;
       transform: translateX(0%) skewX(-25deg);
-      transition: transform .8s .750s ease-out;
+      transition: transform .8s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
       z-index: 10;
 
       img{ height: 400px; }
@@ -157,7 +157,7 @@
         height: 100%;
         width: 50px;
         overflow: hidden;
-        transition: background-color .5s 0s ease-out;
+        transition: background-color .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
         cursor: pointer;
         z-index: 10;
 
@@ -177,7 +177,7 @@
         transform: skewX(-25deg) translateX(-80%);
         &:hover{
           transform: translateX(0%) skewX(-25deg);
-          transition: transform .8s 0s ease-out;
+          transition: transform .8s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
         }
       }
       .right-mask{ left: 35%; }
@@ -189,7 +189,7 @@
         transform: skewX(-25deg) translateX(80%);
         &:hover{
           transform: translateX(0%) skewX(-25deg);
-          transition: transform .8s 0s ease-out;
+          transition: transform .8s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
         }
       }
     }
