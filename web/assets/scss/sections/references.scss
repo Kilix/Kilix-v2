@@ -4,6 +4,19 @@
 }
 .landing-references{ background-image: url('../img/landing-bg-agile.jpg'); background-size: cover; background-position: 50% 50%; }
 
+@keyframes look-even {
+  0%   {transform: skewX(25deg) translateX(0px);}
+  20%   {transform: skewX(25deg) translateX(-5px);}
+  30%   {transform: skewX(25deg) translateX(0px);}
+  100%   {transform: skewX(25deg) translateX(0px);}
+}
+@keyframes look-odd {
+  0%   {transform: skewX(25deg) translateX(0px);}
+  20%   {transform: skewX(25deg) translateX(5px);}
+  30%   {transform: skewX(25deg) translateX(0px);}
+  100%   {transform: skewX(25deg) translateX(0px);}
+}
+
 .ref{
   position: relative;
   top: 0;
@@ -46,13 +59,17 @@
         font-weight: normal;
         margin-bottom: 4px;
       }
+      ul{
+        font-size: 1.2rem;
+        margin: 1rem 0;
+      }
       p{
         font-size: 1.2rem;
         line-height: 1.5;
       }
       a{
-        color: #2c313f;
-        font-weight: bold;
+        color: darken(#2c313f, 30%);
+        font-weight: normal;
         margin: 0;
         margin-top: 4px;
         &:hover{
@@ -155,7 +172,7 @@
         top: 0;
         right: 0;
         height: 100%;
-        width: 50px;
+        width: 70px;
         overflow: hidden;
         transition: background-color .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
         cursor: pointer;
@@ -175,9 +192,23 @@
       .pictures{
         left: 150px;
         transform: skewX(-25deg) translateX(-80%);
+        .arrow{
+          position: absolute;
+          bottom: 10px;
+          right: 0;
+          font-size: 2.5em;
+          transform: skewX(25deg);
+          color: #eff0f1;
+          opacity: 1;
+          transition: opacity .3s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          animation: look-odd 4s ease-out 0s infinite both;
+        }
         &:hover{
           transform: translateX(0%) skewX(-25deg);
           transition: transform .8s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          .arrow{
+            opacity: 0;
+          }
         }
       }
       .right-mask{ left: 35%; }
@@ -187,9 +218,23 @@
       .pictures{
         right: 150px;
         transform: skewX(-25deg) translateX(80%);
+        .arrow{
+          position: absolute;
+          bottom: 10px;
+          left: 0;
+          font-size: 2.5em;
+          transform: skewX(25deg);
+          color: #eff0f1;
+          opacity: 1;
+          transition: opacity .3s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          animation: look-even 4s ease-out 0s infinite both;
+        }
         &:hover{
           transform: translateX(0%) skewX(-25deg);
           transition: transform .8s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          .arrow{
+            opacity: 0;
+          }
         }
       }
     }
@@ -243,177 +288,291 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
   }
 }
 #vamos{
-  .logo-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
+  .pictures{
+    .logo-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} {
+        top: calc(50% - 26.5px);
+        transform: translateX(0px) skewX(25deg);
+        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      }
+      @media #{$large-only} {
+        right: 20px;
+        width:150px;
+      }
+      @media #{$xlarge-only} {
+        right: 30px;
+        width:250px;
+      }
     }
-    @media #{$large-up} { top: calc(50% - 26.5px); }
-    @media #{$large-only} {
-      right: 20px;
-      width:150px;
+    .maquette-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} { top: -30px; }
+      @media #{$large-only} { height:90%; left: 100px; }
+      @media #{$xlarge-only} { left: 200px; }
     }
-    @media #{$xlarge-only} {
-      right: 90px;
-      width:250px;
+    &:hover{
+      .logo-ref{
+        @media #{$large-up}{
+          transform: translateX(-50px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        @media #{$xlarge-up}{
+          transform: translateX(-150px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+      }
     }
-  }
-  .maquette-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
-    }
-    @media #{$large-up} { top: -30px; }
-    @media #{$large-only} { height:90%; left: 100px; }
-    @media #{$xlarge-only} { left: 200px; }
   }
 }
 #amnesty{
-  .logo-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
+  .pictures{
+    .logo-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} {
+        top: calc(50% - 53.5px);
+        transform: translateX(0px) skewX(25deg);
+        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      }
+      @media #{$large-only} {
+        left: 20px;
+        width:175px;
+      }
+      @media #{$xlarge-only} {
+        left: 30px;
+        width:250px;
+      }
     }
-    @media #{$large-up} { top: calc(50% - 53.5px); }
-    @media #{$large-only} {
-      left: 20px;
-      width:175px;
+    .maquette-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} { top: -30px; }
+      @media #{$large-only} {  right: 100px; }
+      @media #{$xlarge-only} { right: 200px; }
     }
-    @media #{$xlarge-only} {
-      left: 90px;
-      width:250px;
+    &:hover{
+      .logo-ref{
+        @media #{$large-up}{
+          transform: translateX(50px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        @media #{$xlarge-up}{
+          transform: translateX(150px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+      }
     }
-  }
-  .maquette-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
-    }
-    @media #{$large-up} { top: -30px; }
-    @media #{$large-only} {  right: 100px; }
-    @media #{$xlarge-only} { right: 200px; }
   }
 }
 #horizon{
-  .logo-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
+  .pictures {
+    .logo-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up}{
+        top: calc(50% - 45px);
+        transform: translateX(0px) skewX(25deg);
+        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      }
+      @media #{$large-only} {
+        right: 20px;
+        width:150px;
+      }
+      @media #{$xlarge-only} {
+        right: 30px;
+        width:250px;
+      }
     }
-    @media #{$large-up} { top: calc(50% - 45px); }
-    @media #{$large-only} {
-      right: 60px;
-      width:150px;
+    .maquette-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} { top: -30px; }
+      @media #{$large-only} {  height:85%; left: 90px; }
+      @media #{$xlarge-only} { left: 200px; }
     }
-    @media #{$xlarge-only} {
-      right: 90px;
-      width:250px;
+    &:hover{
+      .logo-ref{
+        @media #{$large-up}{
+          transform: translateX(-50px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        @media #{$xlarge-up}{
+          transform: translateX(-150px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+      }
     }
-  }
-  .maquette-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
-    }
-    @media #{$large-up} { top: -30px; }
-    @media #{$large-only} {  height:85%; left: 90px; }
-    @media #{$xlarge-only} { left: 200px; }
   }
 }
 #FFB-public{
-  .logo-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
+  .pictures{
+    .logo-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up}{
+        transform: translateX(0px) skewX(25deg);
+        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      }
+      @media #{$large-only} {
+        top: calc(50% - 26px);
+        left: 20px;
+        width:150px;
+      }
+      @media #{$xlarge-only} {
+        top: calc(50% - 46px);
+        left: 30px;
+        width:250px;
+      }
     }
-    @media #{$large-only} {
-      top: calc(50% - 26px);
-      left: 20px;
-      width:150px;
+    .maquette-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} { top: -30px; }
+      @media #{$large-only} {  height:85%; right: 120px; }
+      @media #{$xlarge-only} { right: 200px; }
     }
-    @media #{$xlarge-only} {
-      top: calc(50% - 46px);
-      left: 90px;
-      width:250px;
+    &:hover{
+      .logo-ref{
+        @media #{$large-up}{
+          transform: translateX(50px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        @media #{$xlarge-up}{
+          transform: translateX(150px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+      }
     }
-  }
-  .maquette-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
-    }
-    @media #{$large-up} { top: -30px; }
-    @media #{$large-only} {  height:85%; right: 120px; }
-    @media #{$xlarge-only} { right: 200px; }
   }
 }
 #FFB{
-  .logo-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
+  .pictures{
+    .logo-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up}{
+        transform: translateX(0px) skewX(25deg);
+        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      }
+      @media #{$large-only} {
+        top: calc(50% - 26px);
+        right: 20px;
+        width:150px;
+      }
+      @media #{$xlarge-only} {
+        top: calc(50% - 46px);
+        right: 30px;
+        width:250px;
+      }
     }
-    @media #{$large-only} {
-      top: calc(50% - 26px);
-      right: 20px;
-      width:150px;
+    .maquette-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} { top: -30px; }
+      @media #{$large-only} {  height:85%; left: 120px; }
+      @media #{$xlarge-only} { left: 200px; }
     }
-    @media #{$xlarge-only} {
-      top: calc(50% - 46px);
-      right: 90px;
-      width:250px;
+    &:hover{
+      .logo-ref{
+        @media #{$large-up}{
+          transform: translateX(-50px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        @media #{$xlarge-up}{
+          transform: translateX(-150px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+      }
     }
-  }
-  .maquette-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
-    }
-    @media #{$large-up} { top: -30px; }
-    @media #{$large-only} {  height:85%; left: 120px; }
-    @media #{$xlarge-only} { left: 200px; }
   }
 }
 #michelin{
-  .logo-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
+  .pictures{
+    .logo-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up}{
+        transform: translateX(0px) skewX(25deg);
+        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      }
+      @media #{$large-only} {
+        top: calc(50% - 22.5px);
+        left: 20px;
+        width:150px;
+      }
+      @media #{$xlarge-only} {
+        top: calc(50% - 38px);
+        left: 30px;
+        width:250px;
+      }
     }
-    @media #{$large-only} {
-      top: calc(50% - 22.5px);
-      left: 60px;
-      width:150px;
+    .maquette-ref{
+      @media #{$small-up} {
+        top: 0;
+        left: auto;
+        right: auto;
+      }
+      @media #{$large-up} { top: -30px; }
+      @media #{$large-only} {  height:85%; right: 120px; }
+      @media #{$xlarge-only} { right: 200px; }
     }
-    @media #{$xlarge-only} {
-      top: calc(50% - 38px);
-      left: 90px;
-      width:250px;
+    &:hover{
+      .logo-ref{
+        @media #{$large-up}{
+          transform: translateX(50px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+        @media #{$xlarge-up}{
+          transform: translateX(150px) skewX(25deg);
+          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+      }
     }
-  }
-  .maquette-ref{
-    @media #{$small-up} {
-      top: 0;
-      left: auto;
-      right: auto;
-    }
-    @media #{$large-up} { top: -30px; }
-    @media #{$large-only} {  height:85%; right: 120px; }
-    @media #{$xlarge-only} { right: 200px; }
   }
 }
-
+.IE {
+  &:not(#horizon){
+    .pictures .logo-ref{
+      top: 0!important;
+    }
+  }
+}
 /*
 CSS SPECIFIQUE A CHAQUE REFERENCE COLORS
 */
@@ -435,6 +594,7 @@ CSS SPECIFIQUE A CHAQUE REFERENCE COLORS
 }
 #amnesty{
   .pictures{ background-color: #fef200; }
+  .pictures .arrow{ color: #2c313f; }
   .ref-btn{
     background-color: #2c313f;
     &:hover{
