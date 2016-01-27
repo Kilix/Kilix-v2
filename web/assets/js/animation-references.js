@@ -21,7 +21,7 @@ Kilix.animations["references"] = {
     })
 
     $(p).find('.ref-btn').velocity('stop').velocity(
-      {width: '50px'},
+      {width: '70px'},
       {duration: 500, delay: 1250, easing: [0.550, 0.055, 0.675, 0.190]});
     $(p).find('.ref-btn-mobile').velocity('stop').velocity(
       {opacity: 0},
