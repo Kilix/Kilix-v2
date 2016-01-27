@@ -1,6 +1,7 @@
-.references{
+div.references{
   padding: 0!important;
   .content{ background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); }
+  .columns{ padding: auto; }
 }
 .landing-references{ background-image: url('../img/landing-bg-agile.jpg'); background-size: cover; background-position: 50% 50%; }
 
@@ -259,7 +260,6 @@
 
 @media #{$xlarge-up} {
   .ref{
-    height: 400px;
     &:nth-child(odd){
       .mask{ left: -150px; }
       .pictures{ left: 200px;}

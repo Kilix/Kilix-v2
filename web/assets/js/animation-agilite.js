@@ -32,8 +32,8 @@ Kilix.animations["agilite"] = {
       $({someValue: start}).animate({someValue: end}, {
           duration: duration,
           easing:easing,
-          step: function() { 
-          el.text(Math.ceil(this.someValue)+"%")        
+          step: function() {
+          el.text(Math.ceil(this.someValue)+"%")
           },
           done: function() {
             el.text(end+"%");
@@ -70,7 +70,7 @@ Kilix.animations["agilite"] = {
       scale(elements['plan2'], 1, 500, 200, function() {
         drawPath(svg, elements['oldGris'], 1600, 1500, mina.easeout, function(){
           drawPath(svg, elements['courbeBleue'], 1400, 1300, mina.easeinout, function(){
-            
+
               elements['text'].animate({opacity:1} ,400 );
               alterBounce(elements['time'], 600, 400, function() {
                 $('#tps').text("0");
@@ -81,7 +81,7 @@ Kilix.animations["agilite"] = {
                   elements['val'].animate({opacity: 1}, 200, function() {});
                   incrementNumber($('#val'), 0, 80, 900, 'swing', function(){});
                   drawLine(svg, elements['pointilles2'], 900, 500, mina.easeout, function(){
-                    drawCircle(svg, elements['pointBleu'], 400); 
+                    drawCircle(svg, elements['pointBleu'], 400);
                   });
                 });
               });
