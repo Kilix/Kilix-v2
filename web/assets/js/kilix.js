@@ -553,20 +553,7 @@ function updateContent(State) {
   references: {
     init: function() {
       Kilix.wayPoints();
-      if(matchMedia(Foundation.media_queries.large).matches || matchMedia(Foundation.media_queries.xlarge).matches || matchMedia(Foundation.media_queries.xxlarge).matches){
-        Kilix.animations['references'].init()
-      }
-
-      var offsetSvgAnim = '70%';
-
-      setTimeout(function() { Kilix.changeXColor($('.logo svg polygon'), Kilix.colors['none']); }, 300);
-
-      if(matchMedia(Foundation.media_queries.large).matches || matchMedia(Foundation.media_queries.xlarge).matches || matchMedia(Foundation.media_queries.xxlarge).matches){
-        $('.pictures').hover(
-          function(el){ Kilix.animations['references'].open($(el.currentTarget).parent()); },
-          function(el){ Kilix.animations['references'].close($(el.currentTarget).parent()); }
-          )
-      }
+      Kilix.animations['references'].init();
     },
     destroy: function() {
       $.waypoints('destroy');
