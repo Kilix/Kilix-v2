@@ -1,3 +1,5 @@
+$easing: cubic-bezier(.55,0,.1,1);
+
 div.references{
   padding: 0!important;
   .content{ background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); }
@@ -151,7 +153,7 @@ div.references{
       width: 80%;
       height: 100%;
       transform: translateX(0%) skewX(-25deg);
-      transition: transform .8s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: transform .8s .65s $easing;
       z-index: 10;
 
       img{ height: 400px; }
@@ -175,7 +177,7 @@ div.references{
         height: 100%;
         width: 70px;
         overflow: hidden;
-        transition: background-color .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        transition: background-color .5s 0s $easing;
         cursor: pointer;
         z-index: 10;
 
@@ -201,14 +203,27 @@ div.references{
           transform: skewX(25deg);
           color: #eff0f1;
           opacity: 1;
-          transition: opacity .3s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          transition: opacity .3s 0s $easing;
           animation: look-odd 4s ease-out 0s infinite both;
+        }
+        .logo-ref{
+          @media #{$large-up} {
+            transform: translateX(0px) skewX(25deg);
+            transition: transform .5s .45s $easing;
+          }
         }
         &:hover{
           transform: translateX(0%) skewX(-25deg);
-          transition: transform .8s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          transition: transform .8s 0s $easing;
           .arrow{
             opacity: 0;
+          }
+          .logo-ref{
+            @media #{$large-up}{
+              transform: translateX(-50px) skewX(25deg);
+              transition: transform .5s 1.5s $easing;
+            }
+            @media #{$xlarge-up}{ transform: translateX(-150px) skewX(25deg); }
           }
         }
       }
@@ -227,14 +242,27 @@ div.references{
           transform: skewX(25deg);
           color: #eff0f1;
           opacity: 1;
-          transition: opacity .3s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          transition: opacity .3s 0s $easing;
           animation: look-even 4s ease-out 0s infinite both;
+        }
+        .logo-ref{
+          @media #{$large-up} {
+            transform: translateX(0px) skewX(25deg);
+            transition: transform .5s 0s $easing;
+          }
         }
         &:hover{
           transform: translateX(0%) skewX(-25deg);
-          transition: transform .8s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          transition: transform .8s 0s $easing;
           .arrow{
             opacity: 0;
+          }
+          .logo-ref{
+            @media #{$large-up}{
+              transform: translateX(50px) skewX(25deg);
+              transition: transform .5s 1.5s $easing;
+            }
+            @media #{$xlarge-up}{ transform: translateX(150px) skewX(25deg); }
           }
         }
       }
@@ -295,11 +323,7 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
         left: auto;
         right: auto;
       }
-      @media #{$large-up} {
-        top: calc(50% - 26.5px);
-        transform: translateX(0px) skewX(25deg);
-        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-      }
+      @media #{$large-up} { top: calc(50% - 26.5px); }
       @media #{$large-only} {
         right: 20px;
         width:150px;
@@ -319,18 +343,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
       @media #{$large-only} { height:90%; left: 100px; }
       @media #{$xlarge-only} { left: 200px; }
     }
-    &:hover{
-      .logo-ref{
-        @media #{$large-up}{
-          transform: translateX(-50px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-        @media #{$xlarge-up}{
-          transform: translateX(-150px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-      }
-    }
   }
 }
 #amnesty{
@@ -341,11 +353,7 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
         left: auto;
         right: auto;
       }
-      @media #{$large-up} {
-        top: calc(50% - 53.5px);
-        transform: translateX(0px) skewX(25deg);
-        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-      }
+      @media #{$large-up} { top: calc(50% - 53.5px); }
       @media #{$large-only} {
         left: 20px;
         width:175px;
@@ -365,18 +373,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
       @media #{$large-only} {  right: 100px; }
       @media #{$xlarge-only} { right: 200px; }
     }
-    &:hover{
-      .logo-ref{
-        @media #{$large-up}{
-          transform: translateX(50px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-        @media #{$xlarge-up}{
-          transform: translateX(150px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-      }
-    }
   }
 }
 #horizon{
@@ -387,11 +383,7 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
         left: auto;
         right: auto;
       }
-      @media #{$large-up}{
-        top: calc(50% - 45px);
-        transform: translateX(0px) skewX(25deg);
-        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-      }
+      @media #{$large-up}{ top: calc(50% - 45px); }
       @media #{$large-only} {
         right: 20px;
         width:150px;
@@ -411,18 +403,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
       @media #{$large-only} {  height:85%; left: 90px; }
       @media #{$xlarge-only} { left: 200px; }
     }
-    &:hover{
-      .logo-ref{
-        @media #{$large-up}{
-          transform: translateX(-50px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-        @media #{$xlarge-up}{
-          transform: translateX(-150px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-      }
-    }
   }
 }
 #FFB-public{
@@ -432,10 +412,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
         top: 0;
         left: auto;
         right: auto;
-      }
-      @media #{$large-up}{
-        transform: translateX(0px) skewX(25deg);
-        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
       }
       @media #{$large-only} {
         top: calc(50% - 26px);
@@ -458,18 +434,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
       @media #{$large-only} {  height:85%; right: 120px; }
       @media #{$xlarge-only} { right: 200px; }
     }
-    &:hover{
-      .logo-ref{
-        @media #{$large-up}{
-          transform: translateX(50px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-        @media #{$xlarge-up}{
-          transform: translateX(150px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-      }
-    }
   }
 }
 #FFB{
@@ -479,10 +443,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
         top: 0;
         left: auto;
         right: auto;
-      }
-      @media #{$large-up}{
-        transform: translateX(0px) skewX(25deg);
-        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
       }
       @media #{$large-only} {
         top: calc(50% - 26px);
@@ -505,18 +465,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
       @media #{$large-only} {  height:85%; left: 120px; }
       @media #{$xlarge-only} { left: 200px; }
     }
-    &:hover{
-      .logo-ref{
-        @media #{$large-up}{
-          transform: translateX(-50px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-        @media #{$xlarge-up}{
-          transform: translateX(-150px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-      }
-    }
   }
 }
 #michelin{
@@ -526,10 +474,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
         top: 0;
         left: auto;
         right: auto;
-      }
-      @media #{$large-up}{
-        transform: translateX(0px) skewX(25deg);
-        transition: transform .5s 0s cubic-bezier(0.645, 0.045, 0.355, 1.000);
       }
       @media #{$large-only} {
         top: calc(50% - 22.5px);
@@ -551,18 +495,6 @@ CSS SPECIFIQUE A CHAQUE REFERENCE POSITIONNING
       @media #{$large-up} { top: -30px; }
       @media #{$large-only} {  height:85%; right: 120px; }
       @media #{$xlarge-only} { right: 200px; }
-    }
-    &:hover{
-      .logo-ref{
-        @media #{$large-up}{
-          transform: translateX(50px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-        @media #{$xlarge-up}{
-          transform: translateX(150px) skewX(25deg);
-          transition: transform .5s 1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-        }
-      }
     }
   }
 }
