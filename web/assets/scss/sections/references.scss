@@ -35,7 +35,7 @@ div.references{
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-position: bottom center;
+    background-position: center center;
     background-size: cover;
     transform: scale(1);
     overflow: hidden;
@@ -57,7 +57,7 @@ div.references{
       width: 100%;
       height: 100%;
       background-repeat: no-repeat;
-      background-position: bottom center;
+      background-position: center center;
       background-size: cover;
       transform: scale(1);
       transition: transform $duration $delay $easingOut;
@@ -100,27 +100,58 @@ div.references{
       vertical-align: middle;
     }
   }
+  .row{height: 100%;}
   .infos{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    align-content: center;
     position: relative;
     height: 100%;
-    width: 60%;
     margin: 0 auto;
 
     z-index: 10;
     color: #eff0f1;
-    h2, p, a{
+    >h2,
+    >p,
+    >a,
+    >ul{
       display: block;
       margin: 10px 0;
       opacity: 0;
       transform: translateY(0px);
     }
-    p{
+    p, ul{
       color: #eff0f1;
+      a{
+        position: relative;
+        top: 3px;
+        text-decoration: none;
+        color: #eff0f1;
+        display: inline-block;
+        height: 20px;
+        line-height: 20px;
+        padding: 0 4px;
+        overflow: hidden;
+        transition: color .3s $easingIn;
+        &:after{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          transform: translateX(-100%);
+          transition: transform .3s $easingIn;
+          z-index: -1;
+        }
+        &:hover{
+          &:after{
+            transform: translateX(0%);
+          }
+        }
+      }
     }
     .ref-btn-mobile{
       display: inline-block;
@@ -157,17 +188,6 @@ div.references{
   }
 }
 
-#horizon{
-  .bg{ background-image: url(/assets/img/references/bg_horizon.png); }
-  .cover{ background-image: url(/assets/img/references/bg_horizon_blured.png); }
-
-  //.pictures{ background-color: #f3436c; }
-  .logo-ref{ height: 90px;}
-  .ref-btn-mobile{
-    &:hover{ color: #eff0f1; }
-    &:after{ background-color: #f3436c; }
-  }
-}
 
 #vamos{
   .bg{ background-image: url(/assets/img/references/bg_vamos.png); }
@@ -178,5 +198,37 @@ div.references{
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
     &:after{ background-color: #eb6516; }
+  }
+}
+#amnesty{
+  .bg{ background-image: url(/assets/img/references/bg_amnesty.png); }
+  .cover{ background-image: url(/assets/img/references/bg_amnesty_blured.png); }
+
+  //.pictures{ background-color: #fef200; }
+  .logo-ref{ height: 90px;}
+  .infos{
+    p, ul{
+      a{
+        color: #FFF;
+        &:hover{color: #000;}
+        &:after{background-color: #fef200;}
+      }
+    }
+  }
+  .ref-btn-mobile{
+    &:hover{ color: #eff0f1; }
+    &:after{ background-color: #fef200; }
+  }
+}
+
+#horizon{
+  .bg{ background-image: url(/assets/img/references/bg_horizon.png); }
+  .cover{ background-image: url(/assets/img/references/bg_horizon_blured.png); }
+
+  //.pictures{ background-color: #f3436c; }
+  .logo-ref{ height: 90px;}
+  .ref-btn-mobile{
+    &:hover{ color: #eff0f1; }
+    &:after{ background-color: #f3436c; }
   }
 }
