@@ -553,7 +553,8 @@ function updateContent(State) {
   references: {
     init: function() {
       Kilix.wayPoints();
-      Kilix.animations['references'].init();
+      if(matchMedia(Foundation.media_queries.large).matches || matchMedia(Foundation.media_queries.xlarge).matches || matchMedia(Foundation.media_queries.xxlarge).matches)
+        Kilix.animations['references'].init();
     },
     destroy: function() {
       $.waypoints('destroy');
