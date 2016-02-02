@@ -3,9 +3,11 @@ $easingOut: cubic-bezier(.4, 0 ,0 ,1);
 $duration: 1s;
 $delay: 0s;
 
-$vamos-color: #eb6516;
-$amnesty-color: #fef200;
-$horizon-color: #f3436c;
+$vamos-color:    #eb6516;
+$amnesty-color:  #fef200;
+$horizon-color:  #f3436c;
+$ffb-color:      #1fc3aa;
+$michelin-color: #05a0e2;
 /*
   UN JOUR ON POURRA S'EN SERVIR, MAIS PAS MAINTENANT CAR IL EXISTE UNE ABOMINATION APPELLE IE !!!!!!!
   filter: blur(3px);
@@ -20,7 +22,7 @@ $horizon-color: #f3436c;
 
 div.references{
   padding: 0!important;
-  .content{ background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); }
+  .content{ background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); padding: 0; }
   .columns{ padding: auto; }
 }
 .landing-references{ background-image: url('../img/landing-bg-agile.jpg'); background-size: cover; background-position: 50% 50%; }
@@ -35,7 +37,6 @@ div.references{
     height: auto;
     background-color: #2c313f;
     color: #eff0f1;
-    margin-bottom: 50px;
     padding-bottom: 50px;
     padding-top: 20px;
 
@@ -45,12 +46,6 @@ div.references{
       max-height: 250px;
       margin: 0 auto;
       margin-bottom: 25px;
-    }
-    .maquette-ref{
-      display: block;
-      margin: 0 auto;
-      max-width: 90%;
-      max-height: auto;
     }
     .ref-btn-mobile{
       display: inline-block;
@@ -107,7 +102,6 @@ div.references{
       .bg{
         position: absolute;
         top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
         background-repeat: no-repeat;
@@ -117,64 +111,25 @@ div.references{
         overflow: hidden;
         transition: transform $duration $delay $easingOut;
       }
-      .mask{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        opacity: 0;
-        transition: opacity $duration $delay $easingOut;
-        .cover{
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: cover;
-          transform: scale(1);
-          transition: transform $duration $delay $easingOut;
-        }
-      }
     }
-
     &:hover{
       .bg{
         transform: scale(1.1);
         transition: transform $duration $delay $easingIn;
       }
-      .mask{
-        opacity: 1;
-        transition: opacity $duration $delay $easingIn;
-        .cover{
-          transform: scale(1.1);
-          transition: transform $duration $delay $easingIn;
-        }
-      }
     }
     .pictures{
       position: absolute;
       top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      text-align: center;
-      display:flex;
-      justify-content: space-around;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
       align-items: center;
       align-content: center;
-
       .logo-ref{
-        vertical-align: middle;
-        max-width: 250px;
-      }
-      .maquette-ref{
         position: relative;
-        top: -30px;
-        vertical-align: middle;
+        max-width: 250px;
       }
     }
     .row{height: 100%;}
@@ -186,7 +141,6 @@ div.references{
       position: relative;
       height: 100%;
       margin: 0 auto;
-      @include grid-column(5);
 
       z-index: 10;
       color: #eff0f1;
@@ -232,43 +186,36 @@ div.references{
         }
       }
     }
-  }
-}
-
-@media #{$large-up} {
-  .maquette-ref{
-    max-width: 50%;
-    max-height: auto;
-  }
-}
-
-@media #{$xlarge-up} {
-  .maquette-ref{
-    max-width: auto;
-    max-height: 100%;
+    &:nth-child(even){
+      .pictures{left: 0;}
+      .infos{@include grid-column($columns:5, $offset: 0);}
+    }
+    &:nth-child(odd){
+      .pictures{right: 0;}
+      .infos{@include grid-column($columns:5, $offset: 7);}
+    }
   }
 }
 
 
 #vamos{
-  .bg{ background-image: url(/assets/img/references/bg_vamos.png); }
-  .cover{ background-image: url(/assets/img/references/bg_vamos_blured.png); }
+  .bg{ background-image: url(/assets/img/references/bg_vamos.jpg); }
   .logo-ref{ height: 90px;}
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
-    &:after{ background-color: $vamos-color; }
+    &:after{ background-color: darken($vamos-color, 5%); }
   }
   @media #{$small-up}{ .infos{ color: $vamos-color; } }
   @media #{$large-up}{ .infos{ color: #eff0f1; } }
 }
 #amnesty{
-  .bg{ background-image: url(/assets/img/references/bg_amnesty.png); }
-  .cover{ background-image: url(/assets/img/references/bg_amnesty_blured.png); }
+  .bg{ background-image: url(/assets/img/references/bg_amnesty.jpg); }
   .logo-ref{ height: 90px;}
   .infos{
     p, ul{
+      color: #2c313f;
       a{
-        color: #FFF;
+        color: #2c313f;
         &:hover{color: #000;}
         &:after{background-color: $amnesty-color;}
       }
@@ -276,26 +223,53 @@ div.references{
   }
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
-    &:after{ background-color: $amnesty-color; }
+    &:after{ background-color: darken($amnesty-color, 5%); }
   }
   @media #{$small-up}{ .infos{ color: $amnesty-color; } }
-  @media #{$large-up}{
-    .infos{
-      @include grid-column(6);
-      color: #eff0f1;
-    }
-  }
+  @media #{$large-up}{.infos{ color: #2c313f; } }
 }
 
 #horizon{
-  .bg{ background-image: url(/assets/img/references/bg_horizon.png); }
-  .cover{ background-image: url(/assets/img/references/bg_horizon_blured.png); }
+  .bg{ background-image: url(/assets/img/references/bg_horizon.jpg); }
   .logo-ref{ height: 90px;}
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
-    &:after{ background-color: $horizon-color; }
+    &:after{ background-color: darken($horizon-color, 5%); }
   }
   @media #{$small-up}{ .infos{ color: $horizon-color; } }
+  @media #{$large-up}{ .infos{ color: #eff0f1; } }
+}
+
+#ffb-public{
+  .bg{ background-image: url(/assets/img/references/bg_ffb_public.jpg); }
+  .logo-ref{ height: 90px;}
+  .ref-btn-mobile{
+    &:hover{ color: #eff0f1; }
+    &:after{ background-color: darken($ffb-color, 5%); }
+  }
+  @media #{$small-up}{ .infos{ color: $ffb-color; } }
+  @media #{$large-up}{ .infos{ color: #eff0f1; } }
+}
+
+#ffb{
+  .bg{ background-image: url(/assets/img/references/bg_ffb.jpg); }
+  .logo-ref{ height: 90px;}
+  .ref-btn-mobile{
+    &:hover{ color: #eff0f1; }
+    &:after{ background-color: darken($ffb-color, 5%); }
+  }
+  @media #{$small-up}{ .infos{ color: $ffb-color; } }
+  @media #{$large-up}{ .infos{ color: #eff0f1; } }
+}
+
+#michelin{
+  .bg{ background-image: url(/assets/img/references/bg_michelin.jpg); }
+  .logo-ref{ height: 90px;}
+  .ref-btn-mobile{
+    &:hover{ color: #eff0f1; }
+    &:after{ background-color: darken($michelin-color, 5%); }
+  }
+  @media #{$small-up}{ .infos{ color: $michelin-color; } }
   @media #{$large-up}{ .infos{ color: #eff0f1; } }
 }
 
