@@ -25,7 +25,7 @@ div.references{
   .content{ background-image: linear-gradient(70deg,  rgba(236,236,245,1) 0%,rgba(236,236,245,1) 70%,rgba(230,230,237,1) 70%); padding: 0; }
   .columns{ padding: auto; }
 }
-.landing-references{ background-image: url('../img/landing-bg-agile.jpg'); background-size: cover; background-position: 50% 50%; }
+.landing-references{  background-image: url('../img/landing-bg-agile.png'); background-size: cover; background-position: 50% 50%; }
 
 
 @media #{$small-up}{
@@ -39,6 +39,7 @@ div.references{
     color: #eff0f1;
     padding-bottom: 50px;
     padding-top: 20px;
+    box-shadow: 0px -3px 15px rgba(0,0,0,.3);
 
     .logo-ref{
       display: block;
@@ -91,125 +92,128 @@ div.references{
 
 @media #{$large-up}{
   .ref{
-    height: 500px;
+    min-height: 600px;
+    max-height: 50%;
     .wrapper{
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
-      .bg{
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        transform: scale(1);
-        overflow: hidden;
-        transition: transform $duration $delay $easingOut;
-      }
-    }
-    &:hover{
-      .bg{
-        transform: scale(1.1);
-        transition: transform $duration $delay $easingIn;
-      }
-    }
-    .pictures{
-      position: absolute;
-      top: 0;
-      width: 50%;
+      width: 100%;
       height: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
       align-content: center;
-      .logo-ref{
+      .maquette-ref{
+        flex: 1 0 auto;
         position: relative;
-        max-width: 250px;
+        height: 90%;
       }
-    }
-    .row{height: 100%;}
-    .infos{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      position: relative;
-      height: 100%;
-      margin: 0 auto;
-
-      z-index: 10;
-      color: #eff0f1;
-      >h2,
-      >p,
-      >a,
-      >ul{
-        display: block;
-        margin: 10px 0;
-        opacity: 0;
-        transform: translateY(0px);
-      }
-      p, ul{
-        color: #eff0f1;
-        a{
+      article{
+        flex: 1 1 auto;
+        position: relative;
+        height: 100%;
+        min-width: 40%;
+        .pic{
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
           position: relative;
-          top: 3px;
-          text-decoration: none;
-          color: #eff0f1;
-          display: inline-block;
-          height: 20px;
-          line-height: 20px;
-          padding: 0 4px;
-          overflow: hidden;
-          transition: color .3s $easingIn;
-          &:after{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            transform: translateX(-100%);
-            transition: transform .3s $easingIn;
-            z-index: -1;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          .logo-ref{
+            position: relative;
+            max-width: 250px;
           }
-          &:hover{
-            &:after{
-              transform: translateX(0%);
+        }
+        .infos{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          margin: 0 auto;
+          padding: 0 30px;
+
+          z-index: 10;
+          color: #eff0f1;
+          >h2,
+          >p,
+          >a,
+          >ul{
+            display: block;
+            margin: 10px 0;
+            opacity: 0;
+            transform: translateY(0px);
+          }
+          p, ul{
+            color: #eff0f1;
+            a{
+              position: relative;
+              top: 3px;
+              text-decoration: none;
+              color: #eff0f1;
+              display: inline-block;
+              height: 20px;
+              line-height: 20px;
+              padding: 0 4px;
+              overflow: hidden;
+              transition: color .3s $easingIn;
+              &:after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                transform: translateX(-100%);
+                transition: transform .3s $easingIn;
+                z-index: -1;
+              }
+              &:hover{
+                &:after{
+                  transform: translateX(0%);
+                }
+              }
             }
           }
         }
       }
     }
     &:nth-child(even){
-      .pictures{left: 0;}
-      .infos{@include grid-column($columns:5, $offset: 0);}
+      .wrapper{
+        article{order: 1;}
+        .maquette-ref{order: 2;}
+      }
     }
     &:nth-child(odd){
-      .pictures{right: 0;}
-      .infos{@include grid-column($columns:5, $offset: 7);}
+      .wrapper{
+        article{order: 2;}
+        .maquette-ref{order: 1;}
+      }
     }
   }
 }
 
 
 #vamos{
-  .bg{ background-image: url(/assets/img/references/bg_vamos.jpg); }
+  background-color: $vamos-color;
   .logo-ref{ height: 90px;}
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
     &:after{ background-color: darken($vamos-color, 5%); }
   }
-  @media #{$small-up}{ .infos{ color: $vamos-color; } }
   @media #{$large-up}{ .infos{ color: #eff0f1; } }
 }
 #amnesty{
-  .bg{ background-image: url(/assets/img/references/bg_amnesty.jpg); }
+  background-color: $amnesty-color;
   .logo-ref{ height: 90px;}
   .infos{
     p, ul{
@@ -225,51 +229,46 @@ div.references{
     &:hover{ color: #eff0f1; }
     &:after{ background-color: darken($amnesty-color, 5%); }
   }
-  @media #{$small-up}{ .infos{ color: $amnesty-color; } }
   @media #{$large-up}{.infos{ color: #2c313f; } }
 }
 
 #horizon{
-  .bg{ background-image: url(/assets/img/references/bg_horizon.jpg); }
+  background-color: $horizon-color;
   .logo-ref{ height: 90px;}
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
     &:after{ background-color: darken($horizon-color, 5%); }
   }
-  @media #{$small-up}{ .infos{ color: $horizon-color; } }
   @media #{$large-up}{ .infos{ color: #eff0f1; } }
 }
 
 #ffb-public{
-  .bg{ background-image: url(/assets/img/references/bg_ffb_public.jpg); }
+  background-color: $ffb-color;
   .logo-ref{ height: 90px;}
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
     &:after{ background-color: darken($ffb-color, 5%); }
   }
-  @media #{$small-up}{ .infos{ color: $ffb-color; } }
   @media #{$large-up}{ .infos{ color: #eff0f1; } }
 }
 
 #ffb{
-  .bg{ background-image: url(/assets/img/references/bg_ffb.jpg); }
+  background-color: $ffb-color;
   .logo-ref{ height: 90px;}
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
     &:after{ background-color: darken($ffb-color, 5%); }
   }
-  @media #{$small-up}{ .infos{ color: $ffb-color; } }
   @media #{$large-up}{ .infos{ color: #eff0f1; } }
 }
 
 #michelin{
-  .bg{ background-image: url(/assets/img/references/bg_michelin.jpg); }
+  background-color: $michelin-color;
   .logo-ref{ height: 90px;}
   .ref-btn-mobile{
     &:hover{ color: #eff0f1; }
     &:after{ background-color: darken($michelin-color, 5%); }
   }
-  @media #{$small-up}{ .infos{ color: $michelin-color; } }
   @media #{$large-up}{ .infos{ color: #eff0f1; } }
 }
 
