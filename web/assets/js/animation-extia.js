@@ -105,7 +105,7 @@ Kilix.animations["extia"] = {
           });
 
         },1000);
-        
+
       },600);
     }
 
@@ -171,7 +171,7 @@ Kilix.animations["extia"] = {
         // reset improve elements
         elements['amelioF1'].animate({'fill-opacity': 0}, 400);
         // elements['amelioText'].animate({'fill-opacity': 0}, 400);
-        
+
         //Disable pulse on Extia logo on reset
         //Kilix.animations["extia"].freeIntervals();
 
