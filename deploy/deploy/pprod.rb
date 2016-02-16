@@ -1,10 +1,10 @@
 require 'net/ssh/proxy/command'
 
-set :stage, :prod
+set :stage, :pprod
 
 set :deploy_to, "/home/deploy/www/kilix-v2"
 
-role :app, %w{deploy@10.240.0.2}
+role :app, %w{deploy@10.240.0.4}
 
 SSHKit.config.command_map[:composer] = "php #{shared_path.join("composer.phar")}"
 
