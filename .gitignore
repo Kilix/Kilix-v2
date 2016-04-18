@@ -6,3 +6,5 @@ mixture.json
 .pid_debug
 node_modules/*
 .sass-cache/*
+/version.json
+/bin/

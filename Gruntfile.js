@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        
+
         // Automatically run a task when a file changes
         watch: {
             css: {
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                 },
             }
         },
-        
+
         //Compile specified SASS files
         sass: {
             css: {
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                 }]
             },
         },
-        
+
         // Compress generated css files
         cssmin: {
             minify: {
@@ -62,14 +62,14 @@ module.exports = function(grunt) {
                 ext: '.min.css'
             }
         },
-        
+
         //Prefix CSS3 properties
         autoprefixer: {
             no_dest: {
               src: conf.webDir+conf.cssDir+'app.css' // globbing is also possible here
             },
         },
-        
+
         // UglifyJS
         uglify: {
             minify_all: {
@@ -154,4 +154,5 @@ module.exports = function(grunt) {
     grunt.registerTask('jsroutine', ['newer:uglify','newer:concat']);
     grunt.registerTask('imgroutine', ['newer:svg2png', 'newer:imagemin']);
 
+    grunt.registerTask('default', ['cssroutine']);
 };

@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "description": "Awesome Project by Kilix",
   "dependencies": {
+    "express": "~3.3.4",
     "f": "~0.5.0",
     "grunt": "~0.4.2",
-    "express": "~3.3.4",
-    "grunt-svg2png": "~0.2.1",
-    "grunt-imgcompress": "~0.1.2"
+    "grunt-cli": "^1.2.0",
+    "grunt-imgcompress": "~0.1.2",
+    "grunt-svg2png": "~0.2.1"
   },
   "devDependencies": {
     "grunt-contrib-sass": "~0.7.2",
