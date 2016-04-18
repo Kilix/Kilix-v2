@@ -154,5 +154,5 @@ module.exports = function(grunt) {
     grunt.registerTask('jsroutine', ['newer:uglify','newer:concat']);
     grunt.registerTask('imgroutine', ['newer:svg2png', 'newer:imagemin']);
 
-    grunt.registerTask('default', ['cssroutine']);
+    grunt.registerTask('default', ['cssroutine', 'jsroutine']);
 };
